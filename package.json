@@ -1,0 +1,33 @@
+{
+  "name": "personal_website",
+  "version": "1.0.0",
+  "description": "My personal website, it's my online presentation",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JozefCipa/personal_website.git"
+  },
+  "keywords": [
+    "jozef",
+    "cipa",
+    "junior",
+    "web",
+    "developer",
+    "web",
+    "development",
+    "full",
+    "stack"
+  ],
+  "author": "Jozef Cipa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JozefCipa/personal_website/issues"
+  },
+  "homepage": "https://github.com/JozefCipa/personal_website#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
