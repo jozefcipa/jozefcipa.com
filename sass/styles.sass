@@ -18,26 +18,25 @@ body, html
 
 .title
 
-	font-size: 3em
+	font-size: 3.4em
 	font-family: 'Open Sans Condensed', sans-serif
 
 	&:before
 		content: ' - '
-	// &.one
-	// 	font-family: 'Roboto Condensed', sans-serif
-	// &.two
-	// 	font-family: 'Lato', sans-serif
-	// &.three
-	// 	font-family: 'Open Sans Condensed', sans-serif
-	// &.four
-	// 	font-family: 'Raleway', sans-serif
 
-// /* It's better for you that it's minified */
+//add to compiled version /* It's better for you that it's minified */
 
 header#landing
-	background: #000428 // fallback for old browsers
-	background: -webkit-linear-gradient(to right, #000428 , #004e92)
-	background: linear-gradient(to right, #000428 , #004e92)
+	// background: #004e92 // fallback for old browsers
+	// background: -webkit-linear-gradient(to right, darken(#004e92, 20%) , #004e92)
+	// background: linear-gradient(to right, darken(#004e92, 20%) , #004e92)
+
+	//background
+	background-image: url('../img/bg.jpg')
+	background-position: fixed
+	background-size: cover
+	background-attachment: fixed
+	transform: translateZ(-1px)
 
 	@extend .full-height
 
@@ -51,10 +50,10 @@ header#landing
 		display: flex
 		align-items: center
 		margin-right: 0
-		height: 50%
+		width: 50%
 
-		@media screen and (max-width: 1000px)
-			flex-direction: column
+		@media screen and (max-width: 960px)
+			width: 100%
 
 	#me
 		flex: 1
@@ -64,7 +63,7 @@ header#landing
 
 		#name
 			margin-bottom: -50px
-			padding-left: 10px
+			padding-left: 15px
 			font-weight: 100
 
 		#surname
@@ -81,7 +80,7 @@ header#landing
 			margin-top: 30px
 			font-size: 1.5rem
 			text-transform: none
-
+			margin-left: 20px
 			line-height: 40px
 
 	#picture
@@ -108,17 +107,59 @@ section
 		font-size: 1.5em
 
 		@media screen and (max-width: 1000px)
-			width: 100%
-			margin: 0
+			width: 90%
+			margin: 0 auto
 
 #intern
-	background: #eee
+	background: #03A678
+
 
 #skills
-	background: lightblue
+	background: #eee
 
 #references
 	background: #eee
+
+	div.reference
+		width: 90% 
+		display: flex
+		align-items: center
+		color: gray
+		margin-top: 20px
+
+		@media screen and (max-width: 1240px)
+			flex-direction: column
+			width: 100%
+			font-size: .9em
+
+		p
+			padding: 20px
+
+			&:before
+				content: '“'
+			&:after
+				content: '”'
+
+		.avatar
+			flex: 0 0 20%
+
+			display: flex
+			flex-direction: column
+
+			justify-content: center
+			align-items: center
+
+			img
+				max-height: 256px
+				border-radius: 50%
+
+			div
+				margin-top: 15px
+				text-align: center
+
+				a
+					color: black
+
 
 #contact
 	background: #2c3e50
@@ -133,9 +174,17 @@ section
 
 	padding: 30px
 
+	@media screen and (max-width: 1000px)
+		padding: 10px
+
 strong a
 	color: white
 	font-size: 1.8rem
 
+.social-icon
+	color: white
+	font-size: 33px
+	padding: 5px
+	cursor: pointer
 
         
