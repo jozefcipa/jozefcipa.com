@@ -12,7 +12,7 @@ gulp.task('build:sass', () => {
 			.pipe(notify({
 				message: "SASS compiled."
 			}))
-	        .pipe(gulp.dest('assets/css'))
+	        .pipe(gulp.dest('public/assets/css'))
 	        .pipe(livereload());                                   
 });
 

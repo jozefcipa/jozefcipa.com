@@ -1,6 +1,141 @@
-header
+*
+	margin: 0
+	padding: 0
+	border: 0
+	// outline: 2px solid pink //debug
+
+body, html
+	height: 100%
+	background: #ECF0F1
+	font-family: 'Open Sans'
+
+// grid
+.full-height
+	min-height: 100%
+
+.quarter3-height
+	min-height: 75%
+
+.title
+
+	font-size: 3em
+	font-family: 'Open Sans Condensed', sans-serif
+
+	&:before
+		content: ' - '
+	// &.one
+	// 	font-family: 'Roboto Condensed', sans-serif
+	// &.two
+	// 	font-family: 'Lato', sans-serif
+	// &.three
+	// 	font-family: 'Open Sans Condensed', sans-serif
+	// &.four
+	// 	font-family: 'Raleway', sans-serif
+
+// /* It's better for you that it's minified */
+
+header#landing
 	background: #000428 // fallback for old browsers
-	background: -webkit-linear-gradient(to left, #000428 , #004e92)
-	background: linear-gradient(to left, #000428 , #004e92)
-	
+	background: -webkit-linear-gradient(to right, #000428 , #004e92)
+	background: linear-gradient(to right, #000428 , #004e92)
+
+	@extend .full-height
+
+	color: #ECF0F1
+
+	display: flex
+	flex-direction: column
+	justify-content: center
+
+	.wrap
+		display: flex
+		align-items: center
+		margin-right: 0
+		height: 50%
+
+		@media screen and (max-width: 1000px)
+			flex-direction: column
+
+	#me
+		flex: 1
+		font-size: 6em
+		text-transform: uppercase
+		margin-left: 30px
+
+		#name
+			margin-bottom: -50px
+			padding-left: 10px
+			font-weight: 100
+
+		#surname
+			font-weight: 600
+			letter-spacing: 2px
+			font-size: 1.2em
+
+		#whoami
+			font-size: 1.4rem
+			margin-left: 20px
+			text-transform: none
+
+		#about-me
+			margin-top: 30px
+			font-size: 1.5rem
+			text-transform: none
+
+			line-height: 40px
+
+	#picture
+		flex: 1
+		height: 100%
+
+		display: flex
+		align-items: center
+		justify-content: center
+
+		img
+			max-width: 100%
+
+section
+	padding: 50px
+	box-sizing: border-box
+
+	@media screen and (max-width: 1000px)
+		padding: 10px
+
+	p.text
+		margin: 40px
+		width: 80%
+		font-size: 1.5em
+
+		@media screen and (max-width: 1000px)
+			width: 100%
+			margin: 0
+
+#intern
+	background: #eee
+
+#skills
+	background: lightblue
+
+#references
+	background: #eee
+
+#contact
+	background: #2c3e50
+
+#footer
+	background: #ECF0F1
+
+	div
+		display: flex
+		flex-direction: column
+		align-items: flex-end
+
+	padding: 30px
+
+strong a
+	color: white
+	font-size: 1.8rem
+
+
         
