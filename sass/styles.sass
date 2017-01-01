@@ -22,7 +22,7 @@ body, html
 	font-family: 'Open Sans Condensed', sans-serif
 
 	&:before
-		content: ' - '
+		content: '- '
 
 //add to compiled version /* It's better for you that it's minified */
 
@@ -41,7 +41,6 @@ header#landing
 	@extend .full-height
 
 	color: #ECF0F1
-
 	display: flex
 	flex-direction: column
 	justify-content: center
@@ -61,27 +60,42 @@ header#landing
 		text-transform: uppercase
 		margin-left: 30px
 
+		@media screen and (max-width: 960px)
+			margin: 0 auto
+			margin-bottom: 40px
+
 		#name
 			margin-bottom: -50px
 			padding-left: 15px
 			font-weight: 100
 
+			@media screen and (max-width: 960px)
+				text-align: center
+
 		#surname
 			font-weight: 600
 			letter-spacing: 2px
 			font-size: 1.2em
+			
+			@media screen and (max-width: 960px)
+				text-align: center
 
 		#whoami
 			font-size: 1.4rem
 			margin-left: 20px
 			text-transform: none
 
+			@media screen and (max-width: 960px)
+				text-align: center
+
 		#about-me
-			margin-top: 30px
+			margin: 30px 0 20px 0
 			font-size: 1.5rem
 			text-transform: none
-			margin-left: 20px
 			line-height: 40px
+
+			@media screen and (max-width: 960px)
+				margin: 0 10px
 
 	#picture
 		flex: 1
@@ -101,7 +115,7 @@ section
 	@media screen and (max-width: 1000px)
 		padding: 10px
 
-	p.text
+	.text
 		margin: 40px
 		width: 80%
 		font-size: 1.5em
@@ -112,6 +126,29 @@ section
 
 #intern
 	background: #03A678
+	
+
+	.wrap
+		display: flex
+
+		@media screen and (max-width: 1000px)
+			flex-direction: column
+			padding: 40px 0
+		
+		aside
+			flex: 2
+			align-self: center
+
+		#time-to-summer
+			flex: 1
+			color: white
+			text-align: center
+
+			h1
+				font-size: 7rem
+
+			span
+				font-size: 2rem
 
 
 #skills
@@ -140,18 +177,14 @@ section
 			&:after
 				content: '”'
 
-		.avatar
+		.avatar-wrap
 			flex: 0 0 20%
 
 			display: flex
 			flex-direction: column
 
 			justify-content: center
-			align-items: center
-
-			img
-				max-height: 256px
-				border-radius: 50%
+			align-items: center				
 
 			div
 				margin-top: 15px
@@ -160,9 +193,37 @@ section
 				a
 					color: black
 
+.avatar
+	max-height: 256px
+	border-radius: 50%
 
 #contact
 	background: #2c3e50
+
+	.wrap
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 20px
+		padding-bottom: 100px
+		color: white
+		width: 70%
+		margin: 0 auto
+
+		@media all and (max-width: 1000px)
+			flex-direction: column
+
+	section
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		align-items: center
+
+	.email
+		font-size: 3em
+
+		@media all and (max-width: 600px)
+			font-size: 2em
 
 #footer
 	background: #ECF0F1
@@ -177,14 +238,25 @@ section
 	@media screen and (max-width: 1000px)
 		padding: 10px
 
-strong a
+.email
 	color: white
 	font-size: 1.8rem
+	text-decoration: none
+
+	transition: all .3s ease-in-out
+
+	&:hover
+		color: #03A678
+
+.socials
+	margin-top: 40px
 
 .social-icon
 	color: white
-	font-size: 33px
+	font-size: 2.2em
 	padding: 5px
 	cursor: pointer
+	transition: all .3s ease-in-out
 
-        
+	&:hover
+		color: #03A678
