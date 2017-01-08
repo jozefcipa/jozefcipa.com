@@ -169,6 +169,21 @@ section
 #skills
 	background: #eee
 
+	#skills-title
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+		.github-link
+			color: gray
+			text-decoration: none
+			cursor: pointer
+			font-size: 3.4em
+			transition: all .3s ease-in-out
+
+			&:hover
+				color: #000
+
 	section
 		display: flex
 		justify-content: center
@@ -224,8 +239,6 @@ section
 				content: '”'
 
 		.avatar-wrap
-			flex: 0 0 20%
-
 			display: flex
 			flex-direction: column
 
@@ -238,6 +251,9 @@ section
 
 				a
 					color: black
+
+			@media screen and (max-width: 1240px)
+				margin-bottom: 30px
 
 .avatar
 	max-height: 256px
