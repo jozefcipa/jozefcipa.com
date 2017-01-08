@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+    //fade in about me text 
+    $('#me').fadeIn(2000);
+
 	// Landing page parallax
 	$win = $(window),
 	$header = $('header')
@@ -26,7 +29,7 @@ $(document).ready(function(){
 
             clearInterval(timer)
             $timeToSummer.hide()
-
+ 
             return;
         }
         var days = Math.floor(distance / day)
@@ -44,5 +47,9 @@ $(document).ready(function(){
 
         return false
     })
+
+    // Animations
+
+
 
 })
