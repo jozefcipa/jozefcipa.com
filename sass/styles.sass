@@ -120,7 +120,7 @@ section
 
 	.text
 		margin: 40px
-		width: 80%
+		width: 70%
 		font-size: 1.5em
 		line-height: 1.6em
 
@@ -195,7 +195,7 @@ section
 			margin: 0 20px
 			font-size: .8em
 
-		.skill-title
+		.skill-group
 			flex: 1
 			font-size: 3em
 			text-transform: uppercase
@@ -258,11 +258,8 @@ section
 .avatar
 	max-height: 256px
 
-	-webkit-clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%)
-	clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%)
-
 #contact
-	background: #2c3e50
+	background: #191919
 
 	.wrap
 		display: flex
@@ -290,9 +287,10 @@ section
 			font-size: 2em
 
 	.avatar
-		-webkit-clip-path: none
-		clip-path: none
-		border-radius: 50%
+		// -webkit-clip-path: polygon(75% 0%, 95% 50%, 75% 100%, 0% 100%, 19% 50%, 0% 0%)
+		// clip-path: polygon(75% 0%, 95% 50%, 75% 100%, 0% 100%, 19% 50%, 0% 0%)
+		-webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)
+		clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)
 
 #footer
 	background: #ECF0F1
