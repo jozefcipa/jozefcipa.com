@@ -69,6 +69,7 @@ header#landing
 		// clip-path: polygon(40% 100%, 100% 100%, 100% 80%, 30% 0%, 9% 0%)
 
 		@media screen and (max-width: 1024px)
+			-webkit-clip-path: polygon(0% 100%, 100% 40%, 100% 100%)
 			clip-path: polygon(0% 100%, 100% 40%, 100% 100%)
 
 
@@ -240,7 +241,6 @@ section
 		@media screen and (max-width: 1000px)
 			flex-direction: column
 			align-items: flex-start
-			margin: 0 20px
 			font-size: .8em
 
 		.skill-group
@@ -248,6 +248,9 @@ section
 			font-size: 3em
 			text-transform: uppercase
 			position: relative
+
+			@media screen and (max-width: 960px)
+				margin: 20px 0 10px 0
 
 		.details
 			flex: 2
@@ -259,7 +262,7 @@ section
 		font-size: 1.2em
 
 		@media screen and (max-width: 1000px)
-			margin: 0 20px
+			margin: 50px 20px 0
 
 		div
 			font-size: 1.8em
@@ -321,6 +324,9 @@ section
 		@media all and (max-width: 1300px)
 			width: 100%
 			flex-direction: column
+			margin: 0
+			padding: 0
+			margin-top: 30px
 
 	section
 		display: flex
@@ -361,7 +367,7 @@ section
 
 		@media screen and (max-width: 520px)
 			font-size: 1.2rem
-			padding: 20px 10px
+			padding: 20px 0
 
 		a
 			font-size: .7em
@@ -386,6 +392,9 @@ section
 
 	@media screen and (max-width: 1000px)
 		padding: 10px
+
+	.heart
+		color: $main
 
 .email
 	color: white
