@@ -3,12 +3,12 @@
 <head>
 	<!-- Yeah, I'm writing clean code, enjoy ! -->
 	<meta charset="utf-8">
-	<title>Jozef Cipa - iOS and web developer</title>
+	<title>Jozef Cipa - Junior web developer</title>
 
 	<!-- Some meta tags -->
 	<meta name="author" content="Jozef Cipa">
-	<meta name="description" content="Junior iOS and web developer">
-	<meta name="keywords" content="jozef, cipa, jozef cipa, web developer, web, ios, development">
+	<meta name="description" content="Junior web developer">
+	<meta name="keywords" content="jozef, cipa, jozef cipa, web developer, web, development">
 
 	<!-- Styles and fonts -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:100,300,600">
@@ -21,60 +21,40 @@
 	<!-- To find me on facebook -->
 	<meta property="og:url" content="https://jozefcipa.com" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="iOS and web developer" />
-	<meta property="og:description" content="iOS and web developer" />
-	<meta property="og:image" content="https://jozefcipa.com/assets/img/me.jpg" />
+	<meta property="og:title" content="Junior web developer" />
+	<meta property="og:description" content="Junior web developer" />
+	<!-- <meta property="og:image" content="https://jozefcipa.com/assets/img/avatar.png" /> -->
 
 	<meta name="google-site-verification" content="lcV32aB4wgA4rmtsH9MyGC__9raoNCjxVzrPH2jsn_s" />
 </head>
 <body>
+
 	<!-- Landing -->
 	<header id="landing">
 		<div class="wrap">
 			<div id="me">
 				<div id="name">Jozef</div>
 				<div id="surname">Cipa</div>
-				<div class="title" id="whoami">iOS and web developer</div>
 				<div id="about-me">
-					<p>
-						Hey, <br>
-						This website is still under the construction. <br>
-						Please be patient and check this later. <br><br>
-						If you are interested in progress or you want to know more about my steps, shoot me at <strong><a href="mailto:hello@jozefcipa.com" class="email">hello@jozefcipa.com</a></strong><br>
-						<br>
-						Looking forward to seeing you.
-					</p>
+					<span>Hey, </span><br>
+					<span>my name is Jozef and I am 17 years old </span><br>
+					<span><strong>junior web developer</strong> from Slovakia. </span><br>
+					<span>If you are interested in, want to cooperate </span><br>
+					<span>or just want to ask something, </span><br>
+					<span>feel free to contact me at</span><br>
+					<span>
+						<strong>
+							<a href="mailto:hello@jozefcipa.com" class="email">hello@jozefcipa.com</a>
+						</strong>
+					</span>
 				</div>
 			</div>
+			<div id="picture">
+				<img src="./assets/img/me-landing.png">
+			</div>
 		</div>
+		<div id="overlay"></div>
 	</header>
-
-	<!-- Looking for intern -->
-	<!-- Do you know about someone? Please show him this page -->
-	<section id="intern">
-		<span class="title">what do you do during this summer ?</span>
-		<div class="wrap">
-			<aside>
-				<div class="text">
-					Because I'm <strong>looking for summer intern</strong>.
-					<br>
-					I would like to make something meaningful during summer. 
-					<br>So I want to help you with your stuff and also to learn some new and improve my skills too.
-					<br>Do you think I could be useful for you? 
-					<br>Feel free to <a href="#contact" class="scroll-to-contact">contact me </a>
-					<br><br>
-					So what can I help you with?
-				</div>
-			</aside>
-			<div id="time-to-summer">
-				<div>
-					<h1 id="days-remaining">?</h1>
-					<div id="remaining">days to summer</div>
-				</div>
-				<p>Still enough time to learn what you use and need</p>
-			</div>
-		</div>
-	</section>
 
 	<!-- Skills -->
 	<section id="skills">
@@ -114,7 +94,7 @@
 				</ul>
 			</div>
 		</section>
-		<div id="other">
+		<div id="other-skills">
 			I have also experience with <strong>Linux</strong> and <strong>networking</strong>, <strong>Scrum</strong>, <strong>Git</strong>, <strong>Gulp</strong> and many more... <br>
 			<div>...and I'm still learning</div>
 		</div>
@@ -123,6 +103,7 @@
 	<!-- References -->
 	<section class="quarter3-height" id="references">
 		<span class="title">references</span>
+
 		<!-- Great company with friendly people in East Slovakia-->
 		<!-- They had no problems with that, what as sophomore could I know, just gave me chance to show what I know -->
 		<div class="reference">
@@ -135,8 +116,35 @@
 			<div class="avatar-wrap">
 				<img src="./assets/img/marek.png" class="avatar">
 				<div>
-					Marek Barta <br>CEO at <a href="http://bartsolutions.com">bartsolutions.com</a>
+					Marek Barta <br>CEO at <a href="http://bartsolutions.com" class="link">bartsolutions.com</a>
 				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Looking for intern -->
+	<!-- Do you know about someone? Please show him this page -->
+	<section id="intern">
+		<span class="title">what do you do during this summer ?</span>
+		<div class="wrap">
+			<aside>
+				<div class="text">
+					Because I'm <strong>looking for summer intern</strong>.
+					<br>
+					I would like to make something meaningful during summer. 
+					<br>I want to help you with your stuff and also to learn
+					<br>something new and improve my skills too.
+					<br>
+					<br>Do you think I could be helpful for you? 
+					<br>Feel free to <a href="#contact" class="scroll-to-contact">contact me </a>
+				</div>
+			</aside>
+			<div id="time-to-summer">
+				<div>
+					<h1 id="days-remaining">?</h1>
+					<div id="remaining">days to summer</div>
+				</div>
+				<p>Still enough time to learn what you use and need</p>
 			</div>
 		</div>
 	</section>
@@ -146,7 +154,7 @@
 	<section class="quarter3-height" id="contact">
 		<div class="wrap">
 			<section>
-				<img src="./assets/img/me.jpg" class="avatar">
+				<img src="./assets/img/avatar.png" class="avatar">
 				<div class="socials">
 					<a href="https://facebook.com/jozef.cipa"><span class="fa fa-facebook social-icon"></span></a>
 					<a href="https://sk.linkedin.com/in/jozefcipa"><span class="fa fa-linkedin social-icon"></span></a>
@@ -161,7 +169,10 @@
 						<a href="mailto:hello@jozefcipa.com?subject=Hi Jozef, I'm interested in what you are doing" class="email">hello@jozefcipa.com</a>
 					</div>
 				</div>
-				<div>or checkout my CV (coming soon)</div>
+				<div id="cv">
+					<header>or checkout my curriculum vitae</header>
+					<a href="./assets/Jozef_Cipa_CV.pdf" target="_blank">JozefCipaCV.pdf (comming soon) <!-- (2.3MB) --></a>
+				</div>
 			</section>
 		</div>
 	</section>
@@ -171,7 +182,7 @@
 	<footer id="footer">
 		<div>
 			<p>&copy;2017 Made with love by Jozef Cipa</p>
-			<p>Check out code on <a href="https://github.com/JozefCipa/personal_website">Github</a></p>
+			<p>Check out code on <a href="https://github.com/JozefCipa/personal_website" class="link">Github</a></p>
 		</div>
 	</footer>
 

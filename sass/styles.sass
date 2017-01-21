@@ -4,114 +4,155 @@
 	border: 0
 	// outline: 2px solid pink //debug
 
+$main: rgba(242, 38, 19, 0.8)
+$black: #191919
+
 body, html
 	height: 100%
 	background: #ECF0F1
 	font-family: 'Open Sans'
 
-// grid
+.link-transition
+	transition: .3s all ease-in-out
+
 .full-height
-	min-height: 100%
+	min-height: 100
 
 .quarter3-height
 	min-height: 75%
 
 .title
-
 	font-size: 3.4em
 	font-family: 'Open Sans Condensed', sans-serif
 
 	&:before
 		content: '- '
 
+.link
+	text-decoration: underline
+	color: black
+	@extend .link-transition
+
+	&:hover
+		text-decoration: none
+		color: $main
+
+ul
+	list-style: none
+	
+	li:before
+		content: '\2014\00a0\00a0' // add EM DASH
+
 //add to compiled version /* It's better for you that it's minified */
 
 header#landing
-	// background: #004e92 // fallback for old browsers
-	// background: -webkit-linear-gradient(to right, darken(#004e92, 20%) , #004e92)
-	// background: linear-gradient(to right, darken(#004e92, 20%) , #004e92)
-
-	//background
-	background-image: url('../img/bg_light_green.jpg')
-	background-position: fixed
-	background-size: cover
-	background-attachment: fixed
-	transform: translateZ(-1px)
-
 	@extend .full-height
 
+	position: relative
 	color: #ECF0F1
 	display: flex
 	flex-direction: column
 	justify-content: center
 
+	#overlay
+		min-height: 100%
+		width: 100%
+		position: absolute
+		top: 0
+		z-index: 10
+		background: $main
+
+		// -webkit-clip-path: TODO add prefix version
+		//versions
+		-webkit-clip-path: polygon(0% 100%, 0% 65%, 17% 45%, 42% 100%, 62% 100%, 100% 40%, 100% 100%)
+		clip-path: polygon(0% 100%, 0% 65%, 17% 45%, 42% 100%, 62% 100%, 100% 40%, 100% 100%)
+		// clip-path: polygon(40% 100%, 100% 100%, 100% 80%, 30% 0%, 9% 0%)
+
+		@media screen and (max-width: 1024px)
+			clip-path: polygon(0% 100%, 100% 40%, 100% 100%)
+
+
 	.wrap
+		position: relative
 		display: flex
 		align-items: center
 		margin-right: 0
-		width: 50%
+		// width: 50%
+		overflow: hidden
+
+		@media screen and (max-width: 1300px)
+			width: 80%
 
 		@media screen and (max-width: 960px)
 			width: 100%
 
-	#me
-		flex: 1
-		font-size: 6em
-		text-transform: uppercase
-		margin-left: 30px
-
-		//fade in with jQuery
-		display: none
-
-		@media screen and (max-width: 960px)
-			margin: 0 auto
-			margin-bottom: 40px
-
-		#name
-			margin-bottom: -50px
-			padding-left: 15px
-			font-weight: 100
+		#me
+			position: relative
+			z-index: 20
+			flex: 1
+			font-size: 7em
+			text-transform: uppercase
+			padding-left: 30px
+			color: #ddd
+			min-height: 100vh
 
 			@media screen and (max-width: 960px)
-				text-align: center
+				margin: 0 auto
+				margin-bottom: 40px
+				padding: 0
 
-		#surname
-			font-weight: 600
-			letter-spacing: 2px
-			font-size: 1.2em
-			
-			@media screen and (max-width: 960px)
-				text-align: center
+			#name
+				color: $black
+				margin-bottom: -50px
+				padding-left: 15px
+				font-weight: 100
 
-		#whoami
-			font-size: 1.4rem
-			margin-left: 20px
-			text-transform: none
+				@media screen and (max-width: 960px)
+					text-align: center
 
-			@media screen and (max-width: 960px)
-				text-align: center
+			#surname
+				color: $black
+				font-weight: 600
+				letter-spacing: 2px
+				font-size: 1.2em
 
-		#about-me
-			margin: 30px 0 20px 0
-			font-size: 1.5rem
-			text-transform: none
-			line-height: 40px
+				@media screen and (max-width: 960px)
+					text-align: center
 
-			@media screen and (max-width: 960px)
-				margin: 0 10px
+			#about-me
+				margin: 30px 0 20px 0
+				font-size: 1.5rem
+				text-transform: none
+				line-height: 40px
+				box-sizing: border-box
 
-	#picture
-		flex: 1
-		height: 100%
+				@media screen and (max-width: 960px)
+					background: rgba(0, 0, 0, 0.6)
+					padding: 5px
 
-		display: flex
-		align-items: center
-		justify-content: center
+				span
+					background: rgba(0, 0, 0, 0.6)
+					padding: 7px
+					font-size: 1.3em
+					display: inline-block
+					margin-bottom: 6px
 
-		img
-			max-width: 100%
+					@media screen and (max-width: 960px)
+						margin: 0
+						background: none
+						padding: 0
+						font-size: 1em
+						display: inline
+
+		#picture
+			position: relative
+			z-index: 0
+			@media screen and (max-width: 1300px)
+				display: none
+
 
 section
+	overflow: hidden
 	padding: 50px
 	box-sizing: border-box
 
@@ -120,7 +161,7 @@ section
 
 	.text
 		margin: 40px
-		width: 70%
+		width: 75%
 		font-size: 1.5em
 		line-height: 1.6em
 
@@ -129,8 +170,12 @@ section
 			margin: 0 auto
 
 #intern
-	background: #F89406 //#03A678
+	background: #F89406 //$main
 	color: #eee
+
+	background: -moz-linear-gradient(45deg, rgba(231,138,6,1) 0%, rgba(250,169,55,1) 100%)
+	background: -webkit-linear-gradient(45deg, rgba(231,138,6,1) 0%,rgba(250,169,55,1) 100%)
+	background: linear-gradient(45deg, rgba(231,138,6,1) 0%,rgba(250,169,55,1) 100%)
 	
 	.wrap
 		display: flex
@@ -142,6 +187,9 @@ section
 		aside
 			flex: 2
 			align-self: center
+
+			.text
+				position: relative
 
 		#time-to-summer
 			flex: 1
@@ -179,8 +227,8 @@ section
 			text-decoration: none
 			cursor: pointer
 			font-size: 3.4em
-			transition: all .3s ease-in-out
-
+			@extend .link-transition
+			
 			&:hover
 				color: #000
 
@@ -199,12 +247,14 @@ section
 			flex: 1
 			font-size: 3em
 			text-transform: uppercase
+			position: relative
 
 		.details
 			flex: 2
-			font-size: 1.4em
+			font-size: 1.35em
+			position: relative
 
-	#other
+	#other-skills
 		margin: 20px 0 0 50px
 		font-size: 1.2em
 
@@ -249,9 +299,6 @@ section
 				margin-top: 15px
 				text-align: center
 
-				a
-					color: black
-
 			@media screen and (max-width: 1240px)
 				margin-bottom: 30px
 
@@ -259,7 +306,7 @@ section
 	max-height: 256px
 
 #contact
-	background: #191919
+	background: $black
 
 	.wrap
 		display: flex
@@ -271,7 +318,8 @@ section
 		width: 70%
 		margin: 0 auto
 
-		@media all and (max-width: 1000px)
+		@media all and (max-width: 1300px)
+			width: 100%
 			flex-direction: column
 
 	section
@@ -286,11 +334,45 @@ section
 		@media all and (max-width: 600px)
 			font-size: 2em
 
+		&.scalled
+			color: $main
+
 	.avatar
-		// -webkit-clip-path: polygon(75% 0%, 95% 50%, 75% 100%, 0% 100%, 19% 50%, 0% 0%)
-		// clip-path: polygon(75% 0%, 95% 50%, 75% 100%, 0% 100%, 19% 50%, 0% 0%)
 		-webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)
 		clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)
+
+	#cv
+		background: $main
+		width: 100%
+		margin: 30px 0
+		padding: 30px 15px
+		border-radius: 5px
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		font-size: 1.4rem
+		cursor: pointer
+
+		@extend .link-transition
+
+		&:hover
+			background: darken($main, 5%)
+
+		@media screen and (max-width: 520px)
+			font-size: 1.2rem
+			padding: 20px 10px
+
+		a
+			font-size: .7em
+			color: $black
+			display: block
+			margin-top: 15px
+
+			@extend .link-transition
+
+			&:hover
+				text-decoration: none
 
 #footer
 	background: #ECF0F1
@@ -307,13 +389,13 @@ section
 
 .email
 	color: white
-	font-size: 1.8rem
+	font-size: 1.2em
 	text-decoration: none
-
-	transition: all .3s ease-in-out
-
+	
+	@extend .link-transition
+	
 	&:hover
-		color: #03A678
+		color: $main
 
 .socials
 	margin-top: 40px
@@ -323,7 +405,8 @@ section
 	font-size: 2.2em
 	padding: 5px
 	cursor: pointer
-	transition: all .3s ease-in-out
 
+	@extend .link-transition
+	
 	&:hover
-		color: #03A678
+		color: $main
