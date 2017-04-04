@@ -2,423 +2,54 @@
 	margin: 0
 	padding: 0
 	border: 0
+	box-sizing: border-box
 	// outline: 2px solid pink //debug
 
-// $main: rgba(242, 38, 19, 0.8)
-$main: rgba(255, 88, 81, 0.8)
-$black: #191919
+$main: #F22613
+$black: #242424
 
 body, html
 	height: 100%
-	background: #ECF0F1
-	font-family: 'Open Sans'
+	font-size: 16px
+	color: $black
 
-.link-transition
-	transition: .3s all ease-in-out
-
-.full-height
-	min-height: 100
-
-.quarter3-height
-	min-height: 75%
-
-.title
-	font-size: 3.4em
-	font-family: 'Open Sans Condensed', sans-serif
-
-	&:before
-		content: '- '
-
-.link
-	text-decoration: underline
-	color: black
-	@extend .link-transition
-
-	&:hover
-		text-decoration: none
-		color: $main
-
-ul
-	list-style: none
-	
-	li:before
-		content: '\2014\00a0\00a0' // add EM DASH
-
-
-//add to compiled version /* It's better for you that it's minified */
-
-header#landing
-	@extend .full-height
-
-	position: relative
-	color: #ECF0F1
+main
+	font-size: 3em
+	height: 100%
 	display: flex
 	flex-direction: column
+	align-items: center
 	justify-content: center
-
-	#overlay
-		min-height: 100%
-		width: 100%
-		position: absolute
-		top: 0
-		z-index: 10
-		background: $main
-
-		// -webkit-clip-path: TODO add prefix version
-		//versions
-		-webkit-clip-path: polygon(0% 100%, 0% 65%, 17% 45%, 42% 100%, 62% 100%, 100% 40%, 100% 100%)
-		clip-path: polygon(0% 100%, 0% 65%, 17% 45%, 42% 100%, 62% 100%, 100% 40%, 100% 100%)
-		// clip-path: polygon(40% 100%, 100% 100%, 100% 80%, 30% 0%, 9% 0%)
-
-		@media screen and (max-width: 1024px)
-			-webkit-clip-path: polygon(0% 100%, 100% 40%, 100% 100%)
-			clip-path: polygon(0% 100%, 100% 40%, 100% 100%)
-
+	font-family: 'Roboto Slab', cursive
 
 	.wrap
-		position: relative
-		display: flex
-		align-items: center
-		margin-right: 0
-		// width: 50%
-		overflow: hidden
-
-		@media screen and (max-width: 1300px)
-			width: 80%
-
-		@media screen and (max-width: 960px)
-			width: 100%
-
-		#me
-			position: relative
-			z-index: 20
-			flex: 1
-			font-size: 7em
-			text-transform: uppercase
-			padding-left: 30px
-			color: #ddd
-			min-height: 100vh
-
-			@media screen and (max-width: 960px)
-				margin: 0 auto
-				margin-bottom: 40px
-				padding: 0
-
-			#name
-				color: $black
-				margin-bottom: -50px
-				padding-left: 15px
-				font-weight: 100
-
-				@media screen and (max-width: 960px)
-					text-align: center
-
-			#surname
-				color: $black
-				font-weight: 600
-				letter-spacing: 2px
-				font-size: 1.2em
-
-				@media screen and (max-width: 960px)
-					text-align: center
-
-			#about-me
-				margin: 30px 0 20px 0
-				font-size: 1.5rem
-				text-transform: none
-				line-height: 40px
-				box-sizing: border-box
-
-				@media screen and (max-width: 960px)
-					background: rgba(0, 0, 0, 0.6)
-					padding: 5px
-
-				span
-					background: rgba(0, 0, 0, 0.6)
-					padding: 7px
-					font-size: 1.3em
-					display: inline-block
-					margin-bottom: 6px
-
-					@media screen and (max-width: 960px)
-						margin: 0
-						background: none
-						padding: 0
-						font-size: 1em
-						display: inline
-
-		#picture
-			position: relative
-			z-index: 0
-			@media screen and (max-width: 1300px)
-				display: none
-
-
-section
-	overflow: hidden
-	padding: 50px
-	box-sizing: border-box
-
-	@media screen and (max-width: 1000px)
-		padding: 10px
-
-	.text
-		margin: 40px
-		width: 75%
-		font-size: 1.5em
-		line-height: 1.6em
-
-		@media screen and (max-width: 1000px)
-			width: 90%
-			margin: 0 auto
-
-#intern
-	background: #F89406 //$main
-	color: #eee
-
-	background: -moz-linear-gradient(45deg, rgba(231,138,6,1) 0%, rgba(250,169,55,1) 100%)
-	background: -webkit-linear-gradient(45deg, rgba(231,138,6,1) 0%,rgba(250,169,55,1) 100%)
-	background: linear-gradient(45deg, rgba(231,138,6,1) 0%,rgba(250,169,55,1) 100%)
-	
-	.wrap
-		display: flex
-
-		@media screen and (max-width: 1000px)
-			flex-direction: column
-			padding: 40px 0
-		
-		aside
-			flex: 2
-			align-self: center
-
-			.text
-				position: relative
-
-		#time-to-summer
-			flex: 1
-			text-align: center
-
-			h1
-				font-size: 12rem
-
-				@media screen and(max-width: 1000px)
-					font-size: 10rem
-
-			#remaining
-				font-size: 2rem
-				margin-top: -40px
-
-			p
-				font-size: 1.2em
-				margin-top: 10px
-
-		a
-			color: inherit
-			text-decoration: none
-			font-weight: bold
-
-#skills
-	background: #eee
-
-	#skills-title
-		display: flex
-		align-items: center
-		justify-content: space-between
-
-		.github-link
-			color: gray
-			text-decoration: none
-			cursor: pointer
-			font-size: 3.4em
-			@extend .link-transition
-			
-			&:hover
-				color: #000
-
-	section
-		display: flex
+		flex-grow: 1
 		justify-content: center
 		align-items: center
-
-		@media screen and (max-width: 1000px)
-			flex-direction: column
-			align-items: flex-start
-			font-size: .8em
-
-		.skill-group
-			flex: 1
-			font-size: 3em
-			text-transform: uppercase
-			position: relative
-
-			@media screen and (max-width: 960px)
-				margin: 20px 0 10px 0
-
-		.details
-			flex: 2
-			font-size: 1.35em
-			position: relative
-
-	#other-skills
-		margin: 20px 0 0 50px
-		font-size: 1.2em
-
-		@media screen and (max-width: 1000px)
-			margin: 20px
-			font-size: .9em
-
-		div
-			font-size: 1.8em
-			margin-top: 10px
-
-#references
-	background: #eee
-
-	div.reference
-		width: 90% 
-		display: flex
-		align-items: center
-		color: gray
-		margin-top: 20px
-
-		@media screen and (max-width: 1240px)
-			flex-direction: column
-			width: 100%
-			font-size: .9em
-
-		p
-			padding: 20px
-
-			&:before
-				content: '“'
-			&:after
-				content: '”'
-
-		.avatar-wrap
-			display: flex
-			flex-direction: column
-
-			justify-content: center
-			align-items: center				
-
-			div
-				margin-top: 15px
-				text-align: center
-
-			@media screen and (max-width: 1240px)
-				margin-bottom: 30px
-
-.avatar
-	max-height: 256px
-
-#contact
-	background: $black
-
-	.wrap
-		display: flex
-		justify-content: space-between
-		align-items: center
-		padding: 20px
-		padding-bottom: 100px
-		color: white
-		width: 70%
-		margin: 0 auto
-
-		@media all and (max-width: 1300px)
-			width: 100%
-			flex-direction: column
-			margin: 0
-			padding: 0
-			margin-top: 30px
-
-	section
 		display: flex
 		flex-direction: column
-		justify-content: space-between
-		align-items: center
 
-	.email
-		font-size: 3em
+		h1
+			font-size: 3em
 
-		@media all and (max-width: 600px)
-			font-size: 2em
-
-		&.scalled
+		h3
+			font-size: 2rem
+			margin-bottom: 30px
 			color: $main
 
-	.avatar
-		-webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)
-		clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)
-
-	#cv
-		background: $main
-		width: 100%
-		margin: 30px 0
-		padding: 30px 15px
-		border-radius: 5px
-		display: flex
-		flex-direction: column
-		align-items: center
-		justify-content: center
-		font-size: 1.4rem
-		cursor: pointer
-
-		@extend .link-transition
-
-		&:hover
-			background: darken($main, 5%)
-
-		@media screen and (max-width: 520px)
-			font-size: 1.2rem
-			padding: 20px 0
-
 		a
-			font-size: .7em
-			color: #bbb
-			display: block
-			margin-top: 15px
-
-			@extend .link-transition
+			text-transform: uppercase
+			font-size: 1.8rem
+			text-decoration: none
+			color: $black
+			padding: 10px 30px
+			border-radius: 40px
+			transition: all .3s ease-in-out
 
 			&:hover
-				text-decoration: none
+				color: #fff
+				background: $main
 
-#footer
-	background: #ECF0F1
-
-	div
-		display: flex
-		flex-direction: column
-		align-items: flex-end
-
-	padding: 30px
-
-	@media screen and (max-width: 1000px)
-		padding: 10px
-
-	.heart
-		color: $main
-
-.email
-	color: white
-	font-size: 1.2em
-	text-decoration: none
-	
-	@extend .link-transition
-	
-	&:hover
-		color: $main
-
-.socials
-	margin-top: 40px
-
-.social-icon
-	color: white
-	font-size: 2.2em
-	padding: 5px
-	cursor: pointer
-
-	@extend .link-transition
-	
-	&:hover
-		color: $main
+	.more
+		font-family: 'Gloria Hallelujah', cursive
+		margin-bottom: 40px
