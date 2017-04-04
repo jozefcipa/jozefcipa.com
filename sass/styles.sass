@@ -22,6 +22,12 @@ main
 	justify-content: center
 	font-family: 'Roboto Slab', cursive
 
+	@media screen and (max-width: 1024px)
+		font-size: 2em
+
+	@media screen and (max-width: 540px)
+		font-size: 1.7em
+
 	.wrap
 		flex-grow: 1
 		justify-content: center
@@ -32,14 +38,17 @@ main
 		h1
 			font-size: 3em
 
+			@media screen and (max-width: 540px)
+				font-size: 2.7em
+
 		h3
-			font-size: 2rem
+			font-size: .9em
 			margin-bottom: 30px
 			color: $main
 
 		a
 			text-transform: uppercase
-			font-size: 1.8rem
+			font-size: .7em
 			text-decoration: none
 			color: $black
 			padding: 10px 30px
