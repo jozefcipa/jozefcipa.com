@@ -39,7 +39,7 @@ main
 			font-size: 3em
 
 			@media screen and (max-width: 540px)
-				font-size: 2.7em
+				font-size: 2.4em
 
 		h3
 			font-size: .9em
@@ -48,16 +48,17 @@ main
 
 		a
 			text-transform: uppercase
-			font-size: .7em
+			font-size: .8em
 			text-decoration: none
 			color: $black
 			padding: 10px 30px
 			border-radius: 40px
-			transition: all .3s ease-in-out
+			transition: all .2s ease-in-out
+			background: $main
+			color: #fff
 
 			&:hover
-				color: #fff
-				background: $main
+				background: darken($main, 5%)
 
 	.more
 		font-family: 'Gloria Hallelujah', cursive
