@@ -3,24 +3,24 @@
 	padding: 0
 	border: 0
 	box-sizing: border-box
-	// outline: 2px solid pink //debug
 
 $main: #F22613
+$darkenMain: darken($main, 5%)
 $black: #242424
 
-body, html
+html
 	height: 100%
+
+body
+	min-height: 95%
 	font-size: 16px
 	color: $black
-
-main
 	font-size: 3em
-	height: 100%
 	display: flex
 	flex-direction: column
 	align-items: center
 	justify-content: center
-	font-family: 'Roboto Slab', cursive
+	font-family: 'Roboto Slab', cursive	
 
 	@media screen and (max-width: 800px)
 		font-size: 2em
@@ -34,6 +34,7 @@ main
 		align-items: center
 		display: flex
 		flex-direction: column
+		margin-top: 20px
 
 		h1
 			font-size: 3em
@@ -43,7 +44,7 @@ main
 
 		h3
 			font-size: .9em
-			margin-bottom: 30px
+			margin-bottom: 40px
 			color: $main
 
 		a
@@ -56,10 +57,39 @@ main
 			transition: all .2s ease-in-out
 			background: $main
 			color: #fff
+			display: block
 
 			&:hover
-				background: darken($main, 5%)
+				background: $darkenMain
 
-	.more
-		font-family: 'Gloria Hallelujah', cursive
-		margin-bottom: 40px
+	#contact
+		margin: 50px 0 20px
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		font-size: 2rem
+
+		a
+			color: $black
+			transition: all .2s ease-in-out
+
+		a:hover, a:focus
+			color: $darkenMain
+
+		li
+			display: inline-block
+			padding: 8px
+
+	#cv
+		font-size: 1rem
+		padding-top: 10px
+
+		a
+			color: $main
+			text-decoration: none
+
+			&:hover
+				text-decoration: underline
+
+		
