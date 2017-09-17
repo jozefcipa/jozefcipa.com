@@ -1,0 +1,36 @@
+@media all and (max-width: 1000px)
+	body
+		#right
+			display: none // hide photo
+
+		#left 
+			align-items: center
+			margin: 0 15px
+
+			#info 
+				h1 
+					font-size: 3em
+				h3
+					font-size: 1em
+
+			#email
+				margin-top: 20px
+				flex-grow: 0
+
+			#contact 
+				span
+					display: none // hide copyright on mobile version
+
+@media all and (max-width: 1180px)
+	body 
+		#right
+			img
+				width: 100%
+
+@media screen and (max-width: 800px)
+	body
+		font-size: 2em
+
+@media screen and (max-width: 540px)
+	body
+		font-size: 1.3em

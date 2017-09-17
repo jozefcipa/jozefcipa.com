@@ -5,6 +5,7 @@
 	box-sizing: border-box
 
 $main: #F22613
+// $main: #F62459
 $darkenMain: darken($main, 5%)
 $black: #242424
 
@@ -12,84 +13,103 @@ html
 	height: 100%
 
 body
-	min-height: 95%
+	overflow-x: hidden
+	min-height: 100%
 	font-size: 16px
 	color: $black
 	font-size: 3em
 	display: flex
-	flex-direction: column
-	align-items: center
+	align-items: stretch
 	justify-content: center
-	font-family: 'Roboto Slab', cursive	
+	font-family: 'Roboto Slab', cursive
 
-	@media screen and (max-width: 800px)
-		font-size: 2em
-
-	@media screen and (max-width: 540px)
-		font-size: 1.4em
-
-	.wrap
+	// Main wrappers
+	#left, #right
+		flex-basis: 100%
 		flex-grow: 1
-		justify-content: center
-		align-items: center
 		display: flex
 		flex-direction: column
-		margin-top: 20px
 
-		h1
-			font-size: 3em
+	// Left part wrapper
+	#left
+		flex-grow: 1
+		justify-content: flex-start
+		position: relative
+		margin: 0 40px
 
-			@media screen and (max-width: 540px)
-				font-size: 2.4em
+		// Name, subtitle
+		#info			
+			h1
+				font-size: 2.3em
+				margin-top: 100px
 
-		h3
-			font-size: .9em
-			margin-bottom: 40px
-			color: $main
+			h3
+				font-size: .65em
+				margin-bottom: 40px
+				color: $main
 
-		a
-			text-transform: uppercase
-			font-size: .8em
-			text-decoration: none
-			color: $black
-			padding: 10px 30px
-			border-radius: 40px
-			transition: all .2s ease-in-out
-			background: $main
-			color: #fff
+				&:before 
+					content: "— "
+
+		// "Contact me by email" button
+		#email
+			margin-top: 60px
+			flex-grow: 1
+
+			a
+				font-size: 1em
+				text-decoration: none
+				color: $black
+				padding: 15px 40px
+				border-radius: 50px
+				transition: all .2s ease-in-out
+				background: $main
+				color: #fff
+				&:hover
+					background: $darkenMain
+
+		// Social icons
+		#contact
+			margin: 70px auto 40px
+			display: flex
+			justify-content: center
+			font-size: 2rem
+			align-self: flex-end
+
+			a
+				color: $black
+				transition: all .2s ease-in-out
+
+				&:hover, &:focus
+					color: $darkenMain
+
+			li
+				display: inline-block
+				padding: 8px
+
+			span
+				font-size: .3em
+				position: absolute
+				bottom: 10px
+
+				a
+					text-decoration: none
+
+					&:hover
+						text-decoration: underline
+
+	// Right section, image of me
+	#right 
+		overflow: hidden
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+		align-items: flex-end
+
+		img
 			display: block
+			max-height: 100%
+			filter: grayscale(100%)
 
-			&:hover
-				background: $darkenMain
-
-	#contact
-		margin: 50px 0 20px
-		display: flex
-		flex-direction: column
-		justify-content: center
-		align-items: center
-		font-size: 2rem
-
-		a
-			color: $black
-			transition: all .2s ease-in-out
-
-		a:hover, a:focus
-			color: $darkenMain
-
-		li
-			display: inline-block
-			padding: 8px
-
-	#cv
-		font-size: 1rem
-		padding-top: 10px
-
-		a
-			color: $main
-			text-decoration: none
-
-			&:hover
-				text-decoration: underline
-
-		
+// Load responsive CSS
+@import "responsive"
