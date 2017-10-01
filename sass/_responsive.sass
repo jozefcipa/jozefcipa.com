@@ -23,21 +23,27 @@ body
 				@media all and (max-width: 1270px)
 					font-size: 2.3em
 				@media all and (max-width: 1150px)
-					font-size: 3em
+					font-size: 2.6em
+					text-align: center
+
 
 			@media all and (max-width: 1000px)
 				h3
-					font-size: 1em
+					font-size: .8em
+					text-align: center
+					&:before
+						content: ''
 
 		@media all and (max-width: 1150px)
 			align-items: center
 			margin: 0 15px
 
 			#email
-				margin-top: 20px
+				margin-top: 70px
 				flex-grow: 0
 
 			#contact 
+				margin-top: 30px
 				span
 					display: none // hide copyright on mobile version
 
