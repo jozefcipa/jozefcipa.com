@@ -1,17 +1,37 @@
-@media all and (max-width: 1000px)
-	body
-		#right
-			display: none // hide photo
+body
 
-		#left 
-			align-items: center
-			margin: 0 15px
+	// Changing font-size of whole page
+	@media all and (max-width: 800px)
+		font-size: 2.5em
+	@media all and (max-width: 650px)
+		font-size: 2em
+	@media all and (max-width: 540px)
+		font-size: 1.9em
+	@media all and (max-width: 500px) 
+		font-size: 1.5em
 
-			#info 
-				h1 
+	#left
+		#info
+			h1
+				// Changing font-size of main title
+				@media all and (max-width: 1600px)
 					font-size: 3em
+				@media all and (max-width: 1500px)
+					font-size: 2.8em
+				@media all and (max-width: 1410px)
+					font-size: 2.5em
+				@media all and (max-width: 1270px)
+					font-size: 2.3em
+				@media all and (max-width: 1150px)
+					font-size: 3em
+
+			@media all and (max-width: 1000px)
 				h3
 					font-size: 1em
+
+		@media all and (max-width: 1150px)
+			align-items: center
+			margin: 0 15px
 
 			#email
 				margin-top: 20px
@@ -21,16 +41,16 @@
 				span
 					display: none // hide copyright on mobile version
 
-@media all and (max-width: 1180px)
-	body 
-		#right
-			img
+	#right
+
+		// Swap photos
+		@media all and (max-width: 1430px)
+			img.main
+				display: none
+
+			img.small
+				display: block
 				width: 100%
 
-@media screen and (max-width: 800px)
-	body
-		font-size: 2em
-
-@media screen and (max-width: 540px)
-	body
-		font-size: 1.3em
+		@media all and (max-width: 1150px)
+			display: none // hide photo

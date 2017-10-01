@@ -4,8 +4,8 @@
 	border: 0
 	box-sizing: border-box
 
-$main: #F22613
-// $main: #F62459
+// $main: #F22613
+$main: #F62459
 $darkenMain: darken($main, 5%)
 $black: #242424
 
@@ -15,7 +15,6 @@ html
 body
 	overflow-x: hidden
 	min-height: 100%
-	font-size: 16px
 	color: $black
 	font-size: 3em
 	display: flex
@@ -40,7 +39,7 @@ body
 		// Name, subtitle
 		#info			
 			h1
-				font-size: 2.3em
+				font-size: 3.2em
 				margin-top: 100px
 
 			h3
@@ -108,8 +107,11 @@ body
 
 		img
 			display: block
-			max-height: 100%
+			max-height: 100vh
 			filter: grayscale(100%)
+
+			&.small
+				display: none
 
 // Load responsive CSS
 @import "responsive"
