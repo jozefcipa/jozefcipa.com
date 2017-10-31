@@ -4,9 +4,12 @@
 	border: 0
 	box-sizing: border-box
 
-// $main: #F22613
+@font-face
+	font-family: Circular
+	src: url(../fonts/circular-bold.otf) format("opentype")
+
 $main: #F62459
-$darkenMain: darken($main, 5%)
+$darkenMain: darken($main, 8%)
 $black: #242424
 
 html
@@ -20,7 +23,7 @@ body
 	display: flex
 	align-items: stretch
 	justify-content: center
-	font-family: 'Roboto Slab', cursive
+	font-family: Circular
 
 	// Main wrappers
 	#left, #right
