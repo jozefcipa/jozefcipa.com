@@ -8,6 +8,14 @@
 	font-family: Circular
 	src: url(../fonts/circular-bold.otf) format("opentype")
 
+@font-face
+	font-family: CircularBold
+	src: url(../fonts/circular-black.otf) format("opentype")
+
+@font-face
+	font-family: CircularLight
+	src: url(../fonts/circular-book.otf) format("opentype")
+
 $main: #F62459
 $darkenMain: darken($main, 8%)
 $black: #242424
@@ -23,7 +31,7 @@ body
 	display: flex
 	align-items: stretch
 	justify-content: center
-	font-family: Circular
+	font-family: CircularLight
 
 	// Main wrappers
 	#left, #right
@@ -44,6 +52,7 @@ body
 			h1
 				font-size: 3.2em
 				margin-top: 100px
+				font-family: Circular
 
 			h3
 				font-size: .65em
