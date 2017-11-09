@@ -125,5 +125,42 @@ body
 			&.small
 				display: none
 
+	// Internship informations
+	#internship 
+		display: none
+		position: fixed
+		z-index: 10
+		bottom: 40px
+		right: 20px
+		background: $main
+		border-radius: 50px
+		color: #fff
+		font-size: 1.2rem
+		font-family: monospace
+		padding: 20px
+		box-shadow: 3px 4px 10px $black
+
+		a
+			color: #fff
+			text-decoration: underline
+
+			&:hover
+				text-decoration: none
+
+		.spotify
+			display: none //  then set flex
+			justify-content: space-between
+			align-items: center
+
+			img
+				width: 64px
+				height: 64px
+
+			div
+				margin-left: 20px
+				display: flex
+				flex-direction: column
+				justify-content: center
+
 // Load responsive CSS
 @import "responsive"
