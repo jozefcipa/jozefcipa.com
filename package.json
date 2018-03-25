@@ -29,6 +29,11 @@
   },
   "homepage": "https://github.com/JozefCipa/personal_website#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-ruby-sass": "^3.0.0"
   }
 }
