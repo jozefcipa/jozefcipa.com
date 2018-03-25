@@ -4,22 +4,19 @@
 	border: 0
 	box-sizing: border-box
 
-$main: #19B5FE
-$darkenMain: darken($main, 8%)
 $black: #000
 $white: #f9f9f9
 $console-font: 'Roboto Mono', monospace
-
-html
-	height: 100vh
+$main-font: 'Montserrat', Helvetica Neue, Arial, sans-serif
+$background-img: url(/assets/img/background.jpg)
+$separator: ' \00B7 '
 
 body
 	overflow-x: hidden
-	min-height: 100vh
 	background: $black
 	color: $white
 	letter-spacing: .17rem
-	font-family: 'Montserrat', Helvetica Neue, Arial, sans-serif
+	font-family: $main-font
 
 main
 	position: relative
@@ -31,7 +28,7 @@ main
 	left: 0 
 	right: 0
 	z-index: 1
-	background: url(/assets/img/background.jpg)
+	background: $background-img
 	background-size: cover
 	background-position: center
 
@@ -104,7 +101,7 @@ main
 		padding: .3rem
 
 		& + li::before
-			content: ' \00B7 '
+			content: $separator
 			padding-right: .6rem
 
 // Load responsive CSS
