@@ -4,163 +4,106 @@
 	border: 0
 	box-sizing: border-box
 
-@font-face
-	font-family: Circular
-	src: url(../fonts/circular-bold.otf) format("opentype")
-
-@font-face
-	font-family: CircularBold
-	src: url(../fonts/circular-black.otf) format("opentype")
-
-@font-face
-	font-family: CircularLight
-	src: url(../fonts/circular-book.otf) format("opentype")
-
-$main: #F62459
+$main: #19B5FE
 $darkenMain: darken($main, 8%)
-$black: #242424
+$black: #000
+$white: #f9f9f9
+$console-font: 'Roboto Mono', monospace
 
 html
-	height: 100%
+	height: 100vh
 
 body
 	overflow-x: hidden
-	min-height: 100%
-	color: $black
-	font-size: 3em
+	min-height: 100vh
+	background: $black
+	color: $white
+	letter-spacing: .17rem
+	font-family: 'Montserrat', Helvetica Neue, Arial, sans-serif
+
+main
+	position: relative
+
+.layer__background
+	min-height: 100vh
+	position: absolute
+	top: 0
+	left: 0 
+	right: 0
+	z-index: 1
+	background: url(/assets/img/background.jpg)
+	background-size: cover
+	background-position: center
+
+.layer__content
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	z-index: 2
+	padding: 2rem 2rem 3rem
 	display: flex
-	align-items: stretch
+	flex-direction: column
+	justify-content: space-between
+	min-height: 100vh
+	background: rgba(red($black), green($black), blue($black), .5)
+
+.content__email
+	display: flex
+	justify-content: flex-end
+
+	a
+		font-size: .9rem
+		text-transform: uppercase
+		text-decoration: none
+		color: $white
+		font-weight: bold
+		transition: all .3s linear
+
+		&:hover
+			transform: scale(1.05)
+
+.content__title
+	display: flex
 	justify-content: center
-	font-family: CircularLight, Helvetica Neue, sans-serif
 
-	// Main wrappers
-	#left, #right
-		flex-basis: 100%
-		flex-grow: 1
-		display: flex
-		flex-direction: column
-
-	// Left part wrapper
-	#left
-		flex-grow: 1
-		justify-content: flex-start
+	.content__frame
+		border: 3px solid $white
+		padding: 2rem 5rem
 		position: relative
-		margin: 0 40px
-
-		// Name, subtitle
-		#info			
-			h1
-				font-size: 3.2em
-				margin-top: 100px
-				font-family: Circular, Helvetica Neue, sans-serif
-
-			h3
-				font-size: .65em
-				margin-bottom: 40px
-				color: $main
-
-				&:before 
-					content: "— "
-
-		// "Contact me by email" button
-		#email
-			margin-top: 60px
-			flex-grow: 1
-
-			a
-				font-size: 1em
-				text-decoration: none
-				color: $black
-				padding: 15px 40px
-				border-radius: 50px
-				transition: all .2s ease-in-out
-				background: $main
-				color: #fff
-				&:hover
-					background: $darkenMain
-
-		// Social icons
-		#contact
-			margin: 70px auto 40px
-			display: flex
-			justify-content: center
-			font-size: 2rem
-			align-self: flex-end
-
-			a
-				color: $black
-				transition: all .2s ease-in-out
-
-				&:hover, &:focus
-					color: $darkenMain
-
-			li
-				display: inline-block
-				padding: 8px
-
-			span
-				font-size: .3em
-				position: absolute
-				bottom: 10px
-
-				a
-					text-decoration: none
-
-					&:hover
-						text-decoration: underline
-
-	// Right section, image of me
-	#right 
-		overflow: hidden
 		display: flex
-		flex-direction: column
-		justify-content: flex-end
-		align-items: flex-end
+		justify-content: center
 
-		img
-			display: block
-			max-height: 100vh
-			filter: grayscale(100%)
+	.content__title-main
+		font-size: 7rem
 
-			&.small
-				display: none
+	.content__title-second
+		font-size: 2.7rem
+		position: absolute
+		background: $black
+		padding: 0 .7rem
+		bottom: -1.4rem
+		font-weight: 200
 
-	// Internship informations
-	#internship 
-		display: none
-		position: fixed
-		z-index: 10
-		bottom: 40px
-		right: 20px
-		background: $main
-		border-radius: 50px
-		color: #fff
-		font-size: 1.2rem
-		font-family: monospace
-		padding: 20px
-		box-shadow: 3px 4px 10px $black
+.content__socials
+	display: flex
+	justify-content: center
+	font-size: .8rem
 
-		a
-			color: #fff
-			text-decoration: underline
+	a
+		font-family: $console-font
+		color: $white
+		transition: all .2s ease-in-out
+		text-decoration: none
+		padding: .1rem
 
-			&:hover
-				text-decoration: none
+	li
+		display: inline-block
+		padding: .3rem
 
-		.spotify
-			display: none //  then set flex
-			justify-content: space-between
-			align-items: center
-
-			img
-				width: 64px
-				height: 64px
-
-			div
-				margin-left: 20px
-				display: flex
-				flex-direction: column
-				justify-content: center
+		& + li::before
+			content: ' \00B7 '
+			padding-right: .6rem
 
 // Load responsive CSS
 @import "responsive"
