@@ -1,23 +1,36 @@
-var gulp = require('gulp');
-var sass = require('gulp-ruby-sass');
-var notify = require('gulp-notify');
-var cleanCSS = require('gulp-clean-css');
-var livereload = require('gulp-livereload');
+var gulp = require('gulp')
+var sass = require('gulp-ruby-sass')
+var cleanCSS = require('gulp-clean-css')
+var livereload = require('gulp-livereload')
+var htmlmin = require('gulp-htmlmin')
+var autoprefixer = require('gulp-autoprefixer')
 
 //SASS
-gulp.task('build:sass', () => {
+gulp.task('sass', () => {
         sass('sass/*.sass')
         	.on('error', sass.logError)
+            .pipe(autoprefixer({
+                browsers: ['last 2 versions'],
+                cascade: false
+            }))
 	        .pipe(cleanCSS())
-			.pipe(notify({
-				message: "SASS compiled."
-			}))
 	        .pipe(gulp.dest('public/assets/css'))
-	        .pipe(livereload());                                   
-});
+	        .pipe(livereload())                                   
+})
 
-gulp.task('watch:sass', () => {
-	livereload.listen();
+gulp.task('watch', () => {
+	livereload.listen()
+	gulp.watch('./sass/*.sass', ['sass'])
+    gulp.watch('./html/index.html', ['html'])
+})
 
-	gulp.watch('./sass/*.sass', ['build:sass']);
-});
+// minify html and append hash to URLs
+gulp.task('html', () => {
+    return gulp.src('./html/index.html')
+        .pipe(htmlmin({
+        	collapseWhitespace: true,
+        	minifyJS: true,
+        	removeComments: true
+        }))
+        .pipe(gulp.dest('./public'))
+})
