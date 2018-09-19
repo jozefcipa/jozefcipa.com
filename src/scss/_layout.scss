@@ -1,0 +1,25 @@
+.container {
+  padding: 3rem 6rem;
+}
+
+// Flex row vertical center
+%flex-row-v-c {
+  display: flex;
+  align-items: center;
+}
+
+%flex-row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-column-v-c {
+  @extend %flex-column;
+  justify-content: center;
+}
