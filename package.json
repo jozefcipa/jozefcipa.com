@@ -2,10 +2,10 @@
   "name": "jozefcipa.com",
   "version": "4.0.0",
   "description": "Personal website",
-  "main": "",
+  "main": "src/index.html",
   "scripts": {
-    "dev": "webpack-dev-server",
-    "build": "webpack --config webpack.prod.js",
+    "dev": "parcel src/index.html",
+    "build": "rm public/* & touch public/.gitkeep & parcel build src/index.html --out-dir public --public-url https://jozefcipa.com",
     "deploy": "firebase deploy"
   },
   "repository": {
@@ -25,13 +25,7 @@
   },
   "homepage": "https://github.com/JozefCipa/personal_website#readme",
   "devDependencies": {
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.4.3",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "uglifyjs-webpack-plugin": "^2.0.1",
-    "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8",
-    "webpack-merge": "^4.1.4"
+    "node-sass": "^4.9.3",
+    "parcel": "^1.9.7"
   }
 }
