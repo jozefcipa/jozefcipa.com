@@ -32,6 +32,15 @@
         display: inline-block;
         margin: 0 1rem;
       }
+
+      @include max-width(540px) {
+        margin: 0 .3rem;
+      }
+
+      @include max-width(360px) {
+        width: $icon-size-small;
+        height: $icon-size-small;
+      }
     }
   }
 }

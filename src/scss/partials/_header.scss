@@ -7,15 +7,11 @@
     font-weight: 700;
     text-transform: lowercase;
 
-    @include min-width(380px) {
+    @include min-width(531px) {
       &:after {
         content: "|";
         margin: 0 .5rem;
       }
-    }
-
-    @include max-width(530px) {
-      font-size: 2rem;
     }
   }
 
@@ -26,7 +22,11 @@
     top: 3px;
 
     @include max-width(530px) {
-      font-size: 1rem;
+      font-size: 1.8rem;
+    }
+
+    @include max-width(340px) {
+      font-size: 1.2rem;
     }
   }
 
@@ -34,7 +34,7 @@
     justify-content: center;
   }
 
-  @include max-width(380px) {
+  @include max-width(530px) {
     flex-direction: column;
   }
 }
