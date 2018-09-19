@@ -1,5 +1,13 @@
 .container {
   padding: 3rem 6rem;
+
+  @include max-width(840px) {
+    padding: 3rem 3rem;
+  }
+
+  @include max-width(450px) {
+    padding: 3rem 1rem;
+  }
 }
 
 // Flex row vertical center

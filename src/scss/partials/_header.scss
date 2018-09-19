@@ -2,18 +2,39 @@
   @extend %flex-row-v-c;
 
   h3 {
+    font-family: $font-secondary;
     font-size: 2.4rem;
     font-weight: 700;
     text-transform: lowercase;
 
-    &:after {
-      content: "|";
-      margin: 0 .5rem;
+    @include min-width(380px) {
+      &:after {
+        content: "|";
+        margin: 0 .5rem;
+      }
+    }
+
+    @include max-width(530px) {
+      font-size: 2rem;
     }
   }
 
   span {
     font-size: 1.4rem;
     letter-spacing: .15rem;
+    position: relative;
+    top: 3px;
+
+    @include max-width(530px) {
+      font-size: 1rem;
+    }
+  }
+
+  @include max-width(900px) {
+    justify-content: center;
+  }
+
+  @include max-width(380px) {
+    flex-direction: column;
   }
 }

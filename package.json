@@ -4,9 +4,10 @@
   "description": "Personal website",
   "main": "src/index.html",
   "scripts": {
-    "dev": "parcel src/index.html",
-    "build": "rm public/* & touch public/.gitkeep & parcel build src/index.html --out-dir public --public-url https://jozefcipa.com",
-    "deploy": "firebase deploy"
+    "dev": "yarn clean:public & parcel src/index.html --out-dir public",
+    "build": "yarn clean:public & parcel build src/index.html --out-dir public --public-url https://jozefcipa.com",
+    "deploy": "firebase deploy",
+    "clean:public": "rm public/* & touch public/.gitkeep"
   },
   "repository": {
     "type": "git",
