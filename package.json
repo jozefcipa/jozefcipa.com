@@ -1,39 +1,32 @@
 {
-  "name": "personal_website",
-  "version": "1.0.0",
-  "description": "My personal website, it's my online presentation",
-  "main": "gulpfile.js",
+  "name": "jozefcipa.com",
+  "version": "4.0.0",
+  "description": "Personal website",
+  "main": "src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "yarn clean:public & parcel src/index.html --out-dir public",
+    "build": "yarn clean:public & parcel build src/index.html --out-dir public --public-url https://jozefcipa.com",
+    "deploy": "firebase deploy",
+    "clean:public": "rm public/* & touch public/.gitkeep"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/JozefCipa/personal_website.git"
   },
   "keywords": [
-    "jozef",
-    "cipa",
-    "junior",
-    "web",
-    "ios",
-    "developer",
-    "web",
+    "jozef cipa",
+    "software",
     "development",
-    "full",
-    "stack"
+    "web"
   ],
-  "author": "Jozef Cipa",
+  "author": "Jozef Cipa <cipajozef@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JozefCipa/personal_website/issues"
   },
   "homepage": "https://github.com/JozefCipa/personal_website#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean-css": "^3.9.3",
-    "gulp-htmlmin": "^4.0.0",
-    "gulp-livereload": "^3.8.1",
-    "gulp-ruby-sass": "^3.0.0"
+    "node-sass": "^4.9.3",
+    "parcel": "^1.9.7"
   }
 }

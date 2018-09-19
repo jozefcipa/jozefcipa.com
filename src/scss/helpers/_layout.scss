@@ -1,0 +1,33 @@
+.container {
+  padding: 3rem 6rem;
+
+  @include max-width(840px) {
+    padding: 3rem 3rem;
+  }
+
+  @include max-width(450px) {
+    padding: 3rem 1rem;
+  }
+}
+
+// Flex row vertical center
+%flex-row-v-c {
+  display: flex;
+  align-items: center;
+}
+
+%flex-row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-column-v-c {
+  @extend %flex-column;
+  justify-content: center;
+}

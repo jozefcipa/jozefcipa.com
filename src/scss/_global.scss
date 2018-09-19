@@ -1,0 +1,14 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font;
+  font-size: $default-font-size;
+  min-height: 100vh;
+  @extend %flex-column;
+  background: $background-url;
+  color: $primary;
+}

@@ -1,0 +1,40 @@
+#top-header {
+  @extend %flex-row-v-c;
+
+  h3 {
+    font-family: $font-secondary;
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-transform: lowercase;
+
+    @include min-width(531px) {
+      &:after {
+        content: "|";
+        margin: 0 .5rem;
+      }
+    }
+  }
+
+  span {
+    font-size: 1.4rem;
+    letter-spacing: .15rem;
+    position: relative;
+    top: 3px;
+
+    @include max-width(530px) {
+      font-size: 1.8rem;
+    }
+
+    @include max-width(340px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  @include max-width(900px) {
+    justify-content: center;
+  }
+
+  @include max-width(530px) {
+    flex-direction: column;
+  }
+}

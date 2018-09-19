@@ -1,5 +1,8 @@
-.sass-cache/
+.cache/
 node_modules/
+.idea/
 .firebaserc
 database.rules.json
 firebase.json
+public/*
+!public/.gitkeep
