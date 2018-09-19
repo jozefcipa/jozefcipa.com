@@ -1,39 +1,37 @@
 {
-  "name": "personal_website",
-  "version": "1.0.0",
-  "description": "My personal website, it's my online presentation",
-  "main": "gulpfile.js",
+  "name": "jozefcipa.com",
+  "version": "4.0.1",
+  "description": "Personal website",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server",
+    "build": "webpack --config webpack.prod.js",
+    "deploy": "firebase deploy"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/JozefCipa/personal_website.git"
   },
   "keywords": [
-    "jozef",
-    "cipa",
-    "junior",
-    "web",
-    "ios",
-    "developer",
-    "web",
+    "jozef cipa",
+    "software",
     "development",
-    "full",
-    "stack"
+    "web"
   ],
-  "author": "Jozef Cipa",
+  "author": "Jozef Cipa <cipajozef@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JozefCipa/personal_website/issues"
   },
   "homepage": "https://github.com/JozefCipa/personal_website#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean-css": "^3.9.3",
-    "gulp-htmlmin": "^4.0.0",
-    "gulp-livereload": "^3.8.1",
-    "gulp-ruby-sass": "^3.0.0"
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8",
+    "webpack-merge": "^4.1.4"
   }
 }
