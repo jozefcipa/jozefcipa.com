@@ -1,6 +1,6 @@
 {
   "name": "jozefcipa.com",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Personal website",
   "main": "src/index.html",
   "scripts": {
@@ -11,22 +11,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/JozefCipa/personal_website.git"
+    "url": "git+ssh://git@github.com:jozefcipa/jozefcipa.com.git"
   },
   "keywords": [
     "jozef cipa",
     "software",
-    "development",
+    "developer",
     "web"
   ],
   "author": "Jozef Cipa <cipajozef@gmail.com>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JozefCipa/personal_website/issues"
-  },
-  "homepage": "https://github.com/JozefCipa/personal_website#readme",
+  "homepage": "https://github.com/jozefcipa/jozefcipa.com",
   "devDependencies": {
-    "node-sass": "^4.9.3",
-    "parcel": "^1.9.7"
+    "node-sass": "^4.11.0",
+    "parcel": "^1.11.0"
   }
 }

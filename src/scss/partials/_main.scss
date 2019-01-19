@@ -1,40 +1,45 @@
 @import "../variables";
 
 main {
-  @extend %flex-row-v-c;
-  flex-grow: 1;
-  justify-content: space-between;
+  display: flex;
+  min-height: 100vh;
+}
+
+#photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // TODO: temp
+  background-image: url('https://scontent-prg1-1.cdninstagram.com/vp/7043ddd35d974fa29230832e78d60f55/5CBEF16E/t51.2885-15/e35/46361546_1133217973514236_9109774598732616257_n.jpg?_nc_ht=scontent-prg1-1.cdninstagram.com');
+  background-position: -330px -150px;
+}
+
+#content {
+  flex: 2;
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
 
   h1 {
-    font-family: $font-secondary;
-    font-size: 4rem;
-    font-weight: 700;
-    @include scalable(1.02);
-
-    a {
-      color: $primary;
-      text-decoration: none;
-    }
-
-    @include max-width(700px) {
-      font-size: 3rem;
-    }
-
-    @include max-width(500px) {
-      font-size: 2rem;
-      margin: 0 0 10rem 0;
-    }
-
-    @include max-width(330px) {
-      font-size: 1.5rem;
-    }
+    font-size: 5rem;
+    color: $black;
+    font-weight: 600;
   }
 
-  @include max-width(900px) {
-    flex-direction: column;
+  p {
+    color: $black;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    margin: 4rem 0;
   }
 
-  @include max-width(500px) {
-    flex-grow: unset;
+  a {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
