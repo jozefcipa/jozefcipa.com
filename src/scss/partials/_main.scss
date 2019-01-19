@@ -3,6 +3,10 @@
 main {
   display: flex;
   min-height: 100vh;
+
+  @include max-width(1000px) {
+    flex-direction: column;
+  }
 }
 
 #photo {
@@ -10,10 +14,12 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('../img/me-portrait.jpg');
+  background-size: cover;
 
-  // TODO: temp
-  background-image: url('https://scontent-prg1-1.cdninstagram.com/vp/7043ddd35d974fa29230832e78d60f55/5CBEF16E/t51.2885-15/e35/46361546_1133217973514236_9109774598732616257_n.jpg?_nc_ht=scontent-prg1-1.cdninstagram.com');
-  background-position: -330px -150px;
+  @include max-width(1000px) {
+    display: none;
+  }
 }
 
 #content {
@@ -25,6 +31,18 @@ main {
     font-size: 5rem;
     color: $black;
     font-weight: 600;
+
+    @include max-width(1000px) {
+      text-align: center;
+    }
+
+    @include max-width(600px) {
+      font-size: 4rem;
+    }
+
+    @include max-width(340px) {
+      font-size: 3.5rem;
+    }
   }
 
   p {
@@ -32,6 +50,17 @@ main {
     font-size: 1.6rem;
     line-height: 2.5rem;
     margin: 4rem 0;
+
+    @include max-width(600px) {
+      font-size: 1.3rem;
+      line-height: 2rem;
+    }
+
+    @include max-width(400px) {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      margin: 2rem 0;
+    }
   }
 
   a {
@@ -40,6 +69,31 @@ main {
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  #picture-container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+
+    img {
+      width: 128px;
+    }
+
+    @include max-width(1000px) {
+      display: flex;
+    }
+
+    @include max-width(400px) {
+      margin-top: 2rem;
+    }
+  }
+
+  #contact-me {
+    @include max-width(1000px) {
+      text-align: center;
     }
   }
 }
