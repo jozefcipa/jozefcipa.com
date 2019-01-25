@@ -1,40 +1,99 @@
 @import "../variables";
 
 main {
-  @extend %flex-row-v-c;
-  flex-grow: 1;
-  justify-content: space-between;
+  display: flex;
+  min-height: 100vh;
 
-  h1 {
-    font-family: $font-secondary;
-    font-size: 4rem;
-    font-weight: 700;
-    @include scalable(1.02);
-
-    a {
-      color: $primary;
-      text-decoration: none;
-    }
-
-    @include max-width(700px) {
-      font-size: 3rem;
-    }
-
-    @include max-width(500px) {
-      font-size: 2rem;
-      margin: 0 0 10rem 0;
-    }
-
-    @include max-width(330px) {
-      font-size: 1.5rem;
-    }
-  }
-
-  @include max-width(900px) {
+  @include max-width(1000px) {
     flex-direction: column;
   }
+}
 
-  @include max-width(500px) {
-    flex-grow: unset;
+#photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../img/me-portrait.jpg');
+  background-size: cover;
+
+  @include max-width(1000px) {
+    display: none;
+  }
+}
+
+#content {
+  flex: 2;
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
+
+  h1 {
+    font-size: 5rem;
+    color: $black;
+    font-weight: 600;
+
+    @include max-width(1000px) {
+      text-align: center;
+    }
+
+    @include max-width(600px) {
+      font-size: 4rem;
+    }
+
+    @include max-width(340px) {
+      font-size: 3.5rem;
+    }
+  }
+
+  p {
+    color: $black;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    margin: 4rem 0;
+
+    @include max-width(600px) {
+      font-size: 1.3rem;
+      line-height: 2rem;
+    }
+
+    @include max-width(400px) {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      margin: 2rem 0;
+    }
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  #picture-container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+
+    img {
+      width: 128px;
+    }
+
+    @include max-width(1000px) {
+      display: flex;
+    }
+
+    @include max-width(400px) {
+      margin-top: 2rem;
+    }
+  }
+
+  #contact-me {
+    @include max-width(1000px) {
+      text-align: center;
+    }
   }
 }

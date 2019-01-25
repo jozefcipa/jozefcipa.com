@@ -5,3 +5,12 @@
     transform: scale($scaleRatio);
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
