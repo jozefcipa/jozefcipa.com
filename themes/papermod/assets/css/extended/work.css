@@ -2,15 +2,6 @@
     margin: var(--gap) 0;
 }
 
-.work-section h2 {
-    font-size: 1.5em;
-}
-
-.work-section em {
-    color: var(--secondary);
-    font-size: .8em;
-}
-
 .work-section .technologies {
     font-size: .9em;
     margin-bottom: var(--content-gap);

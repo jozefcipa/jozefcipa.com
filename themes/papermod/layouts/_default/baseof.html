@@ -9,6 +9,8 @@
 {{- partial "homepage.html" . }}
 {{- else if (eq .URL `/work/`) -}}
 {{- partial "work.html" . }}
+{{- else if (eq .URL `/about/`) -}}
+{{- partial "about.html" . }}
 {{- else }}
 <body class="
 {{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}

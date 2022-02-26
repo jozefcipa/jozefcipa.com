@@ -26,8 +26,7 @@
         font-size: 30px;
     }
 
-    .work-section h2,
-    .entry-header h2 {
+    .subtitle {
         font-size: 1.2em !important;
     }
 
@@ -59,6 +58,10 @@
     .testimonial-container,
     .references-container {
         margin: 1rem 0 !important;
+    }
+
+    .public-speaking img {
+        max-width: 100%;
     }
 }
 

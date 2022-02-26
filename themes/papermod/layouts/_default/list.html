@@ -56,8 +56,8 @@
 
 <article class="{{ $class }}">
   <a aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
-    <header class="entry-header">
-      <h2>
+    <header>
+      <h2 class="subtitle">
         {{- .Title }}
         {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
       </h2>
