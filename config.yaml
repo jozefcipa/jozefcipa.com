@@ -9,6 +9,9 @@ googleAnalytics: 'UA-89527096-1'
 taxonomies:
   tags: tags
 params:
+  description: A backend developer and DevOps enthusiast
+  schema:
+    publisherType: Person
   ShowReadingTime: true
   ShowShareButtons: true
   disableScrollToTop: true

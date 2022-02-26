@@ -1,0 +1,83 @@
+.profile_container {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    margin-top: 5em;
+}
+
+.profile_inner {
+    max-width: calc(var(--nav-width) + var(--gap) * 2);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* TEMPORARY */
+.container div {
+    flex: 1;
+}
+
+.profile_text {
+    font-size: 1.1em;
+}
+
+.profile_text .headline {
+    font-size: 1.3em;
+    margin-bottom: 1em;
+}
+
+.profile_text .headline strong {
+    font-size: 1.5em;
+}
+
+.profile_text .social-icons a svg {
+    width: 34px;
+    height: 34px;
+}
+
+.profile_text a.link {
+    font-weight: 400;
+}
+
+.profile_photo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile_photo img {
+    border-radius: 5px;
+    max-width: 400px;
+}
+
+.profile_photo img.small {
+    display: none;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+.link,
+.post-content p a {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.link:hover,
+.post-content p a:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+
+
+.divider {
+    width: 80px;
+    height: 4px;
+    border-radius: 10px;
+    background: var(--color-primary);
+    margin: 2em 0 .5em;
+}

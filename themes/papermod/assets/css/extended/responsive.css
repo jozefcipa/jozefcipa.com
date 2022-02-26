@@ -1,0 +1,82 @@
+@media screen and (max-width: 950px) {
+    .profile_inner .container {
+        flex-direction: column;
+        flex-flow: column-reverse;
+    }
+
+    .profile_photo {
+        margin-bottom: 5em;
+    }
+
+    .profile_photo img {
+        display: none;
+    }
+
+    .profile_photo img.small {
+        display: block;
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .page-header h1,
+    .post-title {
+        font-size: 30px;
+    }
+
+    .work-section h2,
+    .entry-header h2 {
+        font-size: 1.2em !important;
+    }
+
+    .work-section .description,
+    .testimonial-container blockquote {
+        font-size: .9em !important;
+    }
+
+    .work-section .technologies {
+        font-size: .8em !important;
+    }
+
+    .contact-container {
+        font-size: 1.1em !important;
+    }
+
+    .references {
+        height: 30px !important;
+    }
+
+    .references.smaller {
+        height: 20px !important;
+    }
+
+    .references-container div img {
+        margin: .5rem !important;
+    }
+
+    .testimonial-container,
+    .references-container {
+        margin: 1rem 0 !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .nav > div {
+        flex-direction: column;
+    }
+
+    #menu {
+        margin: .5em 0;
+    }
+
+    .testimonial-container blockquote {
+        margin: 0;
+    }
+
+    .testimonial-container blockquote:before {
+        top: -70px !important;
+        left: -3px !important;
+    }
+}

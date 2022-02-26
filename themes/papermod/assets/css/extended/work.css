@@ -1,0 +1,85 @@
+.work-section {
+    margin: var(--gap) 0;
+}
+
+.work-section h2 {
+    font-size: 1.5em;
+}
+
+.work-section em {
+    color: var(--secondary);
+    font-size: .8em;
+}
+
+.work-section .technologies {
+    font-size: .9em;
+    margin-bottom: var(--content-gap);
+    color: var(--font-gray);
+}
+
+.references-container {
+    margin: 2em 0;
+    background: #fff;
+    padding: .5em 0;
+}
+
+.references {
+    filter: grayscale(1);
+    opacity: .3;
+    height: 50px;
+}
+
+.references.smaller {
+    height: 30px;
+}
+
+.references-container h3 {
+    text-align: center;
+    font-size: 1em;
+    color: #000;
+    font-weight: 400;
+    margin-bottom: .5em;
+}
+
+.testimonial-container {
+    margin: 2em 0;
+}
+
+.references-container div {
+    text-align: center;
+}
+
+.references-container div img {
+    display: inline-block;
+    margin: 1rem;
+}
+
+.testimonial-container blockquote {
+    font-size: 1em;
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'Roboto Serif', serif;
+    position: relative;
+    text-align: justify;
+}
+
+.testimonial-container blockquote:before {
+    content: '“';
+    position: absolute;
+    top: -45px;
+    left: -45px;
+    font-size: 5em;
+}
+
+.testimonial-container .author {
+    font-size: .85em;
+    text-align: center;
+    font-style: italic;
+    color: var(--font-gray);
+}
+
+.contact-container {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 1em 0 3em;
+}
