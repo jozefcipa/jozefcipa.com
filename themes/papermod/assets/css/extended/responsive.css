@@ -4,8 +4,12 @@
         flex-flow: column-reverse;
     }
 
+    .profile_container {
+        margin-top: 3em;
+    }
+
     .profile_photo {
-        margin-bottom: 5em;
+        margin-bottom: 3em;
     }
 
     .profile_photo img {
@@ -31,7 +35,12 @@
     }
 
     .work-section .description,
-    .testimonial-container blockquote {
+    .testimonial-container blockquote,
+    .about-me,
+    .public-speaking,
+    .entry-content,
+    .post-content,
+    .profile-text {
         font-size: .9em !important;
     }
 
@@ -55,23 +64,12 @@
         margin: .5rem !important;
     }
 
-    .testimonial-container,
     .references-container {
         margin: 1rem 0 !important;
     }
 
-    .public-speaking img {
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .nav > div {
-        flex-direction: column;
-    }
-
-    #menu {
-        margin: .5em 0;
+    .testimonial-container {
+        margin-top: 4.5em !important;
     }
 
     .testimonial-container blockquote {
@@ -81,5 +79,19 @@
     .testimonial-container blockquote:before {
         top: -70px !important;
         left: -3px !important;
+    }
+
+    .public-speaking img {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .nav > div {
+        flex-direction: column;
+    }
+
+    #menu {
+        margin: .5em 0;
     }
 }

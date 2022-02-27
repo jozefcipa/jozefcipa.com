@@ -19,25 +19,25 @@
     flex: 1;
 }
 
-.profile_text {
+.profile-text {
     font-size: 1.1em;
 }
 
-.profile_text .headline {
+.profile-text .headline {
     font-size: 1.3em;
     margin-bottom: 1em;
 }
 
-.profile_text .headline strong {
+.profile-text .headline strong {
     font-size: 1.5em;
 }
 
-.profile_text .social-icons a svg {
+.profile-text .social-icons a svg {
     width: 34px;
     height: 34px;
 }
 
-.profile_text a.link {
+.profile-text a.link {
     font-weight: 400;
 }
 
