@@ -1,0 +1,65 @@
+baseURL: 'https://jozefcipa.com'
+languageCode: en-us
+title: Jozef Cipa
+theme: papermod
+enableRobotsTXT: true
+paginate: 10
+summaryLength: 50
+googleAnalytics: 'UA-89527096-1'
+taxonomies:
+  tags: tags
+params:
+  description: A backend developer and DevOps enthusiast
+  schema:
+    publisherType: Person
+  ShowReadingTime: true
+  ShowShareButtons: true
+  disableScrollToTop: true
+  profileMode:
+    enabled: true
+  socialIcons:
+    - name: linkedin
+      url: 'https://linkedin.com/in/jozefcipa'
+    - name: twitter
+      url: 'https://twitter.com/jozef_cipa'
+    - name: github
+      url: 'https://github.com/jozefcipa'
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
+    - identifier: work
+      name: Work
+      url: /work
+      weight: 2
+    - identifier: about
+      name: About
+      url: /about
+      weight: 3
+    - identifier: blog
+      name: Blog
+      url: /blog
+      weight: 4
+privacy:
+  disqus:
+    disable: false
+  googleAnalytics:
+    anonymizeIP: true
+    disable: false
+    respectDoNotTrack: false
+    useSessionStorage: false
+  instagram:
+    disable: false
+    simple: false
+  twitter:
+    disable: false
+    enableDNT: false
+    simple: false
+  vimeo:
+    disable: false
+    simple: false
+  youtube:
+    disable: false
+    privacyEnhanced: true

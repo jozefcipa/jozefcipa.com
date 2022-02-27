@@ -1,0 +1,24 @@
+
+
+.public-speaking {
+    margin: 3em 0;
+}
+
+.public-speaking .subtitle {
+    margin-bottom: .5em;
+}
+
+.public-speaking ul {
+    padding-left: 1.5em;
+}
+
+.public-speaking div {
+    margin: 3em 0;
+    font-size: .9em;
+    font-style: italic;
+}
+
+.public-speaking img {
+    max-width: 70%;
+    margin: 0 auto;
+}

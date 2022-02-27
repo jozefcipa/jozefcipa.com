@@ -1,9 +1,4 @@
-.cache/
-.firebase/
-node_modules/
 .idea/
-.firebaserc
-database.rules.json
-firebase.json
 public/*
-!public/.gitkeep
+resources/_gen
+.hugo_build.lock
