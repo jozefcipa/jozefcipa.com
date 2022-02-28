@@ -10,6 +10,8 @@ taxonomies:
   tags: tags
 params:
   description: A backend developer and DevOps enthusiast
+  images:
+    - assets/meta-preview.jpg
   schema:
     publisherType: Person
   ShowReadingTime: true
