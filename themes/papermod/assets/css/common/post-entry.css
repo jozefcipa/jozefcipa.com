@@ -53,14 +53,14 @@
     display: none;
 }
 
-.entry-header h2 {
-    font-size: 1.5em;
+.entry-header h2, {
+    font-size: 16px;
 }
 
 .entry-content {
     margin: 8px 0;
     color: var(--secondary);
-    font-size: 1em;
+    font-size: 16px;
     line-height: 1.6;
     overflow: hidden;
     display: -webkit-box;
