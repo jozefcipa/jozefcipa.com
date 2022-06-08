@@ -434,6 +434,11 @@ h6:hover .anchor {
     background: rgb(241, 241, 239);
 }
 
+.dark .callout {
+    background: rgba(241, 241, 239, 0.5);
+    color: #fff;
+}
+
 .icon {
 	display: inline-block;
 	max-width: 1.2em;
