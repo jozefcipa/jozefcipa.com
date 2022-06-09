@@ -417,6 +417,16 @@ h6:hover .anchor {
 	padding: 0 1em;
 }
 
+@media all and (max-width: 600px) {
+    .column {
+        width: 100% !important;
+        padding: 0;
+    }
+    .column-list {
+        flex-direction: column;
+    }
+}
+
 .column:first-child {
 	padding-left: 0;
 }
