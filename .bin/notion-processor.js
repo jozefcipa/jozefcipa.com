@@ -41,7 +41,15 @@ function processHTML(body, dom) {
     // add loading="lazy" to images
     const images = body.getElementsByTagName('img')
     for (const image of images) {
-        image.setAttribute('loading', 'lazy')
+        const imageSrc = image.getAttribute('src')
+        const imageUrlParts = imageSrc.split('/')
+        const imageName = imageUrlParts.pop()
+        const previewImageSrc = imageUrlParts.join('/') + '/previews/' + imageName
+
+        image.setAttribute('data-src', imageSrc)
+        image.setAttribute('src', previewImageSrc)
+        image.classList.add('lazyload')
+        // image.setAttribute('loading', 'lazy')
     }
 
     return body.innerHTML
