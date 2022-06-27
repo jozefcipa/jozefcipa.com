@@ -484,6 +484,10 @@ figcaption {
     margin-top: -5px;
 }
 
+.dark figcaption {
+    color: #fff;
+}
+
 iframe {
     width: 100%;
     min-height: 500px;
