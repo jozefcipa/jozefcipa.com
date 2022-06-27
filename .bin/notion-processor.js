@@ -27,8 +27,12 @@ function processHTML(body, dom) {
     header.parentNode.removeChild(header)
 
     // Process <a> links
+
     const links = body.getElementsByTagName('a')
     for (const link of links) {
+        // for some reason Notion URL encodes URLs so they don't work anymore
+        link.href = decodeURI(link.href)
+
         // Replace Google maps links with iframes
         // Notion for some reason exports Google maps as <a> elements
         if (link.href.startsWith('https://www.google.com/maps')) {
@@ -39,18 +43,18 @@ function processHTML(body, dom) {
     }
 
     // add loading="lazy" to images
-    const images = body.getElementsByTagName('img')
-    for (const image of images) {
-        const imageSrc = image.getAttribute('src')
-        const imageUrlParts = imageSrc.split('/')
-        const imageName = imageUrlParts.pop()
-        const previewImageSrc = imageUrlParts.join('/') + '/previews/' + imageName
-
-        image.setAttribute('data-src', imageSrc)
-        image.setAttribute('src', previewImageSrc)
-        image.classList.add('lazyload')
-        // image.setAttribute('loading', 'lazy')
-    }
+    // TODO: make this optional, only if enabled, turned off by default
+    // const images = body.getElementsByTagName('img')
+    // for (const image of images) {
+    //     const imageSrc = image.getAttribute('src')
+    //     const imageUrlParts = imageSrc.split('/')
+    //     const imageName = imageUrlParts.pop()
+    //     const previewImageSrc = imageUrlParts.join('/') + '/previews/' + imageName
+    //
+    //     image.setAttribute('data-src', imageSrc)
+    //     image.setAttribute('src', previewImageSrc)
+    //     image.classList.add('lazyload')
+    // }
 
     return body.innerHTML
 }
@@ -96,10 +100,10 @@ ${yaml.dump({
 
 // TODO: we will need to get this from Notion
 // these are request parameters
-const fileName = 'notion-9d00f2fb183743f3933478da5b446c39' // second part of the URL string
-const title = 'Travelling around Argentina'
-const slug = 'traveling-around-argentina' // first part of the URL string
-const tags = ['travelling']
+const fileName = 'notion-430360d33b1c462dba7b276277e80a9d' // second part of the URL string
+const title = 'Why use multiple unsubscribe groups when sending emails'
+const slug = 'why-use-multiple-unsubscribe-groups-when-sending-emails' // first part of the URL string
+const tags = ['today-i-learned']
 
 ;(async (filePath) => {
     if (!filePath) {
