@@ -61,14 +61,14 @@ h1 {
 }
 
 .link,
-.post-content p a {
+.post-content a {
     color: var(--color-primary);
     font-weight: 500;
     text-decoration: underline;
 }
 
 .link:hover,
-.post-content p a:hover {
+.post-content a:hover {
     color: var(--color-secondary);
     text-decoration: underline;
 }
