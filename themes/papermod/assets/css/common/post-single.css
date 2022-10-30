@@ -71,12 +71,6 @@
     font-size: 12px;
 }
 
-.post-content a code {
-    margin: auto 0;
-    border-radius: 0;
-    box-shadow: 0 -1px 0 var(--primary) inset;
-}
-
 .post-content del {
     text-decoration: none;
     background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50%/1px 1px repeat-x;
@@ -417,6 +411,16 @@ h6:hover .anchor {
 	padding: 0 1em;
 }
 
+@media all and (max-width: 600px) {
+    .column {
+        width: 100% !important;
+        padding: 0;
+    }
+    .column-list {
+        flex-direction: column;
+    }
+}
+
 .column:first-child {
 	padding-left: 0;
 }
@@ -432,6 +436,11 @@ h6:hover .anchor {
 
 .callout.block-color-gray_background {
     background: rgb(241, 241, 239);
+}
+
+.dark .callout {
+    background: rgba(241, 241, 239, 0.5);
+    color: #fff;
 }
 
 .icon {
@@ -467,6 +476,10 @@ figcaption {
     padding-bottom: 6px;
     padding-left: 2px;
     margin-top: -5px;
+}
+
+.dark figcaption {
+    color: #fff;
 }
 
 iframe {
