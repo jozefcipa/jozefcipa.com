@@ -1,0 +1,25 @@
+{
+  "name": "jozefcipa.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "notion-processor.js",
+  "dependencies": {
+    "front-matter": "^4.0.2",
+    "js-yaml": "^4.1.0",
+    "jsdom": "^19.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jozefcipa/jozefcipa.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jozefcipa/jozefcipa.com/issues"
+  },
+  "homepage": "https://github.com/jozefcipa/jozefcipa.com#readme"
+}
