@@ -100,10 +100,10 @@ ${yaml.dump({
 
 // TODO: we will need to get this from Notion
 // these are request parameters
-const fileName = 'notion-430360d33b1c462dba7b276277e80a9d' // second part of the URL string
-const title = 'Why use multiple unsubscribe groups when sending emails'
-const slug = 'why-use-multiple-unsubscribe-groups-when-sending-emails' // first part of the URL string
-const tags = ['today-i-learned']
+const fileName = 'notion-bd51ae64941a4245a8a8ee473f29623d' // second part of the URL string
+const title = 'Database locks, lost updates and idempotency'
+const slug = 'database-locks-lost-updates-and-idempotency' // first part of the URL string
+const tags = ['api', 'databases', 'nodejs']
 
 ;(async (filePath) => {
     if (!filePath) {
