@@ -1,14 +1,14 @@
 {
     "redirects": [
       {
-        "source": "/:path*",
+        "source": "/",
         "has": [
           {
             "type": "host",
             "value": "blog.jozefcipa.com"
           }
         ],
-        "destination": "/blog"
+        "destination": "https://jozefcipa.com/blog"
       }
     ]
   }
