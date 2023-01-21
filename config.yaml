@@ -5,7 +5,7 @@ theme: papermod
 enableRobotsTXT: true
 paginate: 10
 summaryLength: 30
-googleAnalytics: 'UA-89527096-1'
+# googleAnalytics: 'UA-89527096-1'
 taxonomies:
   tags: tags
 params:
@@ -44,24 +44,3 @@ menu:
       name: Blog
       url: /blog
       weight: 4
-privacy:
-  disqus:
-    disable: false
-  googleAnalytics:
-    anonymizeIP: true
-    disable: false
-    respectDoNotTrack: false
-    useSessionStorage: false
-  instagram:
-    disable: false
-    simple: false
-  twitter:
-    disable: false
-    enableDNT: false
-    simple: false
-  vimeo:
-    disable: false
-    simple: false
-  youtube:
-    disable: false
-    privacyEnhanced: true
