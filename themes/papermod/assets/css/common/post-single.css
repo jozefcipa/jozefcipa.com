@@ -193,6 +193,7 @@
     background: var(--code-bg);
     border-radius: 4px;
     color: #EB5757;
+    font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
 }
 
 .post-content pre code {
@@ -200,8 +201,8 @@
     margin: auto 0;
     padding: 10px;
     color: rgb(213, 213, 214);
-    background: 0 0;
-    border-radius: 0;
+    background: #1f2937;
+    border-radius: 5px;
     overflow-x: auto;
     word-break: break-all;
 }
@@ -493,4 +494,23 @@ iframe {
 /* Notion generates separate <ul> for each item so let's remove margins between those <ul> */
 ul.bulleted-list {
     margin-bottom: 0;
+}
+
+
+/* Line numbers in code */
+.post-content table th,
+.post-content table:not(.highlighttable,.highlight table,.gist .highlight) td {
+    padding: 0 !important;
+    border-bottom: none;
+    width: 30px;
+    min-width: 30px;
+}
+
+.hljs-ln-n {
+    font-size: .9em;
+    color: rgb(107 114 128);
+}
+
+table.hljs-ln {
+    margin: 0;
 }

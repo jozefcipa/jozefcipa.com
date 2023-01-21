@@ -1,6 +1,6 @@
 .hljs-comment,
 .hljs-quote {
-    color: #b6b18b;
+    color: rgb(156, 163, 175);
 }
 
 .hljs-deletion,
@@ -33,17 +33,17 @@
 .hljs-bullet,
 .hljs-string,
 .hljs-symbol {
-    color: #4fb4d7;
+    color: rgb(134, 239, 172);
 }
 
 .hljs-section,
 .hljs-title {
-    color: #78bb65;
+    color: rgb(125, 211, 252);
 }
 
 .hljs-keyword,
 .hljs-selector-tag {
-    color: #b45ea4;
+    color: rgb(94, 234, 212);
 }
 
 .hljs {
