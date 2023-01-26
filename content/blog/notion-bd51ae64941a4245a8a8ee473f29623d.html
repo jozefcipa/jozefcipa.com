@@ -1,0 +1,312 @@
+---
+title: Database locks, lost updates and idempotency
+tags:
+  - api
+  - databases
+  - nodejs
+date: '2023-01-26T23:14:39.327Z'
+slug: database-locks-lost-updates-and-idempotency
+draft: false
+---
+
+<article id="bd51ae64-941a-4245-a8a8-ee473f29623d" class="page sans"><div class="page-body"><p id="6d43d8dd-d2c0-4f39-84dd-e5b08bcff029" class="">
+</p><p id="33901ee6-d803-4061-826f-3c3407d945eb" class="">Web applications are often complex systems consisting of several parts such as UI (frontend), API (backend), database and often other 3rd party services that the application depends on. Designing the API service properly so it’s robust, secure, and works as expected goes without saying but sometimes there are other factors that should be considered and handled adequately.</p><p id="e950d876-a626-49d2-8d69-25d03ef64230" class="">One of them is <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>concurrency &amp; duplication</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>. It is important to know about it and be aware of the challenges it entails and how to deal with them. In this article, we will look at three situations in which our API would normally work just fine but would encounter issues once concurrent or duplicate requests would come in.</p><h2 id="896a7ec0-ea3b-4fa9-9d7a-cce23a622c0d" class="">Where’s my data?</h2><p id="48a31ac3-3506-402b-b610-250c46cce438" class="">Imagine a situation where you’re working as a copywriter at a company. As part of your job, you prepare posts for the company blog and also proofread the posts written by employees. One day an employee wrote a new post and asked you to review it. As you started reading it you noticed a typo. </p><blockquote id="b69189b6-acaa-40be-be9f-be7d65ff4c28" class=""><em>The quick brown fox </em><em><strong>jmps</strong></em><em> over the lazy dog</em></blockquote><p id="ae5fd2e4-64d3-41a5-99ce-171bf233167d" class="">Naturally, you’re going to correct it and save the post, so it would look like this.</p><blockquote id="cd53ca91-2598-46e3-90ee-1797d0890e8c" class=""><em>The quick brown fox </em><em><strong>jumps</strong></em><em> over the lazy dog</em></blockquote><p id="35df11d1-c5ce-43d7-9ba2-95ae39e70f12" class="">But at the same time as you’re reviewing the article, that employee was reading it as well and realized that they forgot to add something important. </p><blockquote id="814c85ed-855a-47f2-89d9-9e124c1dc7e8" class=""><em>The quick brown fox jmps over the lazy dog
+</em><em><strong>Sphinx of black quartz, judge my vow</strong></em></blockquote><p id="faef9927-86cf-45e2-a04d-2d629ca6e852" class="">So they went ahead, added it and saved the article. Now, since the employee saved the article later, it would look like this</p><blockquote id="a365ccf8-3308-4cd5-b74a-770b3e3ea276" class=""><em>The quick brown fox </em><strong><em>jmps</em></strong><em> over the lazy dog
+</em><em><strong>Sphinx of black quartz, judge my vow</strong></em></blockquote><p id="60a0bcfc-c3ec-4806-8362-73c8921c4af2" class="">As you noticed, the missing sentence was added but the typo that had been fixed by you reappeared again. This is known as the <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>lost update</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> problem (also referred to as “mid-air collisions”).</p><p id="f03c016a-7be5-430b-9402-356cb39fd0a9" class="">The reason for that is simple - since both of you had a loaded version of the article, when you updated it, the employee’s version had inherently become outdated. Now, if they then updated the article by adding the missing text, they would only save their changes while the rest would remain the same as it was when the article was first loaded (therefore rewriting all changes published by you in the meantime).</p><p id="d752bbe2-ebb7-4369-9a80-556b3ceda4c5" class="">This problem can be avoided by using <strong><strong><strong><strong>ETag</strong></strong></strong></strong>. ETag is an HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">header</a> that identifies a specific version of the content. Its value is not strictly defined and can be anything the user prefers, but usually, it’s a document hash (e.g. <code>3da5415599</code>), modification timestamp (e.g. <code>1672443352</code>) or a simple revision number (e.g. <code>1</code>, <code>v1</code>, <code>v1.1</code>).</p><p id="1d7fb03c-1543-4de9-84a1-cb2ef2b11fda" class="">The idea here is that every time a post is created or updated, the API generates an ETag string for it that represents the current revision. This value is then stored and returned as a header to the client whenever it asks for the given post. </p><p id="f0f5fa02-05c3-47ca-b366-10f357fc78ff" class="">Let’s write a simple Node.js API that just returns some mocked data and sets the <code>ETag</code> HTTP header so we can see how it works.</p><p id="0d14d99c-3124-4c75-8478-c5d22e24d6bb" class="">
+</p><pre id="d4a9c817-32fd-4619-9e49-7c2313311fdc" class="code"><code>import Koa from 'koa'
+import Router from 'koa-router'
+import { koaBody } from 'koa-body'
+import { createHash } from 'crypto'
+
+const app = new Koa()
+const router = new Router()
+
+function createVersionHash(data) {
+    return createHash('md5').update(data).digest('hex')
+}
+
+const demoText = 'The quick brown fox jmps over the lazy dog'
+const demoPost = {
+    id: 1,
+    text: demoText,
+    etag: createVersionHash(demoText),
+}
+
+router.get('/api/posts/:id', ctx =&gt; {
+    ctx.set('ETag', demoPost.etag)
+    ctx.body = demoPost
+})
+
+app.use(koaBody())
+app.use(router.routes())
+app.listen(3000)</code></pre><p id="49730d3e-0169-4023-9e7b-0cad2cc9f1a6" class="">
+</p><p id="ff6c79c0-c38c-4484-8960-7b0e6af70385" class="">If we run the script and call the endpoint, we will see that the ETag header is being set and returned in the response.</p><p id="64505e19-3585-4e1d-9dd9-ee70410b1757" class="">
+</p><pre id="2faf58aa-f814-4dbd-bedb-eeee377e7863" class="code"><code>$ curl -i http://localhost:3000/api/posts/1
+
+HTTP/1.1 200 OK
+ETag: 961248836f12bcd8fada83b5ac06a7de
+Content-Type: application/json; charset=utf-8
+Content-Length: 182
+
+{
+  "id": 1,
+  "text": "The quick brown fox jmps over the lazy dog",
+}</code></pre><p id="a74a0e80-e18c-4311-8b96-e1740ae03071" class="">
+</p><p id="dd7dcb8b-ed69-4c57-b64d-ab8edbdaa478" class="">Now, if the client wants to update the post, it will send the updated content along with the ETag header (<code>If-Match: "&lt;etag value&gt;"</code> <em>note, that according to the </em><em><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match#directives">specification</a></em><em> the ETag value is placed between double quotes</em>) to the API.</p><p id="28418838-6012-4eb1-8850-51053b383e91" class="">The server first checks the header and validates it against the value stored in the database. If it matches, the request can proceed, otherwise, the ETag is outdated and some other change has been made meanwhile. Therefore, the request gets rejected, usually, with HTTP error <code>412 Precondition Failed</code>. The client needs to resolve this situation by fetching the post again, thus retrieving the latest version.</p><p id="3213c963-e6ca-408b-b708-942881916386" class="">
+</p><p id="5b24b92b-7b7b-41bc-8e3f-bcdd1f8563e8" class="">Let’s add another endpoint that will handle updating of posts.</p><p id="7762ddf5-440e-40cd-9986-687e48eaf587" class="">
+</p><pre id="7827c3f6-5791-4eba-8ca5-888ec38c6f27" class="code"><code>// ...
+
+router.put('/api/posts/:id', ctx =&gt; {
+    const etagMatch = ctx.request.headers['if-match']?.replace('"', '')
+    if (!etagMatch) {
+        ctx.status = 400 // Bad Request
+        ctx.body = { err: 'ETag is missing' }
+        return
+    }
+    if (etagMatch !== post.etag) {
+        ctx.status = 412 // Precondition Failed
+        ctx.body = { err: 'ETag mismatch' }
+        return
+    }
+
+    // received ETag matches the saved one, we can proceed
+    // update the post
+    demoPost.text = ctx.request.body.text
+    demoPost.etag = createVersionHash(demoPost.text)
+
+    ctx.set('ETag', demoPost.etag)
+    ctx.body = demoPost
+})
+
+// ...</code></pre><p id="f12243f6-4610-4836-9ba6-bebe8b3d8040" class="">
+</p><p id="131484eb-9f4c-41ab-a00e-2fb7c81fc2af" class="">If we look at this example, we can see how the first update went through seamlessly, but if we try to update the content again, we get an error.</p><p id="94bbcfd5-d37c-4363-8f2b-c5fb26c522e5" class="">
+</p><pre id="4773869d-8d3c-4056-bd2c-9cc443d6b792" class="code"><code>$ curl -i -X PUT http://localhost:3000/api/posts/1 \
+  -H 'If-Match: "edd34addba369ecc64c071cfff2fee78"' \
+  -H 'Content-Type: application/json' \
+  -d '{"text": "The quick brown fox jumps over the lazy dog"}'
+
+HTTP/1.1 200 OK
+ETag: 9e107d9d372bb6826bd81d3542a419d6
+Content-Type: application/json; charset=utf-8
+Content-Length: 182
+
+{
+  "id": 1,
+  "text": "The quick brown fox jumps over the lazy dog"
+}</code></pre><p id="2808296c-f2e4-45ef-96dc-d5fbe1987956" class="">
+</p><p id="f5c30092-c460-4a5f-877a-d18119f4b446" class="">The update went through successfully and returned a new version of the ETag (<code>9e107d9d372bb6826bd81d3542a419d6</code>) in the response. Now, the employee is sending their update too. This will fail as the ETag is no longer actual (the employee’s browser doesn’t know about the update, therefore it still uses the outdated <code>961248836f12bcd8fada83b5ac06a7de</code> ETag).</p><p id="363a2723-b8e0-4060-969e-050af9f98d6f" class="">
+</p><pre id="e4c54eea-e181-483b-b50c-5d2a2756ae6c" class="code"><code>$ curl -i -X PUT http://localhost:3000/api/posts/1 \
+  -H 'If-Match: "961248836f12bcd8fada83b5ac06a7de"' \
+  -H 'Content-Type: application/json' \
+  -d '{"text": "The quick brown fox jmps over the lazy dog\nSphinx of black quartz, judge my vow"}'
+
+HTTP/1.1 412 Precondition Failed
+Content-Type: application/json; charset=utf-8
+Content-Length: 23
+
+{
+  "err": "ETag mismatch"
+}</code></pre><p id="678e8e08-cb5b-4860-aa18-97718ff9359e" class="">
+</p><p id="467929f4-de51-4147-bbe4-4548a8d53067" class="">As you can see, by utilizing ETags we can easily prevent lost updates and overwrites between concurrent users.</p><p id="8d851a85-f94f-4f81-80d8-6401a07bf1a4" class="">This approach is called <a href="https://en.wikipedia.org/wiki/Optimistic_concurrency_control"><strong><strong><strong><strong><strong>optimistic concurrency control</strong></strong></strong></strong></strong></a><strong><strong><strong><strong><strong>.</strong></strong></strong></strong></strong> Instead of relying on locks, each transaction before committing first verifies that no other transaction has modified the data it has read. This is great for applications <strong>where conflicts are rare </strong>but not so good when they happen often as it might have huge performance implications. </p><p id="a40aa580-185f-476f-9b78-fb861a4e78bc" class="">
+</p><p id="c2ae21b3-93ad-4340-aab0-cd0f9d4cff6f" class=""><strong>Note:</strong> ETag-s are also used for <strong>caching resources</strong>, where the client (browser) sends the ETag with the request to the server by using <code>If-None-Match: &lt;etag value&gt;</code> header and the server only returns the content if the version on the server doesn’t match the one sent in the request.</p><h2 id="42a92de4-c6a6-4e64-83e4-54d8a7be0e9e" class="">Don’t charge me twice!</h2><p id="d99e758e-0030-4578-ab1a-b9917b8fdb6f" class="">Imagine a different story <em>- </em>You’re traveling in a car and while sitting in the back, you decide to pass the time by browsing your favorite e-shop website. Suddenly you spot a great deal so you don’t hesitate and make an order right away. Right about that time when you press the buy button, the car enters a tunnel and your cell connection is abruptly interrupted. After a few seconds, you’re out of the tunnel, the connection gets back and so you press the buy button again (or reload the website) to confirm the order. Next thing you notice, your bank account has been charged twice. How is that possible?</p><p id="6c4c5015-0f38-4838-9acd-d3c1979e7dda" class="">Well, you accidentally created two orders, as the first time, when the connection got interrupted, your website froze on the shopping cart screen and didn’t receive the order confirmation from the server. Therefore, you naturally pressed the button again, even though the first request had reached the server before, there was just no way for it to send the result back to your phone.</p><p id="99413a18-9629-46c6-93b1-451d555286bc" class="">This is a well-known edge case situation that must be handled properly, especially when money is involved (!). The solution to this problem is called <strong>idempotency</strong>.</p><p id="4cd3a6cd-e25c-434a-aceb-a625a622f0d0" class="">Idempotency is a mechanism that ensures that the critical API endpoints or other parts of the application <strong>won’t perform the same operation multiple times</strong> when it’s called more than once. It is a crucial part of requests that do some changes, cause side-effects or mutate the state of something that shouldn’t be accidentally changed repeatedly.</p><p id="5121958c-2588-4559-b602-0188409781b9" class="">The above-mentioned story is a good reason for making sure your payment handling logic is designed correctly. We can get inspired by <a href="https://stripe.com/docs/api/idempotent_requests">Stripe</a> which describes this approach very nicely. However, payment systems are not the only area where idempotency is useful. <a href="https://shopify.dev/api/usage/idempotent-requests">Shopify</a>, for instance, uses it to secure the flow of creating e-shop orders. It can even be used to properly sync data <a href="https://www.fivetran.com/blog/idempotence-failure-proofs-data-pipeline">pipelines</a> or to <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">avoid spinning up</a> more AWS EC2 instances than intended.</p><h3 id="55eb3105-24b0-4273-9409-fc668acfa6fe" class="">How<strong> does it work?</strong></h3><p id="7e319ca8-825c-45df-8a96-37bba8e766fb" class="">The key is in marking a request with a unique identifier so the API can keep track of it and decide what to do if the request has been seen before. Generally, this is done by sending a custom HTTP header, typically known as <code>Idempotency-Key</code>. The value is arbitrarily defined by the client - it can be something that specifically represents the user session, such as a shopping cart ID or even a random string. <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>s are often used in this case.</p><p id="79dd0db0-7806-4d60-9d20-4896eb1fb9f9" class="">If the API is configured to be idempotent, it always checks whether a request includes the idempotency header. If the header is present and there hasn’t been a request with such a key yet, it tries to proceed with the request as usual and records the idempotency key.</p><p id="2a5d9edb-dbfc-49ca-bb46-ee854c20970d" class="">Now, if another request comes in with the same idempotency key, the API looks up the key and returns the same response as in the first request. The API doesn’t perform any business logic that could impact the response. Note, that if the original request resulted in an error, the second request will also return the same error message.</p><p id="27547052-510e-4a63-bb8f-9bdf219728b6" class="">When the API returns a response, some APIs might return an additional header communicating that the request with the provided idempotency key has been already sent and the response is therefore from the first (original) call. Stripe, for instance, returns an <code>Idempotent-Replayed</code> header.</p><p id="b9350e1c-2dd1-43d2-bdad-26dec3ddb7a7" class="">It is a good practice to make idempotency keys expire after some time (e.g. 24 hours, 1 day, 30 days) as the requests become stale anyway and you also won’t bloat your database.</p><p id="ed7da36f-7e7e-46df-97e3-42284a83436a" class="">
+</p><p id="b45c3333-8b89-4366-8e70-6fce123d7bf7" class="">Following what we just said, let’s take a look at the example of how it can look in practice. We have a list of user accounts and a new endpoint that processes payments. As it supports idempotency, we first check if a request is sent with the idempotency key. If it is and the provided key has been already sent before, we just return the original response right away. Otherwise, the API processes the payment request and stores the idempotency key, so all the subsequent requests will get the same response without creating another payment. </p><p id="67496b51-7435-4446-9189-3c5633c1bcdc" class="">
+</p><pre id="1e41e3d8-8903-4ef0-854c-e99ee9331d18" class="code"><code>// ...
+import { randomBytes } from 'crypto'
+
+function generatePaymentId() {
+    return randomBytes(20).toString('hex')
+}
+
+const payments = []
+const userAccounts = {
+    'john.doe@example.org': {
+        email: 'john.doe@example.org',
+        balance: 200,
+    }
+}
+
+router.post('/api/payment', (ctx) =&gt; {
+    const idempotencyKey = ctx.request.headers['idempotency-key']
+    const { sender, amount } = ctx.request.body
+    const userAccount = userAccounts[sender]
+
+    // Check if the idempotencyKey has been used
+    // if so return the existing payment
+    const paymentByIdempotencyKey = idempotencyKey &amp;&amp;
+      payments.find(payment =&gt; payment.idempotencyKey === idempotencyKey)
+    if (paymentByIdempotencyKey) {
+        ctx.set('Idempotent-Replayed', true)
+        ctx.status = paymentByIdempotencyKey.code
+        ctx.body = {
+            payment: paymentByIdempotencyKey,
+            userAccount,
+        }
+        return
+    }
+
+    const payment = {
+        id: generatePaymentId(),
+        sender,
+        amount,
+        idempotencyKey,
+        status: null,
+        code: null
+    }
+
+    // check if sender has money
+    if (userAccount?.balance &gt;= amount) {
+        // subtract amount from user account
+        userAccount.balance -= amount
+        payment.status = 'OK'
+        payment.code = 200
+    } else {
+        payment.status = 'NO_MONEY'
+        payment.code = 400
+    }
+
+    // record payment
+    payments.push(payment)
+    
+    ctx.status = payment.code
+    ctx.body = {
+        payment,
+        userAccount,
+    }
+})
+
+// ...</code></pre><p id="1602486c-b1f9-4dd4-a7a6-44de5015b33f" class="">
+</p><p id="d25bbbb7-c619-45fd-8dfc-5eddc99a6f1b" class="">Now that we have the code ready, let’s try to send a payment request and see how it works. Notice, that here we are just sending a normal request and we don’t include the idempotency key.</p><p id="f50b42ca-5df0-4c59-bc9e-076257e3b3b4" class="">
+</p><pre id="a4772fd8-f7d2-425f-b468-d1f775140790" class="code"><code>$ curl -i -X POST http://localhost:3000/api/payment \
+  -H 'Content-Type: application/json' \
+  -d '{"sender": "john.doe@example.org", "amount": 100}'
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 188
+
+{
+	"payment": {
+		"id":"80f2b3655a23e66573e688ffb01c92a3ca8fba5e",
+		"sender":"john.doe@example.org",
+		"amount":100,
+		"status":"OK",
+		"code":200
+	},
+	"userAccount": {
+		"email":"john.doe@example.org",
+		"balance":100
+	}
+}
+</code></pre><p id="4eeb4d72-6543-4a9c-b0ca-ec6c935aad24" class="">
+</p><p id="d2b5de77-d798-4c5f-8194-767f557efdd6" class="">We can see that the request succeeded, the payment was created, and our account was charged. Let’s send another request and see what happens. </p><p id="876fd9c3-0b1c-4823-975d-2da5329e63aa" class="">
+</p><pre id="f9061dd4-8d17-4b5c-a15f-26b694184742" class="code"><code>$ curl -i -X POST http://localhost:3000/api/payment \
+  -H 'Content-Type: application/json' \
+  -d '{"sender": "john.doe@example.org", "amount": 100}'
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 188
+
+{
+  "payment": {
+    "id":"2803f03514b292b57b210420fd47d504e860084e",
+    "sender":"john.doe@example.org",
+    "amount":100,
+    "status":"OK",
+    "code":200
+  },
+  "userAccount": {
+    "email":"john.doe@example.org",
+    "money":0
+  }
+}
+</code></pre><p id="3f0ed2f2-2893-4ab4-b345-78d81b1e2853" class="">
+</p><p id="9ff1ac70-1113-40ee-bc63-25d07fff8cc9" class="">You can see that a new payment got created again (different payment ID), resulting in charging the user account again, so the <code>userAccount.balance</code> now equals <code>0</code> and we’re out of money. We can verify that by sending the third request.</p><p id="4c47c805-9771-4b2c-bd8e-fe398c34707b" class="">
+</p><pre id="6bc4d192-c6cb-4eda-adda-5c858c66d93e" class="code"><code>$ curl -i -X POST http://localhost:3000/api/payment \
+  -H 'Content-Type: application/json' \
+  -d '{"sender": "john.doe@example.org", "amount": 100}'
+
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+Content-Length: 194
+
+{
+  "payment": {
+    "id":"7b3c8c6c892857a5767b014fd7d4a0531ff80711",
+    "sender":"john.doe@example.org",
+    "amount":100,
+    "status":"NO_MONEY",
+    "code":400
+  },
+  "userAccount": {
+    "email":"john.doe@example.org",
+    "money":0
+  }
+}</code></pre><p id="2cb4f8d8-dc58-4908-a367-8bc5a20a7414" class="">
+</p><p id="ec94eab7-181f-41ac-a4f3-2a53137c47bc" class="">That would be okay as long as we intended to send two separate payments one after another. But even though we didn’t plan to pay twice, the API created a new payment each time because it had no way of knowing that it was a duplicate request. This is really bad as we just <strong>charged our customer two times </strong>and I can promise you they won’t be happy about that.</p><p id="b478c7b0-b8b3-4fe4-9c61-05129311d36d" class="">This is exactly what the idempotency key solves. Let’s try to send a new request, but this time with the <code>Idempotency-Key</code> header included (<em>don’t forget to restart the server first, as currently, we’re out of money</em>). </p><p id="77ecc527-c66c-4fc3-a729-0ab77695364a" class="">
+</p><pre id="a41f9ce9-deb7-4972-b767-485c907bcfd3" class="code"><code>$ curl -i -X POST http://localhost:3000/api/payment \
+  -H 'Idempotency-Key: 77e76f80-0466-4e83-95bf-bf754eefa37c' \
+  -H 'Content-Type: application/json' \
+  -d '{"sender": "john.doe@example.org", "amount": 100}'
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 244
+
+{
+  "payment":{
+    "id":"91f177563d4a69945d97ddb9f46fa11d4984e948",
+    "sender":"john.doe@example.org",
+    "amount":100,
+    "idempotencyKey":"77e76f80-0466-4e83-95bf-bf754eefa37c",
+    "status":"OK",
+	  "code":200
+  },
+  "userAccount":{
+    "email":"john.doe@example.org",
+    "balance":100
+  }
+}</code></pre><p id="bdfde64d-e1e2-419e-9adf-0e9e6b16841c" class="">
+</p><p id="90359c0d-2a59-4d51-9cd7-cbf798e57ce8" class="">We see that the payment went through seamlessly, just like in the first example - the payment was created and our account got charged. Let’s try to send the request again to see what happens.</p><p id="b95340c1-ff53-4bf0-9a4e-34a6e5fef009" class="">
+</p><pre id="089390c1-0f31-4f7f-b4a6-182380dfa1a9" class="code"><code>$ curl -i -X POST http://localhost:3000/api/payment \
+  -H 'Idempotency-Key: 77e76f80-0466-4e83-95bf-bf754eefa37c' \
+  -H 'Content-Type: application/json' \
+  -d '{"sender": "john.doe@example.org", "amount": 100}'
+
+HTTP/1.1 200 OK
+Idempotent-Replayed: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 244
+
+{
+  "payment":{
+    "id":"91f177563d4a69945d97ddb9f46fa11d4984e948",
+    "sender":"john.doe@example.org",
+    "amount":100,
+    "idempotencyKey":"77e76f80-0466-4e83-95bf-bf754eefa37c",
+    "status":"OK",
+    "code":200
+  },
+  "userAccount":{
+    "email":"john.doe@example.org",
+    "balance":100
+  }
+}</code></pre><p id="f7a3ace6-092c-4b19-9220-5abd306dd520" class="">
+</p><p id="dca592b8-b607-4704-afb9-a4ee2d7eb6a9" class="">As you can see, we got the exactly same result. Notice that the user account’s balance remained <code>100</code>, the <strong>payment ID hasn’t changed</strong> and we even received the <code>Idempotent-Replayed</code> header confirming that the request has been indeed seen before and the API just returned the original payment response instead of creating a new one. This is a very simple yet powerful method that can save you a lot of trouble and debugging in the future.</p><h3 id="066621ae-45b6-4461-bbc2-b6ebf4b0bb3e" class="">Deduplication ID</h3><p id="556139c4-8926-494a-9618-dde7e23c71ec" class="">Not only API endpoints support idempotency. There are other systems that implement this concept too, such as <strong>message queues</strong>. A similar problem might occur there as well when some message gets published multiple times. In this case, a deduplication ID can help. It works very similarly to the idempotency key, in a way that once a message with the specific deduplication ID is published, any messages sent with the same ID won’t be delivered.</p><p id="c65989b5-3770-4881-8934-a4263a214596" class="">This only applies during the deduplication interval which is the same concept as the expiration of idempotency keys, but it’s usually much shorter, 5 minutes in the case of <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">AWS SQS</a>.</p><h2 id="3c3a8c0c-d4ac-467a-bbbb-5539c194fec3" class="">Database transactions</h2><p id="3954591d-fd6d-4c35-9b4f-9f7eb928b635" class="">We talked about two different scenarios where multiple requests may cause issues. To fix them we only needed to send an HTTP header and do some slight changes on the backend. However, some situations require a more sophisticated approach in order to ensure data integrity where using a header is not enough. This is where <strong>SQL</strong> <strong>database transactions</strong> come into play.</p><p id="514b8352-ee7c-459c-bf50-573e5999f68a" class="">Transactions are a mechanism that allows to manipulate with data and secures a transition from one consistent state into another. This is assured by implementing <strong>ACID</strong> principles,</p><ul id="a03fa3b1-c651-4677-9ea8-43ed5bbbab8e" class="bulleted-list"><li style="list-style-type:disc"><strong>Atomic</strong> - a transaction is treated as one unit, if a single query within the transaction fails, then the whole transaction is rolled back. It’s an “all or nothing” approach. This way it ensures that are no inconsistencies or invalid states.</li></ul><ul id="3f21170e-f34b-4219-b9d2-5cf03ff85541" class="bulleted-list"><li style="list-style-type:disc"><strong>Consistent</strong> - transactions respect all existing constraints and foreign references on tables, thus avoiding illegal states.</li></ul><ul id="158cbf80-908f-4bd4-b993-69ff06d7cfd3" class="bulleted-list"><li style="list-style-type:disc"><strong>Isolated</strong> - isolation guarantees that concurrently running transactions won’t interfere with each and the changes made in one won’t affect the other. This is done by using <strong>locks</strong>. The exact behavior and lock strictness can be configured by <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>isolation levels.</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></li></ul><ul id="5616ab39-f68d-4ec4-b11f-8da8d558cc57" class="bulleted-list"><li style="list-style-type:disc"><strong>Durable</strong> - once a transaction succeeds, it is written permanently and will remain in the system, even after a system crash or power outage.</li></ul><h3 id="63957842-3020-4b50-bb29-31c0310e2b67" class=""><strong>Isolation levels</strong></h3><ul id="d3c8bad2-a1c9-46f4-b792-efcb469b9cd5" class="bulleted-list"><li style="list-style-type:disc"><strong>Read uncommitted - </strong>this is the least strict level, which allows <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>dirty reads</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>, i.e. one transaction can see the changes of another even before them being committed. This is <strong>not even implemented</strong> by Postgres<strong><strong><strong><strong><strong>.</strong></strong></strong></strong></strong></li></ul><ul id="fa429c37-43d3-4c33-8259-7cf45eef4f99" class="bulleted-list"><li style="list-style-type:disc"><strong>Read committed -</strong> This is the default isolation level in Postgres. Transactions will only ever read data that has been committed.</li></ul><ul id="b1d91159-0bf6-4cfb-bee3-4c0d64a8b857" class="bulleted-list"><li style="list-style-type:disc"><strong>Repeatable read - </strong>A more strict level, which protects against several phenomena.<ul id="534f0406-98db-4512-b9cf-803256db8240" class="bulleted-list"><li style="list-style-type:circle"><strong>Non-repeatable reads - </strong>If we have two transactions A and B, transaction A reads a row value and gets 100. At the same time, transaction B does some calculation updates the value to 200 and commits. If transaction A now reads the value again, it sees 200. Thus, if the same query is executed multiple times within a transaction, it could return a different value each time.</li></ul><ul id="ca4eef58-6eb0-411b-84f3-160a49c23a7b" class="bulleted-list"><li style="list-style-type:circle"><strong>Phantom reads - </strong>Similar to non-repeatable but with table rows. Transaction A reads the count of rows and gets 3. Transaction B, in the meantime, deletes one row and commits. Transaction A reads the rows count again and gets 2. Phantom reads are caused due to inserts or deletes of rows.</li></ul><ul id="89b7f6cb-6851-490e-9326-0eb14c4a3323" class="bulleted-list"><li style="list-style-type:circle"><strong>Lost updates </strong>- This happens when we start two transactions A and B, the transaction A updates a row value to 10 and commits. Then, transaction B also updates the same row value to 20 and commits. The row value is now 20 and transaction A did a lost update.</li></ul></li></ul><ul id="b1d947db-809c-4571-88b0-b121fcc8a417" class="bulleted-list"><li style="list-style-type:disc"><strong>Serializable - T</strong>he most strict isolation level, concurrent transactions would have the same effect as if they were applied serially, one after another.</li></ul><p id="35b7119b-6336-4949-a0f3-cbd9ac152ae3" class="">
+</p><p id="305d82f3-e533-41e0-bc70-86315c419ac4" class="">If you want to learn more about transactions and isolation levels check out <a href="https://lchsk.com/database-transactions-concurrency-isolation-levels-and-postgresql">this </a>article.</p><h3 id="46c09af9-d1f6-46f9-b023-55934834c7c6" class="">Locking</h3><p id="b3f95e0f-1eda-45fe-be22-9eab217b7ab1" class="">Transactions and some operations performed within them may block each other in order to keep data safe. The blocking is known as locks, and they can be applied either on an entire table, a subset of rows or on an individual row. In such cases, when a lock is held by one transaction, other transactions cannot access or modify the data (depending on the type of the lock).</p><p id="58c4107a-a571-4a25-a117-58d3f0c2ab41" class="">For instance, when we perform two concurrent <code>UPDATE</code> queries on a row, the second transaction must wait until the first one completes. Then, again, depending on the isolation level and the lock type it can either continue or fail.</p><p id="1e36f8be-bd48-4f5f-9c94-8e5747964c5a" class="">While this is enough when updating the data, sometimes it might be necessary to hold the lock longer, for some additional processing. For such cases, <code>SELECT ... FOR UPDATE</code> may be used. It acquires the <code>ROW SHARE</code> lock which conflicts with the <code>ROW EXCLUSIVE</code> lock used by the <code>UPDATE</code> statement, therefore it prevents any changes to the row. That said, any other transactions that will attempt to modify the row or use <em>select for update</em> too, will have to wait until the transaction completes and the lock is released.</p><p id="b1606fd0-364c-4063-8d5a-55c69b622ff3" class="">Sometimes we don’t want to wait for the release of the lock. In this case, we can use <code>SELECT ... FOR UPDATE NOWAIT</code> which will try to acquire the lock and if not available, it will error out immediately. </p><p id="e9323335-51cd-4178-aecc-393effcbb563" class="">There are a few other similar locks, that are beyond the scope of this article but you can get more familiar with them <a href="https://shiroyasha.io/selecting-for-share-and-update-in-postgresql.html">here</a>.</p><h3 id="db504e60-8aad-4f7d-bab5-bdff42f008be" class="">Example situation</h3><p id="465c828f-7d3c-4968-ac32-344e2ef1ee42" class="">To give an example of where locks and transactions can be used, let’s think of the following situation.</p><p id="ba50925a-f797-4464-a7c0-1e86363cf5ca" class="">We have a website that collects users’ emails for further processing and categorization. It uses a 3rd party service that sends <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> anytime a new email is received as well as when there is a problem with the email account. Our app then listens for these webhooks and acts upon them.</p><p id="e918d8da-7ad8-4ab0-bf2a-7d194190b8b2" class="">If for some reason, some webhooks come twice (and it happens!) our app would process the same event two times. This might not be a problem if it’s just about updating a value where duplicate requests won’t make a difference, e.g. <code>accountStatus = connected</code> but when we want to update some counts, send a notification or make some other action, duplicate events become undesired. Imagine you would get two notifications saying that your email account has been connected, not ideal. To fix that, you could use the select for update lock. Here is an example in Sequelize:</p><p id="5c08d820-9a2f-4738-bada-23ef944f978c" class="">
+</p><pre id="2bde680e-2181-4121-bcc5-0294c4c2a1a1" class="code"><code>await sequelize.transaction(async trx =&gt; {
+	// Only one transaction at a time will be able to fetch the user
+	const user = await User.findOne({
+		where: { id: webhook.userId }
+	  lock: transaction.LOCK.UPDATE // SELECT ... FOR UPDATE
+		transaction: trx,
+	})
+
+	if (user.accountStatus !== webhook.userStatus) {
+		// status has changed
+		await user.update({ accountStatus: webhoook.userStatus }, { transaction: trx })
+
+		// send notification ...
+	}
+})</code></pre><p id="9b5a9800-9d07-43fa-9a3a-6d5d2d61b542" class="">
+</p><p id="b24f6446-ddb4-4362-ae73-8d6b5caeb765" class="">Since we used <code>SELECT FOR UPDATE</code> query when two concurrent requests come, only one of them will acquire the lock and the other one will have to wait. Now, the first request sees that the account status has changed, so it updates the user and creates a notification. After that, the database transaction is committed and the second request finally acquires the lock. As it now sees that the status is the same (the previous webhook updated the status already), it will just complete the transaction with no changes.</p><p id="07813f2e-1297-4648-85cf-5155fa9195fd" class="">If we didn’t use this lock mechanism, both transactions would fetch the user, and as they would both see the old status, they would update it and also create a notification. Even though this would result in correct, updated account status, the notification would be duplicated. This is exactly where the select for update command can help us as it holds the lock even after selecting the data from the database so we can execute other commands before committing and releasing the lock.</p><p id="a6e0c680-dbb3-44b4-a8ea-43f539b5c877" class="">A similar result could also be achieved by using the <code>SERIALIZABLE</code> isolation level, but this blocks the whole table instead of just specific rows which could be inefficient and time-consuming.</p><h2 id="883e034b-4e75-4bd8-8af0-ff12ab734f20" class="">Summary</h2><p id="a7cb4bb7-8b4e-45aa-96c2-4e78f47f3c18" class="">In this article, I tried to show you a few things that are good to know about as they might come in handy sometimes. It is definitely not something you would implement every day on every project, but certain scenarios may require additional logic to fix the problems we mentioned. It is important to think about your project in advance, analyze it thoroughly and assess the potential challenges.</p><p id="1c36ff21-ecd2-49d5-ad2c-e41a6636d02b" class="">If you read it all up here you should know that you can utilize ETag to make sure that multiple users won’t accidentally rewrite each other changes. If you’re working with important resources, you can mitigate the risk of making unwanted actions by using idempotency. Database locks and transactions are very important and vast topics on their own. However, by now you should know at least the basics, how they protect data integrity and how you can use them to your benefit.</p></div></article>
