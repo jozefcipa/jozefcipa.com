@@ -3,9 +3,19 @@
 }
 
 .work-section .technologies {
-    font-size: .9em;
+    font-size: .8em;
     margin-bottom: var(--content-gap);
     color: var(--font-gray);
+}
+
+.work-section .subtitle {
+    display: flex;
+    align-items: center;
+}
+
+.work-section .company-icon {
+    width: 40px;
+    margin-right: .3em;
 }
 
 .references-container {
