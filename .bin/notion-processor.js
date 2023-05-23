@@ -100,10 +100,10 @@ ${yaml.dump({
 
 // TODO: we will need to get this from Notion
 // these are request parameters
-const fileName = 'notion-bd51ae64941a4245a8a8ee473f29623d' // second part of the URL string
-const title = 'Database locks, lost updates and idempotency'
-const slug = 'database-locks-lost-updates-and-idempotency' // first part of the URL string
-const tags = ['api', 'databases', 'nodejs']
+const fileName = 'notion-43cc3447bff04a72b67f5f9ba65e29d7' // second part of the URL string
+const title = 'Server-sent events or how ChatGPT typing animation works'
+const slug = 'server-sent-events-or-how-chatgpt-typing-animation-works' // first part of the URL string
+const tags = ['api', 'nodejs', 'reactjs', 'chatgpt']
 
 ;(async (filePath) => {
     if (!filePath) {

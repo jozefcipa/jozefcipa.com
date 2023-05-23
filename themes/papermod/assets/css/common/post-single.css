@@ -194,6 +194,7 @@
     border-radius: 4px;
     color: #EB5757;
     font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+    white-space: pre;
 }
 
 .post-content pre code {
@@ -513,4 +514,8 @@ ul.bulleted-list {
 
 table.hljs-ln {
     margin: 0;
+}
+
+.post-content video {
+    width: 100%;
 }
