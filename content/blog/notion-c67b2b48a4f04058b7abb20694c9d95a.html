@@ -1,0 +1,48 @@
+---
+title: Javascript objects are tricky
+tags:
+  - nodejs
+  - TodayILearned
+date: '2023-09-08T23:55:34.011Z'
+slug: javascript-objects-are-tricky
+draft: false
+---
+
+<article id="c67b2b48-a4f0-4058-b7ab-b20694c9d95a" class="page sans"><div class="page-body"><p id="a5769c96-9a66-4444-aa89-ba4c04d23cf4" class="">I just spent four hours debugging a really weird issue… I’m gonna write it up here as a reminder for my future self, and maybe you’ll find it useful too.</p><p id="c0c66a17-23d3-47ee-9ff1-87f60799f61d" class="">
+</p><p id="be705b72-378d-4afd-acd0-96d297f1d153" class="">I was writing a <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">bag of words</a> script that would process documents stored in the database and afterward store processed data in another table. Everything went smoothly and the script processed over half a million document pages before suddenly I got this really weird error:</p><p id="a68b088a-6636-4e9f-bd97-da970b2bf7fe" class="">
+</p><pre id="8e041a9f-6b50-4c06-a2c7-fafaf82891ab" class="code"><code>invalid input syntax for type integer: "function Object() { [native code] }function Object() { [native code] }1"]</code></pre><p id="dc505bc5-1aa6-465a-a0bb-a2f2025b5a23" class="">
+</p><p id="8d629ba3-ff61-4854-ad47-89a8a4fbc6e8" class="">What the … </p><figure id="fa15c010-79a2-46a9-a367-e1b0aedbbebd" class="image"><a href="https://assets.jozefcipa.com/blog/c67b2b48-a4f0-4058-b7ab-b20694c9d95a/wtf.gif"><img style="width:288px" src="https://assets.jozefcipa.com/blog/c67b2b48-a4f0-4058-b7ab-b20694c9d95a/wtf.gif"></a></figure><p id="27e81200-ebd4-4b64-8ce6-754070fb0e4b" class="">So I started debugging, slowly step by step, I tested the SQL query, added logs, and even checked the input document texts. Until it finally hit me…</p><p id="803848f9-d5da-4cdf-a746-a0fdbfecfa32" class="">If you’ve been working with Javascript for a while, you might know its weird dark secrets. If not, I really recommend this 4-minute <a href="https://www.destroyallsoftware.com/talks/wat">video</a> to get you acquainted.</p><p id="a10110bf-36ea-4ec9-8292-1ab7c6494455" class="">The thing is Javascript behaves <a href="https://dev.to/otamnitram/js-being-odd-some-weird-things-about-javascript-1imj">oddly</a> in some situations and you need to be aware of this. Let’s look at how a bag of words looked in my script.</p><p id="a7f0885b-a038-4478-adc7-e84de37b6477" class="">
+</p><pre id="58f650a8-3109-4d59-8529-b060e006c5ed" class="code"><code>// e.g. John likes to watch movies, Mary likes movies too.
+
+const words = [ ... ]
+
+// Iterate through words and increment their count
+words.reduce((bag, word) =&gt; {
+  bag[word] = bag[word] ? bag[word] + 1 : 1
+}, {})
+
+const bagOfWords = {
+  John: 1,
+  likes: 2,
+  to: 1,
+  watch: 1,
+  movies: 2,
+  Mary: 1,
+  too: 1,
+}</code></pre><p id="0c5d3e64-816a-4970-af4a-5482111624d3" class="">
+</p><p id="309ef961-c106-48a2-8ab7-8da8718e7719" class="">This is the main logic, we parse words from documents and then iterate through them and count their occurrences. This worked well until one tricky document came in. This document contained one important word - “constructor”. So as you can see in the script above, we check if the word already exists in the bag and increment its counter, or otherwise we add it and set the count to 1.</p><p id="d04435d2-7e2e-4c43-b096-705f88069d9b" class="">Now, when you have a typical JS object, you’d assume the following:</p><pre id="a1b5741d-0dd3-4753-9245-a0f3a059e879" class="code"><code>const obj = { John: 1, likes: 2 }
+
+obj['John'] // prints 1
+obj['likes'] // prints 2
+obj['movies'] // prints undefined as the key doesn't exist</code></pre><p id="e66bb553-54ee-4442-898b-34cef1e13294" class="">
+</p><p id="5602b456-481e-47d5-833a-581f40f82b1f" class="">However, when that “constructor” word appeared, the following happened</p><pre id="ff8798fe-5942-4a11-ac87-ca6244d3022d" class="code"><code>const obj = {} // we have an empty object at the beginning
+
+obj['constructor'] // [Function: Object]</code></pre><p id="91db7fd5-6230-4ce3-b71a-e52b2d06d37d" class="">
+</p><p id="8cd94230-171d-405d-af86-889df41ec53b" class="">Wait, what? 🧐</p><p id="1ac6b666-5d07-437b-9a08-47f519b608ff" class="">The trick is in how objects in Javascript are created. When you create a new plain object as <code>const obj = {}</code> in reality this equals to <code>Object.create(Object.prototype)</code>. Prototypes are out of the scope of this post but they’re basically a Javascript way of implementing inheritance. Therefore, when you create an empty object, it already has some functions bound to it.</p><figure id="e3ef6bbe-8ed9-4bf4-9477-48c42b856eb1" class="image"><a href="https://assets.jozefcipa.com/blog/c67b2b48-a4f0-4058-b7ab-b20694c9d95a/empty-object.png"><img src="https://assets.jozefcipa.com/blog/c67b2b48-a4f0-4058-b7ab-b20694c9d95a/empty-object.png"></a></figure><p id="6ceb3a3e-7a16-4901-9a65-dfd8ee2e264c" class="">And thus, <code>obj['constructor']</code> is already defined even in an “empty” object, therefore the database complained because we didn’t set an integer count but actually a <code>function () {} + 1</code>.</p><p id="6ed7915f-9dfd-4243-bb26-305ff6fdcbd4" class="">When I found that I immediately realized how stupid the mistake was, but hey, sometimes things that seem so apparent, aren’t really 🙂.</p><p id="a0645bb5-a1a3-4f78-ac45-aef5797d6b7c" class="">To fix this I could create an object like this, but that’s a bit ugly and weird.</p><pre id="d2802e63-f9d0-44db-be75-39579eb829e4" class="code"><code>const obj = Object.create(null) // doesn't inherit Object.prototype</code></pre><p id="ccbadee6-cc8d-4c9c-9e95-e4dc307f8b32" class="">
+</p><p id="faaac536-9ed8-4968-974f-f5c607f7122e" class="">Luckily, there’s a better way to tackle this. Javascript has <code>Map</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">collection</a> which behaves slightly differently, has other benefits and it’s supposedly even more performant in some cases. And it comes really empty when you initialize it.</p><p id="3ca80ea7-9966-4dfd-9bd9-b3489cdfc7f7" class="">So our example could be rewritten like this:</p><pre id="c68cdd87-0f66-4e4a-8b56-a7cce46dcaac" class="code"><code>const words = new Map()
+
+// Iterate through words and increment their count
+words.reduce((bag, word) =&gt; {
+  bag.set(word, bag.has(word) ? bag.get(word) + 1 : 1)
+}, new Map())</code></pre><p id="98d92c44-161e-4ae6-b0b6-aa21ebb03138" class="">
+</p></div></article>
