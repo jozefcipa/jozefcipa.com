@@ -1,4 +1,4 @@
-.page-header,
+a .page-header,
 .post-header {
     margin: 24px auto var(--content-gap) auto;
 }
@@ -426,13 +426,13 @@ h6:hover .anchor {
     }
 }
 
-.column:first-child {
+/* .column:first-child {
 	padding-left: 0;
 }
 
 .column:last-child {
 	padding-right: 0;
-}
+} */
 
 .callout {
 	border-radius: 3px;

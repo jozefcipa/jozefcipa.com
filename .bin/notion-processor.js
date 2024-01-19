@@ -100,10 +100,10 @@ ${yaml.dump({
 
 // TODO: we will need to get this from Notion
 // these are request parameters
-const fileName = 'notion-c67b2b48a4f04058b7abb20694c9d95a' // second part of the URL string
-const title = 'Javascript objects are tricky'
-const slug = 'javascript-objects-are-tricky' // first part of the URL string
-const tags = ['nodejs', 'TodayILearned']
+const fileName = 'notion-416884af7bfa4ceb96695053cb83444a' // second part of the URL string
+const title = 'Self signed SSL certificates on iOS'
+const slug = 'self-signed-ssl-certificates-on-ios' // first part of the URL string
+const tags = ['devops', 'today-i-learned']
 
 ;(async (filePath) => {
     if (!filePath) {
