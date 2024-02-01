@@ -9,7 +9,7 @@ summaryLength: 30
 taxonomies:
   tags: tags
 params:
-  description: A backend developer and DevOps enthusiast
+  description: A backend developer with passion for IoT and automation
   images:
     - assets/meta-preview.jpg
   schema:
