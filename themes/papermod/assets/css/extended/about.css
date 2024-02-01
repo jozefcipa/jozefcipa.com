@@ -1,4 +1,6 @@
-
+.about-me {
+    margin-top: var(--gap);
+}
 
 .public-speaking {
     margin: 3em 0;

@@ -16,6 +16,7 @@
 .work-section .company-icon {
     width: 40px;
     margin-right: .3em;
+    border-radius: 5px;
 }
 
 .references-container {
