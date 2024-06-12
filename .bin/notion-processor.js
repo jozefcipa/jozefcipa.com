@@ -100,10 +100,10 @@ ${yaml.dump({
 
 // TODO: we will need to get this from Notion
 // these are request parameters
-const fileName = 'notion-1818227beb6746a3b7092c63848c59b9' // second part of the URL string
-const title = 'LaundryAlert - never forget your laundry again'
-const slug = 'laundryalert-never-forget-your-laundry-again' // first part of the URL string
-const tags = ['iot', 'nodejs', 'api', 'frontend', 'databases', 'devops']
+const fileName = 'notion-8a6ba01624e84ce481b998116ab9823d' // second part of the URL string
+const title = 'Introducing Novus - a local HTTPS proxy for better developer experience'
+const slug = 'novus-local-https-proxy-for-better-developer-experience' // first part of the URL string
+const tags = ['api', 'frontend', 'scripting']
 
 ;(async (filePath) => {
     if (!filePath) {

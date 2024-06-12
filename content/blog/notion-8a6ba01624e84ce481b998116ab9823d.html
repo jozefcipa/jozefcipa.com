@@ -1,0 +1,26 @@
+---
+title: Introducing Novus - a local HTTPS proxy for better developer experience
+tags:
+  - api
+  - frontend
+  - scripting
+date: '2024-06-12T22:07:23.030Z'
+slug: novus-local-https-proxy-for-better-developer-experience
+draft: false
+---
+
+<article id="8a6ba016-24e8-4ce4-81b9-98116ab9823d" class="page sans"><div class="page-body"><figure id="3da866e2-aa0f-4ef1-8f16-7709d579a47d" class="image"><a href="https://assets.jozefcipa.com/blog/8a6ba01624e84ce481b998116ab9823d/banner.png"><img style="width:708px" src="https://assets.jozefcipa.com/blog/8a6ba01624e84ce481b998116ab9823d/banner.png"></a></figure><p id="0322d564-e66f-4504-b222-e7ce6d4f69f2" class="">
+</p><p id="d289ecf4-fc3a-4b10-b30a-1fb75436a2e9" class="">Novus is a tiny command-line utility designed to enhance local web development. It consists of several tools to provide production-like web URLs on your local machine in a matter of seconds. You don’t have to bother by figuring out how to configure HTTP server, DNS resolutions or manage SSL certificates. Everything is handled by Novus so you can focus on your work.</p><p id="d83348d2-bd30-4431-9fea-8acac57b40b1" class="">Novus automatically configures everything for you, you just need to define the desired URLs and the respective <a href="http://localhost/">localhost</a> addresses. Essentialy, Novus acts as a proxy that transforms your <a href="http://localhost:3000/">localhost:3000</a> to a beautiful <a href="https://your-domain.test/">https://your-domain.test</a> address.</p><p id="8502e60d-6442-466c-95c2-e64a2dd36393" class="">This comes very handy when you have multiple services running locally, each operating on a port. Who’s supposed to remember which app has which port, after all 🤯. Also, if you switch between multiple projects using the same port it can be convenient to keep the browser history (and path suggestions) separated per project. Sometimes, using an HTTPS domain may be even required to make things work locally.</p><p id="18999d5f-6d00-44ea-a43b-c750973d9cef" class="">For all of these (and other) use-cases Novus is a great addition to your workflow, so if you want to try it out, you can install it by running the following commands</p><pre id="38b4d3ed-81a8-4679-b50c-bd520111fcf0" class="code"><code class="language-Shell">$ brew tap jozefcipa/novus
+$ brew install novus
+$ novus init</code></pre><p id="cc9445ed-a4b4-4969-b67a-b28ea7cd0309" class="">which will create a configuration file that looks similar to this</p><pre id="b1b5c8ea-e86b-4ac3-ac54-b74ae66fddb2" class="code"><code class="language-yaml">appName: my-app
+routes:
+  - domain: my-frontend.test
+    upstream: http://localhost:3000
+  - domain: my-api.test
+    upstream: http://localhost:4000</code></pre><p id="af88daf7-3964-4b5c-b85e-6e808df3eac9" class="">
+</p><p id="c9a6874e-1599-4377-8d31-732d776cb0d0" class="">Once you have defined your URL configuration, you can start the proxy by running </p><pre id="8d352ed6-ac1b-4a5f-a6ff-53f9aa7c2958" class="code"><code class="language-Shell">$ novus serve</code></pre><p id="a47894cb-ca9b-4b6a-a2ee-d6a173cc0e30" class="">
+</p><p id="77d8c391-9cf4-4548-a2c9-38526256ae4d" class="">For more detailed instructions please refer to the project’s <a href="https://github.com/jozefcipa/novus">GitHub</a> page.</p><p id="a729a27d-dd63-43d3-b8ae-ee5eb8583af7" class="">
+</p><p id="de9510a2-a7f8-45eb-b571-15c281675834" class="">
+</p><p id="8829a27b-3a53-47e4-8dc6-76ebef32b988" class="">
+</p><p id="db191265-a137-4f05-8f26-fb5080f66be8" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
