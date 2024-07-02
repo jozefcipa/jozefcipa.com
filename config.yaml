@@ -22,8 +22,6 @@ params:
   socialIcons:
     - name: linkedin
       url: 'https://linkedin.com/in/jozefcipa'
-    - name: twitter
-      url: 'https://twitter.com/jozef_cipa'
     - name: github
       url: 'https://github.com/jozefcipa'
 menu:
