@@ -100,10 +100,10 @@ ${yaml.dump({
 
 // TODO: we will need to get this from Notion
 // these are request parameters
-const fileName = 'notion-8a6ba01624e84ce481b998116ab9823d' // second part of the URL string
-const title = 'Introducing Novus - a local HTTPS proxy for better developer experience'
-const slug = 'novus-local-https-proxy-for-better-developer-experience' // first part of the URL string
-const tags = ['api', 'frontend', 'scripting']
+const fileName = 'notion-193b001e58e1412e81d208722f6a6b11' // second part of the URL string
+const title = 'Publishing a Go binary with Homebrew'
+const slug = 'publishing-go-binary-with-homebrew' // first part of the URL string
+const tags = ['golang']
 
 ;(async (filePath) => {
     if (!filePath) {

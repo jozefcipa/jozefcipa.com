@@ -78,10 +78,10 @@
 {{- if not .Site.Params.assets.disableFingerprinting }}
 {{- $highlight := slice (resources.Get "js/highlight.min.js") | resources.Concat "assets/js/highlight.js" | minify | fingerprint }}
 <script defer crossorigin="anonymous" src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}"
-    onload="hljs.initHighlightingOnLoad(); hljs.initLineNumbersOnLoad()"></script>
+    onload="hljs.highlightAll(); hljs.initLineNumbersOnLoad()"></script>
 {{- else }}
 {{- $highlight := slice (resources.Get "js/highlight.min.js") | resources.Concat "assets/js/highlight.js" | minify }}
-<script defer crossorigin="anonymous" src="{{ $highlight.RelPermalink }}" onload="hljs.initHighlightingOnLoad(); hljs.initLineNumbersOnLoad()"></script>
+<script defer crossorigin="anonymous" src="{{ $highlight.RelPermalink }}" onload="hljs.highlightAll(); hljs.initLineNumbersOnLoad()"></script>
 {{- end }}
 {{- end }}
 

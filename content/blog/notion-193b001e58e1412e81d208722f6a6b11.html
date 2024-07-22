@@ -1,0 +1,174 @@
+---
+title: Publishing a Go binary with Homebrew
+tags:
+  - golang
+date: '2024-07-22T09:32:37.264Z'
+slug: publishing-go-binary-with-homebrew
+draft: false
+---
+
+<article id="193b001e-58e1-412e-81d2-08722f6a6b11" class="page sans"><div class="page-body"><p id="090cbc36-b632-42df-bca5-42e684d6a672" class="">As developers, we often need to use many different programs for our job. There are various ways to install these applications, one of the most popular being <a href="https://brew.sh/">Homebrew</a>.  It is advertised as “the missing package manager for macOS” (and Linux) and it certainly does a great job there. But have you ever wondered how it works under the hood and how can one add their custom binary into it?</p><p id="67422b69-fd92-4b77-a7c1-bb6b86f77f2f" class="">In this post, we will learn how to create and publish an application that can be installed via Homebrew. To illustrate, we will start by building a simple Go application.</p><h2 id="d5e38872-00f2-4f12-9538-f905536e5f7b" class="">Creating an application</h2><p id="d375e899-7424-4f35-8cdb-71ca91a7a44e" class="">Our application will be a simple binary that will greet the current user. Let’s start by initializing a new Go project.</p><p id="a636d7ac-446f-40cc-8be1-43caf9311976" class="">Open your terminal and run:</p><pre id="3fc714b6-94ca-4c82-b04e-d49fffa141b5" class="code"><code class="language-bash">$ mkdir go-hello-world &amp;&amp; cd go-hello-world
+$ go mod init github.com/{YOUR_GITHUB_USERNAME}/go-hello-world</code></pre><p id="40039abd-f687-480b-b1f4-0f443a1d8825" class="">After that, create a <code>main.go</code> file and copy-paste the following code:</p><pre id="da941e9b-c5ef-46fe-8189-2007bd0ca762" class="code"><code class="language-go">// main.go
+
+package main
+
+import (
+	"fmt"
+	"os/user"
+)
+
+func main() {
+	user, _ := user.Current()
+
+	fmt.Printf("Hello %s!\n", user.Name)
+}
+</code></pre><p id="23721380-554b-42fa-ab1e-91a33c4ac4cf" class="">After running <code>go run main.go</code> you should see a similar output in your terminal:</p><pre id="3d6205d3-85b9-4dba-bea8-760d926dab5e" class="code"><code class="language-bash">$ go run main.go
+Hello Jozef Cipa!</code></pre><p id="9a8ae91c-2335-444b-b08f-bd91b13761d2" class="">This means the app is working and we can move forward.</p><h2 id="3aedc344-5f71-4880-9a75-186adf1f3276" class="">Managing builds with GoReleaser</h2><p id="330a98d8-419c-47a0-8abb-965bfc73eb6c" class="">If you haven’t heard of it, GoReleaser is a handy tool for managing releases of your Go app. It helps with building, signing, and publishing application artifacts, and apart from the mentioned, we will use it to also generate a Homebrew configuration.</p><p id="18df926d-8c65-4e36-87bb-148016a3da96" class="">First of all, we need to install and initialize the library:</p><pre id="65f5c8ad-90d7-40a7-95a6-a7c046b90ccd" class="code"><code class="language-bash">$ brew install goreleaser
+$ goreleaser init</code></pre><p id="12490332-2c98-462c-8541-d748d0e1e9d6" class="">Running <code>goreleaser init</code> will create a <code>.goreleaser.yaml</code> configuration file that will contain a lot of predefined settings. There are many <a href="https://goreleaser.com/customization/">customization options</a> available, but we will go through the file and clean it up a bit, giving us something like this: </p><pre id="880756a2-c98d-4ef5-8cb1-6023730333d9" class="code"><code class="language-yaml"># .goreleaser.yaml
+version: 1
+before:
+  hooks:
+    - go mod tidy
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      # We only want a macOS binary
+      - darwin
+archives:
+  - format: tar.gz
+    # this name template makes the OS and Arch compatible with the results of `uname`.
+    name_template: &gt;-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+changelog:
+  filters:
+    exclude:
+      - "^docs:"
+  groups:
+    - title: Features
+      regexp: '^.*?feat(\([[:word:]]+\))??!?:.+$'
+      order: 0
+    - title: "Bug fixes"
+      regexp: '^.*?fix(\([[:word:]]+\))??!?:.+$'
+      order: 1
+    - title: Others
+      order: 999</code></pre><p id="42479873-5ee7-497d-91a6-c8b7d16fafd8" class="">With this setup GoReleaser will also generate a changelog based on our commits, therefore it is recommended to use <a href="https://www.conventionalcommits.org/en/v1.0.0/#summary">conventional commits</a>.</p><p id="75e581a5-e794-44f0-8765-60a9d8d1d479" class="">The next step after configuring GoReleaser is to create a GitHub repository and <a href="https://github.com/settings/tokens">generate</a> a personal access token (PAT) for authentication.</p><p id="4033cff1-905b-4adc-9cfc-c16d1d9f8972" class="">Now, we can finally create a release of our application and push it to Github.</p><pre id="0e9bfd3e-49bc-49b0-8f9b-cea709390cba" class="code"><code class="language-bash"># First let's commit and create a Git tag
+$ git add .
+$ git commit -m 'feat: add goreleaser'
+$ git tag -a v0.0.1
+
+# Next, push code and tags to GitHub
+$ git push origin main --follow-tags
+
+# Now we can create a release 🚀
+$ GITHUB_TOKEN={YOUR_GITHUB_TOKEN} goreleaser release </code></pre><p id="f9c6b909-4f65-45c0-9090-972fd29dfea5" class="">
+</p><p id="5b4753bc-726e-46fc-aec2-d467d0595452" class="">If everything went well, you should now see a new release in your GitHub repository (<a href="https://github.com/{YOUR_GITHUB_USERNAME}/go-hello-world/releases">https://github.com/{YOUR_GITHUB_USERNAME}/go-hello-world/releases</a>).</p><p id="2eb3c63b-967a-47a4-9f75-e47fae5af67b" class="">
+</p><figure id="d7271323-a28c-430b-aaa0-522288309db7" class="image"><a href="https://assets.jozefcipa.com/blog/193b001e58e1412e81d208722f6a6b11/gh-release.png"><img style="width:2318px" src="https://assets.jozefcipa.com/blog/193b001e58e1412e81d208722f6a6b11/gh-release.png"></a></figure><h2 id="e58da6aa-4f40-4a99-81f3-96f4fc182cea" class="">Configuring GoReleaser for Homebrew</h2><p id="dbe5e43c-a41d-4697-bb25-13f79886bae3" class="">Homebrew uses formulas, written in Ruby, to describe how software should be installed. These formulas are stored in repositories called taps, which can be either <em>core</em> (official) or <em>custom</em>. Users can add custom binaries to Homebrew by creating their own taps and writing formulas to manage the installation process of their applications. This is exactly what we are going to do now.</p><p id="80483758-9039-43ef-a395-de3955af4c01" class="">To integrate Homebrew with GoReleaser, we will add the following configuration to the <code>.goreleaser.yaml</code> configuration:</p><pre id="d84b53f5-d80e-47cd-99ea-69cc278209b7" class="code"><code class="language-YAML">brews:
+  - name: go-hello-world
+    homepage: "https://github.com/{YOUR_GITHUB_USERNAME}/go-hello-world"
+    description: "Example Go Binary"
+    license: "MIT"
+
+    url_template: "https://github.com/{YOUR_GITHUB_USERNAME}/go-hello-world/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    download_strategy: CurlDownloadStrategy
+
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
+    commit_msg_template: "chore(release): brew formula update for {{ .ProjectName }} version {{ .Tag }}"
+    repository:
+      owner: {YOUR_GITHUB_USERNAME}
+      name: homebrew-go-hello-world
+      git:
+        url: 'git@github.com:{YOUR_GITHUB_USERNAME}/homebrew-go-hello-world.git'
+        private_key: '{{ .Env.GH_PRIVATE_KEY }}'
+    directory: .
+
+    # Setting this will prevent Goreleaser to actually try to commit the updated
+    # formula - instead, the formula file will be stored in the dist directory
+    # only, leaving the responsibility of publishing it to the user.
+    # If set to auto, the release will not be uploaded to the homebrew tap
+    # in case there is an indicator for prerelease in the tag e.g. v1.0.0-rc1
+    skip_upload: 'auto'</code></pre><p id="4659b27b-9a31-4598-8fde-67a716494ab9" class="">Note, that this is just a simple basic configuration, there are plenty of <a href="https://goreleaser.com/customization/homebrew/">other settings</a> that you can adjust.</p><p id="b1a9f0a6-72cb-4e5a-9ecc-739e205417e4" class="">After updating the configuration, we need to create a GitHub repository to store our Homebrew formulas. The repository <a href="https://docs.brew.sh/Taps#repository-naming-conventions-and-assumptions">must start</a> with the <code>homebrew-*</code> prefix, therefore, let’s make one named <code>homebrew-go-hello-world</code>.</p><p id="74f0b706-f4b9-4c36-97f4-1f9e6368e0e3" class="">Next, we <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">create</a> an SSH key that will be stored in the <code>~/.ssh</code> directory. GoReleaser needs it to push the generated Homebrew formula to the repository. Once you have the SSH key, make sure to <a href="https://github.com/settings/keys">register</a> it in GitHub as well.</p><p id="a174d289-2d6b-4d92-8fd1-774df2d37d17" class="">After that, we can use the following commands to create and publish a new application build.</p><pre id="4c79c288-65f0-4ed6-b198-1e9704683bd1" class="code"><code class="language-bash"># Commit &amp; push the new changes
+$ git commit -am 'feat: add homebrew config to goreleaser'
+$ git tag -a v0.0.2
+$ git push origin main --follow-tags
+
+# Create a new release with GoReleaser and publish a Homebrew formula
+$ GITHUB_TOKEN={YOUR_GITHUB_TOKEN} GH_PRIVATE_KEY=~/.ssh/{YOUR_PRIVATE_SSH_KEY_NAME} goreleaser release</code></pre><p id="d8381e1c-3226-40f6-bbf8-8d5d3ed8625b" class="">If everything succeeds we can go ahead and check the <code>homebrew-go-hello-world</code> repository. As you can see, GoReleaser created and pushed one Ruby file - this is our Homebrew formula.</p><figure id="fb0042d8-9d92-4742-b9e4-0738c8d195c4" class="image"><a href="https://assets.jozefcipa.com/blog/193b001e58e1412e81d208722f6a6b11/homebrew-repo.png"><img style="width:1850px" src="https://assets.jozefcipa.com/blog/193b001e58e1412e81d208722f6a6b11/homebrew-repo.png"></a></figure><p id="7892f2de-a1e3-4bf9-84d5-5b15f41ef994" class="">If you open the file, you should see something similar to this:</p><pre id="f8f15e6e-9e1f-4559-bc3b-2a84e0505d83" class="code"><code class="language-Ruby"># go-hello-world.rb
+
+# typed: false
+# frozen_string_literal: true
+
+# This file was generated by GoReleaser. DO NOT EDIT.
+class GoHelloWorld &lt; Formula
+  desc "Example Go Binary"
+  homepage "https://github.com/jozefcipa/go-hello-world"
+  version "0.0.3"
+  license "MIT"
+  depends_on :macos
+
+  if Hardware::CPU.intel?
+    url "https://github.com/jozefcipa/go-hello-world/releases/download/v0.0.3/go-hello-world_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+    sha256 "1f56916d38cd8399a146183909b9dfbd56f5b59ad483f4646102e5aa3a36b383"
+
+    def install
+      bin.install "go-hello-world"
+    end
+  end
+  if Hardware::CPU.arm?
+    url "https://github.com/jozefcipa/go-hello-world/releases/download/v0.0.3/go-hello-world_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+    sha256 "bbdcf698b0d8ed60f81b1f983a9b0ed175ed04b7ae815fa3493abdf9e1ea9955"
+
+    def install
+      bin.install "go-hello-world"
+    end
+  end
+end</code></pre><p id="bdb66e46-722b-40a8-ab85-44d58e98ce55" class="">As you can see, based on our <code>.goreleaser.yaml</code> config, it created binaries for macOS for both CPU architectures. The links point to the v0.0.2 release of our main <code>go-hello-world</code> repo from where Homebrew will download the relevant binary. Our formula is fairly simple and only contains instructions for downloading and saving the binary to the correct folder. However, many more <a href="https://www.notion.so/Publishing-a-Go-binary-with-Homebrew-193b001e58e1412e81d208722f6a6b11?pvs=21">customization</a> options are available for configuring more advanced scenarios.</p><h2 id="07fcd946-1c96-4cf0-babf-3833f9e5e720" class="">Installing our binary</h2><p id="c88d9ca8-0469-47f0-9d34-f684e86d0bb0" class="">Here comes the best part - installing our binary. Now that we have a formula ready, we can install it. As we mentioned before, Homebrew supports two repositories: official ones, stored in <a href="https://github.com/Homebrew/homebrew-core">Homebrew/homebrew-core</a>, and custom repositories created by third parties. Therefore, we need to tell Homebrew about our repository first. This is done using the <code>brew tap</code> command. As the official docs explain:</p>
+
+
+<blockquote id="bb4941a3-bb48-40c4-9bb6-6584b2b08aa1" class="">
+  <em>
+    <code>brew tap &lt;user&gt;/&lt;repo&gt;</code> makes a clone of the repository at
+    <code>https://github.com/&lt;user&gt;/homebrew-&lt;repo&gt;</code> into <code>$(brew --repository)/Library/Taps</code>.
+    After that, <code>brew</code> will be able to work with those formulae as if they were in Homebrew’s
+    <strong><a href="https://github.com/Homebrew/homebrew-core">homebrew/core</a></strong> canonical repository. <br>
+    You can install and uninstall them with <code>brew [un]install</code>.
+  </em>
+</blockquote>
+
+<p id="d3c760cc-6ac0-4794-aeeb-315e95486f6f" class="">Following the docs, we install our binary by running:</p><pre id="7bd8439f-4898-4c9c-8ea0-c93b5cee1633" class="code"><code class="language-bash">$ brew tap YOUR_GITHUB_USERNAME/go-hello-world
+$ brew install go-hello-world</code></pre><p id="cce64252-4b91-4ac6-b18c-69c1a1604387" class="">Once Homebrew installed the app, we can verify that it works properly:</p><pre id="3b5a918c-0e51-408d-978a-3cd769e7e3ec" class="code"><code class="language-bash">$ go-hello-world
+Hello Jozef Cipa!</code></pre><p id="0e89340f-1843-46a5-a45d-59f31c29b2a2" class="">If you see a similar result in your terminal, congratulations!</p><p id="1aa80440-f753-4dd7-85ce-60f6b52e1df2" class="">You’ve successfully created and published a Homebrew binary 🎉</p><h2 id="afd96ab2-5fd6-4782-9018-abf4179bf21a" class="">Bonus - Automating releases with GitHub Actions</h2><p id="077e94a2-6afc-494a-a53e-8e8816fadd08" class="">If you’ve read the whole article up to this point, here’s a little extra for you. We can simplify and automate the whole process by setting up a GitHub Actions job.</p><p id="502c6ac0-1b65-4b5b-8803-ebdf73b128a4" class="">Create a new file called <code>.github/workflows/release.yml</code>  and add the following code:</p><pre id="ff8e7505-e6a6-453f-9371-3655d7a2e374" class="code"><code class="language-YAML"># .github/workflows/release.yml
+name: GoReleaser
+on:
+  push:
+    tags:
+      - '*'
+permissions:
+  contents: write
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Go
+        uses: actions/setup-go@v4
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          distribution: goreleaser
+          version: '~&gt; v1'
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PRIVATE_KEY: ${{ secrets.GH_PRIVATE_KEY }}</code></pre><p id="d7989f84-7e0e-46b8-a4db-6e9e86b68928" class="">Don’t forget to set up a GitHub <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository">secret</a>  <code>GH_PRIVATE_KEY</code> and add the SSH key that we generated before. After that, you are all set for automated releases.</p><p id="b325226c-0494-4655-b0f1-02869898507e" class="">The GitHub action is triggered by pushing a Git tag, so whenever you want to publish a new app version, just create and push a new tag.</p><pre id="085163b0-ec14-4385-925e-1764262e9e0e" class="code"><code class="language-bash">$ git tag -a vX.Y.Z
+$ git push origin main --follow-tags</code></pre><p id="101bfeef-b224-4559-b381-3f947bb3ad10" class="">This will run the GoReleaser process, create a new binary, and push the updated formula to the Homebrew repository. Then, you can use <code>brew</code> commands to update your binary to the new version.</p><p id="8a5b591f-8e14-45f6-81b8-5776ffa81982" class="">Happy coding and releasing :)</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
