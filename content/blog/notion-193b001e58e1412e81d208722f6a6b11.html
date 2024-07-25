@@ -109,21 +109,21 @@ $ GITHUB_TOKEN={YOUR_GITHUB_TOKEN} GH_PRIVATE_KEY=~/.ssh/{YOUR_PRIVATE_SSH_KEY_N
 class GoHelloWorld &lt; Formula
   desc "Example Go Binary"
   homepage "https://github.com/jozefcipa/go-hello-world"
-  version "0.0.3"
+  version "0.0.2"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/jozefcipa/go-hello-world/releases/download/v0.0.3/go-hello-world_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
-    sha256 "1f56916d38cd8399a146183909b9dfbd56f5b59ad483f4646102e5aa3a36b383"
+    url "https://github.com/jozefcipa/go-hello-world/releases/download/v0.0.2/go-hello-world_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+    sha256 "a2054be3846e834e7a620886671ff29f7879981a3c61635c909abed8ecc28f42"
 
     def install
       bin.install "go-hello-world"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/jozefcipa/go-hello-world/releases/download/v0.0.3/go-hello-world_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
-    sha256 "bbdcf698b0d8ed60f81b1f983a9b0ed175ed04b7ae815fa3493abdf9e1ea9955"
+    url "https://github.com/jozefcipa/go-hello-world/releases/download/v0.0.2/go-hello-world_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+    sha256 "ef73550058976ddf82a578a0f5fd19e755b168ea38f0fc30835acc541ca1aae3"
 
     def install
       bin.install "go-hello-world"
