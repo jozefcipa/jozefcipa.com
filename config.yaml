@@ -9,7 +9,7 @@ summaryLength: 30
 taxonomies:
   tags: tags
 params:
-  description: A backend developer with passion for IoT and automation
+  description: a backend developer with passion for IoT and automation
   images:
     - assets/meta-preview.jpg
   schema:
@@ -27,18 +27,18 @@ params:
 menu:
   main:
     - identifier: home
-      name: Home
+      name: home
       url: /
       weight: 1
     - identifier: work
-      name: Work
+      name: work
       url: /work
       weight: 2
     - identifier: about
-      name: About
+      name: about
       url: /about
       weight: 3
     - identifier: blog
-      name: Blog
+      name: blog
       url: /blog
       weight: 4
