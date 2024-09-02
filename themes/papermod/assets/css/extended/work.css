@@ -11,6 +11,7 @@
 .work-section .subtitle {
     display: flex;
     align-items: center;
+    margin-bottom: 0.5em;
 }
 
 .work-section .company-icon {
