@@ -42,3 +42,7 @@ menu:
       name: blog
       url: /blog
       weight: 4
+    - identifier: projects
+      name: projects
+      url: /projects
+      weight: 5

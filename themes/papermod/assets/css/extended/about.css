@@ -2,29 +2,7 @@
     margin-top: var(--gap);
 }
 
-.public-speaking {
-    margin: 3em 0;
-}
-
-.public-speaking .subtitle {
-    margin-bottom: .5em;
-}
-
-.public-speaking ul {
-    padding-left: 1.5em;
-}
-
-.public-speaking div {
-    margin: 3em 0;
-    font-size: .9em;
-    font-style: italic;
-}
-
-.public-speaking span.note {
-    font-size: .8em;
-}
-
-.public-speaking img {
-    max-width: 70%;
-    margin: 0 auto;
+.technology {
+    color: var(--color-primary);
+    font-weight: 500;
 }
