@@ -100,9 +100,12 @@ ${yaml.dump({
 
 // TODO: we will need to get this from Notion
 // these are request parameters
-const fileName = 'notion-193b001e58e1412e81d208722f6a6b11' // second part of the URL string
-const title = 'Publishing a Go binary with Homebrew'
-const slug = 'publishing-go-binary-with-homebrew' // first part of the URL string
+
+// NOTE: if you get weird code formatting, looks for <script> and <link> in the exported Notion HTML
+// apparently it started including the script for each <code> block
+const fileName = 'notion-13d77955515e8036894cd7eca2739e7e' // second part of the URL string
+const title = 'Novus v0.0.4 released 🚀'
+const slug = 'novus-v0-0-4-released' // first part of the URL string
 const tags = ['golang']
 
 ;(async (filePath) => {
