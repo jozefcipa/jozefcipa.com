@@ -57,6 +57,18 @@
     -webkit-mask-size: cover;
 }
 
+@media screen and (max-width: 510px) {
+    .profile-photo img {
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .profile-photo img {
+        max-width: 250px;
+    }
+}
+
 h1 {
     font-size: 4em;
 }
