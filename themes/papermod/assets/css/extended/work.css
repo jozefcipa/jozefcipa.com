@@ -19,6 +19,11 @@
     border-radius: 5px;
 }
 
+.work-section .location {
+    font-size: .8em;
+    margin-bottom: .3em;
+}
+
 .work-section .description {
     font-size: .9em;
 }

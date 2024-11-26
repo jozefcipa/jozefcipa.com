@@ -9,7 +9,7 @@ summaryLength: 30
 taxonomies:
   tags: tags
 params:
-  description: a backend developer with passion for IoT and automation
+  description: a backend developer with a passion for IoT and automation
   images:
     - assets/meta-preview.jpg
   schema:
