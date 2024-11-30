@@ -36,24 +36,24 @@
 .post-entry {
     position: relative;
     margin-bottom: var(--gap);
-    padding: var(--gap) 10px;
+    padding: var(--gap) 0;
     transition: transform, background-color .1s;
     border-bottom: 1px solid var(--border);
-}
-
-.post-entry:hover {
-    background-color: rgba(0,0,0,.01);
 }
 
 .post-entry:active {
     transform: scale(0.98);
 }
 
+.post-entry .subtitle:hover {
+    text-decoration: underline;
+}
+
 .tag-entry .entry-cover {
     display: none;
 }
 
-.entry-header h2, {
+.entry-header h2 {
     font-size: 16px;
 }
 
