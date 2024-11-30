@@ -5,10 +5,8 @@
     }
 
     .profile_container {
-        margin-top: 3em;
+        margin-top: 0;
     }
-
-   
 }
 
 @media screen and (max-width: 500px) {
