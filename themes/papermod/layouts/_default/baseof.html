@@ -11,6 +11,8 @@
 {{- partial "work.html" . }}
 {{- else if (eq .URL `/about/`) -}}
 {{- partial "about.html" . }}
+{{- else if (eq .URL `/projects/`) -}}
+{{- partial "projects.html" . }}
 {{- else }}
 <body class="
 {{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}

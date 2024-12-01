@@ -41,19 +41,32 @@
     font-weight: 400;
 }
 
-.profile_photo {
+.profile-photo {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    overflow: hidden;
 }
 
-.profile_photo img {
-    border-radius: 5px;
-    max-width: 400px;
+.profile-photo img {
+    max-width: 500px;
+    object-fit: cover;
+    mask-image: url('/assets/blob.svg');
+    mask-size: cover;
+    -webkit-mask-image: url('/assets/blob.svg'); /* For Safari */
+    -webkit-mask-size: cover;
 }
 
-.profile_photo img.small {
-    display: none;
+@media screen and (max-width: 510px) {
+    .profile-photo img {
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .profile-photo img {
+        max-width: 250px;
+    }
 }
 
 h1 {
@@ -73,11 +86,10 @@ h1 {
     text-decoration: underline;
 }
 
-
 .divider {
     width: 80px;
     height: 4px;
     border-radius: 10px;
-    background: var(--color-primary);
-    margin: 2em 0 .5em;
+    background: var(--color-secondary);
+    margin: 3em 0 .5em;
 }

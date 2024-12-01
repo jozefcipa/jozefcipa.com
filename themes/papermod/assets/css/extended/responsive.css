@@ -5,22 +5,7 @@
     }
 
     .profile_container {
-        margin-top: 3em;
-    }
-
-    .profile_photo {
-        margin-bottom: 3em;
-    }
-
-    .profile_photo img {
-        display: none;
-    }
-
-    .profile_photo img.small {
-        display: block;
-        width: 240px;
-        height: 240px;
-        border-radius: 50%;
+        margin-top: 0;
     }
 }
 
@@ -37,7 +22,6 @@
     .work-section .description,
     .testimonial-container blockquote,
     .about-me,
-    .public-speaking,
     .entry-content,
     .post-content,
     .profile-text {
@@ -79,10 +63,6 @@
     .testimonial-container blockquote:before {
         top: -70px !important;
         left: -3px !important;
-    }
-
-    .public-speaking img {
-        max-width: 100%;
     }
 }
 

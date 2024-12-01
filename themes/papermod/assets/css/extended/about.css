@@ -3,7 +3,7 @@
 }
 
 .public-speaking {
-    margin: 3em 0;
+    margin: 2em 0;
 }
 
 .public-speaking .subtitle {
@@ -24,7 +24,7 @@
     font-size: .8em;
 }
 
-.public-speaking img {
-    max-width: 70%;
-    margin: 0 auto;
+.technology {
+    color: var(--color-primary);
+    font-weight: 500;
 }

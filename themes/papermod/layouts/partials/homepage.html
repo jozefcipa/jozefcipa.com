@@ -3,7 +3,6 @@
     <main class="profile_container">
         {{- with .Site.Params.profileMode }}
         <div class="profile_inner">
-
             <div class="container">
                 <div class="profile-text">
                     <div class="headline">
@@ -11,7 +10,7 @@
                         <strong>I'm Jozef,</strong><br>
                         {{ $.Site.Params.description }}
                     </div>
-                    Specializing in Node.js applications with focus on clean and quality code.
+                    Specializing in Node.js applications with a focus on clean and quality code.
                     <br>
                     <br>
                     Currently working at <a href="https://henchman.io" class="link">Henchman</a>, based in Prague&nbsp;🇨🇿.
@@ -21,9 +20,8 @@
                     </span>
                     {{- partial "social_icons.html" $.Site.Params.socialIcons -}}
                 </div>
-                <div class="profile_photo">
+                <div class="profile-photo">
                     <img src="/assets/me.jpg"/>
-                    <img src="/assets/me-small.jpg" class="small"/>
                 </div>
             </div>
         </div>

@@ -4,20 +4,28 @@
 
 .work-section .technologies {
     font-size: .8em;
-    margin-bottom: var(--content-gap);
     color: var(--font-gray);
 }
 
 .work-section .subtitle {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5em;
+    margin-bottom: .3em;
 }
 
 .work-section .company-icon {
     width: 40px;
     margin-right: .3em;
     border-radius: 5px;
+}
+
+.work-section .location {
+    font-size: .8em;
+    margin-bottom: .3em;
+}
+
+.work-section .description {
+    font-size: .9em;
 }
 
 .references-container {
@@ -85,4 +93,55 @@
     text-align: center;
     font-size: 1.5em;
     margin: 1em 0 3em;
+}
+
+.project-section {
+    margin-top: 1.5em;
+}
+
+.project-section svg {
+    width: 28px;
+    margin-right: .3em;
+}
+
+.project-section .technologies {
+    font-size: .8em;
+    color: var(--font-gray);
+}
+
+.project-section .subtitle {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    margin-bottom: .3em;
+}
+
+.project-section .subtitle a:hover {
+    text-decoration: underline;
+}
+
+.project-section .description {
+    font-size: .9em;
+}
+
+.project-section .date {
+    font-size: .5em;
+    margin-left: .5em;
+    font-style: italic;
+}
+
+.project-section .view-github {
+    display: flex;
+    align-items: center;
+    font-size: .7em;
+    width: fit-content;
+}
+
+.project-section .view-github a {
+    text-decoration: underline;
+}
+
+.project-section .view-github:hover a{
+    text-decoration: none;
+    color: var(--color-secondary);
 }
