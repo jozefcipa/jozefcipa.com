@@ -103,10 +103,10 @@ ${yaml.dump({
 
 // NOTE: if you get weird code formatting, looks for <script> and <link> in the exported Notion HTML
 // apparently it started including the script for each <code> block
-const fileName = 'notion-13d77955515e8036894cd7eca2739e7e' // second part of the URL string
-const title = 'Novus v0.0.4 released 🚀'
-const slug = 'novus-v0-0-4-released' // first part of the URL string
-const tags = ['golang']
+const fileName = 'notion-17077955515e808aa489d4c04c2c3078' // second part of the URL string
+const title = 'Novus just got better (again)'
+const slug = 'novus-just-got-better-again' // first part of the URL string
+const tags = ['api', 'novus', 'frontend', 'golang', 'scripting']
 
 ;(async (filePath) => {
     if (!filePath) {
