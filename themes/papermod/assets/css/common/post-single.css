@@ -4,7 +4,7 @@ a .page-header,
 }
 
 .post-title {
-    margin-bottom: 2px;
+    margin-bottom: 20px;
     font-size: 40px;
 }
 
@@ -52,7 +52,7 @@ a .page-header,
 }
 
 .post-content h2 {
-    margin: 26px auto 24px;
+    margin: 25px auto 10px;
     font-size: 26px;
 }
 
@@ -276,7 +276,7 @@ a .page-header,
 }
 
 .post-footer {
-    margin-top: 56px;
+    margin-bottom: 40px;
 }
 
 .post-tags {
