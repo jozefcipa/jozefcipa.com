@@ -103,10 +103,10 @@ ${yaml.dump({
 
 // NOTE: if you get weird code formatting, looks for <script> and <link> in the exported Notion HTML
 // apparently it started including the script for each <code> block
-const fileName = 'notion-17077955515e80e9b1f2c0565db4b3fb' // second part of the URL string
-const title = 'How to use sudo without a password in your programs'
-const slug = 'how-to-use-sudo-without-a-password-in-your-programs' // first part of the URL string
-const tags = ['golang', 'scripting']
+const fileName = 'notion-17077955515e801f8184eb8fd6ca7d7c' // second part of the URL string
+const title = 'Monitoring your website with upptime'
+const slug = 'monitoring-your-website-with-upptime' // first part of the URL string
+const tags = ['api', 'frontend', 'today-i-learned']
 
 ;(async (filePath) => {
     if (!filePath) {
