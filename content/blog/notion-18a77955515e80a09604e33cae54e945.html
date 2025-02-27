@@ -1,0 +1,70 @@
+---
+title: Watching Github repo stars via Telegram
+tags:
+  - cloudflare-workers
+  - deno
+  - api
+  - github
+  - telegram
+date: '2025-02-27T07:57:09.164Z'
+slug: watching-github-repo-stars-via-telegram
+draft: false
+---
+
+<article id="18a77955-515e-80a0-9604-e33cae54e945" class="page sans"><div class="page-body"><p id="18a77955-515e-80a8-a8df-c9082067cf36" class="">I recently published and shared with the world my first real open-source <a href="https://github.com/jozefcipa/novus">project</a>. It brought some traffic to its Github page and some people even starred it. This made me super happy, knowing that other people find my project useful or interesting enough to give it a star.</p><p id="1a677955-515e-802d-9574-e0cb2f4bd577" class="">I appreciate every star and maybe it’s just me, but I can’t help but check the repo at least once a day to see how it’s doing 😅.</p><p id="1a677955-515e-80de-96b4-e1c8dcab8461" class="">The other day, I had some free time in the afternoon and got an idea. I could leverage a Github webhook to trigger an event whenever someone stars my project and then use Telegram API to send me a notification message.</p><p id="1a577955-515e-8015-9e4b-c78ecc3fac01" class="">And on top of that, as always, there has to be something new that I could learn about.<br>I’m a big fan of <br><a href="https://deno.com/">Deno</a>, the promising successor to Node.js built by the same author. So this is a good chance to get a closer look at it. Also, I’ve wanted to try out <a href="https://workers.cloudflare.com/">Cloudflare workers</a> for a long time, so the time has finally come.</p><p id="1a677955-515e-80dc-80fb-fbe77b7cae4d" class="">In the diagram below you can see the whole flow.</p><figure id="1a677955-515e-802e-9206-c0a783125add" class="image" style="text-align:center"><a href="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/gh-starboy.png"><img style="width:624px" src="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/gh-starboy.png"></a></figure><p id="1a677955-515e-80a0-b316-d25a304a3946" class="">
+</p><h3 id="1a677955-515e-8066-8545-e71826f613d6" class="">Handling a Github event</h3><p id="1a677955-515e-8005-b22d-cad4dd89b80d" class="">In its heart, the event handler is fairly straightforward. As you can see in the code snippet below, this is the special format used by Cloudflare workers to run our code when a request comes. You just need to export a <code>fetch()</code> function and implement your logic inside it.</p><p id="1a677955-515e-80eb-b6bd-e0c80128c898" class="">In this example, we just get the request body, validate the request, and log a message based on the action type. <strong>Validating a request signature</strong> is very important as it works as an authentication to make sure only authorized clients (Github) can call your endpoint. Otherwise, anyone who knows the URL could send malicious data to it.</p><p id="1a677955-515e-805c-81ce-c8690d55999d" class="">The way this works is that you define a secret value and register it in Github when creating a webhook. Then, when the webhook is triggered, Github uses the provided secret to calculate a signature for the payload that it sends to your URL.</p><p id="1a677955-515e-8042-8d11-f5d4fb71bc4d" class="">You should then verify the signature using <a href="https://en.wikipedia.org/wiki/HMAC">HMAC</a> first, and only handle the request if the verification passes.</p><pre id="1a677955-515e-8001-8a65-d90e1246791c" class="code"><code class="language-TypeScript">import { verifySignature } from './github/signature.ts'
+import { GithubStarEvent } from './github/types.ts'
+
+interface Env {
+  GH_WEBHOOK_SECRET: string
+}
+
+export default {
+  async fetch(request: Request, env: Env): Promise&lt;Response&gt; {
+    // get data from the request
+    const githubData = await request.json() as GithubStarEvent
+    const signature = request.headers.get('x-hub-signature-256')
+
+    // validate Github request signature
+    if (!await verifySignature(env.GH_WEBHOOK_SECRET, signature, githubData)) {
+      console.error('Github signature mismatch', request.headers)
+      return new Response(
+        JSON.stringify({ error: 'Unauthorized request.' }),
+        { status: 403 },
+      )
+    }
+
+    if (githubData.action === 'created') {
+      console.log(`Yay, a new star added to ${githubData.repository.full_name}`)
+    } else if (githubData.action === 'deleted') {
+      // Sad ... 😢
+      console.log(
+        `Oh no, @${githubData.sender.login} removed their star from ${githubData.repository.full_name}`,
+      )
+    }
+
+    return new Response(null, { status: 204 })
+  },
+}</code></pre><p id="1a677955-515e-80f3-8ee0-f22039930c7d" class="">The complete code can be found on <a href="https://github.com/jozefcipa/gh-starboy">Github</a>.</p><h3 id="1a677955-515e-808b-8a79-da7ffb97b27b" class="">Register a Github webhook</h3><p id="1a677955-515e-802b-b303-f60607dd969a" class="">Open your Github repository page, click on the <em>Settings tab → Webhooks → Add Webhook</em>.<br>There you can provide a URL that should be called when an event happens. In this case, we do not have the code deployed yet, and also for development purposes, it’s best to temporarily use a locally running web server, that is exposed to the internet, e.g. by using <br><a href="https://ngrok.com/">ngrok</a>.<br>Next, set <br><em>Content-Type</em> to <code>application/json</code> and choose a value for the <em>Secret </em>field that we described above.</p><figure id="1a577955-515e-8030-845b-fc3d819142e8" class="image"><a href="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/add-webhook.png"><img src="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/add-webhook.png"></a></figure><p id="1a677955-515e-80cf-af6d-d22ba4e901fc" class="">In the “<em>Which events would you like to trigger…</em>” section, choose only <em>Stars</em> and uncheck <em>Pushes </em>that is enabled by default. </p><figure id="1a577955-515e-80b3-9770-dcb6c223220f" class="image"><a href="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/webhook-event.png"><img style="width:720px" src="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/webhook-event.png"></a></figure><h3 id="1a677955-515e-8001-96ef-e2afcbd58834" class="">Create a Cloudflare worker</h3><p id="1a677955-515e-80ee-8c99-c313b02d1a37" class="">Cloudflare Workers is a serverless platform that allows you to run your code without needing to care about the infrastructure or scaling. It is similar to AWS Lambda or other <em>function-as-a-service</em> (FaaS) solutions. Once deployed it provides a URL address that you can use to trigger your function. Alternatively, you can also set up a scheduled run by defining a CRON job.</p><p id="1a677955-515e-8030-8b7c-c666c55d6b95" class="">To deploy a code to the worker we would typically use <a href="https://developers.cloudflare.com/workers/wrangler/">Wrangler</a> - an official CLI tool for interacting with Cloudflare, but since we’re using Deno, which is not officially supported yet, we will instead go with <a href="https://denoflare.dev/">Denoflare</a>, a community-driven alternative for deploying Deno-based services to Workers.</p><p id="1a677955-515e-8072-9e99-d68ce1c02590" class="">In order to configure it, create a <code>.denoflare</code> file where you define your function main file.</p><pre id="1a677955-515e-8003-8435-f7941bcb0ee2" class="code"><code class="language-TypeScript">{
+    "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/v0.6.0/common/config.schema.json",
+    "scripts": {
+        "gh-starboy": {
+            "path": "src/main.ts",
+            "localPort": 8000
+        }
+    }
+}</code></pre><p id="1a677955-515e-8010-83ba-e5fb2d99e640" class="">Ensure you have your Cloudflare credentials configured (env variables <code>CF_ACCOUNT_ID</code> and <code>CF_API_TOKEN</code>). Once you do this, run this command to start the local server.</p><pre id="1a677955-515e-8083-b01b-d60c966f5c31" class="code"><code class="language-Bash">$ denoflare push gh-starboy --secret-binding GH_WEBHOOK_SECRET:"your-secret-value"  --bundle 'backend=esbuild’</code></pre><p id="1a677955-515e-80e9-a5db-ee3698dff887" class="">This will bundle the code and deploy it to Cloudflare.</p><p id="1a677955-515e-8044-b4b6-ef33b72f7ebc" class="">Once the code is deployed, Cloudflare will automatically create a URL for your worker, that is in the format <code>{project-name}.{your-account-name}.workers.dev</code>. </p><figure id="1a577955-515e-803c-aa3f-c556bac7ca5d" class="image"><a href="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/cloudflare.png"><img src="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/cloudflare.png"></a></figure><p id="1a677955-515e-80cf-ba5f-ef6d0b9e8b46" class="">Once you deploy your worker function, you can update the Github webhook with the real Cloudflare worker URL.</p><p id="1a677955-515e-8089-b371-d0551e2ecf19" class="">
+</p><p id="1a677955-515e-80bd-b036-fbf9c3d268ed" class=""><em><strong>Disclaimer: </strong></em>At the time of writing this (<em>02/2025</em>), Deno 2.0 is not yet well supported by Denoflare, so you might need to check <a href="https://github.com/skymethod/denoflare/issues/77">this conversation</a> if you’re facing issues. In fact, it also doesn’t support some of the latest Cloudflare features (e.g. logging), making the whole tool a bit of a pain in the ass to work with. In all honesty, this was only a pet project so I don’t really care, but next time I’d definitely use the official Wrangler package.</p><h3 id="1a677955-515e-8078-a063-e76a53c31948" class="">Get a Telegram API token</h3><p id="1a677955-515e-809c-bb3f-cc2d36e4baff" class="">Now that we have the worker deployed and the webhook listening, we can finalize the script by adding the Telegram messages.</p><p id="1a677955-515e-805a-aa23-de6b425b85c8" class="">The first thing you will need to do is create a Telegram bot. This can be easily done, if you search for <em>@BotFather</em> in your Telegram and then send a message <code>/newbot</code>. Then just choose a bot name and BotFather will respond with an API token (simple as that).</p><figure id="1a577955-515e-80b2-9d32-ea3ec7cc6263" class="image"><a href="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/create-bot.png"><img style="width:288px" src="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/create-bot.png"></a></figure><p id="1a677955-515e-80f7-bb74-f4207a250030" class="">
+</p><p id="1a677955-515e-8094-b4ff-f3701918bc10" class="">Now, in order to <strong>get the ID of the chat</strong> between you and your newly created bot, send a random message in the conversation. Then, open this URL in your browser <code>https://api.telegram.org/bot{BOT_API_TOKEN}/getUpdates</code>  and find the <code>chat.id</code>.</p><p id="1a677955-515e-8075-a123-cfe0acff8037" class="">This is everything we need to be able to send messages. The following piece of code will call Telegram’s <a href="https://core.telegram.org/method/messages.sendMessage">sendMessage</a> endpoint that sends a message to our Telegram conversation 🎉.</p><pre id="1a677955-515e-807e-a359-c71602b2fe65" class="code"><code class="language-TypeScript">const res = await fetch(
+  `https://api.telegram.org/bot{BOT_API_TOKEN}/sendMessage`,
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      chat_id: '{CHAT_ID}',
+      text: 'Hello, this is a message from the bot',
+    }),
+  },
+)</code></pre><p id="1a677955-515e-80f8-bbe3-c9cd99bf71d4" class="">Now, if someone adds a star to your repository, you will get a Telegram message like follows 🎉. This means I can finally attempt to ignore my OCD knowing that I’ll be automatically notified of every new star 😆.</p><figure id="1a577955-515e-80fc-9cb2-ff0012df45a2" class="image"><a href="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/notification.png"><img style="width:288px" src="https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/notification.png"></a></figure><p id="1a677955-515e-8064-b144-f9f31a454c90" class=""><strong>Disclaimer 2</strong>: Telegram API docs are quite shitty, so thanks to <em>@dideler for this </em>awesome Github <a href="https://gist.github.com/dideler/85de4d64f66c1966788c1b2304b9caf1">gist</a> detailing all the necessary steps.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
