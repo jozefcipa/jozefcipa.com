@@ -20,11 +20,12 @@ async function loadHTML(filePath) {
     }
 }
 
-function processHTML(body, dom) {
+function processHTML(body, dom, opts) {
     // Remove header
     // We don't need title and icon from Notion as we will display our custom header
     const header = body.getElementsByTagName('header').item(0)
     header.parentNode.removeChild(header)
+    console.log(`[html] Removed Notion header`)
 
     // Process <a> links
 
@@ -41,20 +42,33 @@ function processHTML(body, dom) {
             link.replaceWith(iframe)
         }
     }
+    console.log(`[html] Processed href links`)
 
-    // add loading="lazy" to images
-    // TODO: make this optional, only if enabled, turned off by default
-    // const images = body.getElementsByTagName('img')
-    // for (const image of images) {
-    //     const imageSrc = image.getAttribute('src')
-    //     const imageUrlParts = imageSrc.split('/')
-    //     const imageName = imageUrlParts.pop()
-    //     const previewImageSrc = imageUrlParts.join('/') + '/previews/' + imageName
-    //
-    //     image.setAttribute('data-src', imageSrc)
-    //     image.setAttribute('src', previewImageSrc)
-    //     image.classList.add('lazyload')
-    // }
+    // Remove <script> and <link> tags for code highlighting
+    const prismScriptLinks = body.querySelectorAll('script[src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"]')
+    const prismCssLinks = body.querySelectorAll('link[href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"]')
+    const prismLinks = [...prismScriptLinks, ...prismCssLinks]
+    if (prismLinks.length) {
+        prismLinks.forEach(link => link.remove())
+        console.log(`[html] Deleted ${prismLinks.length} redundant Prism highlighter links`)
+    }
+
+    // add lazy loading to images
+    if (opts.imgLazyLoad) {
+        const images = body.getElementsByTagName('img')
+        for (const image of images) {
+            const imageSrc = image.getAttribute('src')
+            const imageUrlParts = imageSrc.split('/')
+            const imageName = imageUrlParts.pop()
+            const previewImageSrc = imageUrlParts.join('/') + '/previews/' + imageName
+        
+            image.setAttribute('data-src', imageSrc)
+            image.setAttribute('src', previewImageSrc)
+            image.classList.add('lazyload')
+        }
+
+        console.log(`[html] Added lazyload image versions`)
+    }
 
     return body.innerHTML
 }
@@ -76,6 +90,7 @@ async function getFile(fileName) {
 async function saveFile(fileName, content) {
     const filePath = getFilePath(fileName)
     await fs.writeFile(filePath, content)
+    return filePath
 }
 
 function getFrontMatter(content) {
@@ -93,20 +108,18 @@ ${yaml.dump({
     tags: updates.tags ?? frontMatter.tags ?? [],
     date: frontMatter.date ?? new Date().toISOString(),
     slug: updates.slug ?? frontMatter.slug,
-    draft: this.title === 'unnamed',
+    draft: false,
+    // TODO: add preview image
 })}---
 `
 }
-
-// TODO: we will need to get this from Notion
-// these are request parameters
-
 // NOTE: if you get weird code formatting, looks for <script> and <link> in the exported Notion HTML
 // apparently it started including the script for each <code> block
-const fileName = 'notion-12677955515e8037be53e7832bb10412' // second part of the URL string
-const title = 'How I built a custom Homekit thermostat for 40€'
-const slug = 'how-i-built-a-custom-homekit-thermostat-for-40eur' // first part of the URL string
-const tags = ['C', 'homekit', 'iot', 'esp32', 'LVGL']
+const title = 'Extending your application with Lua scripts'
+const fileName = 'extending-your-application-with-lua-scripts'
+const slug = 'extending-your-application-with-lua-scripts'
+const tags = ['golang', 'scripting', 'lua']
+const imgLazyLoad = false
 
 ;(async (filePath) => {
     if (!filePath) {
@@ -115,11 +128,21 @@ const tags = ['C', 'homekit', 'iot', 'esp32', 'LVGL']
     }
 
     // process HTML
-    const { dom, body: htmlBody} = await loadHTML(filePath)
-    const articleContent = processHTML(htmlBody, dom)
+    const { dom, body: htmlBody } = await loadHTML(filePath)
+    console.log(`✓ Loaded HTML from ${filePath}`)
+    const articleContent = processHTML(htmlBody, dom, { imgLazyLoad })
+    console.log(`✓ Processed article content`)
 
     // if the article already exists, read the file and parse front matter
     const frontMatter = getFrontMatter(await getFile(fileName))
+
+    // TODO: generate article preview image
+
+    // TODO: generate lazy load image previews
+
+    // TODO: export this whole script into a separte binary / github package => notion2hugo
+
+    // TODO: add CLI prompts for the variables above
 
     // prepare front matter
     const articleMeta = updateFrontMatter(frontMatter, {
@@ -127,8 +150,11 @@ const tags = ['C', 'homekit', 'iot', 'esp32', 'LVGL']
         slug,
         tags,
     })
+    console.log(`✓ Generated front matter`)
 
     // save file
     const content = `${articleMeta}\n${articleContent}`
-    await saveFile(fileName, content)
+    const outFilePath = await saveFile(fileName, content)
+    console.log(`✓ Article saved to ${outFilePath}`)
+
 })(process.argv[2])

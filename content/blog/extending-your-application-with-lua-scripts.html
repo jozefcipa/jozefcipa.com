@@ -1,0 +1,105 @@
+---
+title: Extending your application with Lua scripts
+tags:
+  - golang
+  - scripting
+  - lua
+date: '2025-06-01T22:49:31.376Z'
+slug: extending-your-application-with-lua-scripts
+draft: false
+---
+
+<article id="17377955-515e-802c-9e3e-d42d75044481" class="page sans"><div class="page-body"><p id="20377955-515e-806f-af4c-dbf83751c303" class="">I was always intrigued when I heard about people creating custom mods in games with the help of the mysterious Lua scripting language. I didn’t care much about the games themselves, but more about the idea of extending and customizing something to my imagination. I’m not a gamer, but I love automation and modifying things, so this naturally sparked my interest.</p><p id="20377955-515e-801d-80e2-e7e4756a9965" class="">For this reason, I wanted to learn more about Lua and explore its potential when it comes to embedding it into existing software. In this article, we will implement a Lua interpreter in a simple Go program and learn how they interact with each other.</p><h2 id="1f977955-515e-80b0-8f22-e7a6626b156f" class="">What is Lua?</h2><p id="20377955-515e-80d5-a2c5-dfe18e461e4b" class="">Lua is a lightweight scripting language that’s super easy to embed into your own programs. It’s fast, small (~200KB core), and designed to let you add customization without complicating your core code. And it doesn’t require a runtime like JVM or Python. </p><p id="20377955-515e-80eb-9d39-fcff97c5c0cb" class="">It can be found anywhere from game modding, through various applications (e.g., Redis or Nginx) to embedded systems where memory is scarce. It is really great for gluing different code together and adding new logic.</p><h2 id="1f977955-515e-8025-bf0b-edecc0687a49" class="">Embedding Lua in Go</h2><p id="20377955-515e-801c-9b79-d39a891c3d55" class="">Most of the time, you can find Lua integrated into a C/C++ program, but there are tools for integrating it also with other languages, in our case, Go. In particular, we are going to use <a href="https://github.com/yuin/gopher-lua">gopher-lua</a> package. GopherLua is a VM and compiler written in Go. It provides Go APIs that allow you to easily embed a scripting language into Go programs.</p><h3 id="1fc77955-515e-80bb-a56a-d8f38495d5bc" class="">How it works</h3><p id="20377955-515e-80b0-9b04-d8a51077fbf5" class="">When we add GopherLua to our Go program, it will run a Lua interpreter written in Go and create a virtual memory stack that is also used for communication between Go and Lua.</p><p id="20377955-515e-8045-95b4-c4997c859089" class="">The interpreter executes Lua code and pushes or pulls data from the stack. On the other side is Go, which can also push or pull data back from Lua via the stack. This way, both sides can call functions and exchange data with each other. The example below illustrates this flow.</p><h3 id="20377955-515e-80ba-b48c-ea29d1925e6d" class="">Integrate Lua into the code</h3><p id="1fc77955-515e-8031-95f0-e97d3e06edf5" class="">In the <code>main</code> function, we first initialize the Lua interpreter. After that, we register a function <code>add</code> so that it’s available in the Lua environment. This function just adds two numbers and returns a result. As you can see, to get the numbers, we use the special function <code>L.CheckNumber()</code> to grab the value from the stack. Similarly, to put the data back onto the stack, we can use <code>L.Push()</code>. At the end, we return <code>1</code>, denoting that the function returns one value.</p><p id="20377955-515e-80c5-8682-fca38d974cab" class="">Once we have defined the Go function, we can go ahead and run the actual Lua code. You can either execute a <code>.lua</code> file via <code>L.DoFile()</code> or run an inline script by using <code>L.DoString()</code>.</p><p id="20377955-515e-804a-9959-c58d3e8b4403" class="">Lua just calls our function to add two numbers and stores the result in a variable <code>result</code>. After the script execution completes, Go can reach out to the Lua stack via <code>L.GetGlobal()</code> and get the variable value.</p><pre id="20377955-515e-809c-86ab-dd4e1f6282f3" class="code"><code class="language-Go">package main
+
+import (
+	"fmt"
+	"os"
+
+	lua "github.com/yuin/gopher-lua"
+)
+
+// A sample Go function to expose to Lua
+func addNumbers(L *lua.LState) int {
+	// Get arguments from the Lua's stack
+	num1 := L.CheckNumber(1)
+	num2 := L.CheckNumber(2)
+
+	// Push the result back to the stack
+	L.Push(lua.LNumber(num1 + num2))
+	return 1 // Number of return values
+}
+
+func main() {
+	// Init Lua interpreter
+	L := lua.NewState()
+	defer L.Close()
+
+	// Register the Go "add" function in Lua
+	L.SetGlobal("add", L.NewFunction(addNumbers))
+
+	// Execute Lua script and call the exposed Go function
+	if err := L.DoString(`
+		result = add(10, 20)
+	`); err != nil {
+		fmt.Fprintln(os.Stderr, "Error running Lua script:", err)
+		return
+	}
+
+	// Get the result value from Lua
+	fmt.Printf("10 + 20 = %s", L.GetGlobal("result"))
+}</code></pre><h3 id="1f777955-515e-8085-9951-def7853f65af" class="">Sandbox your Lua environment</h3><p id="20377955-515e-80da-9c95-f846e3c5746d" class="">In the next example, we will take a look at how we can control what libraries are available in the Lua environment. This might be important in some cases if one wants to limit the possibilities of the custom scripts and ensure that they won’t execute unprivileged code.</p><p id="20377955-515e-802a-89c4-fb674ffd2844" class="">Lua comes with a couple of standard libraries, like <code>os</code> and <code>io</code> that provide access to the operating system calls and the file system. In some cases, this might be undesired, and therefore, it’s a good idea to create a sandbox environment where these libraries are not available to the user. This can be easily achieved by setting those globals to <code>nil</code>.</p><p id="20577955-515e-80a6-b432-cf691f02ac02" class="">In the following example, we create a simple application that performs some business logic and provides a way for users to define custom Lua scripts to act on it. First, we check whether the <code>hooks.lua</code> file exists, and if so, we look for the <code>on_create</code> function. If the user defined this function, we will call it after performing the custom logic.</p><p id="20577955-515e-8018-90a9-fb128d85e7a0" class="">To call a function defined in Lua, we first need to address it through <code>L.GetGlobal()</code>. After that, we push the function on the stack alongside its parameters via <code>L.Push()</code>. Once the function and its arguments are ready on the stack, we can execute the function by calling <code>L.PCall()</code>.</p><pre id="20577955-515e-80ea-9298-c7dfbc1f632f" class="code"><code class="language-Go">package main
+
+import (
+	"fmt"
+
+	lua "github.com/yuin/gopher-lua"
+)
+
+func main() {
+	L := lua.NewState()
+	defer L.Close()
+
+	// Sandbox - remove unsafe standard libraries
+	L.SetGlobal("os", lua.LNil)
+	L.SetGlobal("io", lua.LNil)
+
+	// Load Lua script if available
+	var luaHook lua.LValue = nil
+	if err := L.DoFile("hooks.lua"); err == nil {
+		if fn := L.GetGlobal("on_create"); fn.Type() == lua.LTFunction {
+			luaHook = fn
+		}
+	}
+
+	// Some business logic here
+	// ...
+
+	// Afterwards, we call hooks if defined
+	if luaHook != nil {
+		// Load the on_create function onto the stack
+		L.Push(luaHook)
+		// Put the function argument onto the stack
+		L.Push(lua.LString("New entity created"))
+
+		// Call the Lua function
+		// 1 argument, 0 return values
+		if err := L.PCall(1, 0, nil); err != nil {
+			fmt.Printf("Failed to execute Lua hook: %v\n", err)
+		}
+	}
+
+}
+</code></pre><p id="20577955-515e-8038-8f5b-e0928d26de62" class="">Now we can define our <code>hooks.lua</code> file that will contain the definition of the <code>on_create</code> hook. This hook gets called every time the main Go program completes the fictional business logic and creates a new entity.</p><pre id="20577955-515e-803d-9f82-dc2f4913908b" class="code"><code class="language-Lua">-- hooks.lua
+function on_create(message)
+  print("[lua log]: " .. message)
+end</code></pre><p id="20577955-515e-807f-a8b1-ef42a04d558d" class="">After running <code>go run main.go</code> we should see the following result:</p><pre id="20577955-515e-8093-a63f-ec00834e5a8f" class="code"><code class="language-Bash">$ go run main.go
+[lua log]: New entity created</code></pre><p id="20577955-515e-80e7-a109-f4b11a834322" class="">This means that the script ran properly, and it found the <code>hooks.lua</code> file, registered the <code>on_create</code> function, and executed it with the correct arguments.</p><p id="20577955-515e-804b-9a66-c61b84df5b83" class="">However, if we update the Lua script to include some forbidden (sandboxed) commands like the following:</p><pre id="20577955-515e-80df-bd0e-d5ea9e87a40b" class="code"><code class="language-Lua">-- hooks.lua
+function on_create(message)
+  os.execute("echo 'Should not run!'")  -- This will error out
+  print("[lua log]: " .. message)
+end</code></pre><p id="20577955-515e-802e-8dc1-e1e625b72b79" class="">We would get the following error, as Lua doesn’t have access to the <code>os</code> library.</p><pre id="20577955-515e-8003-af33-da3635e2ae76" class="code"><code class="language-Bash">$ go run main.go
+Failed to execute Lua hook: hooks.lua:2: attempt to index a non-table object(nil) with key 'execute'
+stack traceback:
+	hooks.lua:2: in main chunk
+	[G]: ?</code></pre><p id="1fc77955-515e-8060-ad47-f2c293e96505" class="">This way, you can easily extend your programs to perform custom logic while ensuring that the scripts will run in a safe and controlled environment.</p><h2 id="1fc77955-515e-80e8-93a1-eef5bf7746b4" class="">Bonus - Hammerspoon</h2><p id="20377955-515e-8004-9f97-fc58dab90929" class="">During my research for this article, I came across a very interesting tool called <a href="https://www.hammerspoon.org/">Hammerspoon</a>. Hammerspoon is an automation tool designed for macOS that exposes various system-level APIs in Lua.</p><p id="20377955-515e-8095-acf6-f49a5dcc6ba1" class="">That means you can write custom Lua scripts to control and automate your system with ease.</p><p id="20377955-515e-8064-bfde-f9242f5d2cf0" class="">It offers many system APIs, such as window movement, menubar management, listening to application and system events, key bindings, and so on.</p><p id="20377955-515e-8006-9fd4-c1790af3365c" class="">It has a huge collection of community-developed scripts, so-called <em>spoons</em>, and many useful automations have already been made. It is definitely worth a look.</p><p id="1c377955-515e-8036-a4da-d54aadfd85b9" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
