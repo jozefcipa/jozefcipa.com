@@ -115,10 +115,10 @@ ${yaml.dump({
 }
 // NOTE: if you get weird code formatting, looks for <script> and <link> in the exported Notion HTML
 // apparently it started including the script for each <code> block
-const title = 'How to do Raspberry Pi OS backups'
-const slug = 'how-to-do-raspberry-pi-os-backups'
+const title = 'My EDC collection'
+const slug = 'my-edc-collection'
 const fileName = slug
-const tags = ['homelab', 'raspberrypi']
+const tags = ['lifestyle']
 const imgLazyLoad = false
 
 ;(async (filePath) => {
