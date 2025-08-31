@@ -410,10 +410,12 @@ h6:hover .anchor {
 .column-list {
 	display: flex;
 	justify-content: space-between;
+	gap: 1em;
+	margin: 1em 0;
 }
 
 .column {
-	padding: 0 1em;
+	/* padding: 0 1em; */
 }
 
 @media all and (max-width: 600px) {
@@ -461,7 +463,7 @@ img.icon {
 }
 
 figure {
-	margin: 1.25em 0;
+	margin: 0 0 1.25em 0;
 	page-break-inside: avoid;
 }
 
