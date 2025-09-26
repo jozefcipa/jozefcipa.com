@@ -121,10 +121,10 @@ ${yaml.dump({
 }
 // NOTE: if you get weird code formatting, looks for <script> and <link> in the exported Notion HTML
 // apparently it started including the script for each <code> block
-const title = 'Exploring Scandinavia ‒ my journey to Nordkapp'
-const slug = 'exploring-scandinavia-my-journey-to-nordkapp'
+const title = 'Upgrading my iPod Classic'
+const slug = 'upgrading-my-ipod-classic'
 const fileName = slug
-const tags = ['travelling', 'roadtrip', 'motorcycle']
+const tags = ['gadgets']
 const imgLazyLoad = true
 
 ;(async (filePath) => {
