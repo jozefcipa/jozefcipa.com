@@ -121,10 +121,10 @@ ${yaml.dump({
 }
 // NOTE: if you get weird code formatting, looks for <script> and <link> in the exported Notion HTML
 // apparently it started including the script for each <code> block
-const title = 'Building a USB HID Device with Raspberry Pi Pico and TinyGo'
+const title = 'Turning an old 27” iMac into an external monitor'
 const slug = title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '')
 const fileName = slug
-const tags = ['raspberry-pi', 'golang']
+const tags = ['apple', 'imac', 'monitor', 'diy']
 const imgLazyLoad = true
 
 ;(async (filePath) => {
