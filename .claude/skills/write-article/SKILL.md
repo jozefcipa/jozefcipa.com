@@ -14,6 +14,40 @@ opinions; you shape them into his style.
 the definitive guide to voice, tone, structure, and topics. Re-read (or re-consult) it
 before every writing pass — especially before drafting each section in Phase 3.
 
+## Reflective learning (always on)
+
+`WRITING_STYLE.md` is a **living document** and you are its curator. Throughout every
+phase — brainstorming answers, grill-me interviews, section corrections, final edits —
+keep analyzing what the author's words reveal about his persona, interests, and style,
+and persist anything durable into `WRITING_STYLE.md` so future articles start smarter.
+
+What counts as worth saving:
+
+- **Persona & interests** — new hobbies, tools, values, or recurring motivations that
+  surface while discussing the idea (update "Who is writing" / "Topics and interests").
+- **Style preferences** — corrections the author makes to drafts that generalize beyond
+  the current sentence: word choices he rejects or favors, sentence rhythm, emoji
+  tolerance, heading taste, how much technical depth he wants (update the relevant
+  section: voice, mechanics, structure, don'ts).
+- **Process preferences** — how he likes to work (e.g., wants shorter feedback lists,
+  prefers seeing two variants of an opening).
+- **New patterns** — article types, narrative beats, or tag vocabulary not yet captured.
+
+What NOT to save: one-off facts about the current article (prices, part names, what
+broke), anything already covered, or a single ambiguous edit — wait until a preference
+shows up twice or the author states it explicitly.
+
+How to save:
+
+1. Integrate the insight into the **matching existing section** of `WRITING_STYLE.md`,
+   refining or replacing lines rather than appending duplicates. Keep the file coherent —
+   it must stay a style guide, not a changelog.
+2. If an insight contradicts the guide, the author's latest signal wins — rewrite the
+   outdated line.
+3. Tell the author in one short line what you saved (e.g., *"Noted in WRITING_STYLE.md:
+   you prefer parts lists as tables."*) — don't ask permission for each update, but make
+   the learning visible so he can veto it.
+
 ## Workflow
 
 ### Phase 1 — Idea intake & constructive feedback
@@ -43,6 +77,10 @@ writing anything:
 Present feedback as a short, concrete list of suggestions and questions. Don't rewrite
 their idea — help them see the gaps.
 
+While discussing, listen reflectively: the author's answers often reveal more than the
+article needs — a new interest, a motivation, a strong opinion, a dislike. Capture the
+durable ones in `WRITING_STYLE.md` as described in "Reflective learning".
+
 **Optional deep-dive:** If the idea is vague, the answers raise more questions, or the
 author wants to be challenged, invoke the `grill-me` skill (via the Skill tool) to
 interview them about the article until the details are clear. Offer this; don't force it.
@@ -66,7 +104,9 @@ The author provides bullet points for each section/paragraph. For each section:
 4. Keep sections short (1–4 paragraphs). Mark places for images/diagrams with a
    placeholder like `<!-- TODO: photo of ... -->`.
 5. Show the drafted section and iterate on the author's corrections before moving on.
-   The author's edits are style signals — apply them to all subsequent sections.
+   The author's edits are style signals — apply them to all subsequent sections, and
+   when a correction reveals a preference that generalizes beyond this article, persist
+   it to `WRITING_STYLE.md` (see "Reflective learning").
 
 Write sections in article order when possible, so transitions flow naturally.
 
@@ -82,6 +122,11 @@ When all sections are approved:
 3. Offer to save it as `content/blog/<slug>.md`. (Note: existing posts written in Notion
    are `.html`; posts authored here should be plain Markdown, which Hugo renders fine.)
 4. Remind the author they can preview with `make run` (or `./hugo serve`).
+5. **Retrospective.** Review the whole collaboration: what did this article teach you
+   about the author's voice, persona, or interests that `WRITING_STYLE.md` doesn't
+   capture yet? Which corrections repeated? Fold those insights into the guide (per
+   "Reflective learning") and summarize in a couple of lines what was learned, so the
+   guide gets sharper with every article.
 
 ## Ground rules
 

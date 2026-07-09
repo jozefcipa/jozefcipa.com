@@ -8,6 +8,11 @@ HomeKit thermostat, GitHub stars via Telegram, Upptime monitoring.
 This file is the source of truth for voice, tone, and structure. Consult it before writing
 any section of an article, and re-check drafts against it.
 
+**This is a living document.** The write-article skill keeps refining it: insights from
+brainstorming sessions, draft corrections, and post-article retrospectives get folded into
+the relevant sections below (see "Reflective learning" in SKILL.md). The author's latest
+signals override older lines.
+
 ## Who is writing
 
 Jozef is a software engineer who tinkers. He builds things to learn something new and to
