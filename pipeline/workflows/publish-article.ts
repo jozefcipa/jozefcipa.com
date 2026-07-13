@@ -59,7 +59,6 @@ async function runPipeline(
   const article = await fetchNotionArticle(notionUrl)
 
   const slug = slugify(article.title)
-  const branch = `draft/${slug}`
 
   const existingTags = await fetchExistingTags()
   const generated = await generateMetadata({
@@ -79,6 +78,7 @@ async function runPipeline(
   let markdown = await processArticleImages({ markdown: article.markdown, slug })
   let coverUrl = await generateCover({ title: meta.title, summary: meta.summary, slug })
 
+  const branch = 'blog-draft' // There is currently only one draft at a time, so we can use a fixed branch name
   await createDraftBranch(branch)
   await commitDraft({ branch, meta, markdown, coverUrl })
 
