@@ -1,8 +1,10 @@
 {{ define "main" }}
 <div class="container page-list">
-  <p class="kicker">// writing</p>
-  <h1 class="page-title">Notes and write-ups</h1>
-  <p class="page-lead">everything tagged <span class="tag-highlight">{{ .Title | lower }}</span></p>
+  <header class="page-head">
+    <p class="kicker">// writing</p>
+    <h1 class="page-title">Notes and write-ups</h1>
+    <p class="page-lead">everything tagged <span class="tag-highlight">{{ .Title | lower }}</span></p>
+  </header>
 
   {{- partial "tag-map.html" (dict "site" site "active" .Title) }}
 

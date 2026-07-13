@@ -41,7 +41,7 @@ export const config = {
     return optional('GITHUB_REPO', 'jozefcipa/jozefcipa.com')
   },
   get siteDefaultBranch() {
-    return optional('SITE_DEFAULT_BRANCH', 'master')
+    return optional('SITE_DEFAULT_BRANCH', 'main')
   },
 
   // S3 — AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY are read by the AWS SDK itself

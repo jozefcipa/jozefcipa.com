@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{{- $title := cond .IsHome (printf "%s — backend engineer, tinkerer, occasional writer" .Site.Title) (printf "%s — %s" (.Title | default .Site.Title) .Site.Title) }}
+{{- $title := cond .IsHome (printf "%s — backend engineer with a passion for IoT and automation" .Site.Title) (printf "%s — %s" (.Title | default .Site.Title) .Site.Title) }}
 <title>{{ $title }}</title>
 {{- $description := .Params.summary | default (.Description | default (cond .IsPage (.Summary | plainify | truncate 160) .Site.Params.description)) }}
 {{- /* a post's cover becomes the share image when it's a real image (URL or
@@ -32,7 +32,8 @@
 <meta name="twitter:image" content="{{ . | absURL }}">
 {{- end }}
 <link rel="canonical" href="{{ .Permalink }}">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 {{- with .OutputFormats.Get "rss" }}
 <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
