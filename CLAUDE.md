@@ -30,7 +30,11 @@ The theme is committed directly (no git submodule) and customized — edit it in
 - `layouts/_default/baseof.html` dispatches `/work/`, `/about/`, and `/projects/` to partials by URL: `partials/work.html`, `partials/about.html`, `partials/projects.html`. To update those pages, edit the partials, not the content files.
 - `partials/homepage.html` renders the profile-mode home page.
 
-### Notion publishing pipeline (`.bin/`)
+### Publishing pipeline (`pipeline/`)
+
+Next.js app deployed as a **separate Vercel project** (root directory `pipeline/`). A Telegram bot (grammY) + durable workflow (Workflow DevKit) that imports a Notion page, converts it to Markdown, uploads images to S3, generates summary/tags/cover via OpenRouter (`@openrouter/sdk`), commits a `draft/<slug>` branch (Vercel preview = draft review), and on Telegram approval commits the post to `master`. See `pipeline/README.md` for setup and flow. It supersedes the legacy `.bin/` scripts below.
+
+### Legacy Notion publishing scripts (`.bin/`)
 
 Separate small Node project (`cd .bin && npm install`):
 

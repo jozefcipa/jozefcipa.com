@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:jozefcipa.com)"
+      "WebFetch(domain:jozefcipa.com)",
+      "WebFetch(domain:vercel.com)",
+      "Bash(node *)",
+      "Bash(awk '/^interface Attachment/,/^}/' node_modules/chat/dist/messages-x-XVhW8B.d.ts)",
+      "Bash(awk '/^interface Author/,/^}/' node_modules/chat/dist/messages-x-XVhW8B.d.ts)"
     ]
   }
 }
