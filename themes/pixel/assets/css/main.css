@@ -49,7 +49,6 @@ img { max-width: 100%; height: auto; display: block; }
 .site-main { flex: 1; }
 
 .container { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
-.container-narrow { max-width: 45rem; margin: 0 auto; padding: 0 1.25rem; }
 
 /* --- utilities ------------------------------------------------------------ */
 
@@ -237,12 +236,15 @@ html:not([data-mode="dark"]) .icon-sun { display: none; }
 
 /* --- blog list page ------------------------------------------------------------------ */
 
-.page-list { padding-top: 3.5rem; padding-bottom: 5rem; }
+/* one shared rule: every standalone page starts at the same height */
+.page-list,
+.page-content { padding-top: 3.5rem; padding-bottom: 5rem; }
+.page-head { margin-bottom: 2.5rem; }
 .page-title { margin-top: 0.25rem; font-size: 1.875rem; font-weight: 600; letter-spacing: -0.02em; }
-.page-lead { margin-top: 0.5rem; max-width: 42rem; font-size: 0.875rem; color: var(--muted); }
+.page-lead { margin-top: 0.5rem; max-width: 42rem; font-size: 1rem; color: var(--muted); }
 .tag-highlight { color: var(--accent); font-family: var(--font-mono); }
 
-.tag-map { margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+.tag-map { border-top: 1px solid var(--border); padding-top: 1.5rem; }
 .tag-map-label { margin-bottom: 0.75rem; font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
 .tag-map-pills { display: flex; flex-wrap: wrap; gap: 0.375rem; }
 .tag-pill {
@@ -271,7 +273,7 @@ html:not([data-mode="dark"]) .icon-sun { display: none; }
 
 /* --- article ------------------------------------------------------------------------- */
 
-.article { max-width: 72ch; padding-top: 3rem; padding-bottom: 4rem; }
+.article { max-width: 72ch; padding-top: 3.5rem; padding-bottom: 4rem; }
 .back-link { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
 .back-link:hover { color: var(--ink); }
 .article-header { margin-top: 1.5rem; }
@@ -402,11 +404,6 @@ html:not([data-mode="dark"]) .icon-sun { display: none; }
 
 /* --- generic content pages (work / about / projects) ---------------------------------------- */
 
-.page-content { padding-top: 5rem; padding-bottom: 3rem; }
-@media (min-width: 768px) { .page-content { padding-top: 7rem; } }
-.page-head { margin-bottom: 3.5rem; }
-.page-head .page-title { margin-top: 0.5rem; }
-.page-head .page-lead { margin-top: 0.75rem; max-width: 32rem; font-size: 1rem; color: var(--muted); }
 
 /* work timeline */
 .timeline { position: relative; list-style: none; border-left: 1px solid var(--border); padding-left: 2rem; }
@@ -431,7 +428,7 @@ html:not([data-mode="dark"]) .icon-sun { display: none; }
 .position-role { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
 .position-period { margin-top: 0.25rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); }
 .position-tech { margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
-.position-description { margin-top: 0.75rem; line-height: 1.625; color: var(--muted); }
+.position-description { margin-top: 0.75rem; line-height: 1.625; color: var(--muted); max-width: 65ch; }
 .position-description a { color: var(--accent); }
 .position-description a:hover { text-decoration: underline; }
 
@@ -464,7 +461,7 @@ html:not([data-mode="dark"]) .icon-sun { display: none; }
 [data-mode="dark"] .about-sprite { opacity: 0.16; }
 .about-sprite .sprite-chip { height: 6rem; width: auto; color: var(--ink); }
 @media (min-width: 768px) { .about-sprite { right: -3rem; } .about-sprite .sprite-chip { height: 8rem; } }
-.about-prose { margin-top: 0; }
+.about-prose { margin-top: 0; max-width: 68ch; }
 .about-avatar { position: relative; float: left; margin: 0 1.25rem 0.75rem 0; height: 7rem; width: 7rem; }
 .about-avatar-shadow { position: absolute; right: -6px; bottom: -6px; height: 100%; width: 100%; border: 1px solid var(--accent); }
 .about-avatar img {
@@ -475,7 +472,7 @@ html:not([data-mode="dark"]) .icon-sun { display: none; }
 
 .speaking { margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem; }
 .speaking-title { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; }
-.speaking-list { margin-top: 1.25rem; list-style: none; }
+.speaking-list { margin-top: 1.25rem; list-style: none; max-width: 68ch; }
 .speaking-list li { display: flex; gap: 0.5rem; line-height: 1.6; color: var(--muted); font-size: 0.9375rem; }
 .speaking-list li + li { margin-top: 0.75rem; }
 .speaking-marker { color: var(--accent); }
