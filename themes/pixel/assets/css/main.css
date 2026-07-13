@@ -346,7 +346,13 @@ html:not([data-mode="dark"]) .icon-sun { display: none; }
 .prose-article video { width: 100%; border: 1px solid var(--border); }
 
 .prose-figure { margin: 2rem 0; }
+.prose-figure a { display: block; overflow: hidden; }
 .prose-figure img { width: 100%; border: 1px solid var(--border); }
+
+/* blur-up: the low-res preview is pre-blurred, the extra filter hides its
+   upscaled pixels; it clears with a step-y transition once the full image lands */
+img.blur-up:not(.is-loaded) { filter: blur(10px); }
+img.blur-up.is-loaded { filter: none; transition: filter 240ms steps(4, end); }
 .prose-figure figcaption { margin-top: 0.5rem; font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
 
 /* columns (side-by-side images/content) */

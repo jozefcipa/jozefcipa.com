@@ -1,6 +1,6 @@
 <figure class="prose-figure">
   <a href="{{ .Destination | safeURL }}">
-    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async">
+    {{- partial "lazy-img.html" (dict "src" (string .Destination) "alt" .Text) }}
   </a>
   {{- with .Title }}<figcaption>{{ . }}</figcaption>{{ end -}}
 </figure>

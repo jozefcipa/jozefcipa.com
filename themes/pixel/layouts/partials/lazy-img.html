@@ -1,0 +1,17 @@
+{{- /* Blur-up image. Context: dict "src" <url> "alt" <text> ["class" <classes>]
+       Images on assets.jozefcipa.com/blog/<dir>/<file> have a pre-blurred
+       low-res twin at <dir>/previews/<file> — start with that and let
+       main.js swap in the full image near the viewport. */ -}}
+{{- $src := .src }}
+{{- $preview := "" }}
+{{- if and (strings.HasPrefix $src "https://assets.jozefcipa.com/blog/") (not (strings.Contains $src "/previews/")) }}
+{{- $segments := split $src "/" }}
+{{- $file := index $segments (sub (len $segments) 1) }}
+{{- $dir := substr $src 0 (sub (len $src) (len $file)) }}
+{{- $preview = printf "%spreviews/%s" $dir $file }}
+{{- end }}
+{{- if $preview }}
+<img src="{{ $preview }}" data-full="{{ $src }}" alt="{{ .alt }}" loading="lazy" decoding="async" class="blur-up{{ with .class }} {{ . }}{{ end }}">
+{{- else }}
+<img src="{{ $src }}" alt="{{ .alt }}" loading="lazy" decoding="async"{{ with .class }} class="{{ . }}"{{ end }}>
+{{- end }}
