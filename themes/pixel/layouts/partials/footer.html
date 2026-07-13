@@ -1,0 +1,21 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-left">
+      {{- partial "pixel-sprite.html" (dict "class" "pixel-heart" "rows" (slice
+        "..##..##.."
+        ".########."
+        "##########"
+        "##########"
+        ".########."
+        "..######.."
+        "...####..."
+        "....##....")) }}
+      <span>© {{ now.Year }} Jozef Cipa</span>
+    </div>
+    <div class="footer-right">
+      <a href="https://github.com/jozefcipa" target="_blank" rel="noreferrer" aria-label="GitHub">{{ partial "icon.html" "github" }} github</a>
+      <a href="https://linkedin.com/in/jozefcipa" target="_blank" rel="noreferrer" aria-label="LinkedIn">{{ partial "icon.html" "linkedin" }} linkedin</a>
+      <a href="{{ "rss.xml" | relURL }}" aria-label="RSS feed">rss</a>
+    </div>
+  </div>
+</footer>

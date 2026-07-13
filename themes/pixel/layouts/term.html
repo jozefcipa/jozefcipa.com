@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="container page-list">
+  <p class="kicker">// writing</p>
+  <h1 class="page-title">Notes and write-ups</h1>
+  <p class="page-lead">everything tagged <span class="tag-highlight">{{ .Title | lower }}</span></p>
+
+  {{- partial "tag-map.html" (dict "site" site "active" .Title) }}
+
+  {{- $paginator := .Paginate .Pages }}
+  <section class="post-grid list-grid">
+    {{- range $paginator.Pages }}
+    {{- partial "post-card.html" . }}
+    {{- end }}
+  </section>
+
+  {{- if gt $paginator.TotalPages 1 }}
+  <nav class="pagination" aria-label="Pagination">
+    {{- if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}">← newer</a>
+    {{- else }}<span class="is-disabled">← newer</span>{{ end }}
+    <span class="pagination-info">page {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+    {{- if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">older →</a>
+    {{- else }}<span class="is-disabled">older →</span>{{ end }}
+  </nav>
+  {{- end }}
+</div>
+{{ end }}

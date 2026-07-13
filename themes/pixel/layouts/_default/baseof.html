@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" data-scheme="c">
+<head>
+  {{- partial "head.html" . }}
+</head>
+<body>
+  <div class="site">
+    {{- partial "header.html" . }}
+    <main class="site-main">
+      {{- block "main" . }}{{ end }}
+    </main>
+    {{- partial "footer.html" . }}
+  </div>
+  <script defer src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 ---
+cover: map
 title: Travelling around Argentina
 tags:
   - travelling

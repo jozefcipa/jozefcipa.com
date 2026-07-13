@@ -1,0 +1,62 @@
+projects:
+  - name: USB Button
+    year: '2026'
+    url: https://github.com/jozefcipa/usb-button
+    description: >-
+      A Raspberry Pi Pico with a physical button that talks to your computer
+      over USB HID. Press the button (short, double, or long) and the Pico
+      sends those events to a host application on your PC or Mac.
+    tags: [raspberry-pi-pico, golang, electronics]
+  - name: WiFi Clock
+    year: '2025'
+    url: https://github.com/jozefcipa/wifi-clock
+    description: >-
+      A simple clock powered by an ESP32, featuring an old-school VFD display
+      for a retro aesthetic. Syncs time via the internet for accurate and
+      reliable timekeeping without manual adjustments.
+    tags: [esp32, c, electronics]
+  - name: Homekit Thermostat
+    year: '2025'
+    url: https://github.com/jozefcipa/homekit-thermostat
+    description: >-
+      A smart thermostat built on ESP32 with a touch screen, a GUI made with
+      LVGL, Wi-Fi provisioning, NTP time and the HomeKit protocol to talk to
+      the Apple Home app.
+    tags: [esp32, c, homekit, lvgl]
+  - name: Bluetooth Tank
+    year: '2024'
+    url: https://github.com/jozefcipa/tank
+    description: >-
+      A tank built on Arduino MEGA 2560, equipped with several sensors and a
+      bluetooth module, so it can be controlled remotely via a web app.
+    tags: [arduino, c++, bluetooth]
+  - name: Novus
+    year: '2024'
+    url: https://github.com/jozefcipa/novus
+    description: >-
+      Streamlines managing of numerous localhost services by providing regular
+      domain names instead. Built-in HTTPS support means all domains are
+      secure by default.
+    tags: [golang, nginx, cli]
+  - name: Laundry Alert
+    year: '2024'
+    url: https://github.com/jozefcipa/laundry-alert
+    description: >-
+      A small IoT project that monitors your washing machine and sends a push
+      notification when the washing cycle ends.
+    tags: [nodejs, arduino, iot]
+  - name: parallel-worker
+    year: '2020'
+    url: https://github.com/jozefcipa/parallel-worker
+    description: >-
+      A tiny library that lets you process lots of data faster by spawning
+      multiple workers over assigned portions of data — no synchronization or
+      duplicate-processing worries.
+    tags: [nodejs]
+  - name: My bus stop
+    year: '2017'
+    url: https://github.com/jozefcipa/mojazastavka_ios
+    description: >-
+      An iOS app and an API for locating bus stops near you and showing the
+      nearest departures (before Google added support for Slovakia).
+    tags: [ios, api]

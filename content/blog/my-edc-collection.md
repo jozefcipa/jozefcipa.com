@@ -1,4 +1,5 @@
 ---
+cover: https://assets.jozefcipa.com/blog/23777955515e809e8669dc868551af65/full.jpg
 title: My EDC collection
 tags:
   - gadgets
@@ -9,8 +10,6 @@ draft: false
 ---
 
 Recently, I realized I’ve collected quite a few handy little items that I use almost every day. For a long time, I didn’t even know “Everyday Carry” — or EDC — was a thing. I’ve just always been drawn to cool-looking, compact gear that feels good in the hand.
-
-![](https://assets.jozefcipa.com/blog/23777955515e809e8669dc868551af65/full.jpg)
 
 Now that my collection has grown, I thought it’d be fun to share the stuff that makes my day-to-day life a little better. Hopefully, you’ll find something inspiring here — and if you’ve got any favorite pocket gear of your own, I’d love to hear about it!
 

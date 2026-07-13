@@ -1,0 +1,29 @@
+{{- /* Tag map: pills sorted by count, top 12 visible, rest behind "+ N more".
+       Context: dict "site" site "active" <tag name or "all"> */ -}}
+{{- $active := .active }}
+{{- $site := .site }}
+{{- $tags := $site.Taxonomies.tags.ByCount }}
+{{- $total := len (where $site.RegularPages "Section" "blog") }}
+{{- $top := first 12 $tags }}
+{{- $rest := after 12 $tags }}
+<section class="tag-map">
+  <div class="tag-map-label">tag map</div>
+  <div class="tag-map-pills">
+    <a href="{{ "blog" | relURL }}" class="tag-pill{{ if eq $active "all" }} is-active{{ end }}">
+      <span>all</span><span class="tag-count">{{ $total }}</span>
+    </a>
+    {{- range $top }}
+    <a href="{{ .Page.RelPermalink }}" class="tag-pill{{ if eq $active .Page.Title }} is-active{{ end }}">
+      <span>{{ .Page.Title | lower }}</span><span class="tag-count">{{ .Count }}</span>
+    </a>
+    {{- end }}
+    {{- with $rest }}
+    <button type="button" class="tag-pill tag-more" data-tag-more>+ {{ len . }} more</button>
+    {{- range . }}
+    <a href="{{ .Page.RelPermalink }}" class="tag-pill is-hidden{{ if eq $active .Page.Title }} is-active{{ end }}" data-tag-extra>
+      <span>{{ .Page.Title | lower }}</span><span class="tag-count">{{ .Count }}</span>
+    </a>
+    {{- end }}
+    {{- end }}
+  </div>
+</section>

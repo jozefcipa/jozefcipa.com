@@ -1,37 +1,27 @@
 baseURL: 'https://jozefcipa.com'
 locale: en-us
 title: Jozef Cipa
-theme: papermod
+theme: pixel
 enableRobotsTXT: true
 pagination:
-  pagerSize: 10
+  pagerSize: 9
 capitalizeListTitles: false # keep tag names lowercase
 summaryLength: 30
-# googleAnalytics: 'UA-89527096-1'
 taxonomies:
   tags: tags
+outputFormats:
+  rss:
+    mediaType: application/rss+xml
+    baseName: rss # serve the feed as /rss.xml instead of /index.xml
 markup:
   goldmark:
     renderer:
       unsafe: true # raw <iframe>/<video> embeds in markdown posts
+  highlight:
+    noClasses: false # styled by the theme's chroma palette in css/main.css
 params:
   description: a backend developer with a passion for IoT and automation
-  assets:
-    disableHLJS: true # all posts are Markdown now — Chroma highlights at build time
-  images:
-    - assets/meta-preview.jpg
-  schema:
-    publisherType: Person
-  ShowReadingTime: true
-  ShowShareButtons: true
-  disableScrollToTop: true
-  profileMode:
-    enabled: true
-  socialIcons:
-    - name: linkedin
-      url: 'https://linkedin.com/in/jozefcipa'
-    - name: github
-      url: 'https://github.com/jozefcipa'
+  avatar: /assets/me-pixel.jpg
 menu:
   main:
     - identifier: home

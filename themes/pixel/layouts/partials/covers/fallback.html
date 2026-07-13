@@ -1,0 +1,14 @@
+{{- /* Deterministic pixel/geometric fallback. Context: seed string.
+       Mirrors the LCG from the design: s = (s*1103515245+12345) & 0x7fffffff */ -}}
+{{- $s := hash.FNV32a . }}
+{{- if eq $s 0 }}{{ $s = 7 }}{{ end }}
+{{- $cw := 20.0 }}{{ $ch := 11.2 }}
+{{- range $y := seq 0 9 }}
+{{- range $x := seq 0 9 }}
+{{- $s = mod (add (mul $s 1103515245) 12345) 2147483648 }}
+{{- $r := div (float $s) 2147483647.0 }}
+{{- if lt $r 0.12 }}
+<rect x="{{ mul (float $x) $cw }}" y="{{ mul (float $y) $ch }}" width="{{ $cw }}" height="{{ $ch }}" fill="{{ if lt $r 0.03 }}var(--accent){{ else }}currentColor{{ end }}" stroke="none" opacity="{{ if lt $r 0.03 }}1{{ else }}0.15{{ end }}"/>
+{{- end }}
+{{- end }}
+{{- end }}

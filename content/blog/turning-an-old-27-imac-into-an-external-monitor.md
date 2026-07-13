@@ -1,4 +1,5 @@
 ---
+cover: monitor
 title: Turning an old 27” iMac into an external monitor
 tags:
   - apple

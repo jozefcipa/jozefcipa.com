@@ -1,4 +1,5 @@
 ---
+cover: cloud
 title: Assuming IAM role and role chaining in AWS
 tags:
   - today-i-learned

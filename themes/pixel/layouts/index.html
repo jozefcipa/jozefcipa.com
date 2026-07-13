@@ -1,0 +1,80 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="dot-grid hero-grid" aria-hidden="true"></div>
+  <div class="hero-sprites" aria-hidden="true">
+    {{- partial "pixel-sprite.html" (dict "class" "sprite-robot animate-pixel-float-delayed" "rows" (slice
+      "...######..."
+      "..########.."
+      "..##....##.."
+      ".##########."
+      ".##.####.##."
+      "##........##"
+      "##.##..##.##"
+      "##.##..##.##"
+      "##........##"
+      ".##########."
+      ".#..####..#."
+      "....#..#...."
+      "....#..#....")) }}
+    {{- partial "pixel-sprite.html" (dict "class" "sprite-blocks" "rows" (slice
+      "####....##"
+      "####....##"
+      "####....##"
+      "####....##"
+      "....####.."
+      "....####.."
+      "....####.."
+      "....####.."
+      "##....####"
+      "##....####")) }}
+    {{- partial "pixel-sprite.html" (dict "class" "sprite-sparkle animate-pixel-float" "rows" (slice
+      "...#..."
+      "...#..."
+      "..###.."
+      "#######"
+      "..###.."
+      "...#..."
+      "...#...")) }}
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1 class="hero-title">Jozef Cipa</h1>
+      <div class="hero-bar" aria-hidden="true"></div>
+      <p class="hero-tagline">{{ .Site.Params.description }}</p>
+      <p class="hero-blurb">
+        I build quiet, reliable systems in Go and Node — and, when the office
+        lights are off, small hardware things that talk to them. This is where
+        I write it down.
+      </p>
+      <div class="hero-links">
+        <a href="{{ "blog" | relURL }}" class="hero-link-primary link-step">read the blog →</a>
+        <a href="{{ "projects" | relURL }}">see projects</a>
+        <a href="{{ "about" | relURL }}">about me</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://github.com/jozefcipa" target="_blank" rel="noreferrer" aria-label="GitHub">{{ partial "icon.html" "github" }}</a>
+        <a href="https://linkedin.com/in/jozefcipa" target="_blank" rel="noreferrer" aria-label="LinkedIn">{{ partial "icon.html" "linkedin" }}</a>
+        <a href="{{ "rss.xml" | relURL }}" aria-label="RSS feed">{{ partial "icon.html" "rss" }}</a>
+      </div>
+    </div>
+    <div class="avatar-frame" aria-hidden="true">
+      <img src="{{ .Site.Params.avatar | default "/assets/me.jpg" }}" alt="Jozef Cipa" width="224" height="224">
+    </div>
+  </div>
+</section>
+
+<section class="container home-writing">
+  <div class="section-head-row">
+    <div class="section-head">
+      <p class="kicker">// writing</p>
+      <h2>Recent notes</h2>
+    </div>
+    <a href="{{ "blog" | relURL }}" class="all-posts-link">all posts →</a>
+  </div>
+  <div class="post-grid">
+    {{- range first 3 (where site.RegularPages "Section" "blog") }}
+    {{- partial "post-card.html" . }}
+    {{- end }}
+  </div>
+</section>
+{{ end }}

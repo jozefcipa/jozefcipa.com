@@ -10,9 +10,9 @@ tags:
 date: '2024-02-01T10:20:07.498Z'
 slug: laundryalert-never-forget-your-laundry-again
 draft: false
+cover: >-
+  https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/laundry-alert.jpeg
 ---
-
-![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/laundry-alert.jpeg)
 
 A few months ago I was hanging my laundry after it stayed in the washing machine for half a day before I remembered I had forgotten to take it out. And this didn’t happen for the first time. Maybe it happened to you too. I got fed up and that’s when I got an idea.
 

@@ -1,4 +1,5 @@
 ---
+cover: disc
 title: Upgrading my iPod Classic
 tags:
   - gadgets

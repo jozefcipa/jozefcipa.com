@@ -1,4 +1,5 @@
 ---
+cover: flag
 title: "Feature Flags"
 date: 2022-01-12T00:41:17+01:00
 tags: [today-i-learned]

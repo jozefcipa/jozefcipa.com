@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="container-narrow page-content">
+  <header class="page-head">
+    <p class="kicker">// work</p>
+    <h1 class="page-title">Selected work</h1>
+    <p class="page-lead">A rough chronology of the places that taught me what I know — and the ones I'm still learning from.</p>
+  </header>
+
+  <ol class="timeline">
+    {{- range hugo.Data.work.positions }}
+    <li class="timeline-item">
+      <span class="timeline-node" aria-hidden="true"></span>
+      <article class="position">
+        <div class="position-logo">
+          <img src="{{ .logo }}" alt="" loading="lazy">
+        </div>
+        <div class="position-body">
+          <div class="position-head">
+            <h2><a href="{{ .url }}" target="_blank" rel="noreferrer">{{ .company }}</a>{{ with .note }} <small>({{ . }})</small>{{ end }}</h2>
+            <span class="position-role">{{ .role }}</span>
+          </div>
+          <p class="position-period">{{ .period }} · {{ .location }}</p>
+          <p class="position-tech">{{ .technologies }}</p>
+          <p class="position-description">{{ .description | safeHTML }}</p>
+        </div>
+      </article>
+    </li>
+    {{- end }}
+  </ol>
+</div>
+{{ end }}

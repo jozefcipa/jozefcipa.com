@@ -1,4 +1,6 @@
 ---
+cover: >-
+  https://assets.jozefcipa.com/blog/2d077955515e806f9189d4c2b9d71010/usb-hid-rpi-pico.jpg
 title: Building a USB HID Device with Raspberry Pi Pico and TinyGo
 tags:
   - raspberry-pi
@@ -7,8 +9,6 @@ date: '2026-03-10T11:22:40.823Z'
 slug: building-a-usb-hid-device-with-raspberry-pi-pico-and-tinygo
 draft: false
 ---
-
-![](https://assets.jozefcipa.com/blog/2d077955515e806f9189d4c2b9d71010/usb-hid-rpi-pico.jpg)
 
 I have an old Mac Mini that I wanted to use to run [RetroPie](https://retropie.org.uk/) and launch it automatically after startup. But the question was how to turn it off. I didn’t want to yank the power or force‑shut the whole OS, but I also don’t have a keyboard and a mouse connected to it. I wanted to have a graceful way to trigger a clean shutdown so the system could close everything properly.
 

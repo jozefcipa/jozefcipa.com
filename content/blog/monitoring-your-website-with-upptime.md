@@ -1,4 +1,5 @@
 ---
+cover: waves
 title: Monitoring your website with Upptime
 tags:
   - api

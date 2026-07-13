@@ -10,9 +10,9 @@ summary: >-
   should be an option to unsubscribe. However there are some things that you
   have to be careful about.
 draft: false
+cover: >-
+  https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy
 ---
-
-![unsplash.com/@brett_jordan](https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy)
 
 We all know how annoying all those emails that we receive from various websites might be, especially when we don’t expect them. So naturally, there should be an option to unsubscribe (it’s even enforced by law in some countries). A few times, it happened that even though I clicked on the unsubscribe button, the emails were still coming. So apparently, either the website doesn’t care about your opinion to opt out or something is not working correctly on their side. A different issue is if it works too well - what does it mean?
 

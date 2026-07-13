@@ -1,0 +1,31 @@
+{{- /* Post cover. Context: a Page.
+       .Params.cover may be: a named SVG scene variant, an image URL string
+       (pipeline-generated covers), a PaperMod-style map { image: ... },
+       or absent → deterministic pixel/geometric fallback. */ -}}
+{{- $cover := .Params.cover }}
+{{- $variants := slice "monitor" "chip" "lock" "waves" "map" "thermo" "shield" "cloud" "moon" "diff" "disc" "star" "mug" "flag" "wifi" }}
+{{- $image := "" }}
+{{- $variant := "" }}
+{{- if reflect.IsMap $cover }}
+{{- $image = $cover.image | default "" }}
+{{- else if $cover }}
+{{- if in $variants $cover }}{{ $variant = $cover }}{{ else }}{{ $image = $cover }}{{ end }}
+{{- end }}
+{{- $seed := .Title | default "x" }}
+{{- $offset := mod (hash.FNV32a $seed) 8 }}
+<div class="post-cover">
+  <div class="post-cover-pattern" style="background-position: {{ $offset }}px {{ $offset }}px"></div>
+  {{- if $image }}
+  <img src="{{ $image }}" alt="" loading="lazy" decoding="async" class="post-cover-img">
+  {{- else }}
+  <div class="post-cover-scene">
+    <svg viewBox="0 0 200 112" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+      {{- if $variant }}
+      {{- partial (printf "covers/%s.html" $variant) . }}
+      {{- else }}
+      {{- partial "covers/fallback.html" $seed }}
+      {{- end }}
+    </svg>
+  </div>
+  {{- end }}
+</div>

@@ -1,0 +1,7 @@
+{{ define "main" }}
+<div class="container page-list">
+  <p class="kicker">// tags</p>
+  <h1 class="page-title">Tag map</h1>
+  {{- partial "tag-map.html" (dict "site" site "active" "") }}
+</div>
+{{ end }}

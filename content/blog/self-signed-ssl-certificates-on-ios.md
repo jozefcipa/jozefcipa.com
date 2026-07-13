@@ -1,4 +1,5 @@
 ---
+cover: lock
 title: Self signed SSL certificates on iOS
 tags:
   - devops

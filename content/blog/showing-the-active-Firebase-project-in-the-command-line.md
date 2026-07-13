@@ -4,11 +4,12 @@ description: >-
   If you are working on a project where Firebase is used, most likely you have a
   separate project created for each environment (dev, staging…
 date: '2021-01-09T00:09:06.306Z'
-tags: [firebase, scripting, utilities]
-# slug: /@jozefcipa/showing-the-active-firebase-project-in-the-command-line-5ddac9fdf5c6
+tags:
+  - firebase
+  - scripting
+  - utilities
+cover: /blog/img/1__0mPtptlp6Vi4uzyAB0W5RQ.png
 ---
-
-![](/blog/img/1__0mPtptlp6Vi4uzyAB0W5RQ.png)
 
 If you are working on a project where Firebase is used, most likely you have a separate project created for each environment (`dev`, `staging`, `prod`, sometimes maybe even more). During the development, it often happens that you need to configure something using [Firebase CLI.](https://firebase.google.com/docs/cli) Whenever you intend to make a change you want to make sure the right project is set as active. This can be verified easily by running
 
