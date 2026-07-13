@@ -4,7 +4,7 @@ description: >-
   If you work with gRPC you need to find a way of sharing proto  files across
   individual microservices. Let’s take a look at one possible way
 date: '2020-02-23T21:18:37.768Z'
-tags: [gRPC, automation]
+tags: [grpc, automation]
 # slug: /@jozefcipa/sharing-grpc-protobufs-between-microservices-3769272e9598
 ---
 

@@ -8,18 +8,18 @@ Personal website/blog (jozefcipa.com) built with Hugo and a heavily customized, 
 
 ## Commands
 
-- `make run` — start the local dev server (`hugo serve`)
-- Hugo **v0.91.x is required** (newer versions break the theme). A pinned `hugo` binary (v0.91.2) is committed at the repo root — use `./hugo serve` / `./hugo` if the globally installed version doesn't match.
+- `make run` — start the local dev server (`./hugo serve`, the untracked binary pinned at the repo root, currently v0.164.0)
 - There are no tests or linters.
+- When upgrading Hugo, also bump `HUGO_VERSION` in the Vercel project settings.
 
 ## Architecture
 
 ### Content
 
-- `content/blog/` contains posts in two formats:
-  - `.md` — regular Markdown posts.
-  - `.html` — posts written in Notion, exported as HTML, and converted by `.bin/notion-processor.js`. The HTML body is kept verbatim (Notion markup, `id` attributes and all) below a YAML front matter block.
-- Front matter: `title`, `tags`, `date`, `slug`, `draft`.
+- `content/blog/` contains **Markdown posts only** (the old Notion-export `.html` posts were migrated to Markdown in July 2026; see git history).
+- Front matter: `title`, `tags`, `date`, `slug`, `draft` (the pipeline also writes `summary` and `cover`).
+- Posts may use the theme shortcodes `columns` (side-by-side content, separated by `<--->`), `callout` (emoji note box), and `gist`, plus raw `<iframe>`/`<video>` HTML (goldmark `unsafe` is enabled).
+- Code highlighting is build-time Chroma (highlight.js is disabled via `params.assets.disableHLJS`).
 - `content/about.md`, `content/work.md`, `content/projects.md` are **empty placeholders** that only exist so the routes render. Their real content lives in theme partials (see below).
 - Post images are hosted externally at `assets.jozefcipa.com`; a few older ones live in `content/blog/img/`.
 

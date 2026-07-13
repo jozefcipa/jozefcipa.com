@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
+<html lang="{{ .Site.Language }}" dir="{{ .Language.Direction | default "auto" }}">
 
 <head>
     {{- partial "head.html" . }}
@@ -7,11 +7,11 @@
 
 {{- if .IsHome }}
 {{- partial "homepage.html" . }}
-{{- else if (eq .URL `/work/`) -}}
+{{- else if (eq .RelPermalink `/work/`) -}}
 {{- partial "work.html" . }}
-{{- else if (eq .URL `/about/`) -}}
+{{- else if (eq .RelPermalink `/about/`) -}}
 {{- partial "about.html" . }}
-{{- else if (eq .URL `/projects/`) -}}
+{{- else if (eq .RelPermalink `/projects/`) -}}
 {{- partial "projects.html" . }}
 {{- else }}
 <body class="

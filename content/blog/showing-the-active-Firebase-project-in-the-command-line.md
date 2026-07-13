@@ -4,7 +4,7 @@ description: >-
   If you are working on a project where Firebase is used, most likely you have a
   separate project created for each environment (dev, staging…
 date: '2021-01-09T00:09:06.306Z'
-tags: [Firebase, scripting, utilities]
+tags: [firebase, scripting, utilities]
 # slug: /@jozefcipa/showing-the-active-firebase-project-in-the-command-line-5ddac9fdf5c6
 ---
 

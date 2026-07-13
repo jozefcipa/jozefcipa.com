@@ -1,1 +1,5 @@
-<img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+<figure class="image">
+  <a href="{{ .Destination | safeURL }}">
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async" {{- with .Title }} title="{{ . }}"{{ end }}>
+  </a>
+</figure>

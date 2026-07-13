@@ -4,7 +4,7 @@ description: >-
   Update 2019: This article was written at the time when I didn’t have a lot of
   knowledge about error handling, system architecture and…
 date: '2017-11-09T16:37:42.614Z'
-tags: [Laravel]
+tags: [laravel]
 ---
 
 **Update 2019:** _This article was written at the time when I didn’t have a lot of knowledge about error handling, system architecture and common practices in general. It is definitely_ **_not a recommended solution_** _for tracking application errors. There are many better ways for handling these situations (e.g._ [_Sentry_](https://sentry.io/)_)._

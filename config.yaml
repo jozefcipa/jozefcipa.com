@@ -1,15 +1,23 @@
 baseURL: 'https://jozefcipa.com'
-languageCode: en-us
+locale: en-us
 title: Jozef Cipa
 theme: papermod
 enableRobotsTXT: true
-paginate: 10
+pagination:
+  pagerSize: 10
+capitalizeListTitles: false # keep tag names lowercase
 summaryLength: 30
 # googleAnalytics: 'UA-89527096-1'
 taxonomies:
   tags: tags
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # raw <iframe>/<video> embeds in markdown posts
 params:
   description: a backend developer with a passion for IoT and automation
+  assets:
+    disableHLJS: true # all posts are Markdown now — Chroma highlights at build time
   images:
     - assets/meta-preview.jpg
   schema:
