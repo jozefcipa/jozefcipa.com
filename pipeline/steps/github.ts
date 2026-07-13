@@ -1,6 +1,7 @@
 import matter from 'gray-matter'
 import { Octokit } from 'octokit'
 import { config } from '@/lib/config'
+import { log, logApiError } from '@/lib/log'
 import type { ArticleMeta } from '@/lib/types'
 
 const octo = () => new Octokit({ auth: config.githubToken })
@@ -51,12 +52,13 @@ export async function fetchExistingTags(): Promise<string[]> {
 
   const { owner, repo } = repoParts()
   const gh = octo()
+  log('github: collecting existing tags from content/blog')
   const { data } = await gh.rest.repos.getContent({
     owner,
     repo,
     path: 'content/blog',
     ref: config.siteDefaultBranch,
-  })
+  }).catch((error) => logApiError('github getContent content/blog', error))
   if (!Array.isArray(data)) {
     return []
   }
@@ -83,19 +85,21 @@ export async function createDraftBranch(branch: string): Promise<void> {
 
   const { owner, repo } = repoParts()
   const gh = octo()
+  log(`github: creating branch ${branch}`)
   const { data: base } = await gh.rest.git.getRef({
     owner,
     repo,
     ref: `heads/${config.siteDefaultBranch}`,
-  })
+  }).catch((error) => logApiError(`github getRef heads/${config.siteDefaultBranch}`, error))
 
   try {
     await gh.rest.git.createRef({ owner, repo, ref: `refs/heads/${branch}`, sha: base.object.sha })
   } catch (error) {
     // 422 = branch already exists (e.g. a retried step) — that's fine
     if (!isHttpError(error, 422)) {
-      throw error
+      logApiError(`github createRef ${branch}`, error)
     }
+    log(`github: branch ${branch} already exists — reusing`)
   }
 }
 
@@ -112,6 +116,7 @@ export async function commitDraft(input: {
   const gh = octo()
   const path = postPath(input.meta.slug)
 
+  log(`github: committing draft ${path} to ${input.branch}`)
   const existing = await getFileOnRef(path, input.branch)
   const content = buildPostContent(input.meta, input.markdown, input.coverUrl, new Date().toISOString())
   await gh.rest.repos.createOrUpdateFileContents({
@@ -122,7 +127,7 @@ export async function commitDraft(input: {
     message: `draft: ${input.meta.title}`,
     content: Buffer.from(content).toString('base64'),
     ...(existing && { sha: existing.sha }),
-  })
+  }).catch((error) => logApiError(`github commit ${path} to ${input.branch}`, error))
 
   // the slug was changed during review — drop the file at the old path
   if (input.removeSlug && input.removeSlug !== input.meta.slug) {
@@ -160,6 +165,7 @@ export async function publishDraft(input: {
   const originalDate = published ? (matter(published.content).data.date as string | undefined) : undefined
   const date = originalDate ?? new Date().toISOString()
 
+  log(`github: publishing ${path} to ${config.siteDefaultBranch}${published ? ' (updating existing post)' : ''}`)
   const content = buildPostContent(input.meta, input.markdown, input.coverUrl, date)
   await gh.rest.repos.createOrUpdateFileContents({
     owner,
@@ -169,8 +175,9 @@ export async function publishDraft(input: {
     message: `feat(article): ${input.meta.title}`,
     content: Buffer.from(content).toString('base64'),
     ...(published && { sha: published.sha }),
-  })
+  }).catch((error) => logApiError(`github publish ${path}`, error))
 
+  log(`github: deleting branch ${input.branch}`)
   await discardDraftBranch(input.branch)
 }
 

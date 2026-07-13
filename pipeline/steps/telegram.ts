@@ -1,4 +1,5 @@
 import { getBot } from '@/lib/bot'
+import { log, logApiError } from '@/lib/log'
 import type { ArticleMeta } from '@/lib/types'
 
 const escapeHtml = (text: string): string =>
@@ -6,7 +7,9 @@ const escapeHtml = (text: string): string =>
 
 export async function sendMessage(chatId: string, text: string): Promise<void> {
   'use step'
+  log(`telegram: sending "${text.slice(0, 60)}…"`)
   await getBot().api.sendMessage(chatId, text)
+    .catch((error) => logApiError('telegram sendMessage', error))
 }
 
 export async function postReview(input: {
@@ -20,8 +23,10 @@ export async function postReview(input: {
   const { meta } = input
   const bot = getBot()
 
+  log(`telegram: posting review for "${meta.title}"`)
   // Telegram fetches the cover from its public S3 URL
   await bot.api.sendPhoto(input.chatId, input.coverUrl)
+    .catch((error) => logApiError(`telegram sendPhoto ${input.coverUrl}`, error))
 
   const review = [
     `<b>${escapeHtml(meta.title)}</b>`,
@@ -40,5 +45,5 @@ export async function postReview(input: {
   await bot.api.sendMessage(input.chatId, review, {
     parse_mode: 'HTML',
     link_preview_options: { is_disabled: true },
-  })
+  }).catch((error) => logApiError('telegram sendMessage (review)', error))
 }

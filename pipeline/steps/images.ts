@@ -1,5 +1,6 @@
 import sharp from 'sharp'
 import { config } from '@/lib/config'
+import { log } from '@/lib/log'
 import { completeText, generateImage } from '@/lib/openrouter'
 import { uploadAsset } from '@/lib/s3'
 
@@ -29,14 +30,17 @@ export async function processArticleImages(input: { markdown: string; slug: stri
   const urls = [...new Set([...markdown.matchAll(IMAGE_MARKDOWN_REGEX)].map((match) => match[1]))].filter(
     (url) => !url.startsWith(config.assetsBaseUrl),
   )
+  log(`images: ${urls.length} external image(s) to mirror for ${slug}`)
 
   let result = markdown
   let index = 0
   for (const url of urls) {
     index += 1
 
+    log(`images: downloading ${url.slice(0, 100)}`)
     const response = await fetch(url)
     if (!response.ok) {
+      console.error(`[pipeline] ✗ image download failed (HTTP ${response.status}): ${url}`)
       throw new Error(`Failed to download image ${url}: HTTP ${response.status}`)
     }
     const contentType = response.headers.get('content-type') ?? 'image/jpeg'
@@ -70,6 +74,7 @@ export async function generateCover(input: {
 }): Promise<string> {
   'use step'
 
+  log(`images: generating cover for "${input.title}"${input.feedback ? ' (with feedback)' : ''}`)
   const subject = await completeText(
     [
       'You are choosing the subject of a blog post cover illustration.',
@@ -91,5 +96,6 @@ export async function generateCover(input: {
   const coverUrl = await uploadAsset(`blog/${input.slug}/${name}`, cover.data, cover.contentType)
   await uploadAsset(`blog/${input.slug}/previews/${name}`, await makePreview(cover.data), cover.contentType)
 
+  log(`images: cover ready at ${coverUrl}`)
   return coverUrl
 }
