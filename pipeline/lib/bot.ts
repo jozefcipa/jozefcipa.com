@@ -3,7 +3,7 @@ import { resumeHook, start } from 'workflow/api'
 import { publishArticle } from '@/workflows/publish-article'
 import { config } from './config'
 
-const NOTION_URL_REGEX = /https:\/\/(?:www\.)?(?:notion\.so|[\w-]+\.notion\.site)\/\S+/i
+const NOTION_URL_REGEX = /https:\/\/(?:(?:www\.|app\.)?notion\.(?:so|com)|[\w-]+\.notion\.site)\/\S+/i
 
 const HELP_MESSAGE = [
   'Send me a link to a Notion page and I will turn it into a blog post draft:',
