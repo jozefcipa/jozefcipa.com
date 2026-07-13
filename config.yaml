@@ -20,7 +20,7 @@ markup:
   highlight:
     noClasses: false # styled by the theme's chroma palette in css/main.css
 params:
-  description: a backend developer with a passion for IoT and automation
+  description: a backend engineer with a passion for IoT and automation
   avatar: /assets/me-pixel.jpg
 menu:
   main:

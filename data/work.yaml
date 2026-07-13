@@ -8,11 +8,9 @@ positions:
     period: March 2023 — present
     technologies: Node.js, Typescript, Postgres, AWS, React.js, Tailwind
     description: >-
-      I help to revolutionize the way legal teams draft contracts and manage
-      knowledge. By building scalable backend systems I ensure our platform
-      delivers an exceptional user experience. Lexis® Create+ allows lawyers
-      to focus on what matters most while taking care of the rest, making
-      legal work faster and smarter.
+      I build the backend systems behind Lexis® Create+, a drafting assistant
+      that helps legal teams write contracts and manage knowledge without the
+      busywork — so lawyers can focus on the actual lawyering.
   - company: STRV
     url: https://www.strv.com
     logo: /assets/strv.png
@@ -50,7 +48,6 @@ positions:
     period: July 2016 — October 2018
     technologies: PHP, Zend, XSLT 😅, Node.js, React.js, MariaDB, Docker, Gitlab
     description: >-
-      Focused mainly on e-commerce projects written in PHP, using the custom
-      robust CMS solution. I worked here on part time during my studies in
-      high school which allowed me to learn and gain a lot of experience as a
-      junior developer.
+      Mostly e-commerce projects in PHP on a custom in-house CMS. I worked
+      here part-time during high school, which is where I picked up the
+      basics of doing this professionally — code reviews, deadlines, and all.
