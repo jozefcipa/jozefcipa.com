@@ -25,7 +25,7 @@
 {{- if and .IsPage (not .Date.IsZero) }}
 <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
 {{- end }}
-<meta name="twitter:card" content="{{ if and $shareImage (ne $shareImage (index (.Site.Params.images | default slice) 0)) }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:card" content="{{ if $shareImage }}summary_large_image{{ else }}summary{{ end }}">
 <meta name="twitter:title" content="{{ .Title | default .Site.Title }}">
 <meta name="twitter:description" content="{{ $description }}">
 {{- with $shareImage }}

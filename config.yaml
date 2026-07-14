@@ -22,6 +22,8 @@ markup:
 params:
   description: a backend engineer with a passion for IoT and automation
   avatar: /assets/me-pixel.jpg
+  images: # site-wide og:image fallback, used when a page has no cover of its own
+    - /og-cover.png
 menu:
   main:
     - identifier: home
