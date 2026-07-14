@@ -1,12 +1,9 @@
-import sharp from 'sharp'
 import { config } from '@/lib/config'
 import { log } from '@/lib/log'
-import { completeText, generateImage } from '@/lib/openrouter'
+import { COVER_EXAMPLES } from '@/lib/cover-examples'
+import { makePreview } from '@/lib/previews'
+import { generateImage } from '@/lib/openrouter'
 import { uploadAsset } from '@/lib/s3'
-
-// same parameters as the original .bin/image-preview.js blur-up previews
-const PREVIEW_WIDTH = 100
-const PREVIEW_BLUR = 8
 
 const IMAGE_MARKDOWN_REGEX = /!\[[^\]]*\]\(([^)\s]+)\)/g
 
@@ -16,9 +13,6 @@ const EXTENSION_BY_CONTENT_TYPE: Record<string, string> = {
   'image/webp': 'webp',
   'image/gif': 'gif',
 }
-
-export const makePreview = (image: Buffer): Promise<Buffer> =>
-  sharp(image).resize({ width: PREVIEW_WIDTH }).blur(PREVIEW_BLUR).toBuffer()
 
 // Downloads every external image referenced in the markdown (Notion file URLs expire!),
 // uploads the original + a small blurred preview to S3 and rewrites the markdown
@@ -57,14 +51,40 @@ export async function processArticleImages(input: { markdown: string; slug: stri
   return result
 }
 
-// Locked style prefix — this is what keeps covers consistent across articles.
-// The model only decides the subject, never the style.
-const COVER_STYLE_PROMPT = [
-  'Flat vector illustration in a minimal outline style, similar to Cloudflare blog artwork:',
-  'bold simple shapes, thin dark outlines, a 2-3 color palette with a single accent color',
-  'on a light neutral background, generous negative space, clean composition, landscape orientation.',
-  'Absolutely no text, no lettering, no photorealism, no gradients, no 3D rendering, no drop shadows.',
-].join(' ')
+// Locked style — this is what keeps covers consistent across articles.
+// The model only decides the scene, never the style: a monochromatic
+// engineering sketch in grays with one cobalt-blue accent, matching the theme.
+const coverPrompt = (input: { title: string; summary: string; feedback?: string }): string =>
+  [
+    'Create a WORDLESS, completely text-free cover illustration for a technical',
+    'blog post, in exactly the style of the attached example images.',
+    '',
+    `The article is titled "${input.title}" and summarized: "${input.summary}"`,
+    '',
+    'Draw ONE simple scene that captures what the article is about, using AT MOST',
+    'FIVE objects — fewer is better. Pick the most recognizable, concrete objects',
+    '(a device, a tool, a symbol of the concept) and arrange them as one coherent,',
+    'sparse composition. If the article is about a thermostat, draw a thermostat.',
+    '',
+    ...(input.feedback
+      ? [`The previous illustration was rejected with this feedback, respect it: "${input.feedback}"`, '']
+      : []),
+    'Match the attached examples exactly:',
+    '- a minimal engineering sketch: thin dark-gray outline strokes on a plain',
+    '  white background, like a schematic or patent drawing',
+    '- very few lines per object — simple silhouettes, no interior detail beyond',
+    '  what is needed to recognize the object',
+    '- monochromatic grays only, EXCEPT exactly one element highlighted in cobalt',
+    '  blue (#1565C0), marking the most meaningful part of the drawing',
+    '- flat 2D, generous empty space, landscape composition',
+    '',
+    'STRICT RULE — THE IMAGE MUST CONTAIN NO TEXT OF ANY KIND: no words, no',
+    'letters, no numbers, no labels, no captions, no logos, no writing on screens',
+    'or devices. Screens and papers in the drawing must be blank or show only',
+    'abstract gray lines. An image containing any glyph is a failed image.',
+    'Also no: photorealism, gradients, shading, drop shadows, 3D rendering, or',
+    'any color other than grays and the single blue accent.',
+  ].join('\n')
 
 export async function generateCover(input: {
   title: string
@@ -75,20 +95,7 @@ export async function generateCover(input: {
   'use step'
 
   log(`images: generating cover for "${input.title}"${input.feedback ? ' (with feedback)' : ''}`)
-  const subject = await completeText(
-    [
-      'You are choosing the subject of a blog post cover illustration.',
-      `Article title: "${input.title}"`,
-      `Article summary: "${input.summary}"`,
-      input.feedback ? `The previous illustration was rejected with this feedback: "${input.feedback}"` : '',
-      'Describe in 1-2 sentences a single, simple, concrete visual concept (objects and composition only).',
-      'Do not mention any style, colors or rendering technique. Reply with the concept only.',
-    ]
-      .filter(Boolean)
-      .join('\n'),
-  )
-
-  const cover = await generateImage(`${COVER_STYLE_PROMPT}\n\nSubject: ${subject}`)
+  const cover = await generateImage(coverPrompt(input), COVER_EXAMPLES)
   const extension = EXTENSION_BY_CONTENT_TYPE[cover.contentType] ?? 'png'
 
   // timestamped name so a regenerated cover busts Telegram/browser caches

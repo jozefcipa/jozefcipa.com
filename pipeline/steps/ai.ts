@@ -17,7 +17,7 @@ export async function generateMetadata(input: {
       summary: z
         .string()
         .describe(
-          'A 2-3 sentence summary shown on the blog list page. Matter-of-fact, no hype, no "in this article". Written in the same voice as the article.',
+          'A high-level 3-4 sentence summary shown on the blog list page. Describe what the article discusses and why, without going into technical details, step-by-step specifics, or naming every tool. Matter-of-fact, no hype, no "in this article". Written in the same voice as the article.',
         ),
       tags: z.array(z.string()).min(2).max(5).describe('Lowercase kebab-case tags'),
     }),

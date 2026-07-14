@@ -8,10 +8,13 @@ date: '2022-11-13T21:14:26.917Z'
 slug: assuming-iam-role-and-role-chaining-in-aws
 draft: false
 summary: >-
-  AWS Security Token Service allows applications to assume cross-account roles
-  using temporary credentials. However, when an IAM role assumes another role,
-  the process is considered role chaining and enforces a strict one-hour session
-  duration limit.
+  Managing temporary security credentials across AWS accounts allows
+  applications to securely access resources. Using the Security Token Service to
+  assume roles requires a clear understanding of trust policies and session
+  duration limits. A specific limitation occurs during role chaining, where the
+  session length is constrained compared to assumptions made by IAM users.
+cover: >-
+  https://assets.jozefcipa.com/blog/assuming-iam-role-and-role-chaining-in-aws/cover-1784027177091.png
 ---
 
 Sometimes a user or an application needs to access resources they don’t normally have access to. This is where the AWS Security Token Service (STS) comes in handy. STS is an AWS service used to obtain temporary security credentials for IAM users or roles by using the `AssumeRole` action. This is useful in situations like:
@@ -24,7 +27,7 @@ Sometimes a user or an application needs to access resources they don’t normal
 
 In order to be able to assume a role, the role has to be configured to allow that. Specifically, it needs to have a ************************trust policy************************ defined. It can look something like this.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -43,7 +46,7 @@ Moreover, you can define for how long the role is valid (as the assumed role has
 
 Now when the role is configured, we can assume it programmatically.
 
-```
+```javascript
 import { AssumeRoleCommand, STSClient } from '@aws-sdk/client-sts'
 
 const stsClient = new STSClient({
@@ -84,7 +87,7 @@ Once tested and verified to work, the code got merged and deployed to our develo
 
 When we started debugging we noticed that the [Fargate](https://aws.amazon.com/fargate/) couldn’t spin up a container as it kept failing. After checking the application logs we stumbled upon this error.
 
-```
+```bash
 The requested DurationSeconds exceeds the 1-hour session limit for roles assumed by role chaining
 ```
 

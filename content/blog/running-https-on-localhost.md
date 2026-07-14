@@ -34,7 +34,7 @@ Another option would be to generate the above-mentioned self-signed SSL certific
 
 As we already learned, we can generate a self-signed certificate using an `openssl` utility. But before that, we need to specify some necessary details about the certificate for [SAN](https://en.wikipedia.org/wiki/Subject_Alternative_Name). Without that [some browsers could reject](https://stackoverflow.com/questions/7580508/getting-chrome-to-accept-self-signed-localhost-certificate) opening a website.
 
-```
+```ini
 # ./localhost.ext
 
 [dn]
@@ -51,7 +51,7 @@ extendedKeyUsage=serverAuth
 
 The actual command will then look like this:
 
-```
+```bash
 openssl req -x509 \
   -out ./certs/cert.pem -keyout ./certs/cert.key \
   -newkey rsa:2048 -nodes -sha256 \
@@ -63,7 +63,7 @@ openssl req -x509 \
 
 Now that we have the certificate ready, we need an app that we want to run on HTTPS. We will create a simple HTTP server written in Node.js that listens on port 3000 and returns a text message.
 
-```
+```javascript
 // main.js
 
 const http = require('http')
@@ -85,7 +85,7 @@ After checking that the code is working we can finally configure Nginx which wil
 
 First, we need to install Nginx. The easiest way to do so is by using Docker. Here is a very simple `Dockerfile` that we’ll use to launch the server.
 
-```
+```dockerfile
 FROM nginx:1.21-alpine
 
 COPY ./ssl.conf /etc/nginx/conf.d/ssl.conf
@@ -98,7 +98,7 @@ Before building the image, we have to create two files. In the first file - `sit
 
 Since we’re using Docker to run Nginx, we have to use the special URL to address the computer’s (host) port instead of the one inside the container. Therefore we set [`http://host.docker.internal`](http://host.docker.internal/) instead of [`http://localhost`](http://localhost/).
 
-```
+```nginx
 # sites.conf
 server {
     listen  443 ssl;
@@ -116,7 +116,7 @@ server {
 
 In the other file - `ssl.conf`, we just configure some SSL details.
 
-```
+```nginx
 # ssl.conf
 ssl_certificate                 /etc/nginx/ssl/cert.pem;
 ssl_certificate_key             /etc/nginx/ssl/cert.key;
@@ -132,13 +132,13 @@ add_header                      Strict-Transport-Security "max-age=31536000";
 
 Once we have the configuration ready, we can build the Docker image by calling
 
-```
+```bash
 docker build -t ssl-proxy . 
 ```
 
 When the build finishes, we can run the container. Make sure your node app is running!
 
-```
+```bash
 docker run -v "$(PWD)/certs:/etc/nginx/ssl" ssl-proxy
 ```
 
@@ -150,7 +150,7 @@ Now that we have it all working you might be thinking “hey, this is cool, but 
 
 Let’s say we want to access our web at the address [`https://my-cool-web.com`](https://my-cool-web.com/). This address obviously doesn’t exist on the internet but we can trick our computer to resolve it anyway. Note that to edit the file you have to have `sudo` permissions, e.g. `sudo nano /etc/hosts`.
 
-```
+```text
 # /etc/hosts
 
 # ...
@@ -170,7 +170,7 @@ After submitting the warning dialog you should be able to see the welcome messag
 
 Let’s say we wanted to add a subdomain `subdomain.my-cool-web.com`. In order to do this we are going to update the Nginx configuration so it knows where and how to process the requests. We can do this by adding another `server` directive. Notice that we added a new directive `server_name` describing the actual domain the server should handle. The rest is almost the same, we just update the port the server should forward to for the subdomain.
 
-```
+```nginx
 server {
     server_name my-cool-web.com;
     listen  443 ssl;
@@ -202,7 +202,7 @@ server {
 
 If we’re not using some more sophisticated DNS server, we have to add the new URL to `/etc/hosts` file again, as it doesn’t support wildcards.
 
-```
+```text
 # /etc/hosts
 
 127.0.0.1 my-cool-web.com
@@ -211,7 +211,7 @@ If we’re not using some more sophisticated DNS server, we have to add the new 
 
 To actually see a difference we can create a second Node.js server, which listens on port 4000 and shows a different message.
 
-```
+```javascript
 // subdomain.js
 
 const http = require('http')

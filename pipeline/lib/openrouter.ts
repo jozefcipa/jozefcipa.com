@@ -71,14 +71,23 @@ export interface GeneratedImage {
 }
 
 // Image generation goes through chat completions with an image output modality
-// (e.g. google/gemini-2.5-flash-image); the image comes back as a base64 data URL
-export const generateImage = async (prompt: string): Promise<GeneratedImage> => {
-  log(`openrouter: generateImage via ${config.imageModel}`)
+// (e.g. google/gemini-2.5-flash-image); the image comes back as a base64 data URL.
+// Optional example images (data URLs) are attached as few-shot style references.
+export const generateImage = async (prompt: string, examples: string[] = []): Promise<GeneratedImage> => {
+  log(`openrouter: generateImage via ${config.imageModel} (${examples.length} example(s))`)
   try {
     const result = await openRouter().chat.send({
       chatRequest: {
         model: config.imageModel,
-        messages: [{ role: 'user', content: prompt }],
+        messages: [
+          {
+            role: 'user',
+            content: [
+              { type: 'text' as const, text: prompt },
+              ...examples.map((url) => ({ type: 'image_url' as const, imageUrl: { url } })),
+            ],
+          },
+        ],
         modalities: ['image', 'text'],
         stream: false,
       },

@@ -12,7 +12,7 @@ I just spent four hours debugging a really weird issue… I’m gonna write it u
 
 I was writing a [bag of words](https://en.wikipedia.org/wiki/Bag-of-words_model) script that would process documents stored in the database and afterward store processed data in another table. Everything went smoothly and the script processed over half a million document pages before suddenly I got this really weird error:
 
-```
+```text
 invalid input syntax for type integer: "function Object() { [native code] }function Object() { [native code] }1"]
 ```
 
@@ -26,7 +26,7 @@ If you’ve been working with Javascript for a while, you might know its weird d
 
 The thing is Javascript behaves [oddly](https://dev.to/otamnitram/js-being-odd-some-weird-things-about-javascript-1imj) in some situations and you need to be aware of this. Let’s look at how a bag of words looked in my script.
 
-```
+```javascript
 // e.g. John likes to watch movies, Mary likes movies too.
 
 const words = [ ... ]
@@ -51,7 +51,7 @@ This is the main logic, we parse words from documents and then iterate through t
 
 Now, when you have a typical JS object, you’d assume the following:
 
-```
+```javascript
 const obj = { John: 1, likes: 2 }
 
 obj['John'] // prints 1
@@ -61,7 +61,7 @@ obj['movies'] // prints undefined as the key doesn't exist
 
 However, when that “constructor” word appeared, the following happened
 
-```
+```javascript
 const obj = {} // we have an empty object at the beginning
 
 obj['constructor'] // [Function: Object]
@@ -79,7 +79,7 @@ When I found that I immediately realized how stupid the mistake was, but hey, so
 
 To fix this I could create an object like this, but that’s a bit ugly and weird.
 
-```
+```javascript
 const obj = Object.create(null) // doesn't inherit Object.prototype
 ```
 
@@ -87,7 +87,7 @@ Luckily, there’s a better way to tackle this. Javascript has `Map` [collection
 
 So our example could be rewritten like this:
 
-```
+```javascript
 const words = new Map()
 
 // Iterate through words and increment their count
