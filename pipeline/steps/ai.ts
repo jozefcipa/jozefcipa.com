@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { completeObject } from '@/lib/openrouter'
+import { log } from '@/lib/log'
 import type { ArticleMeta, ReviewDecision } from '@/lib/types'
 
 export async function generateMetadata(input: {
@@ -9,13 +10,14 @@ export async function generateMetadata(input: {
 }): Promise<{ summary: string; tags: string[] }> {
   'use step'
 
-  return completeObject({
+  log(`ai: generating metadata for "${input.title}"`)
+  const meta = await completeObject({
     name: 'article_metadata',
     schema: z.object({
       summary: z
         .string()
         .describe(
-          'A 2-3 sentence summary shown on the blog list page. Matter-of-fact, no hype, no "in this article". Written in the same voice as the article.',
+          'A high-level 3-4 sentence summary shown on the blog list page. Describe what the article discusses and why, without going into technical details, step-by-step specifics, or naming every tool. Matter-of-fact, no hype, no "in this article". Written in the same voice as the article.',
         ),
       tags: z.array(z.string()).min(2).max(5).describe('Lowercase kebab-case tags'),
     }),
@@ -29,12 +31,15 @@ export async function generateMetadata(input: {
       input.markdown,
     ].join('\n'),
   })
+  log(`ai: metadata done — tags [${meta.tags.join(', ')}]`)
+  return meta
 }
 
 export async function interpretFeedback(input: { text: string; meta: ArticleMeta }): Promise<ReviewDecision> {
   'use step'
 
-  return completeObject({
+  log(`ai: interpreting feedback "${input.text}"`)
+  const decision = await completeObject({
     name: 'review_decision',
     schema: z.object({
       action: z
@@ -70,4 +75,6 @@ export async function interpretFeedback(input: { text: string; meta: ArticleMeta
       'Interpret the reply into an action.',
     ].join('\n'),
   })
+  log(`ai: decision — ${decision.action}`)
+  return decision
 }

@@ -1,0 +1,17 @@
+<a href="{{ .RelPermalink }}" class="post-card">
+  {{- partial "post-cover.html" . }}
+  <div class="post-card-body">
+    <div class="post-card-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" | lower }}</time>
+      <span aria-hidden="true">·</span>
+      <span>{{ .ReadingTime }} min</span>
+    </div>
+    <h3 class="post-card-title"><span class="link-step">{{ .Title }}</span></h3>
+    <p class="post-card-excerpt">{{ .Params.summary | default .Summary | plainify }}</p>
+    <div class="post-card-tags">
+      {{- range first 3 .Params.tags }}
+      <span>{{ . | lower }}</span>
+      {{- end }}
+    </div>
+  </div>
+</a>

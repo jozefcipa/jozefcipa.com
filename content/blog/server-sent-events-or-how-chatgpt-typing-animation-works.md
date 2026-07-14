@@ -7,6 +7,15 @@ tags:
 date: '2023-05-23T00:31:35.486Z'
 slug: server-sent-events-or-how-chatgpt-typing-animation-works
 draft: false
+summary: >-
+  Real-time communication enables modern web applications to push data to users
+  instantly instead of waiting for traditional request-response cycles. This
+  article explores how Server-Sent Events facilitate streaming content directly
+  from a server, powering features like the typing effect seen in chat
+  interfaces. It provides a practical overview of implementing these streams to
+  improve user experience in web applications.
+cover: >-
+  https://assets.jozefcipa.com/blog/server-sent-events-or-how-chatgpt-typing-animation-works/cover-1784027815632.png
 ---
 
 I’m sure you’ve heard of ChatGPT, the [fastest-growing](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/) user application in the history of the internet. Most probably you also played with it or even used it for work. This chatting model provides impressive and often mind-blowing responses to a wide range of questions. But have you ever wondered how it works?
@@ -43,7 +52,7 @@ The structure of messages is very simple and consists of a `key:value` pairs whe
 
 Imagine an online stream with a chat where people can comment, a simple SSE stream format could look something like this.
 
-```
+```text
 event: system-message
 data: Hello everyone, welcome to the stream chat!
 
@@ -57,7 +66,7 @@ The `id` field is used to denote an ID of a message, so it can be used by a brow
 
 In order to indicate that we’re about to send an SSE stream, we have to set the following HTTP response headers on the server.
 
-```
+```http
 Content-Type: text/event-stream
 Cache-Control: no-cache
 Connection: keep-alive
@@ -85,7 +94,7 @@ Now, as we said in the beginning, we need to set proper headers so the browser k
 
 Since the OpenAI API already returns an SSE stream format (with `stream: true`), and Axios returns a native Node.js `Stream` instance, we can just easily pipe it to the response Koa stream (`ctx.body`).
 
-```
+```javascript
 // initialize OpenAI
 const openai = new OpenAIApi(new Configuration({
   apiKey: 'YOUR-API-KEY'
@@ -128,7 +137,7 @@ Therefore there are several 3rd party libraries and solutions that provide more 
 
 First, we start by creating a simple UI that shows the conversation between the user and ChatGPT. Here is a simple component that shows the text of a message.
 
-```
+```typescript
 interface Message {
   // conforms to the OpenAI API
   role: 'assistant' | 'user'
@@ -151,7 +160,7 @@ function Message({ message, isTyping = false }: { message: Message, isTyping?: b
 
 Next, we need to know what the stream event from the OpenAI API looks like. As you can see, it’s a simple JSON object that contains a single [GPT token](https://platform.openai.com/tokenizer). We will process these events and append the tokens as they come in.
 
-```
+```json
 {
    "id": "chatcmpl-7HvwOWhktbechZQxZe4GnovwwFn44",
    "object": "chat.completion.chunk",
@@ -171,7 +180,7 @@ Next, we need to know what the stream event from the OpenAI API looks like. As y
 
 Now, that we know how our data looks, we can finally write the chat logic. In the code below we create a simple App component that shows one `<input>` where we will submit our prompts and also the chat messages list. Once we type something and press Enter, the `fetchEventSource` function will call our API which will initialize an SSE stream. In the `onmessage` callback handler, we simply parse the incoming payload and append the string to the message. Once we receive the `[DONE]` string, we can consider the message to be fully streamed (This is not a part of the SSE standard, it’s a special string that OpenAI sends).
 
-```
+```tsx
 function App() {
   const [messages, setMessages] = useState<Array<Message>>([])
   const [input, setInput] = useState<string>('')

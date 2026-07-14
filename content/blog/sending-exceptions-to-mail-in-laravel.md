@@ -4,7 +4,17 @@ description: >-
   Update 2019: This article was written at the time when I didn’t have a lot of
   knowledge about error handling, system architecture and…
 date: '2017-11-09T16:37:42.614Z'
-tags: [laravel]
+tags:
+  - laravel
+summary: >-
+  Monitoring production application errors is essential for identifying hidden
+  issues that may arise after deployment. While dedicated error reporting
+  platforms are industry standard, smaller projects can implement custom
+  notification systems for immediate alerts. This approach leverages the
+  framework's native exception handling capabilities to capture and relay
+  failure details directly to the developer.
+cover: >-
+  https://assets.jozefcipa.com/blog/sending-exceptions-to-mail-in-laravel/cover-1784027803940.png
 ---
 
 **Update 2019:** _This article was written at the time when I didn’t have a lot of knowledge about error handling, system architecture and common practices in general. It is definitely_ **_not a recommended solution_** _for tracking application errors. There are many better ways for handling these situations (e.g._ [_Sentry_](https://sentry.io/)_)._

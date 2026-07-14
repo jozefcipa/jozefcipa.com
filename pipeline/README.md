@@ -94,5 +94,6 @@ mode (`createTelegramAdapter({ mode: 'polling' })`).
   double-check the preview if your site build is unusually slow.
 - Re-sending a Notion link for an **already published** article works as an
   update: the original front-matter `date` is preserved.
-- If a run crashes, its review hook dies with it — just send the Notion link
-  again. There is no external state to clean up.
+- If a run fails, the bot sends a ❌ message with the reason and the run's
+  review hook dies with it — just send the Notion link again. Any leftover
+  draft branch is reused on retry; there is no external state to clean up.

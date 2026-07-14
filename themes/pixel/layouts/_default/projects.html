@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="container page-content">
+  <header class="page-head">
+    <p class="kicker">// projects</p>
+    <h1 class="page-title">Side projects & experiments</h1>
+    <p class="page-lead">A few things I've built, maintained, or can't stop tinkering with. Most are small; all are useful to me.</p>
+  </header>
+
+  <div class="project-grid">
+    {{- range hugo.Data.projects.projects }}
+    <a href="{{ .url }}" target="_blank" rel="noreferrer" class="project-card">
+      <div class="project-card-head">
+        <h2><span class="link-step">{{ .name }}</span></h2>
+        <div class="project-card-side">
+          <span class="project-year">{{ .year }}</span>
+          {{ partial "icon.html" "arrow-out" }}
+        </div>
+      </div>
+      <p class="project-description">{{ .description }}</p>
+      <div class="project-tags">
+        {{- range .tags }}<span>{{ . }}</span>{{ end }}
+      </div>
+    </a>
+    {{- end }}
+  </div>
+</div>
+{{ end }}

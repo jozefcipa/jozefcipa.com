@@ -1,0 +1,31 @@
+talks:
+  - event: CZ/SK ESP Community Meeting
+    title: Building a smart homekit thermostat with ESP32
+    link: https://assets.jozefcipa.com/presentations/homekit-thermostat.pdf
+    linkLabel: Slides
+    date: October 2025
+  - title: Intro to Load Testing
+    note: internal
+    link: https://assets.jozefcipa.com/presentations/load-testing.pdf
+    linkLabel: Slides
+    date: January 2023
+  - event: Node.JS Beers
+    title: Lightning talk about STRV dating apps
+    link: https://assets.jozefcipa.com/presentations/strv-dating-apps.pdf
+    linkLabel: Slides
+    date: August 2021
+  - event: Online Backend Talk
+    title: Migrating Data Between Clouds
+    link: https://www.youtube.com/watch?v=lFkVKAdnW78
+    linkLabel: YouTube
+    date: February 2021
+  - title: Migrating Data Between Clouds
+    note: internal
+    link: https://assets.jozefcipa.com/presentations/migrating-data-between-clouds.pdf
+    linkLabel: Slides
+    date: December 2020
+  - event: WebElement
+    title: ReactJS introduction
+    link: https://github.com/jozefcipa/react_webelement
+    linkLabel: Slides
+    date: October 2017

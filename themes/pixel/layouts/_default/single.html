@@ -1,0 +1,41 @@
+{{ define "main" }}
+<article class="container article">
+  <a href="{{ "blog" | relURL }}" class="back-link">← all writing</a>
+
+  <header class="article-header">
+    <h1 class="article-title">{{ .Title }}</h1>
+    <div class="article-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" | lower }}</time>
+      <span aria-hidden="true">·</span>
+      <span>{{ .ReadingTime }} min read</span>
+      <span aria-hidden="true">·</span>
+      <span class="article-tags">
+        {{- range .Params.tags }}
+        <a href="{{ (printf "tags/%s" (. | urlize)) | relURL }}">{{ . | lower }}</a>
+        {{- end }}
+      </span>
+    </div>
+  </header>
+
+  {{- /* covers are card thumbnails only — never rendered on the post itself */}}
+  <div class="prose-article">
+    {{ .Content }}
+  </div>
+
+  <hr class="article-divider">
+  <nav class="post-nav" aria-label="More posts">
+    {{- with .PrevInSection }}
+    <a href="{{ .RelPermalink }}" class="post-nav-card">
+      <div class="post-nav-label">← older</div>
+      <div class="post-nav-title">{{ .Title }}</div>
+    </a>
+    {{- else }}<div></div>{{ end }}
+    {{- with .NextInSection }}
+    <a href="{{ .RelPermalink }}" class="post-nav-card post-nav-newer">
+      <div class="post-nav-label">newer →</div>
+      <div class="post-nav-title">{{ .Title }}</div>
+    </a>
+    {{- else }}<div></div>{{ end }}
+  </nav>
+</article>
+{{ end }}

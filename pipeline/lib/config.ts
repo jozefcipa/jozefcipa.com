@@ -27,7 +27,7 @@ export const config = {
 
   // OpenRouter model ids (OPENROUTER_API_KEY is read by the SDK itself)
   get textModel() {
-    return optional('TEXT_MODEL', 'anthropic/claude-sonnet-5')
+    return optional('TEXT_MODEL', 'google/gemini-3.1-flash-lite-preview')
   },
   get imageModel() {
     return optional('IMAGE_MODEL', 'google/gemini-2.5-flash-image')
@@ -41,7 +41,7 @@ export const config = {
     return optional('GITHUB_REPO', 'jozefcipa/jozefcipa.com')
   },
   get siteDefaultBranch() {
-    return optional('SITE_DEFAULT_BRANCH', 'master')
+    return optional('SITE_DEFAULT_BRANCH', 'main')
   },
 
   // S3 — AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY are read by the AWS SDK itself

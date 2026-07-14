@@ -4,15 +4,25 @@ description: >-
   If you are working on a project where Firebase is used, most likely you have a
   separate project created for each environment (dev, staging…
 date: '2021-01-09T00:09:06.306Z'
-tags: [firebase, scripting, utilities]
-# slug: /@jozefcipa/showing-the-active-firebase-project-in-the-command-line-5ddac9fdf5c6
+tags:
+  - firebase
+  - scripting
+  - utilities
+summary: >-
+  Managing multiple Firebase environments can be error-prone when relying on
+  manual commands to verify the current context. A custom shell integration
+  provides a persistent visual indicator of the active project directly within
+  the command prompt. This approach prevents accidental deployments to the wrong
+  environment by referencing local configuration files automatically.
+cover: >-
+  https://assets.jozefcipa.com/blog/showing-the-active-Firebase-project-in-the-command-line/cover-1784027839168.png
 ---
 
 ![](/blog/img/1__0mPtptlp6Vi4uzyAB0W5RQ.png)
 
 If you are working on a project where Firebase is used, most likely you have a separate project created for each environment (`dev`, `staging`, `prod`, sometimes maybe even more). During the development, it often happens that you need to configure something using [Firebase CLI.](https://firebase.google.com/docs/cli) Whenever you intend to make a change you want to make sure the right project is set as active. This can be verified easily by running
 
-```
+```bash
 $ firebase use
 ```
 
@@ -24,7 +34,7 @@ This is good, but the command itself is a bit slow and also you might easily for
 
 When you install [firebase-tools](https://firebase.google.com/docs/functions/get-started#set-up-node.js-and-the-firebase-cli) it creates a configuration file `~/.config/configstore/firebase-tools.json` which apart from other fields contains also a list of directories where som Firebase project is initialized.
 
-```
+```json
 ...
 "activeProjects": {  
   "/Users/jozefcipa/STRV/zoe-firebase-funtions": "development",  
@@ -43,7 +53,7 @@ The idea is to take a current working directory (`pwd`), iterate through the `ac
 
 To briefly describe what is going on here, first, we select the`activeProjects` field of the JSON file. Next, we convert this object into an array (`to_entries[]`), so we can process it further easier, and go through all the entries and check if the current directory is equal or starts with the path of a project. Once we have this we sort the array according to the length(`sort_by()`) in descending order (`reverse()`), just to make sure that if there are several projects with the same parent directory, we want to take the one that has the longest path (`.[0].value`), which means it is the most exact. For instance, if we have two projects like this
 
-```
+```text
 1) /Projects/STRV/ProjectA  
 2) /Projects/STRV/ProjectA/SubProjectB
 ```

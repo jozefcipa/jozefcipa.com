@@ -4,8 +4,16 @@ description: >-
   Read my story about New York and Canada which I visited during my two weeks
   trip in United States
 date: '2018-11-09T12:51:50.742Z'
-tags: [travelling]
-# slug: /@jozefcipa/when-dream-comes-true-usa-trip-f7249b446bf8
+tags:
+  - travelling
+summary: >-
+  This trip report chronicles an initial journey through major North American
+  cities after years of saving. It highlights experiences exploring iconic urban
+  landmarks, bustling cityscapes, and popular tourist destinations. The account
+  captures the excitement and wonder of visiting long-awaited locations for the
+  first time.
+cover: >-
+  https://assets.jozefcipa.com/blog/when-dream-comes-true--USA-trip/cover-1784027968250.png
 ---
 
 ![](/blog/img/1__m3zuH5CXaHrm2B6ESX5eUQ.jpeg)

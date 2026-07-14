@@ -10,6 +10,15 @@ tags:
 date: '2024-06-12T22:07:23.030Z'
 slug: novus-local-https-proxy-for-better-developer-experience
 draft: false
+summary: >-
+  Managing multiple local development services often requires complicated
+  handling of ports, DNS settings, and SSL certificates. This utility simplifies
+  that process by automatically configuring local proxies to serve development
+  projects over custom HTTPS domains. It reduces environment configuration
+  overhead, allowing for a more consistent and production-like experience during
+  local testing.
+cover: >-
+  https://assets.jozefcipa.com/blog/novus-local-https-proxy-for-better-developer-experience/cover-1784027747708.png
 ---
 
 ![](https://assets.jozefcipa.com/blog/8a6ba01624e84ce481b998116ab9823d/banner.png)

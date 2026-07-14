@@ -9,7 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "backfill": "tsx scripts/backfill-covers.mts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.700.0",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
+    "tsx": "^4.23.1",
     "typescript": "^5.7.0"
   }
 }

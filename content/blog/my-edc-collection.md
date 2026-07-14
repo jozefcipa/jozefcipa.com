@@ -6,11 +6,19 @@ tags:
 date: '2025-08-18T10:11:20.096Z'
 slug: my-edc-collection
 draft: false
+summary: >-
+  Everyday carry collections consist of personal items selected for their
+  utility, reliability, or specific aesthetic appeal. This collection features a
+  mix of modern mobile electronics, vintage audio devices, and functional
+  tactile tools. Each piece serves a purpose in supporting daily tasks or
+  providing a focused, analog experience away from constant digital
+  connectivity.
+cover: 'https://assets.jozefcipa.com/blog/my-edc-collection/cover-1784027723290.png'
 ---
 
-Recently, I realized I’ve collected quite a few handy little items that I use almost every day. For a long time, I didn’t even know “Everyday Carry” — or EDC — was a thing. I’ve just always been drawn to cool-looking, compact gear that feels good in the hand.
-
 ![](https://assets.jozefcipa.com/blog/23777955515e809e8669dc868551af65/full.jpg)
+
+Recently, I realized I’ve collected quite a few handy little items that I use almost every day. For a long time, I didn’t even know “Everyday Carry” — or EDC — was a thing. I’ve just always been drawn to cool-looking, compact gear that feels good in the hand.
 
 Now that my collection has grown, I thought it’d be fun to share the stuff that makes my day-to-day life a little better. Hopefully, you’ll find something inspiring here — and if you’ve got any favorite pocket gear of your own, I’d love to hear about it!
 

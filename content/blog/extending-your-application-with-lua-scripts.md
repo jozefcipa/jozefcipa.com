@@ -7,6 +7,14 @@ tags:
 date: '2025-06-01T22:49:31.376Z'
 slug: extending-your-application-with-lua-scripts
 draft: false
+summary: >-
+  Lua is a lightweight scripting language well-suited for embedding directly
+  into applications to handle custom logic. By integrating a Lua VM, host
+  programs gain the ability to execute user scripts while controlling access to
+  system resources. This approach allows developers to extend application
+  functionality without increasing overall architectural complexity.
+cover: >-
+  https://assets.jozefcipa.com/blog/extending-your-application-with-lua-scripts/cover-1784027616522.png
 ---
 
 I was always intrigued when I heard about people creating custom mods in games with the help of the mysterious Lua scripting language. I didn’t care much about the games themselves, but more about the idea of extending and customizing something to my imagination. I’m not a gamer, but I love automation and modifying things, so this naturally sparked my interest.

@@ -5,7 +5,12 @@
       "WebFetch(domain:vercel.com)",
       "Bash(node *)",
       "Bash(awk '/^interface Attachment/,/^}/' node_modules/chat/dist/messages-x-XVhW8B.d.ts)",
-      "Bash(awk '/^interface Author/,/^}/' node_modules/chat/dist/messages-x-XVhW8B.d.ts)"
+      "Bash(awk '/^interface Author/,/^}/' node_modules/chat/dist/messages-x-XVhW8B.d.ts)",
+      "Read(//Users/jozefcipa/Downloads/jozefcipa.com-redesign/src/assets/**)",
+      "Read(//Users/jozefcipa/Downloads/jozefcipa.com-redesign/.lovable/**)",
+      "Bash(mv themes/pixel/layouts/partials/covers/themes/pixel/layouts/shortcodes/*.html themes/pixel/layouts/shortcodes/)",
+      "Bash(./hugo)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:1313/)"
     ]
   }
 }

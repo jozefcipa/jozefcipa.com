@@ -8,6 +8,15 @@ tags:
 date: '2026-05-07T14:54:41.893Z'
 slug: turning-an-old-27-imac-into-an-external-monitor
 draft: false
+summary: >-
+  This project explores repurposing a vintage 27-inch iMac into a functional
+  external display. By gutting the outdated internal hardware and installing a
+  modern controller board, it is possible to breathe new life into the iconic
+  aluminum chassis. The process requires careful disassembly and custom wiring
+  to ensure the screen and integrated speakers function seamlessly with modern
+  computers.
+cover: >-
+  https://assets.jozefcipa.com/blog/turning-an-old-27-imac-into-an-external-monitor/cover-1784027860230.png
 ---
 
 I’ve always admired the design of the older 27” iMacs. Back when they were still current, I couldn’t really afford one, so owning one became one of those small “maybe one day” dreams from my student years.

@@ -4,8 +4,17 @@ description: >-
   How I made a python script to remote turning on ports on switch to enable
   internet at our student’s dormitory after 11pm
 date: '2017-12-15T18:04:39.914Z'
-tags: [scripting]
-# slug: /@jozefcipa/how-i-bypassed-our-school-internet-system-twice-ca6e9e61f016
+tags:
+  - scripting
+summary: >-
+  This narrative explores two attempts to bypass dormitory network restrictions
+  by manipulating configuration files and decompiling existing management
+  software. By analyzing local administrative tools and automating network
+  requests, the author outlines a technical approach to maintaining internet
+  access during restricted hours. The process highlights common oversights in
+  school system security and configuration management.
+cover: >-
+  https://assets.jozefcipa.com/blog/how-I-bypassed-our-school-internet-system-Twice/cover-1784027641517.png
 ---
 
 ![](/blog/img/1__Fgi4gcPnPS3Xc8cEAnGeLw.jpeg)

@@ -1,0 +1,12 @@
+{{- /* Renders an 8-bit sprite from rows of "#" / "." strings as crisp SVG rects.
+       Usage: partial "pixel-sprite.html" (dict "rows" (slice "..#.." "#####") "class" "foo") */ -}}
+{{- $rows := .rows }}
+{{- $w := len (index $rows 0) }}
+{{- $h := len $rows }}
+<svg viewBox="0 0 {{ $w }} {{ $h }}" {{ with .class }}class="{{ . }}"{{ end }} fill="currentColor" aria-hidden="true" style="shape-rendering:crispEdges">
+  {{- range $y, $row := $rows }}
+  {{- range $x, $cell := split $row "" }}
+  {{- if eq $cell "#" }}<rect x="{{ $x }}" y="{{ $y }}" width="1" height="1"/>{{ end }}
+  {{- end }}
+  {{- end }}
+</svg>

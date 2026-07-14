@@ -7,6 +7,15 @@ tags:
 date: '2025-09-26T10:15:38.616Z'
 slug: upgrading-my-ipod-classic
 draft: false
+summary: >-
+  This project explores the modern utility of the iPod Classic by upgrading its
+  aging components with contemporary flash storage and expanded battery
+  capacity. The process details how these modifications transform a legacy
+  device into a reliable, distraction-free music player. Beyond the hardware, it
+  reflects on the appeal of personalizing obsolete electronics through creative
+  restoration.
+cover: >-
+  https://assets.jozefcipa.com/blog/upgrading-my-ipod-classic/cover-1784027869957.png
 ---
 
 Why would anyone buy an iPod in 2025? After all, we already carry smartphones that can stream anything, anytime. But that’s exactly what makes the iPod stand out. It’s a device that focuses on **just one thing** \- playing music. No notifications, no social media feeds, no distractions—just your music library and nothing else.

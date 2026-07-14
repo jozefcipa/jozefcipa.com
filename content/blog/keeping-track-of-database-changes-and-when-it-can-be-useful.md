@@ -7,6 +7,15 @@ tags:
 date: '2022-09-21T20:42:50.910Z'
 slug: keeping-track-of-database-changes-and-when-it-can-be-useful
 draft: false
+summary: >-
+  This article explores the concept of database replication and how it can be
+  utilized to synchronize data between systems or feed external services. It
+  covers the mechanics of write-ahead logging and logical decoding, which allow
+  tracked changes to be exported in usable formats. The post also highlights
+  necessary configuration steps for managed environments and potential pitfalls
+  to monitor when implementing these techniques.
+cover: >-
+  https://assets.jozefcipa.com/blog/keeping-track-of-database-changes-and-when-it-can-be-useful/cover-1784027694268.png
 ---
 
 ![](https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy)
@@ -55,7 +64,7 @@ However, it’s important to note that it **only supports** **[DML operations](h
 
 It uses a publisher/subscriber model which can be used as follows,
 
-```
+```sql
 CREATE PUBLICATION pub FOR TABLE users
 ```
 
@@ -63,7 +72,7 @@ The p**ublication** is defined on a primary database and represents a set of cha
 
 Then, on the secondary (replica) database you would create a **subscription t**hat specifies the connection to the main database and the set of publications to subscribe to.
 
-```
+```sql
 CREATE SUBSCRIPTION sub CONNECTION 'host=192.168.1.1 port=5432 user=foo dbname=bar password=xyz123' PUBLICATION pub
 ```
 
@@ -101,7 +110,7 @@ As said in the beginning, we needed to configure a 3rd party service to consume 
 
 In order to do this, we first needed to grant replication permissions to the database user. As we were using an RDS instance in AWS, the command looked like this:
 
-```
+```sql
 GRANT rds_replication TO myuser
 ```
 
@@ -133,7 +142,7 @@ If you want to learn more about the specific Postgres configuration parameters, 
 
 Now that we got our database configured properly, we can finally start consuming database changes. In order to do so, we need to **create a replication slot** first. We can do that by calling a function `pg_create_logical_replication_slot`.
 
-```
+```sql
 SELECT * FROM pg_create_logical_replication_slot('my_replication_slot', 'wal2json')
 ```
 
@@ -141,7 +150,7 @@ This will create a replication slot with the name `my_replication_slot` and set 
 
 To verify that the slot got created we can send a simple SQL query.
 
-```
+```sql
 SELECT * FROM pg_catalog.pg_replication_slots
 ```
 
@@ -153,7 +162,7 @@ Now that we have the slot created, let’s see how it looks.
 
 Let’s try to do a simple `INSERT` query:
 
-```
+```sql
 INSERT INTO users (id, email, role, name)
 VALUES (
 	'847be54f-3a82-4591-a293-023ea15b2962',
@@ -165,13 +174,13 @@ VALUES (
 
 Now, we can take a peek at what has been logged by calling
 
-```
+```sql
 SELECT * FROM pg_logical_slot_peek_changes('my_replication_slot', NULL, NULL, 'include-xids', '0')
 ```
 
 which will return our inserted data 🎉.
 
-```
+```json
 {
    "change":[
       {
@@ -203,7 +212,7 @@ which will return our inserted data 🎉.
 
 Peeking is good for testing to see if everything works and the changes are propagating but in a real scenario, we would use a different function
 
-```
+```sql
 SELECT * FROM pg_logical_slot_get_changes('my_replication_slot', NULL, NULL, 'include-xids', '0') 
 ```
 
@@ -213,7 +222,7 @@ Now you can just connect your consumer application to the database and start pro
 
 If we don’t need the slot anymore we can just drop it.
 
-```
+```sql
 SELECT * FROM pg_drop_replication_slot('my_replication_slot')
 ```
 

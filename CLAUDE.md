@@ -8,7 +8,7 @@ Personal website/blog (jozefcipa.com) built with Hugo and a heavily customized, 
 
 ## Commands
 
-- `make run` — start the local dev server (`./hugo serve`, the untracked binary pinned at the repo root, currently v0.164.0)
+- `make run` — start the local dev server (`hugo serve`; requires Hugo ≥ 0.164, installed via Homebrew)
 - There are no tests or linters.
 - When upgrading Hugo, also bump `HUGO_VERSION` in the Vercel project settings.
 
@@ -23,12 +23,14 @@ Personal website/blog (jozefcipa.com) built with Hugo and a heavily customized, 
 - `content/about.md`, `content/work.md`, `content/projects.md` are **empty placeholders** that only exist so the routes render. Their real content lives in theme partials (see below).
 - Post images are hosted externally at `assets.jozefcipa.com`; a few older ones live in `content/blog/img/`.
 
-### Theme (`themes/papermod/`)
+### Theme (`themes/pixel/`)
 
-The theme is committed directly (no git submodule) and customized — edit it in place:
+Custom theme built July 2026 from a Lovable design (Blueprint blue scheme, light/dark via `data-mode` on `<html>`, pixel-art accents). Hand-written Go templates + vanilla CSS (`static/css/main.css`), no build tooling.
 
-- `layouts/_default/baseof.html` dispatches `/work/`, `/about/`, and `/projects/` to partials by URL: `partials/work.html`, `partials/about.html`, `partials/projects.html`. To update those pages, edit the partials, not the content files.
-- `partials/homepage.html` renders the profile-mode home page.
+- Post covers are inline SVGs: `partials/post-cover.html` renders a named scene from `partials/covers/*.html` (front matter `cover: monitor|chip|lock|…`), an `<img>` when `cover` is a URL/map, or a deterministic pixel fallback.
+- Work/projects/about pages: layouts `_default/{work,about,projects}.html` selected via `layout:` front matter; their data lives in `data/{work,projects,speaking}.yaml`; about prose is `content/about.md`.
+- Tag filtering = links to taxonomy term pages (`_default/term.html`); the "+N more" pills and code-copy buttons use `static/js/main.js`.
+- `themes/papermod/` is the old theme, kept for reference — delete once the redesign has shipped.
 
 ### Publishing pipeline (`pipeline/`)
 

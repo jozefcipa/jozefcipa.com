@@ -6,6 +6,15 @@ tags:
 date: '2026-03-10T11:22:40.823Z'
 slug: building-a-usb-hid-device-with-raspberry-pi-pico-and-tinygo
 draft: false
+summary: >-
+  This project explores the construction of a custom USB controller using a
+  Raspberry Pi Pico and the TinyGo programming language. By leveraging the Human
+  Interface Device protocol, the device captures physical button presses—such as
+  short, double, and long triggers—and translates them into customizable
+  reports. These events are then processed by a host-side application, which
+  executes user-defined Lua scripts to perform actions like system commands.
+cover: >-
+  https://assets.jozefcipa.com/blog/building-a-usb-hid-device-with-raspberry-pi-pico-and-tinygo/cover-1784027582272.png
 ---
 
 ![](https://assets.jozefcipa.com/blog/2d077955515e806f9189d4c2b9d71010/usb-hid-rpi-pico.jpg)

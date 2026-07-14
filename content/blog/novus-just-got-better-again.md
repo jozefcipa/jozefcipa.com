@@ -10,6 +10,15 @@ tags:
 date: '2025-01-16T08:36:29.475Z'
 slug: novus-just-got-better-again
 draft: false
+summary: >-
+  The latest release of Novus introduces a new command designed to streamline
+  administrative tasks by enabling passwordless sudo access with security
+  constraints. This update also adds improved operational transparency, helpful
+  UI feedback for long-running processes, and support for quick domain
+  definitions. These enhancements aim to refine the development workflow for
+  those managing local server environments.
+cover: >-
+  https://assets.jozefcipa.com/blog/novus-just-got-better-again/cover-1784027735447.png
 ---
 
 After a couple of months since the last release, here I am again, announcing a new updated version of Novus - [v0.0.5](https://github.com/jozefcipa/novus/releases/tag/v0.0.5).

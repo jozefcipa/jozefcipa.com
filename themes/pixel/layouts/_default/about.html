@@ -1,0 +1,49 @@
+{{ define "main" }}
+<div class="container page-content about-page">
+  <div class="about-sprite" aria-hidden="true">
+    {{- partial "pixel-sprite.html" (dict "class" "sprite-chip" "rows" (slice
+      "#..########..#"
+      "#..########..#"
+      "..############"
+      "..##........##"
+      "..##..####..##"
+      "..##..#..#..##"
+      "..##..#..#..##"
+      "..##..####..##"
+      "..##........##"
+      "..############"
+      "#..########..#"
+      "#..########..#")) }}
+  </div>
+
+  <header class="page-head">
+    <p class="kicker">// about</p>
+    <h1 class="page-title">A few words about me</h1>
+  </header>
+
+  <div class="prose-article about-prose">
+    <div class="about-avatar">
+      <div class="about-avatar-shadow" aria-hidden="true"></div>
+      <img src="{{ .Site.Params.avatar | default "/assets/me.jpg" }}" alt="Jozef Cipa" width="112" height="112">
+    </div>
+    {{ .Content }}
+  </div>
+
+  <section class="speaking">
+    <h2 class="speaking-title">Speaking</h2>
+    <ul class="speaking-list">
+      {{- range hugo.Data.speaking.talks }}
+      <li>
+        <span class="speaking-marker" aria-hidden="true">▪</span>
+        <span>
+          {{ with .event }}<strong>{{ . }}</strong> — {{ end }}{{ .title }}
+          {{ with .note }}<span class="speaking-note">[{{ . }}]</span>{{ end }}
+          (<a href="{{ .link }}" target="_blank" rel="noreferrer">{{ .linkLabel }}</a>)
+          <em class="speaking-date">{{ .date }}</em>
+        </span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+</div>
+{{ end }}

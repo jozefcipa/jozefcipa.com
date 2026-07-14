@@ -7,6 +7,15 @@ tags:
 date: '2023-01-26T23:14:39.327Z'
 slug: database-locks-lost-updates-and-idempotency
 draft: false
+summary: >-
+  Distributed systems frequently face challenges with concurrency and duplicate
+  requests that can lead to data loss or incorrect application states. This post
+  explores practical strategies for maintaining data integrity, including
+  leveraging HTTP headers for optimistic concurrency control and idempotency. It
+  also examines how database-level transactions and row-level locking mechanisms
+  can prevent race conditions in complex workflows.
+cover: >-
+  https://assets.jozefcipa.com/blog/database-locks-lost-updates-and-idempotency/cover-1784027594368.png
 ---
 
 Web applications are often complex systems consisting of several parts such as UI (frontend), API (backend), database and often other 3rd party services that the application depends on. Designing the API service properly so it’s robust, secure, and works as expected goes without saying but sometimes there are other factors that should be considered and handled adequately.
@@ -41,7 +50,7 @@ The idea here is that every time a post is created or updated, the API generates
 
 Let’s write a simple Node.js API that just returns some mocked data and sets the `ETag` HTTP header so we can see how it works.
 
-```
+```javascript
 import Koa from 'koa'
 import Router from 'koa-router'
 import { koaBody } from 'koa-body'
@@ -73,7 +82,7 @@ app.listen(3000)
 
 If we run the script and call the endpoint, we will see that the ETag header is being set and returned in the response.
 
-```
+```bash
 $ curl -i http://localhost:3000/api/posts/1
 
 HTTP/1.1 200 OK
@@ -93,7 +102,7 @@ The server first checks the header and validates it against the value stored in 
 
 Let’s add another endpoint that will handle updating of posts.
 
-```
+```javascript
 // ...
 
 router.put('/api/posts/:id', ctx => {
@@ -123,7 +132,7 @@ router.put('/api/posts/:id', ctx => {
 
 If we look at this example, we can see how the first update went through seamlessly, but if we try to update the content again, we get an error.
 
-```
+```bash
 $ curl -i -X PUT http://localhost:3000/api/posts/1 \
   -H 'If-Match: "edd34addba369ecc64c071cfff2fee78"' \
   -H 'Content-Type: application/json' \
@@ -142,7 +151,7 @@ Content-Length: 182
 
 The update went through successfully and returned a new version of the ETag (`9e107d9d372bb6826bd81d3542a419d6`) in the response. Now, the employee is sending their update too. This will fail as the ETag is no longer actual (the employee’s browser doesn’t know about the update, therefore it still uses the outdated `961248836f12bcd8fada83b5ac06a7de` ETag).
 
-```
+```bash
 $ curl -i -X PUT http://localhost:3000/api/posts/1 \
   -H 'If-Match: "961248836f12bcd8fada83b5ac06a7de"' \
   -H 'Content-Type: application/json' \
@@ -189,7 +198,7 @@ It is a good practice to make idempotency keys expire after some time (e.g. 24 h
 
 Following what we just said, let’s take a look at the example of how it can look in practice. We have a list of user accounts and a new endpoint that processes payments. As it supports idempotency, we first check if a request is sent with the idempotency key. If it is and the provided key has been already sent before, we just return the original response right away. Otherwise, the API processes the payment request and stores the idempotency key, so all the subsequent requests will get the same response without creating another payment.
 
-```
+```javascript
 // ...
 import { randomBytes } from 'crypto'
 
@@ -259,7 +268,7 @@ router.post('/api/payment', (ctx) => {
 
 Now that we have the code ready, let’s try to send a payment request and see how it works. Notice, that here we are just sending a normal request and we don’t include the idempotency key.
 
-```
+```bash
 $ curl -i -X POST http://localhost:3000/api/payment \
   -H 'Content-Type: application/json' \
   -d '{"sender": "john.doe@example.org", "amount": 100}'
@@ -285,7 +294,7 @@ Content-Length: 188
 
 We can see that the request succeeded, the payment was created, and our account was charged. Let’s send another request and see what happens.
 
-```
+```bash
 $ curl -i -X POST http://localhost:3000/api/payment \
   -H 'Content-Type: application/json' \
   -d '{"sender": "john.doe@example.org", "amount": 100}'
@@ -311,7 +320,7 @@ Content-Length: 188
 
 You can see that a new payment got created again (different payment ID), resulting in charging the user account again, so the `userAccount.balance` now equals `0` and we’re out of money. We can verify that by sending the third request.
 
-```
+```bash
 $ curl -i -X POST http://localhost:3000/api/payment \
   -H 'Content-Type: application/json' \
   -d '{"sender": "john.doe@example.org", "amount": 100}'
@@ -339,7 +348,7 @@ That would be okay as long as we intended to send two separate payments one afte
 
 This is exactly what the idempotency key solves. Let’s try to send a new request, but this time with the `Idempotency-Key` header included (_don’t forget to restart the server first, as currently, we’re out of money_).
 
-```
+```bash
 $ curl -i -X POST http://localhost:3000/api/payment \
   -H 'Idempotency-Key: 77e76f80-0466-4e83-95bf-bf754eefa37c' \
   -H 'Content-Type: application/json' \
@@ -367,7 +376,7 @@ Content-Length: 244
 
 We see that the payment went through seamlessly, just like in the first example - the payment was created and our account got charged. Let’s try to send the request again to see what happens.
 
-```
+```bash
 $ curl -i -X POST http://localhost:3000/api/payment \
   -H 'Idempotency-Key: 77e76f80-0466-4e83-95bf-bf754eefa37c' \
   -H 'Content-Type: application/json' \
@@ -454,7 +463,7 @@ We have a website that collects users’ emails for further processing and categ
 
 If for some reason, some webhooks come twice (and it happens!) our app would process the same event two times. This might not be a problem if it’s just about updating a value where duplicate requests won’t make a difference, e.g. `accountStatus = connected` but when we want to update some counts, send a notification or make some other action, duplicate events become undesired. Imagine you would get two notifications saying that your email account has been connected, not ideal. To fix that, you could use the select for update lock. Here is an example in Sequelize:
 
-```
+```javascript
 await sequelize.transaction(async trx => {
 	// Only one transaction at a time will be able to fetch the user
 	const user = await User.findOne({

@@ -1,0 +1,53 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $title := cond .IsHome (printf "%s — backend engineer with a passion for IoT and automation" .Site.Title) (printf "%s — %s" (.Title | default .Site.Title) .Site.Title) }}
+<title>{{ $title }}</title>
+{{- $description := .Params.summary | default (.Description | default (cond .IsPage (.Summary | plainify | truncate 160) .Site.Params.description)) }}
+{{- /* a post's cover becomes the share image when it's a real image (URL or
+       PaperMod-style map); SVG scene variants have no URL, so those posts
+       fall back to the site-wide preview image */}}
+{{- $shareImage := "" }}
+{{- $cover := .Params.cover }}
+{{- if reflect.IsMap $cover }}{{ $shareImage = $cover.image | default "" }}
+{{- else if and $cover (or (strings.HasPrefix $cover "http") (strings.HasPrefix $cover "/")) }}{{ $shareImage = $cover }}
+{{- end }}
+{{- if not $shareImage }}{{ with .Site.Params.images }}{{ $shareImage = index . 0 }}{{ end }}{{ end }}
+<meta name="description" content="{{ $description }}">
+<meta name="author" content="{{ .Site.Title }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ .Title | default .Site.Title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{- with $shareImage }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{- end }}
+{{- if and .IsPage (not .Date.IsZero) }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- end }}
+<meta name="twitter:card" content="{{ if and $shareImage (ne $shareImage (index (.Site.Params.images | default slice) 0)) }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ .Title | default .Site.Title }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{- with $shareImage }}
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{- end }}
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+{{- with .OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
+{{- end }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Chakra+Petch:wght@500;600;700&display=swap">
+{{- $css := resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<script>
+  // set color mode before first paint to avoid a flash
+  (function () {
+    var mode = localStorage.getItem('jc.mode')
+      || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    document.documentElement.setAttribute('data-mode', mode)
+  })()
+</script>

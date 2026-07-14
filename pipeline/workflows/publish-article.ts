@@ -28,11 +28,37 @@ export async function publishArticle(input: { notionUrl: string; chatId: string 
     return
   }
 
+  try {
+    await runPipeline(feedbackHook, notionUrl, chatId)
+  } catch (error) {
+    // tell the author what happened before the run is marked as failed
+    const reason = error instanceof Error ? error.message : String(error)
+    try {
+      await sendMessage(
+        chatId,
+        [
+          `❌ Publishing failed: ${reason}`,
+          '',
+          'Nothing was published. Any draft branch is left as-is and will be',
+          'reused — just send me the Notion link again to retry.',
+        ].join('\n'),
+      )
+    } catch {
+      // even the failure notification failed — nothing more we can do here
+    }
+    throw error
+  }
+}
+
+async function runPipeline(
+  feedbackHook: AsyncIterable<{ text: string }>,
+  notionUrl: string,
+  chatId: string,
+) {
   await sendMessage(chatId, '📥 Got it — importing the article from Notion…')
   const article = await fetchNotionArticle(notionUrl)
 
   const slug = slugify(article.title)
-  const branch = `draft/${slug}`
 
   const existingTags = await fetchExistingTags()
   const generated = await generateMetadata({
@@ -52,6 +78,7 @@ export async function publishArticle(input: { notionUrl: string; chatId: string 
   let markdown = await processArticleImages({ markdown: article.markdown, slug })
   let coverUrl = await generateCover({ title: meta.title, summary: meta.summary, slug })
 
+  const branch = 'blog-draft' // There is currently only one draft at a time, so we can use a fixed branch name
   await createDraftBranch(branch)
   await commitDraft({ branch, meta, markdown, coverUrl })
 

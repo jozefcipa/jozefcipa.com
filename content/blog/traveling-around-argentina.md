@@ -5,6 +5,15 @@ tags:
 date: '2022-06-07T17:36:11.620Z'
 slug: traveling-around-argentina
 draft: false
+summary: >-
+  This article recounts a journey across Argentina, highlighting logistical
+  challenges and practical advice for navigating the country's unique
+  infrastructure. It provides insights into managing local payments,
+  transportation, and connectivity across diverse regions from Patagonia to the
+  Andean north. The account serves as a guide for others planning a similar trip
+  through this expansive and varied landscape.
+cover: >-
+  https://assets.jozefcipa.com/blog/traveling-around-argentina/cover-1784027849553.png
 ---
 
 At the beginning of the year, my [girlfriend](https://www.instagram.com/sandratomasova/) and I spent four weeks on the roads of this beautiful country. This was our first time in South America and we were really amazed and got lots of experiences and memories, so I thought I would write down some notes of our adventure and maybe share some tips and tricks.

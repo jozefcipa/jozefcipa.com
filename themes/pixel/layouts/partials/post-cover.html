@@ -1,0 +1,25 @@
+{{- /* Post cover (card thumbnails + article header). Context: a Page.
+       .Params.cover may be an image URL string (pipeline-generated covers)
+       or a PaperMod-style map { image: ... }; without one the card gets a
+       deterministic pixel/geometric fallback pattern. */ -}}
+{{- $cover := .Params.cover }}
+{{- $image := "" }}
+{{- if reflect.IsMap $cover }}
+{{- $image = $cover.image | default "" }}
+{{- else if $cover }}
+{{- $image = $cover }}
+{{- end }}
+{{- $seed := .Title | default "x" }}
+{{- $offset := mod (hash.FNV32a $seed) 8 }}
+<div class="post-cover">
+  <div class="post-cover-pattern" style="background-position: {{ $offset }}px {{ $offset }}px"></div>
+  {{- if $image }}
+  {{- partial "lazy-img.html" (dict "src" $image "alt" "" "class" "post-cover-img") }}
+  {{- else }}
+  <div class="post-cover-scene">
+    <svg viewBox="0 0 200 112" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+      {{- partial "covers/fallback.html" $seed }}
+    </svg>
+  </div>
+  {{- end }}
+</div>

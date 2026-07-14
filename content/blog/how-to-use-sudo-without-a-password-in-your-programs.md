@@ -6,6 +6,14 @@ tags:
 date: '2025-01-14T19:51:47.208Z'
 slug: how-to-use-sudo-without-a-password-in-your-programs
 draft: false
+summary: >-
+  Automating tasks that require elevated privileges often leads to repetitive
+  and annoying password prompts. By configuring specific entries in the sudoers
+  file, developers can enable password-less execution for targeted scripts or
+  binaries. This approach requires careful implementation to prevent security
+  vulnerabilities and privilege escalation risks.
+cover: >-
+  https://assets.jozefcipa.com/blog/how-to-use-sudo-without-a-password-in-your-programs/cover-1784027665731.png
 ---
 
 When writing software, sometimes it is necessary to run shell commands that require sudo privileges. This can happen, for instance, when building a CLI tool that needs to write into protected filesystem directories or modify certain files. Such commands are usually prepended with the `sudo` keyword which is then followed by a password prompt. This is very important from the security perspective, so the OS can protect sensitive data. However, sometimes it might become annoying when using a tool that constantly asks for a password.

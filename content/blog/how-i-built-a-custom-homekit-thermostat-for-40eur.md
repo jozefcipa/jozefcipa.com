@@ -11,6 +11,15 @@ tags:
 date: '2025-03-09T18:22:16.399Z'
 slug: how-i-built-a-custom-homekit-thermostat-for-40eur
 draft: false
+summary: >-
+  This project explores the development of a custom, budget-friendly smart
+  thermostat that integrates directly with HomeKit. The device features a
+  touchscreen interface for local control and provides real-time temperature
+  monitoring while managing boiler heating cycles. It demonstrates the technical
+  challenges and practical implementation of embedding networking, UI libraries,
+  and hardware control on a microprocessor.
+cover: >-
+  https://assets.jozefcipa.com/blog/how-i-built-a-custom-homekit-thermostat-for-40eur/cover-1784027956126.png
 ---
 
 <video src="https://assets.jozefcipa.com/blog/12677955515e8037be53e7832bb10412/thermostat.mp4" autoplay muted controls></video>

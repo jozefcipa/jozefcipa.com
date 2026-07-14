@@ -7,6 +7,14 @@ tags:
 date: '2025-02-02T22:39:27.337Z'
 slug: monitoring-your-website-with-upptime
 draft: false
+summary: >-
+  Unexpected downtime can lead to significant issues if it goes unnoticed for
+  long periods of time. Implementing automated monitoring ensures administrators
+  are alerted immediately when a website becomes unresponsive. This approach
+  leverages existing version control infrastructure to provide continuous status
+  checks and public reporting dashboards.
+cover: >-
+  https://assets.jozefcipa.com/blog/monitoring-your-website-with-upptime/cover-1784027716124.png
 ---
 
 Recently I’ve encountered an unpleasant situation on one of the websites I manage. I randomly opened it only to find out it wasn’t working. Unfortunately, it was not a very important website, so no harm was done but the problem was that I didn’t know for how long it had been down. This is unacceptable, especially for the important websites that cannot go down.

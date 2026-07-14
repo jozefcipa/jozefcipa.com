@@ -2,8 +2,17 @@
 title: Automatically pausing Spotify on macOS
 description: Simple Bash utility to automatically stop Spotify playing after defined time.
 date: '2019-04-06T13:10:22.607Z'
-tags: [scripting, utilities]
-# slug: /@jozefcipa/automatically-pausing-spotify-on-macos-38c7ba384157
+tags:
+  - scripting
+  - utilities
+summary: >-
+  Managing media playback timing on desktop devices often requires custom
+  solutions for automated interruptions. This approach uses shell scripting to
+  bridge system controls with application commands. It provides a
+  straightforward method to ensure audio playback ceases after a specified
+  duration on macOS.
+cover: >-
+  https://assets.jozefcipa.com/blog/automatically-pausing-Spotify-on-macOS/cover-1784027568061.png
 ---
 
 I really enjoy listening to some good music before sleeping. But the question is who will stop the music once you fall asleep, right? If you’re using iPhone you can schedule a timer which will stop playing after time elapses.
