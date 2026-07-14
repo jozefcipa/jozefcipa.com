@@ -1,5 +1,4 @@
 ---
-cover: cloud
 title: Assuming IAM role and role chaining in AWS
 tags:
   - today-i-learned
@@ -8,6 +7,11 @@ tags:
 date: '2022-11-13T21:14:26.917Z'
 slug: assuming-iam-role-and-role-chaining-in-aws
 draft: false
+summary: >-
+  AWS Security Token Service allows applications to assume cross-account roles
+  using temporary credentials. However, when an IAM role assumes another role,
+  the process is considered role chaining and enforces a strict one-hour session
+  duration limit.
 ---
 
 Sometimes a user or an application needs to access resources they don’t normally have access to. This is where the AWS Security Token Service (STS) comes in handy. STS is an AWS service used to obtain temporary security credentials for IAM users or roles by using the `AssumeRole` action. This is useful in situations like:

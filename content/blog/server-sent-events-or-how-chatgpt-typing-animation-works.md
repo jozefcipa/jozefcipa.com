@@ -1,5 +1,4 @@
 ---
-cover: waves
 title: Server-sent events or how ChatGPT typing animation works
 tags:
   - api

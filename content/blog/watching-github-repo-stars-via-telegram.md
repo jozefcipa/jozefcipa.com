@@ -1,5 +1,4 @@
 ---
-cover: star
 title: Watching Github repo stars via Telegram
 tags:
   - cloudflare-workers

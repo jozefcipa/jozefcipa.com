@@ -17,7 +17,7 @@ const EXTENSION_BY_CONTENT_TYPE: Record<string, string> = {
   'image/gif': 'gif',
 }
 
-const makePreview = (image: Buffer): Promise<Buffer> =>
+export const makePreview = (image: Buffer): Promise<Buffer> =>
   sharp(image).resize({ width: PREVIEW_WIDTH }).blur(PREVIEW_BLUR).toBuffer()
 
 // Downloads every external image referenced in the markdown (Notion file URLs expire!),

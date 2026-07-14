@@ -4,13 +4,13 @@ description: >-
   Migrating data is challenging, especially when every little mistake can
   instantly impact a user’s experience. Learn how we dealt with it
 date: '2021-01-05T15:21:15.480Z'
-tags: [aws, nodejs, scripting]
-cover:
-  image: "/blog/img/0__a__MINF1bCXYqXpjO.jpg"
-  alt: "add unsplash link"
-  caption: "add unsplash link"
-  relative: false
+tags:
+  - aws
+  - nodejs
+  - scripting
 ---
+
+![](/blog/img/0__a__MINF1bCXYqXpjO.jpg)
 
 Migrating data is often a challenging job, especially when every little mistake can instantly impact a user’s experience. Thus, it is necessary to research the task properly, pinpoint possible issues, and make sure the description is totally clear and everyone knows what is the expected result. Nevertheless, errors may (and most probably will) occur during the process so it is also important to keep that in mind and design the solution in a way that anticipates that and handles it accordingly. In the ideal situation, we want to complete the migration process without anyone even noticing that something has changed.
 

@@ -1,5 +1,4 @@
 ---
-cover: /blog/img/1__Fgi4gcPnPS3Xc8cEAnGeLw.jpeg
 title: How I bypassed our school internet system. Twice.
 description: >-
   How I made a python script to remote turning on ports on switch to enable
@@ -8,6 +7,8 @@ date: '2017-12-15T18:04:39.914Z'
 tags:
   - scripting
 ---
+
+![](/blog/img/1__Fgi4gcPnPS3Xc8cEAnGeLw.jpeg)
 
 I live at student’s dormitory and we have got one rule here. Internet here turns off every day after 11pm. And it sucks 😏. So my roommate and I wanted to do something with that. We knew that internet is controlled via program which is located in computer in office downstairs. The goal was simple – edit configuration file of program. We had some information about how it works in advance.
 

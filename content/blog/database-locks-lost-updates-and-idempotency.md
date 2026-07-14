@@ -1,5 +1,4 @@
 ---
-cover: lock
 title: 'Database locks, lost updates and idempotency'
 tags:
   - api

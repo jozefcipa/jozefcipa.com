@@ -1,5 +1,4 @@
 ---
-cover: mug
 title: Publishing a Go binary with Homebrew
 tags:
   - golang

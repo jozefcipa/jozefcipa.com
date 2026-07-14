@@ -1,5 +1,4 @@
 ---
-cover: shield
 title: Running HTTPS on localhost
 tags:
   - nodejs

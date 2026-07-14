@@ -1,5 +1,4 @@
 ---
-cover: moon
 title: Extending your application with Lua scripts
 tags:
   - golang

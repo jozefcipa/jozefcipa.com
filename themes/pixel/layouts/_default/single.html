@@ -17,13 +17,7 @@
     </div>
   </header>
 
-  {{- /* the cover only appears in the article itself when explicitly set */}}
-  {{- if .Params.cover }}
-  <div class="article-cover">
-    {{- partial "post-cover.html" . }}
-  </div>
-  {{- end }}
-
+  {{- /* covers are card thumbnails only — never rendered on the post itself */}}
   <div class="prose-article">
     {{ .Content }}
   </div>

@@ -1,8 +1,8 @@
 ---
-cover: flag
-title: "Feature Flags"
-date: 2022-01-12T00:41:17+01:00
-tags: [today-i-learned]
+title: Feature Flags
+date: 2022-01-11T23:41:17.000Z
+tags:
+  - today-i-learned
 draft: false
 ---
 

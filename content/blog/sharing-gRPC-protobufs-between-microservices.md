@@ -7,8 +7,9 @@ date: '2020-02-23T21:18:37.768Z'
 tags:
   - grpc
   - automation
-cover: /blog/img/1__uHXqoDARP__hXjNXE6uZGRA.jpeg
 ---
+
+![](/blog/img/1__uHXqoDARP__hXjNXE6uZGRA.jpeg)
 
 If you work with gRPC you need to find a way of sharing `proto` files across individual microservices. I just got into this “gRPC-and-microservices” thing recently and had to research and learn everything so now I want to share how I tackled it.
 

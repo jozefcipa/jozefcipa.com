@@ -1,5 +1,4 @@
 ---
-cover: https://assets.jozefcipa.com/blog/23777955515e809e8669dc868551af65/full.jpg
 title: My EDC collection
 tags:
   - gadgets
@@ -8,6 +7,8 @@ date: '2025-08-18T10:11:20.096Z'
 slug: my-edc-collection
 draft: false
 ---
+
+![](https://assets.jozefcipa.com/blog/23777955515e809e8669dc868551af65/full.jpg)
 
 Recently, I realized I’ve collected quite a few handy little items that I use almost every day. For a long time, I didn’t even know “Everyday Carry” — or EDC — was a thing. I’ve just always been drawn to cool-looking, compact gear that feels good in the hand.
 

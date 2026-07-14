@@ -7,8 +7,9 @@ date: '2020-01-26T18:09:17.265Z'
 tags:
   - travelling
 draft: true
-cover: /blog/img/1__wWlwWKfeR81YjDisF__N5TQ.jpeg
 ---
+
+![](/blog/img/1__wWlwWKfeR81YjDisF__N5TQ.jpeg)
 
 _If you missed the first part about the USA trip you can read it_ [_here_](https://medium.com/@jozefcipa/the-usa-trip-or-when-dream-comes-true-f7249b446bf8)_._
 

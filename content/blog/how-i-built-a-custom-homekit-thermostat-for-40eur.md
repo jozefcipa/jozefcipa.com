@@ -1,5 +1,4 @@
 ---
-cover: thermo
 title: How I built a custom Homekit thermostat for 40€
 tags:
   - c

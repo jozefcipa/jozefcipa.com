@@ -6,8 +6,9 @@ description: >-
 date: '2018-11-09T12:51:50.742Z'
 tags:
   - travelling
-cover: /blog/img/1__m3zuH5CXaHrm2B6ESX5eUQ.jpeg
 ---
+
+![](/blog/img/1__m3zuH5CXaHrm2B6ESX5eUQ.jpeg)
 
 **Yes I did it, I can’t believe I’m really here! 😍** (_After taking part-time job for last two years in addition to high school I finally earned enough money to begin my two weeks United States trip_).
 

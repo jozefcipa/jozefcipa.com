@@ -1,5 +1,4 @@
 ---
-cover: map
 title: Exploring Scandinavia ‒ my journey to Nordkapp
 tags:
   - travelling

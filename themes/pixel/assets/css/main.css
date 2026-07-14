@@ -290,8 +290,6 @@ html:not([data-mode="dark"]) .icon-sun { display: none; }
   text-transform: uppercase; letter-spacing: 0.05em;
 }
 .article-tags a:hover { border-color: var(--accent); color: var(--accent); }
-.article-cover { margin: 2rem -1rem 0; }
-@media (min-width: 640px) { .article-cover { margin-left: -2rem; margin-right: -2rem; } }
 
 .article-divider { margin-top: 4rem; border: 0; border-top: 1px solid var(--border); }
 .post-nav { margin-top: 2rem; display: grid; gap: 1rem; }
