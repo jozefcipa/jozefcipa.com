@@ -6,6 +6,13 @@ tags:
 date: '2024-07-22T09:32:37.264Z'
 slug: publishing-go-binary-with-homebrew
 draft: false
+summary: >-
+  Making software accessible via package managers like Homebrew streamlines the
+  distribution process for developers. This post covers the workflow to build,
+  release, and distribute Go binaries as a custom Homebrew tap. It also explores
+  automating the entire release lifecycle to simplify version updates.
+cover: >-
+  https://assets.jozefcipa.com/blog/publishing-go-binary-with-homebrew/cover-1784027769602.png
 ---
 
 As developers, we often need to use many different programs for our job. There are various ways to install these applications, one of the most popular being [Homebrew](https://brew.sh/). It is advertised as “the missing package manager for macOS” (and Linux) and it certainly does a great job there. But have you ever wondered how it works under the hood and how can one add their custom binary into it?

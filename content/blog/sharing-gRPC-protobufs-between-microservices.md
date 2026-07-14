@@ -7,6 +7,14 @@ date: '2020-02-23T21:18:37.768Z'
 tags:
   - grpc
   - automation
+summary: >-
+  Maintaining consistent Protocol Buffer definitions across multiple independent
+  microservices can be a challenge. This approach uses a centralized repository
+  for proto files and automates the generation of language-specific client
+  libraries. Versioned output repositories are then integrated into projects to
+  ensure API stability and simplified dependency management.
+cover: >-
+  https://assets.jozefcipa.com/blog/sharing-gRPC-protobufs-between-microservices/cover-1784027826754.png
 ---
 
 ![](/blog/img/1__uHXqoDARP__hXjNXE6uZGRA.jpeg)

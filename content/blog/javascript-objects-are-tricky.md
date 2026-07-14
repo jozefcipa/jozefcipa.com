@@ -6,6 +6,13 @@ tags:
 date: '2023-09-08T23:55:34.011Z'
 slug: javascript-objects-are-tricky
 draft: false
+summary: >-
+  Unexpected behavior occurs when using standard objects as collections for
+  dynamic input. Prototype properties can conflict with data keys, leading to
+  type errors during data processing. Using specialized data structures provides
+  a more reliable and performant approach for handling arbitrary keys.
+cover: >-
+  https://assets.jozefcipa.com/blog/javascript-objects-are-tricky/cover-1784027686426.png
 ---
 
 I just spent four hours debugging a really weird issue… I’m gonna write it up here as a reminder for my future self, and maybe you’ll find it useful too.

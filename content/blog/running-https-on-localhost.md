@@ -8,6 +8,14 @@ tags:
 date: '2022-10-31T17:36:16.960Z'
 slug: running-https-on-localhost
 draft: false
+summary: >-
+  Development environments often require HTTPS to properly test features that
+  rely on secure connections. This guide covers generating self-signed
+  certificates and configuring local web servers to enable encrypted traffic on
+  a development machine. It also looks at how to map custom domain names to
+  local resources to simplify the testing process.
+cover: >-
+  https://assets.jozefcipa.com/blog/running-https-on-localhost/cover-1784027782337.png
 ---
 
 {{< callout emoji="🚀" >}}

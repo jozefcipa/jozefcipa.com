@@ -7,6 +7,15 @@ tags:
 date: '2023-01-26T23:14:39.327Z'
 slug: database-locks-lost-updates-and-idempotency
 draft: false
+summary: >-
+  Distributed systems frequently face challenges with concurrency and duplicate
+  requests that can lead to data loss or incorrect application states. This post
+  explores practical strategies for maintaining data integrity, including
+  leveraging HTTP headers for optimistic concurrency control and idempotency. It
+  also examines how database-level transactions and row-level locking mechanisms
+  can prevent race conditions in complex workflows.
+cover: >-
+  https://assets.jozefcipa.com/blog/database-locks-lost-updates-and-idempotency/cover-1784027594368.png
 ---
 
 Web applications are often complex systems consisting of several parts such as UI (frontend), API (backend), database and often other 3rd party services that the application depends on. Designing the API service properly so it’s robust, secure, and works as expected goes without saying but sometimes there are other factors that should be considered and handled adequately.

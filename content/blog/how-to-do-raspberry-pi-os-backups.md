@@ -6,6 +6,14 @@ tags:
 date: '2025-07-30T13:03:44.254Z'
 slug: how-to-do-raspberry-pi-os-backups
 draft: false
+summary: >-
+  MicroSD cards used in single-board computers can fail unexpectedly, leading to
+  the loss of configuration and project data. Creating a full system image
+  provides a recovery path to ensure work is not lost if storage fails. This
+  approach focuses on cloning raw disk data and optimizing the resulting file
+  size for efficient storage.
+cover: >-
+  https://assets.jozefcipa.com/blog/how-to-do-raspberry-pi-os-backups/cover-1784027654001.png
 ---
 
 I recently got a Raspberry Pi Zero and started configuring it for a personal project. As I was setting everything up I realized how much time and effort I was investing. That’s when it hit me: microSD cards, which the Pi relies on for storage, aren't exactly known for their durability under heavy I/O. A sudden failure could mean losing everything. To avoid starting from scratch in the future, I decided to create a full backup of the system, including all configurations and data.

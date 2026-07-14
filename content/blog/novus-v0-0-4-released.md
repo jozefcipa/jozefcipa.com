@@ -10,6 +10,14 @@ tags:
 date: '2024-11-14T15:58:48.503Z'
 slug: novus-v0-0-4-released
 draft: false
+summary: >-
+  This release of the local HTTPS proxy tool introduces a web-based dashboard
+  and improved service management to simplify development workflows. The update
+  resolves configuration validation issues and refines how background services
+  are monitored and restarted. Users can now enjoy a more robust interface and
+  better error handling when setting up local development domains.
+cover: >-
+  https://assets.jozefcipa.com/blog/novus-v0-0-4-released/cover-1784027759407.png
 ---
 
 Ever since [releasing](https://jozefcipa.com/blog/novus-local-https-proxy-for-better-developer-experience/) the first version of the binary, I knew there were more things I wanted to add and improve in _Novus_. There have been a couple of smaller releases since then, but it was only bug fixes I stumbled across while using the binary.

@@ -8,6 +8,15 @@ tags:
 date: '2024-01-18T23:51:14.133Z'
 slug: self-signed-ssl-certificates-on-ios
 draft: false
+summary: >-
+  Development on local network services often requires the use of self-signed
+  SSL certificates for secure communication. Mobile devices typically reject
+  these certificates by default because they lack validation from a recognized
+  certificate authority. This process outlines how to bridge that gap by
+  trusting a local root certificate on an iOS device to ensure secure, private
+  connections.
+cover: >-
+  https://assets.jozefcipa.com/blog/self-signed-ssl-certificates-on-ios/cover-1784027794177.png
 ---
 
 Recently I was working on a project and I needed to add an SSL certificate for the API service. Normally you would use [Let’s Encrypt](https://letsencrypt.org/) or some other certificate authority after deploying the service. In this case, though, my service will always only run on a local network and thus I have to generate a self-signed certificate.

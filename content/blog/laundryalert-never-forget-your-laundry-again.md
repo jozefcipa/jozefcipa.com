@@ -10,6 +10,15 @@ tags:
 date: '2024-02-01T10:20:07.498Z'
 slug: laundryalert-never-forget-your-laundry-again
 draft: false
+summary: >-
+  Forgetful habits regarding completed laundry cycles led to the development of
+  a custom monitoring system that triggers push notifications on mobile devices.
+  By combining a light-sensitive sensor on a washing machine with a control
+  board, a solution was created to detect status changes and alert users
+  remotely. This project combines basic electronics with custom software to
+  solve a frequent household annoyance.
+cover: >-
+  https://assets.jozefcipa.com/blog/laundryalert-never-forget-your-laundry-again/cover-1784027705538.png
 ---
 
 ![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/laundry-alert.jpeg)

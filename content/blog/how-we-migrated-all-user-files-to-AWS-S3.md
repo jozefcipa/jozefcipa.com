@@ -8,6 +8,16 @@ tags:
   - aws
   - nodejs
   - scripting
+summary: >-
+  Migrating a large volume of user files between cloud providers requires
+  careful planning to maintain service stability and data integrity. This
+  process explores the transition from initial sequential scripts to a highly
+  parallelized architecture capable of handling millions of records efficiently.
+  The final approach demonstrates how optimizing infrastructure and leveraging
+  worker-based processing can significantly improve performance and resource
+  utilization.
+cover: >-
+  https://assets.jozefcipa.com/blog/how-we-migrated-all-user-files-to-AWS-S3/cover-1784027678792.png
 ---
 
 ![](/blog/img/0__a__MINF1bCXYqXpjO.jpg)

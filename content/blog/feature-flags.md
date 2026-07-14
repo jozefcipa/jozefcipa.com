@@ -4,6 +4,13 @@ date: 2022-01-11T23:41:17.000Z
 tags:
   - today-i-learned
 draft: false
+summary: >-
+  Feature flags provide a mechanism to toggle specific application logic without
+  requiring a full code redeployment. They offer a reliable way to manage
+  service dependencies, handle incident responses, and facilitate gradual
+  feature rollouts. Maintaining clean code necessitates regularly auditing and
+  removing these flags once they are no longer required.
+cover: 'https://assets.jozefcipa.com/blog/feature-flags/cover-1784027628569.png'
 ---
 
 #### What are feature flags?

@@ -6,6 +6,14 @@ tags:
 date: '2025-08-18T10:11:20.096Z'
 slug: my-edc-collection
 draft: false
+summary: >-
+  Everyday carry collections consist of personal items selected for their
+  utility, reliability, or specific aesthetic appeal. This collection features a
+  mix of modern mobile electronics, vintage audio devices, and functional
+  tactile tools. Each piece serves a purpose in supporting daily tasks or
+  providing a focused, analog experience away from constant digital
+  connectivity.
+cover: 'https://assets.jozefcipa.com/blog/my-edc-collection/cover-1784027723290.png'
 ---
 
 ![](https://assets.jozefcipa.com/blog/23777955515e809e8669dc868551af65/full.jpg)

@@ -7,6 +7,15 @@ tags:
 date: '2022-09-21T20:42:50.910Z'
 slug: keeping-track-of-database-changes-and-when-it-can-be-useful
 draft: false
+summary: >-
+  This article explores the concept of database replication and how it can be
+  utilized to synchronize data between systems or feed external services. It
+  covers the mechanics of write-ahead logging and logical decoding, which allow
+  tracked changes to be exported in usable formats. The post also highlights
+  necessary configuration steps for managed environments and potential pitfalls
+  to monitor when implementing these techniques.
+cover: >-
+  https://assets.jozefcipa.com/blog/keeping-track-of-database-changes-and-when-it-can-be-useful/cover-1784027694268.png
 ---
 
 ![](https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy)

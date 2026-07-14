@@ -7,6 +7,15 @@ tags:
 date: '2023-05-23T00:31:35.486Z'
 slug: server-sent-events-or-how-chatgpt-typing-animation-works
 draft: false
+summary: >-
+  Real-time communication enables modern web applications to push data to users
+  instantly instead of waiting for traditional request-response cycles. This
+  article explores how Server-Sent Events facilitate streaming content directly
+  from a server, powering features like the typing effect seen in chat
+  interfaces. It provides a practical overview of implementing these streams to
+  improve user experience in web applications.
+cover: >-
+  https://assets.jozefcipa.com/blog/server-sent-events-or-how-chatgpt-typing-animation-works/cover-1784027815632.png
 ---
 
 I’m sure you’ve heard of ChatGPT, the [fastest-growing](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/) user application in the history of the internet. Most probably you also played with it or even used it for work. This chatting model provides impressive and often mind-blowing responses to a wide range of questions. But have you ever wondered how it works?

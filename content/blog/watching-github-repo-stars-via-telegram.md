@@ -9,6 +9,14 @@ tags:
 date: '2025-02-27T07:57:09.164Z'
 slug: watching-github-repo-stars-via-telegram
 draft: false
+summary: >-
+  Keeping track of new stars on a personal repository can be a frequent task for
+  developers. By utilizing webhooks and serverless functions, it is possible to
+  automate this process to receive real-time updates directly on a mobile
+  device. This approach provides a practical way to stay informed about project
+  engagement without manually checking the repository dashboard.
+cover: >-
+  https://assets.jozefcipa.com/blog/watching-github-repo-stars-via-telegram/cover-1784027880569.png
 ---
 
 I recently published and shared with the world my first real open-source [project](https://github.com/jozefcipa/novus). It brought some traffic to its Github page and some people even starred it. This made me super happy, knowing that other people find my project useful or interesting enough to give it a star.

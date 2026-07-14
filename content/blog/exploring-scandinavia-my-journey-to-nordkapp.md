@@ -7,6 +7,15 @@ tags:
 date: '2025-08-30T16:05:07.005Z'
 slug: exploring-scandinavia-my-journey-to-nordkapp
 draft: false
+summary: >-
+  This trip covers an 18-day, 7,000-kilometer motorcycle journey from Prague to
+  the northernmost point of Europe and back. The account details the experience
+  of riding through diverse Scandinavian landscapes, including forests, mountain
+  ranges, and coastal fjords. By sharing daily highlights and logistical
+  realities, this overview captures the essence of long-distance motorcycle
+  travel.
+cover: >-
+  https://assets.jozefcipa.com/blog/exploring-scandinavia-my-journey-to-nordkapp/cover-1784027604681.png
 ---
 
 Ever since I bought my new adventure bike, I knew that one day I had to go on a trip to the very north. I cannot explain why exactly I was so thrilled about this journey, as there’s not really much interesting to see along the way, except for the highways and never-ending forests. At least that’s what some people would tell me. But something in my mind kept bugging me. I saw several motorcyclists setting off on this journey, and I always found it super interesting.

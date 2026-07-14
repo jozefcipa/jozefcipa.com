@@ -10,6 +10,8 @@ summary: >-
   should be an option to unsubscribe. However there are some things that you
   have to be careful about.
 draft: false
+cover: >-
+  https://assets.jozefcipa.com/blog/why-use-multiple-unsubscribe-groups-when-sending-emails/cover-1784027902070.png
 ---
 
 ![](https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy)

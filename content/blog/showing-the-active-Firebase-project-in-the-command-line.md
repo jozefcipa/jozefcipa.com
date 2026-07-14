@@ -8,6 +8,14 @@ tags:
   - firebase
   - scripting
   - utilities
+summary: >-
+  Managing multiple Firebase environments can be error-prone when relying on
+  manual commands to verify the current context. A custom shell integration
+  provides a persistent visual indicator of the active project directly within
+  the command prompt. This approach prevents accidental deployments to the wrong
+  environment by referencing local configuration files automatically.
+cover: >-
+  https://assets.jozefcipa.com/blog/showing-the-active-Firebase-project-in-the-command-line/cover-1784027839168.png
 ---
 
 ![](/blog/img/1__0mPtptlp6Vi4uzyAB0W5RQ.png)

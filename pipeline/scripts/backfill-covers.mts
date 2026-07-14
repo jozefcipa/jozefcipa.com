@@ -102,10 +102,6 @@ const run = async () => {
       console.error(`  ✗ ${slug} failed:`, error instanceof Error ? error.message : error)
       failures.push(slug)
     }
-
-    console.log(data)
-
-    break // todo temp
   }
 
   if (failures.length > 0) {
