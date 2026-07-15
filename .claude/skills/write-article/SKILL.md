@@ -65,7 +65,8 @@ writing anything:
   WRITING_STYLE.md. Typical gaps: the personal origin story (why did you do this?), a
   "What is X?" explainer for a niche technology, costs/parts list for hardware projects,
   what went wrong along the way, honest limitations, lessons learned, links to sources
-  that helped, photos/diagrams, a GitHub repo link.
+  that helped, photos/diagrams (diagrams can be generated later with the `blog-diagram`
+  skill), a GitHub repo link.
 - **Missed opportunities.** Is there an interesting angle the bullets skip over? A
   comparison readers would want? A tangent worth a short section (his posts often have a
   "Bonus" or "Other X" section)? Something the audience will ask that isn't answered?
@@ -101,8 +102,12 @@ The author provides bullet points for each section/paragraph. For each section:
    went wrong, opinions — all must come from the author's bullets or earlier answers. If a
    section needs something the bullets don't give (e.g., "how did it feel when it first
    booted?", "what did the parts cost?"), ask instead of making it up.
-4. Keep sections short (1–4 paragraphs). Mark places for images/diagrams with a
-   placeholder like `<!-- TODO: photo of ... -->`.
+4. Keep sections short (1–4 paragraphs). Mark places for photos with a placeholder
+   like `<!-- TODO: photo of ... -->`. For **diagrams** (architecture, flows,
+   connections between components), don't just leave a placeholder — invoke the
+   `blog-diagram` skill (via the Skill tool) to generate the image, and follow its
+   workflow (one generation, show it, iterate only on the author's feedback). Do this
+   whenever a section calls for a diagram or the author asks for one.
 5. Show the drafted section and iterate on the author's corrections before moving on.
    The author's edits are style signals — apply them to all subsequent sections, and
    when a correction reveals a preference that generalizes beyond this article, persist
@@ -116,7 +121,8 @@ When all sections are approved:
 
 1. Assemble the full article and do one final pass against WRITING_STYLE.md — check the
    opening hooks personally, the ending reflects/links to code, emoji density is right, and
-   nothing reads AI-flavored.
+   nothing reads AI-flavored. If any planned diagram hasn't been generated yet, offer to
+   create it now with the `blog-diagram` skill.
 2. Generate Hugo front matter: `title`, `tags` (prefer the existing tag vocabulary — see
    WRITING_STYLE.md), `date` (current ISO 8601), `slug` (kebab-case), `draft: true`.
 3. Offer to save it as `content/blog/<slug>.md`. (Note: existing posts written in Notion

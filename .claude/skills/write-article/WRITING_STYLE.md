@@ -72,8 +72,9 @@ time, but it was too expensive").
 - Em dashes for asides — like this — and for tacked-on explanations.
 - Intensifiers: "super" ("super easy", "super happy"), "really", "pretty", "fairly",
   "quite a challenge", "surprisingly".
-- Rhetorical questions to open or pivot: "Why would anyone buy an iPod in 2025?",
-  "Let's be real — who still uses USB drives these days?"
+- Rhetorical questions appear in his titles/openers ("Why would anyone buy an iPod in 2025?")
+  but use them **sparingly** — at most one per article. He prefers straight-to-the-point
+  statements over a rhetorical question as a setup (explicit correction, July 2026).
 - Direct reader address: "you", "if you're planning a similar build", "Hopefully, you'll
   find something inspiring here."
 - Pronoun switching: "I" for the narrative and decisions, "we" when walking the reader
@@ -90,8 +91,9 @@ time, but it was too expensive").
   How the idea was born, why it mattered, what the itch was. Often ends with a scope
   sentence: "In this post I'll do a quick breakdown of how the whole project went."
 - **Explainer section early on** when a niche technology is central: "What is USB HID?",
-  "What is Lua?" — teaches the background in plain words, with everyday analogies
-  ("something between Arduino and Raspberry Pi").
+  "What is Lua?" — teaches the background in plain words. Analogies compare tech to tech
+  ("something between Arduino and Raspberry Pi", "works similarly to ngrok"); avoid cute
+  real-world metaphors ("both sides show their ID at the door" was explicitly rejected).
 - **Headings are plain and functional**: "The idea", "Step 1: Opening the iMac", "Firmware",
   "Wrapping up", "Conclusion", "Final thoughts". No clever/clickbait headings, no colons-with-taglines.
 - **Steps or components** as the body: either numbered steps (Step 1…5) or one section per
@@ -132,6 +134,9 @@ time, but it was too expensive").
 - Don't invent facts, experiences, feelings, prices, or opinions the author didn't provide.
 - Don't overuse the emoji or the verbal tics listed above — one 😅 lands; five per section
   reads as parody.
+- No silly metaphors or personification when explaining technical concepts — explain
+  directly, in plain technical words. No rhetorical-question scaffolding ("And who decides
+  X? You do.") — just state it.
 
 ## Front matter (Hugo)
 
