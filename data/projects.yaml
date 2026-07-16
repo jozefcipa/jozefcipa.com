@@ -1,4 +1,18 @@
 projects:
+  - name: Wordiez
+    year: '2026'
+    url: https://wordiez.io
+    description: >-
+      Learn Words From Real Content - 
+      Collect words from real-world content you read and turn everyday browsing into language learning.
+    tags: [web, react, typescript, ios]
+  - name: rpi-ledctl
+    year: '2026'
+    url: https://github.com/jozefcipa/rpi-ledctl
+    description: >-
+      A small Go utility for controling an RGB LED to allow a Raspberry Pi
+      to visually communicate various events back to its user.
+    tags: [raspberry-pi, golang, electronics]
   - name: USB Button
     year: '2026'
     url: https://github.com/jozefcipa/usb-button
@@ -15,6 +29,14 @@ projects:
       for a retro aesthetic. Syncs time via the internet for accurate and
       reliable timekeeping without manual adjustments.
     tags: [esp32, c, electronics]
+  - name: E-ink Weather 
+    year: '2025'
+    url: https://github.com/jozefcipa/eink-weather
+    description: >-
+      E-Ink Weather is a Cloudflare Worker that fetches current weather data
+      from the MET Norway API, and renders up-to-date weather information
+      as a horizontally-oriented SVG dashboard.
+    tags: [esp32, electronics]
   - name: Homekit Thermostat
     year: '2025'
     url: https://github.com/jozefcipa/homekit-thermostat
