@@ -1,7 +1,7 @@
 positions:
-  - company: Lexis® Create+
-    note: formerly Henchman
-    url: https://henchman.io
+  - company: LexisNexis
+    note: acquired Henchman
+    url: https://www.lexisnexis.com/
     logo: /assets/lexiscreate.jpg
     role: Backend Engineer
     location: 📍 Ghent, Belgium 🇧🇪
