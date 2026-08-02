@@ -474,6 +474,16 @@ img.blur-up.is-loaded { filter: none; transition: filter 240ms steps(4, end); }
   image-rendering: pixelated;
 }
 
+.cv-callout { clear: both; margin-top: 2.5rem; }
+.cv-link {
+  display: inline-block; border: 1px solid var(--border); padding: 0.625rem 1rem;
+  box-shadow: 4px 4px 0 0 var(--accent);
+  font-family: var(--font-mono); font-size: 0.875rem; color: var(--ink);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.cv-link:hover, .cv-link:focus-visible { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 var(--accent); }
+.cv-link-meta { color: var(--muted); }
+
 .speaking { margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem; }
 .speaking-title { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; }
 .speaking-list { margin-top: 1.25rem; list-style: none; max-width: 68ch; }

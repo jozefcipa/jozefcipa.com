@@ -9,6 +9,11 @@
           }
         ],
         "destination": "https://jozefcipa.com/blog"
+      },
+      {
+        "source": "/cv",
+        "destination": "https://assets.jozefcipa.com/cv.pdf",
+        "permanent": false
       }
     ]
   }
