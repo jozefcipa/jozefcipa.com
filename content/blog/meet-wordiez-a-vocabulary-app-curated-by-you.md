@@ -77,15 +77,19 @@ Wordiez flips that. You collect the words you stumble on, inside the things you 
 
 **Spotted a bad translation?** Report it in one tap.
 
+{{< columns >}}
 
 ![1-translate.png](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-2.png)
 
+<--->
 
 ![2-dictionary.png](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-3.png)
 
+<--->
 
 ![4-quiz.png](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-4.png)
 
+{{< /columns >}}
 
 ## Where it works
 

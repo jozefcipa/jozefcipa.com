@@ -41,6 +41,10 @@ time, but it was too expensive").
 3. **Short discovery / TIL** — found a cool tool, quick setup notes, why it's useful ("Monitoring your website with Upptime").
 4. **Travel journal** — day-by-day entries with distances, costs, small mishaps, and feelings.
 5. **Gear roundup** — item-by-item list with a personal verdict on each ("My EDC collection").
+6. **Own-product announcement** — introducing or updating something he built and ships
+   (Novus releases, LaundryAlert, Wordiez). Still opens with the personal itch, still admits
+   rough edges and limitations; features are explained as "here's the problem this solves",
+   never as a marketing bullet list. Ends with links to download/try it.
 
 ## Voice and tone
 
@@ -69,7 +73,9 @@ time, but it was too expensive").
 - Contractions always ("didn't", "it's", "I'd").
 - Frequent sentence starters: "So", "Also", "Luckily", "Unfortunately", "Turns out",
   "Obviously", "After that", "Next", "On top of that", "Honestly", "To be honest".
-- Em dashes for asides — like this — and for tacked-on explanations.
+- **Never use em dashes (—) anywhere**, in prose, code, or front matter. Use a regular
+  hyphen, a comma, parentheses, or split the sentence. (Standing rule from the author's
+  global preferences; older posts still contain them, don't imitate that.)
 - Intensifiers: "super" ("super easy", "super happy"), "really", "pretty", "fairly",
   "quite a challenge", "surprisingly".
 - Rhetorical questions appear in his titles/openers ("Why would anyone buy an iPod in 2025?")
@@ -137,6 +143,16 @@ time, but it was too expensive").
 - No silly metaphors or personification when explaining technical concepts — explain
   directly, in plain technical words. No rhetorical-question scaffolding ("And who decides
   X? You do.") — just state it.
+
+## Where drafts go
+
+Ask before assuming. Finished drafts often go into **Notion**, not `content/blog/`: the
+workspace has a `Blog posts / <year> /` page tree, and the `pipeline/` app imports a page
+from there and generates the front matter (summary, tags, cover) itself. He frequently
+creates an empty placeholder page with the intended title in advance, so **search Notion
+for the title before creating a page** and fill the existing one in instead of duplicating
+it. A Notion-bound draft needs no YAML front matter, and `<!-- HTML comments -->` won't
+render there, so write photo/diagram placeholders as blockquoted `TODO:` lines.
 
 ## Front matter (Hugo)
 

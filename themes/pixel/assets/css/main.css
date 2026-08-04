@@ -345,7 +345,7 @@ html:not([data-mode="dark"]) .icon-sun { display: none; }
 
 .prose-figure { margin: 2rem 0; }
 .prose-figure a { display: block; overflow: hidden; }
-.prose-figure img { width: 100%; border: 1px solid var(--border); }
+.prose-figure img { width: 100%; }
 
 /* blur-up: the low-res preview is pre-blurred, the extra filter hides its
    upscaled pixels; it clears with a step-y transition once the full image lands */
