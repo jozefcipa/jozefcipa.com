@@ -42,6 +42,17 @@ export async function fetchNotionArticle(notionUrl: string): Promise<NotionArtic
     log(`notion: page title "${title}"`)
 
     const n2m = new NotionToMarkdown({ notionClient: notion })
+    // notion-to-md flattens columns into consecutive blocks; render them
+    // with the theme's `columns` shortcode so side-by-side layouts survive
+    n2m.setCustomTransformer('column_list', async (block) => {
+      const columns = await notion.blocks.children.list({ block_id: block.id })
+      const parts = await Promise.all(
+        columns.results.map(async (column) =>
+          (n2m.toMarkdownString(await n2m.pageToMarkdown(column.id)).parent ?? '').trim(),
+        ),
+      )
+      return `{{< columns >}}\n${parts.join('\n\n<--->\n\n')}\n{{< /columns >}}`
+    })
     const blocks = await n2m.pageToMarkdown(pageId)
     const markdown = n2m.toMarkdownString(blocks).parent ?? ''
     log(`notion: converted to markdown (${markdown.length} chars)`)
