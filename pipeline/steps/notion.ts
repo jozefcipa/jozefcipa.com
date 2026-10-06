@@ -11,7 +11,10 @@ export interface NotionArticle {
 }
 
 const extractPageId = (url: string): string | null => {
-  const match = url.replace(/-/g, '').match(/([0-9a-f]{32})/i)
+  // The ID is the trailing 32 hex chars of the path; anchoring matters because
+  // slug words ending in a-f (e.g. "Zealand") would otherwise shift the match
+  const path = url.split(/[?#]/)[0].replace(/-/g, '')
+  const match = path.match(/([0-9a-f]{32})\/?$/i)
   return match ? match[1] : null
 }
 
