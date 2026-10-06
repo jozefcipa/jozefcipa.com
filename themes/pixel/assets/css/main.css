@@ -89,7 +89,6 @@ a:hover .link-step, a:focus-visible .link-step,
   padding-top: 0.5rem; padding-bottom: 0.5rem;
 }
 .wordmark { font-family: var(--font-mono); font-size: 0.875rem; font-weight: 500; letter-spacing: -0.02em; }
-.wordmark-path { color: var(--muted); }
 .site-nav { display: flex; align-items: center; gap: 0.25rem; font-family: var(--font-mono); font-size: 13px; }
 .nav-link { padding: 0.25rem 0.5rem; color: var(--muted); }
 .nav-link:hover { color: var(--ink); }
