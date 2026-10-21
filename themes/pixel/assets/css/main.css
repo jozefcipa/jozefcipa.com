@@ -342,7 +342,7 @@ html:not([data-mode="dark"]) .icon-sun { display: none; }
 .prose-article iframe { width: 100%; min-height: 420px; border: 1px solid var(--border); }
 .prose-article video { width: 100%; border: 1px solid var(--border); }
 
-.prose-figure { margin: 2rem 0; }
+.prose-figure { margin: 2rem auto; }
 .prose-figure a { display: block; overflow: hidden; }
 .prose-figure img { width: 100%; }
 

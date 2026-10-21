@@ -22,6 +22,7 @@ Some time ago, I bought a couple of those cheap Xiaomi thermometers, the small s
 
 
 ![XIAROl1.webp](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-1.webp)
+{width="50%"}
 
 
 Luckily, I found out you can flash them with custom firmware. Unfortunately, the information on how to do it is scattered across forum threads, and I had to piece it together bit by bit. So in this post, I'll go through all the steps in one place and explain why each of them is needed.

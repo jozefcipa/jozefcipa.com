@@ -15,6 +15,11 @@ outputFormats:
     baseName: rss # serve the feed as /rss.xml instead of /index.xml
 markup:
   goldmark:
+    parser:
+      # lets `{width="50%"}` under a stand-alone image reach render-image.html
+      attribute:
+        block: true
+      wrapStandAloneImageWithinParagraph: false
     renderer:
       unsafe: true # raw <iframe>/<video> embeds in markdown posts
   highlight:
