@@ -27,7 +27,8 @@ time, but it was too expensive").
 - DIY hardware & electronics: ESP32, Raspberry Pi (Zero/Pico), soldering, 3D-printed parts, device mods
 - Retro tech revival: iPod Classic, old iMacs, nostalgia + making old gadgets useful today
 - Programming: Go (and TinyGo), Lua, TypeScript/Deno, C on embedded, serverless (Cloudflare Workers)
-- Homelab, automation, self-hosted tools, small personal utilities
+- Homelab, automation, self-hosted tools, small personal utilities; recently hooked on
+  Home Assistant (Pi-hosted, BLE sensors, ESPHome), likes freeing cheap gadgets from vendor clouds
 - Apple ecosystem: HomeKit, AirTags, AirPods, Find My, iPhone
 - Gadgets & EDC gear
 - Motorcycle travel and road trips (journal-style posts)
@@ -104,14 +105,24 @@ time, but it was too expensive").
   "Wrapping up", "Conclusion", "Final thoughts". No clever/clickbait headings, no colons-with-taglines.
 - **Steps or components** as the body: either numbered steps (Step 1…5) or one section per
   component/concern (HomeKit / Measuring temperature / LCD / WiFi provisioning).
-- **Parts list with prices** for hardware projects.
+- **Parts list with prices** for hardware projects (skippable when the post is a lean how-to).
+- **Tutorials stay lean**: cut tangents that only applied to his setup (e.g., a podman D-Bus
+  fix), troubleshooting gotchas that "bring no value to the reader", and speculative angles.
+  Keep only what the reader needs to follow along, plus the "why" behind each step.
 - **Travel journals**: "Day N - Title" sections, each ending with
   "Today's leg - A → B (NNNkm)".
 - **Code**: shell commands prefixed with `$`, expected output shown, small complete
   snippets with inline comments, prose explanation *before* the code block. Longer
   flows get a "a simplified version looks like this" snippet rather than a full dump.
   JS/TS examples use single quotes and no semicolons.
-- **Images/diagrams** appear after the paragraph that references them.
+- **Images/diagrams** appear after the paragraph that references them. Diagrams should be
+  minimal: few objects, few details, real-world proportions between devices (a thermometer
+  is smaller than a Pi), physically accurate hardware (port layout etc.). Simplify the
+  scene rather than cram the full setup into one picture.
+- **Inline mini-explainers**: every niche tool or format gets a one-clause or one-sentence
+  explanation where it first matters in a step (what is BTHome, what is ESPHome and what
+  it lets you do), even if an earlier section covered it, so a reader who jumps to a step
+  isn't lost.
 - **Endings**: many posts close with a link to the code ("you can find everything on
   Github"), a takeaway, or an invitation ("if you've got any favorite pocket gear of your
   own, I'd love to hear about it!").
@@ -153,6 +164,9 @@ creates an empty placeholder page with the intended title in advance, so **searc
 for the title before creating a page** and fill the existing one in instead of duplicating
 it. A Notion-bound draft needs no YAML front matter, and `<!-- HTML comments -->` won't
 render there, so write photo/diagram placeholders as blockquoted `TODO:` lines.
+He likes each approved section written straight into the Notion page as you go, and he
+edits the page himself in between (uploads images, trims lines), so **always re-fetch the
+page before editing** and work on his version. He uploads images to Notion himself.
 
 ## Front matter (Hugo)
 
