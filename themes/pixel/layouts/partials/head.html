@@ -2,7 +2,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{- $title := cond .IsHome (printf "%s — backend engineer with a passion for IoT and automation" .Site.Title) (printf "%s — %s" (.Title | default .Site.Title) .Site.Title) }}
 <title>{{ $title }}</title>
-{{- $description := .Params.summary | default (.Description | default (cond .IsPage (.Summary | plainify | truncate 160) .Site.Params.description)) }}
+{{- /* hand-written description first; the pipeline's summary runs ~400
+       chars, so everything is cut to what fits in a search snippet */}}
+{{- $description := .Description | default (.Params.summary | default (cond .IsPage .Summary .Site.Params.description)) }}
+{{- $description = $description | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace | truncate 160 }}
+{{- /* paginated lists canonicalize to their own page, not page 1 */}}
+{{- $canonical := .Permalink }}
+{{- if in (slice "section" "term") .Kind }}{{ $canonical = .Paginator.URL | absURL }}{{ end }}
 {{- /* a post's cover becomes the share image when it's a real image (URL or
        PaperMod-style map); SVG scene variants have no URL, so those posts
        fall back to the site-wide preview image */}}
@@ -18,7 +24,7 @@
 <meta property="og:title" content="{{ .Title | default .Site.Title }}">
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:url" content="{{ $canonical }}">
 {{- with $shareImage }}
 <meta property="og:image" content="{{ . | absURL }}">
 {{- end }}
@@ -31,7 +37,40 @@
 {{- with $shareImage }}
 <meta name="twitter:image" content="{{ . | absURL }}">
 {{- end }}
-<link rel="canonical" href="{{ .Permalink }}">
+<link rel="canonical" href="{{ $canonical }}">
+{{- $person := dict
+  "@type" "Person"
+  "@id" (printf "%s#person" site.Home.Permalink)
+  "name" .Site.Title
+  "url" site.Home.Permalink
+  "image" (.Site.Params.avatar | absURL)
+  "jobTitle" "Backend engineer"
+  "sameAs" (slice "https://github.com/jozefcipa" "https://linkedin.com/in/jozefcipa")
+}}
+{{- $ld := dict }}
+{{- if .IsHome }}
+{{- $ld = dict "@context" "https://schema.org" "@graph" (slice
+  $person
+  (dict "@type" "WebSite" "@id" (printf "%s#website" .Permalink) "url" .Permalink "name" .Site.Title "description" $description "author" (dict "@id" (index $person "@id")))
+) }}
+{{- else if and .IsPage (eq .Section "blog") }}
+{{- $ld = dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "headline" .Title
+  "description" $description
+  "url" .Permalink
+  "mainEntityOfPage" .Permalink
+  "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+  "author" $person
+  "keywords" (delimit (.Params.tags | default (slice)) ", ")
+}}
+{{- with $shareImage }}{{ $ld = merge $ld (dict "image" (. | absURL)) }}{{ end }}
+{{- end }}
+{{- with $ld }}
+<script type="application/ld+json">{{ . | jsonify | safeJS }}</script>
+{{- end }}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">

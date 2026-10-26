@@ -9,7 +9,7 @@
 
   {{- partial "tag-map.html" (dict "site" site "active" "all") }}
 
-  {{- $paginator := .Paginate $posts }}
+  {{- $paginator := .Paginator }}
   <section class="post-grid list-grid">
     {{- range $paginator.Pages }}
     {{- partial "post-card.html" . }}

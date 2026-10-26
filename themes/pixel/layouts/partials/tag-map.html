@@ -9,7 +9,7 @@
 <section class="tag-map">
   <div class="tag-map-label">tag map</div>
   <div class="tag-map-pills">
-    <a href="{{ "blog" | relURL }}" class="tag-pill{{ if eq $active "all" }} is-active{{ end }}">
+    <a href="{{ "blog/" | relURL }}" class="tag-pill{{ if eq $active "all" }} is-active{{ end }}">
       <span>all</span><span class="tag-count">{{ $total }}</span>
     </a>
     {{- range $top }}

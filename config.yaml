@@ -37,17 +37,17 @@ menu:
       weight: 1
     - identifier: work
       name: work
-      url: /work
+      url: /work/
       weight: 2
     - identifier: about
       name: about
-      url: /about
+      url: /about/
       weight: 3
     - identifier: blog
       name: blog
-      url: /blog
+      url: /blog/
       weight: 4
     - identifier: projects
       name: projects
-      url: /projects
+      url: /projects/
       weight: 5
