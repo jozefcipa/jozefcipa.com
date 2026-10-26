@@ -21,7 +21,7 @@ cover: >-
   https://assets.jozefcipa.com/blog/novus-local-https-proxy-for-better-developer-experience/cover-1784027747708.png
 ---
 
-![](https://assets.jozefcipa.com/blog/8a6ba01624e84ce481b998116ab9823d/banner.png)
+![Novus logo text with a tagline about local HTTPS proxy and the Go mascot on a blue gradient background](https://assets.jozefcipa.com/blog/8a6ba01624e84ce481b998116ab9823d/banner.png)
 
 Novus is a tiny command-line utility designed to enhance local web development. It consists of several tools to provide production-like web URLs on your local machine in a matter of seconds. You don’t have to bother by figuring out how to configure HTTP server, DNS resolutions or manage SSL certificates. Everything is handled by Novus so you can focus on your work.
 

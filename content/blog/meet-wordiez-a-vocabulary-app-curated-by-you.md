@@ -45,7 +45,7 @@ Wordiez flips that. You collect the words you stumble on, inside the things you 
 2. **Save what's worth saving.** Keep the words that matter in your personal dictionary, together with translations, examples and your own notes.
 3. **Practice on your schedule.** Open a quiz built entirely from your own words, whenever you want.
 
-![preview-browser-ext.png](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-1.png)
+![The Wordiez browser extension showing a translation for the word struck with an option to save to dictionary](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-1.png)
 
 
 ## What's inside
@@ -79,15 +79,15 @@ Wordiez flips that. You collect the words you stumble on, inside the things you 
 
 {{< columns >}}
 
-![1-translate.png](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-2.png)
+![Wordiez app interface showing a translation from English to Spanish for the word great with a save to dictionary button](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-2.png)
 
 <--->
 
-![2-dictionary.png](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-3.png)
+![Wordiez app interface showing a list of saved English words with their Spanish translations and a search bar](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-3.png)
 
 <--->
 
-![4-quiz.png](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-4.png)
+![Smartphone screen showing a vocabulary matching game where users pair Spanish words like perro with English translations](https://assets.jozefcipa.com/blog/meet-wordiez---a-vocabulary-app-curated-by-you/image-4.png)
 
 {{< /columns >}}
 

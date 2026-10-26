@@ -3,7 +3,7 @@ import { config } from '@/lib/config'
 import type { ArticleMeta } from '@/lib/types'
 import { generateMetadata, interpretFeedback } from '@/steps/ai'
 import { commitDraft, createDraftBranch, discardDraft, fetchExistingTags, publishDraft } from '@/steps/github'
-import { generateCover, processArticleImages } from '@/steps/images'
+import { describeImages, generateCover, processArticleImages } from '@/steps/images'
 import { fetchNotionArticle } from '@/steps/notion'
 import { waitForPreview } from '@/steps/preview'
 import { postReview, sendMessage } from '@/steps/telegram'
@@ -76,6 +76,7 @@ async function runPipeline(
 
   await sendMessage(chatId, '🖼 Processing images and generating the cover…')
   let markdown = await processArticleImages({ markdown: article.markdown, slug })
+  markdown = await describeImages({ markdown, title: meta.title })
   let coverUrl = await generateCover({ title: meta.title, summary: meta.summary, slug })
 
   const branch = 'blog-draft' // There is currently only one draft at a time, so we can use a fixed branch name
@@ -109,6 +110,7 @@ async function runPipeline(
     if (decision.refetchContent) {
       const refreshed = await fetchNotionArticle(notionUrl)
       markdown = await processArticleImages({ markdown: refreshed.markdown, slug: meta.slug })
+      markdown = await describeImages({ markdown, title: meta.title })
     }
     if (decision.updates) {
       meta = {

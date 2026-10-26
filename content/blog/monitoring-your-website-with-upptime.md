@@ -27,7 +27,7 @@ By default, it checks the website **every 5 minutes** and commits a daily report
 
 It comes with a static **status page** that reads the data from your repository and you can freely customize it as you like. It can look similar to this and can be easily deployed to **Github Pages**, for instance.
 
-![](https://assets.jozefcipa.com/blog/17077955515e801f8184eb8fd6ca7d7c/status-page.png)
+![An example Upptime status page showing overall system health, uptime percentage, response time, and past incidents](https://assets.jozefcipa.com/blog/17077955515e801f8184eb8fd6ca7d7c/status-page.png)
 
 Check out their [getting started](https://upptime.js.org/docs/get-started) guide and follow all the steps to set it up. The whole process is super straightforward and doesn’t take more than half an hour to complete.
 

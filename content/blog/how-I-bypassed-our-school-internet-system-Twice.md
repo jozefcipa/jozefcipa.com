@@ -17,7 +17,7 @@ cover: >-
   https://assets.jozefcipa.com/blog/how-I-bypassed-our-school-internet-system-Twice/cover-1784027641517.png
 ---
 
-![](/blog/img/1__Fgi4gcPnPS3Xc8cEAnGeLw.jpeg)
+![Close up of a network switch with green activity lights glowing on ethernet ports labeled eth0 through eth2](/blog/img/1__Fgi4gcPnPS3Xc8cEAnGeLw.jpeg)
 
 I live at student’s dormitory and we have got one rule here. Internet here turns off every day after 11pm. And it sucks 😏. So my roommate and I wanted to do something with that. We knew that internet is controlled via program which is located in computer in office downstairs. The goal was simple – edit configuration file of program. We had some information about how it works in advance.
 

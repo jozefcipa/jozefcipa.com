@@ -31,7 +31,7 @@ I’m a big fan of
 
 In the diagram below you can see the whole flow.
 
-![](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/gh-starboy.png)
+![A flow chart showing a GitHub star triggering a Cloudflare worker to send a notification to the user via Telegram](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/gh-starboy.png)
 
 ### Handling a Github event
 
@@ -90,11 +90,11 @@ There you can provide a URL that should be called when an event happens. In this
 Next, set  
 _Content-Type_ to `application/json` and choose a value for the _Secret_ field that we described above.
 
-![](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/add-webhook.png)
+![GitHub webhook settings page showing fields for payload URL, content type set to application/json, and secret key](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/add-webhook.png)
 
 In the “_Which events would you like to trigger…_” section, choose only _Stars_ and uncheck _Pushes_ that is enabled by default.
 
-![](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/webhook-event.png)
+![GitHub webhook settings showing the Stars option selected among various other event triggers](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/webhook-event.png)
 
 ### Create a Cloudflare worker
 
@@ -126,7 +126,7 @@ This will bundle the code and deploy it to Cloudflare.
 
 Once the code is deployed, Cloudflare will automatically create a URL for your worker, that is in the format `{project-name}.{your-account-name}.workers.dev`.
 
-![](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/cloudflare.png)
+![Cloudflare Workers dashboard showing the successfully deployed gh-starboy project with request statistics](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/cloudflare.png)
 
 Once you deploy your worker function, you can update the Github webhook with the real Cloudflare worker URL.
 
@@ -138,7 +138,7 @@ Now that we have the worker deployed and the webhook listening, we can finalize 
 
 The first thing you will need to do is create a Telegram bot. This can be easily done, if you search for _@BotFather_ in your Telegram and then send a message `/newbot`. Then just choose a bot name and BotFather will respond with an API token (simple as that).
 
-![](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/create-bot.png)
+![Telegram chat conversation with BotFather showing the process of naming a new bot and receiving an API token](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/create-bot.png)
 
 Now, in order to **get the ID of the chat** between you and your newly created bot, send a random message in the conversation. Then, open this URL in your browser `https://api.telegram.org/bot{BOT_API_TOKEN}/getUpdates` and find the `chat.id`.
 
@@ -162,6 +162,6 @@ const res = await fetch(
 
 Now, if someone adds a star to your repository, you will get a Telegram message like follows 🎉. This means I can finally attempt to ignore my OCD knowing that I’ll be automatically notified of every new star 😆.
 
-![](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/notification.png)
+![Telegram chat showing a notification message for a new GitHub repository star with a link preview of the project](https://assets.jozefcipa.com/blog/18a77955515e80a09604e33cae54e945/notification.png)
 
 **Disclaimer 2**: Telegram API docs are quite shitty, so thanks to _@dideler for this_ awesome Github [gist](https://gist.github.com/dideler/85de4d64f66c1966788c1b2304b9caf1) detailing all the necessary steps.

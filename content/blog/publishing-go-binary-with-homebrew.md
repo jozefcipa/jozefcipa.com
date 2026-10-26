@@ -129,7 +129,7 @@ $ GITHUB_TOKEN={YOUR_GITHUB_TOKEN} goreleaser release
 
 If everything went well, you should now see a new release in your GitHub repository ([https://github.com/{YOUR\_GITHUB\_USERNAME}/go-hello-world/releases](https://github.com/{YOUR_GITHUB_USERNAME}/go-hello-world/releases)).
 
-![](https://assets.jozefcipa.com/blog/193b001e58e1412e81d208722f6a6b11/gh-release.png)
+![GitHub releases page for v0.0.1 showing the changelog and the generated binary assets for the Go project](https://assets.jozefcipa.com/blog/193b001e58e1412e81d208722f6a6b11/gh-release.png)
 
 ## Configuring GoReleaser for Homebrew
 
@@ -187,7 +187,7 @@ $ GITHUB_TOKEN={YOUR_GITHUB_TOKEN} GH_PRIVATE_KEY=~/.ssh/{YOUR_PRIVATE_SSH_KEY_N
 
 If everything succeeds we can go ahead and check the `homebrew-go-hello-world` repository. As you can see, GoReleaser created and pushed one Ruby file - this is our Homebrew formula.
 
-![](https://assets.jozefcipa.com/blog/193b001e58e1412e81d208722f6a6b11/homebrew-repo.png)
+![GitHub repository showing the newly pushed Homebrew formula file go-hello-world.rb created by GoReleaser](https://assets.jozefcipa.com/blog/193b001e58e1412e81d208722f6a6b11/homebrew-repo.png)
 
 If you open the file, you should see something similar to this:
 

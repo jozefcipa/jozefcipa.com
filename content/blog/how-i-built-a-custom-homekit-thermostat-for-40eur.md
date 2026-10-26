@@ -64,7 +64,7 @@ Luckily, there is this awesome graphics library for the embedded devices called 
 
 Here you can see the diagram of the thermostat GUI. Eventually I ended up creating three different screens for handling various states of the thermostat.
 
-![](https://assets.jozefcipa.com/blog/12677955515e8037be53e7832bb10412/gui-flow.png)
+![Flowchart illustrating the thermostat GUI states including WiFi setup, loading, error, and main temperature screens](https://assets.jozefcipa.com/blog/12677955515e8037be53e7832bb10412/gui-flow.png)
 
 ## Showing current time
 
@@ -80,15 +80,15 @@ The way it works is that the ESP32 first creates a Bluetooth connection with the
 
 Now, whenever the configured WiFi network is not available or the thermostat just can’t establish a connection for any reason, it will show the setup screen so you can restart the provisioning process and configure a new WiFi network.
 
-![](https://assets.jozefcipa.com/blog/12677955515e8037be53e7832bb10412/wifi_setup_screen.png)
+![LCD screen showing a WiFi setup message and a QR code for the ESP BLE Provisioning app](https://assets.jozefcipa.com/blog/12677955515e8037be53e7832bb10412/wifi_setup_screen.png)
 
 ## **Electrical circuit**
 
 The electronic is pretty straightforward, and you can find the circuit below. The LCD, the temperature sensor, and the relay are all connected directly to the ESP32 board and that’s pretty much it 😀.
 
-![](https://assets.jozefcipa.com/blog/12677955515e8037be53e7832bb10412/diagram.png)
+![Wiring diagram showing an ESP32 connected to a 3.5 inch TFT display, a relay module, and an SHT40 temperature sensor](https://assets.jozefcipa.com/blog/12677955515e8037be53e7832bb10412/diagram.png)
 
-![](https://assets.jozefcipa.com/blog/12677955515e8037be53e7832bb10412/enclosure.jpg)
+![Internal wiring showing an ESP32 connected to a relay and LCD screen mounted inside two halves of a plastic case](https://assets.jozefcipa.com/blog/12677955515e8037be53e7832bb10412/enclosure.jpg)
 
 ## Conclusion
 

@@ -168,11 +168,11 @@ Let’s say we want to access our web at the address [`https://my-cool-web.com`]
 
 After editing and saving the file, the DNS should be configured and you can try to open the address [`https://my-cool-web.com`](https://my-cool-web.com/) in your browser.
 
-![](/blog/img/connection-not-private.png)
+![Browser warning page showing a connection is not private error for the domain my-cool-web.com](/blog/img/connection-not-private.png)
 
 After submitting the warning dialog you should be able to see the welcome message again, now on the custom domain.
 
-![](/blog/img/domain.png)
+![Browser address bar showing a Not Secure warning for the custom domain https://my-cool-web.com displaying Hello World](/blog/img/domain.png)
 
 ## Add a subdomain
 
@@ -237,7 +237,7 @@ Make sure to rebuild the Docker image again (as we have changed the configuratio
 
 Now, when you open [`subdomain.my-cool-web.com`](http://subdomain.my-cool-web.com/) you should see your subdomain message 🎉
 
-![](/blog/img/subdomain.png)
+![Browser address bar showing a subdomain and a Not Secure warning with the message Hello World from subdomain displayed](/blog/img/subdomain.png)
 
 And that is how you can make HTTPS work locally.
 

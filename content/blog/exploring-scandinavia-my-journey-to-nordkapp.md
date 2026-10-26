@@ -31,7 +31,7 @@ Along the whole journey, I was keeping a short journal to jot down my memories a
 It’s Wednesday, 18.6.2025, and finally, the big day has come. I set off for Nordkapp. In the morning, I packed up the bike and rolled out. To be honest, I didn’t really feel like going at first — more like I was a bit scared. But the moment I actually got on the road, all of that disappeared… and was instantly replaced with the fun of dealing with a Prague traffic jam 😅.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day1-departure.jpg)
+![The author smiling and giving a thumbs up next to their loaded motorcycle before departing for Nordkapp](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day1-departure.jpg)
 
 <--->
 
@@ -46,13 +46,13 @@ Oh, and one more thing: I realized I already lost the slider from my boot — th
 
 **Today’s leg -** Prague (CZ) → Rostock (DE) (582km)
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day1-camp.jpg)
+![A green camping tent and a fully packed touring motorcycle parked in a grassy field on a sunny day](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day1-camp.jpg)
 
 ### Day 2 - Hello Denmark
 
 I started the day at the port, where I chatted with a Czech guy who said something that stuck with me: _“Everyone heads south — the Alps, Romania… but this is a nice change. It’s going to be great.”_
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day2-ferry.jpg)
+![A black motorcycle secured with a blue strap on a ferry deck during the journey to Nordkapp](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day2-ferry.jpg)
 
 The ferry was delayed, and the wind was brutal all day. After arriving in Denmark, I bought some groceries, but my bike wouldn’t start — the battery is getting weak, so I’ll probably need to buy a new one soon.
 
@@ -67,7 +67,7 @@ The first campsite was full, but a helpful owner pointed me to another one nearb
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day2-nyhavn.jpg)
+![First-person view from a motorcycle dashboard riding past the colorful buildings and harbor at Nyhavn in Copenhagen](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day2-nyhavn.jpg)
 {{< /columns >}}
 
 ### Day 3 - Passing by Stockholm
@@ -80,7 +80,7 @@ Also, today is _Midsummer Eve_, the big Swedish holiday where people celebrate t
 
 **Today’s leg -** Örkelljunga → Uppsala (255km)
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day3-hotel.jpg)
+![Motorcycle parked in front of a modern hotel building in Uppsala where the author stayed for the night](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day3-hotel.jpg)
 
 ### Day 4 - Forests everywhere
 
@@ -88,16 +88,16 @@ I left the hotel in the morning and did a quick 100 km stretch before stopping a
 
 Along the way, I crossed an impressive bridge, which happened to be Högakustenbron. I made a quick stop to take some photos. The ride towards Umeå was smooth; even though it was mostly highway, the scenery kept changing — forests, lakes, villages — so it never felt boring.
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day4-bridge.jpg)
+![Fully loaded adventure motorcycle parked at an overlook with the impressive Högakustenbron bridge in the background](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day4-bridge.jpg)
 
 Since I was making good progress, I decided to follow signs for cultural landmarks, taking detours through smaller roads and villages. It was a great decision: winding roads, no cars, just endless forests 😍.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day4-nature.jpg)
+![Traditional red wooden houses situated along a flowing riverbank surrounded by forest under a cloudy sky](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day4-nature.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day4-cottages.jpg)
+![Traditional red Swedish cottages sit in a lush green field under a partly cloudy sky](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day4-cottages.jpg)
 {{< /columns >}}
 
 Tonight I’m camping again - I found a perfect campsite surrounded by woods. It’s already colder — only 11°C with damp ground after rain, so I bundled up and hope I won’t freeze overnight.
@@ -110,14 +110,14 @@ The coolest part? It’s 23:12 as I’m writing this, and it’s still bright ou
 
 As a shorter ride was planned for today, I finally had time in the morning to swap out the new battery I’d been carrying since day 2. Then I continued riding to the north, but I avoided the main road, just to enjoy some smaller routes. At one point, Google even sent me down a gravel road — a fun little detour.
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-sideroads.jpg)
+![Fully loaded adventure motorcycle parked on a quiet gravel road surrounded by lush pine forests in northern Sweden](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-sideroads.jpg)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-gas.jpg)
+![A black touring motorcycle with storage cases parked at a rural Swedish gas station under a bright blue sky](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-gas.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-plane.jpg)
+![A vintage Swedish fighter jet mounted on a pedestal outside the aviation museum near the airport](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-plane.jpg)
 {{< /columns >}}
 
 Most of the day was just riding until I stopped at a supermarket in a small village for supplies. I also swung by an aviation museum near the airport, but it only opens in two days, so I had to settle for photographing the fighter jets parked outside. Later, I checked out Gammelstad Kyrkbyn, a historic church village with tiny old wooden houses — really charming.
@@ -128,14 +128,14 @@ My campsite for the night was right by the sea, with amazing views. I managed to
 
 **Today’s leg -** Umeå → Rörbäcken (366km)
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-camp.jpg)
+![Green camping tent set up in a pine forest next to a parked adventure motorcycle with luggage boxes](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-camp.jpg)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-sun.jpg)
+![Sunset view over a calm lake from a rocky campsite shore with a small wooden pier in the foreground](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-sun.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-sun2.jpg)
+![Serene view of a quiet campsite by the sea during a golden hour sunset in Scandinavia](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day5-sun2.jpg)
 {{< /columns >}}
 
 ### Day 6 - Quick stop in Finland
@@ -145,11 +145,11 @@ I woke up to a light breeze moving the tent cover. For once, the tent was dry �
 On the way there, I met three English bikers at a roadwork stop, and we chatted a bit while waiting for the green light. We bumped into each other again at the sign, took some photos, and then I rushed up north to avoid the rain.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day6-road.jpg)
+![Paved road winding through a forest lined with blue and yellow hazard markers under a cloudy sky](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day6-road.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day6-arctic-circle.jpg)
+![Motorcyclist in a high-visibility jacket posing next to their bike by the Arctic Circle road sign](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day6-arctic-circle.jpg)
 {{< /columns >}}
 
 {{< columns >}}
@@ -163,23 +163,23 @@ The evening was relaxing — until I locked myself out of the room while trying 
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day6-reindeers.jpg)
+![Several reindeer grazing in a fenced pasture near a tree under a cloudy sky in Northern Scandinavia](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day6-reindeers.jpg)
 {{< /columns >}}
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day6-acomm.jpg)
+![Two light-grey A-frame cabins with wooden decks and exterior ladders situated in a quiet, grassy area](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day6-acomm.jpg)
 
 ### Day 7 - Meeting my girlfriend
 
 I left Finland in the morning, riding through chilly 10°C weather after a rainy night. Soon after crossing into Norway, the landscape transformed — mountains, rocky roadsides, streams, and endless curves with almost no traffic. After a week of forests, finally some proper mountains.
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day7-enter-norway.jpg)
+![Black motorcycle parked on the shoulder of a winding road in the mountainous Scandinavian landscape under a cloudy sky](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day7-enter-norway.jpg)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day7-sandrik.jpg)
+![Sandra smiling while holding a helmet next to the motorcycle in Alta after arriving for the trip](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day7-sandrik.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day7-lake.jpg)
+![A rocky fjord coastline in Norway with small red cabins and snow-capped mountains under a cloudy sky](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day7-lake.jpg)
 {{< /columns >}}
 
 By midday, I reached Alta and stopped for groceries, but with check-in only at 4 PM and the cold biting, I decided to keep riding. I found a road leading 60 km along a fjord to a small village at the very end. The views were absolutely stunning and worth every kilometer.
@@ -191,11 +191,11 @@ Back in Alta, I checked into my place, unpacked, and relaxed until the evening. 
 ### Day 8 - Nordkapp
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day8-cottages.jpg)
+![Traditional red cabins sit on a wooden pier extending into the clear blue waters of a scenic Norwegian fjord](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day8-cottages.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day8-reindeer.jpg)
+![A reindeer crossing an open road against a backdrop of mountains with patches of snow in the Scandinavian countryside](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day8-reindeer.jpg)
 {{< /columns >}}
 
 We left Alta in the morning with quick store-bought breakfasts and 250 km ahead of us. I had been bracing myself for freezing weather, but instead we got lucky: sunshine, 7–8°C, and it didn’t even feel that cold. The road was incredible — fjords, curves, reindeer everywhere, and even a steep undersea tunnel that felt like something out of a movie.
@@ -204,13 +204,13 @@ As we climbed higher, I was counting down the kilometers to the very end. Then c
 
 The real kicker was the souvenir shop — hidden inside a building with a €30 entry fee 🙃. Of course, we paid it (already there, might as well), but wow, what a rip-off. Still, we warmed up inside, waited for a quiet moment, and managed to get a few quick photos by the globe.
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day8-nordkapp.jpg)
+![Motorcyclist in full riding gear standing with arms outstretched by the iconic Nordkapp globe monument](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day8-nordkapp.jpg)
 
 In the end, we spent quite a while up there, and I told myself not to let the disappointment ruin the whole trip. After all, the road itself was the real highlight. Later, we rode back 60 km to our accommodation — close enough in case of the strong winds forecasted — with a quick stop for fuel and groceries.
 
 **Today’s leg -** Alta → Nordkapp → Repvåg (237km)
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day8-acomm.jpg)
+![A black touring motorcycle parked on a gravel path in front of yellow wooden cabins near Nordkapp](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day8-acomm.jpg)
 
 ### Day 9 - From snowy hills to Olderdalen
 
@@ -221,15 +221,15 @@ By afternoon, we reached the small village of Olderdalen. Groceries there cost a
 **Today’s leg -** Repvåg → Olderdalen (302km)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day9-snow.jpg)
+![Snow-capped mountains tower above a small red house and a grassy harbor area in Olderdalen](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day9-snow.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day9-kiosk.jpg)
+![A traveler stands by a wooden picnic table in front of a red kiosk building with snow-capped mountains in the background](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day9-kiosk.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day9-port.jpg)
+![Small boats docked in a calm harbor in Olderdalen with snow-capped mountains and a blue sky in the background](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day9-port.jpg)
 {{< /columns >}}
 
 ### Day 10 - Towards Narvik
@@ -245,10 +245,10 @@ A few minutes after landing, we reached our hotel. Pricey at €135, but breakfa
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day10-mountains.jpg)
+![A motorcyclist in riding gear sits on a bike parked by a scenic fjord with mountains and waterfalls in the background](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day10-mountains.jpg)
 {{< /columns >}}
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day10-port.jpg)
+![A smiling motorcyclist stands with a motorbike at a ferry terminal with a car and mountains in the background](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day10-port.jpg)
 
 ### Day 11 - Crossing the Arctic Circle
 
@@ -263,11 +263,11 @@ We ended the day in Mosjøen, happy to finally have a place with a washing machi
 **Today’s leg -** Tysfjord → Mosjøen (415km)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day11.jpg)
+![Motorcyclist in riding gear standing with a motorbike at the Arctic Circle Visitor Center](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day11.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day11-river.jpg)
+![Fast-flowing turquoise river cutting through a lush green pine forest under a bright blue sky during the journey](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day11-river.jpg)
 {{< /columns >}}
 
 ### Day 12 - Rainy Ride to Trondheim
@@ -278,7 +278,7 @@ The whole day it rained, so we just focused on riding carefully and taking it sl
 
 ### Day 13 - Trondheim and the Atlantic Ocean Road
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day13-trondheim.jpg)
+![Colorful historic wooden buildings along the Nidelva river in Trondheim reflected in the water](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day13-trondheim.jpg)
 
 In the morning, we strolled through Trondheim, enjoying its colorful houses that felt a bit like Copenhagen — only without the crowds. After that, I went searching for a shop to change my tires. After checking three places, I ended up at BMW. It was pricey, but with more than 2000 km still ahead, safety came first.
 
@@ -288,14 +288,14 @@ We finished the day in Molde, staying at a high school dormitory.
 
 **Today’s leg -** Trondheim → Molde (297km)
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day13-oceanroad.jpg)
+![The winding Atlantic Road bridges stretching across the water and rocky islands under a cloudy sky](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day13-oceanroad.jpg)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day13-oceanroad2.jpg)
+![The famous Atlantic Road in Norway with its iconic curved bridge connecting small rocky islands under a cloudy sky](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day13-oceanroad2.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day13-village.jpg)
+![Small houses dot the green coastline beneath a large misty mountain on a cloudy day in Norway](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day13-village.jpg)
 {{< /columns >}}
 
 ### Day 14 - On the road to Oslo
@@ -307,7 +307,7 @@ Today was mostly a transfer day with not much happening. We drove through the mo
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day14.jpg)
+![A scenic view of a turquoise river below mist-covered mountains with patches of snow and small houses nearby](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day14.jpg)
 {{< /columns >}}
 
 ### Day 15 - Exploring Oslo
@@ -321,33 +321,33 @@ The rest of the day, we just strolled around the city, had an Aperol, and enjoye
 **Today’s leg -** Oslo, filling up gas (2km)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-pancakes.jpg)
+![Heart-shaped Norwegian waffles topped with brown cheese and jam, chocolate spread, and a cup of black coffee](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-pancakes.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-museum.jpg)
+![The modern glass architecture of the Oslo Opera House on the waterfront under a bright blue sky with wispy clouds](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-museum.jpg)
 {{< /columns >}}
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-art.jpg)
+![A visitor viewing Edvard Munch paintings in a museum gallery in Oslo](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-art.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-sandricka.jpg)
+![A traveler looking at Edvard Munchs portrait of Friedrich Nietzsche in an art gallery during their time in Oslo](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-sandricka.jpg)
 {{< /columns >}}
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-sculpt1.jpg)
+![Bronze statue of Peer Gynt riding a reindeer in an Oslo park under a sunny sky](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-sculpt1.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-sculpt2.jpg)
+![Bronze statue of a woman riding a bear in Oslo, inscribed with Kong Valemon, situated among green trees and blue sky](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day15-sculpt2.jpg)
 {{< /columns >}}
 
 ### Day 16 - Heavy rain and wind
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day16-ferry.jpg)
+![Motorcyclists waiting in line to board a large ferry at a port on a sunny day](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day16-ferry.jpg)
 
 <--->
 
@@ -369,7 +369,7 @@ I left Aalborg in the morning, aiming to reach somewhere past Hannover. Fortunat
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day17-last-dinner.jpg)
+![Camping stove and meal prepared on a motorcycle side case next to a parked adventure bike at a campsite](https://assets.jozefcipa.com/blog/1ad77955515e8043b703cbaa016709d2/day17-last-dinner.jpg)
 {{< /columns >}}
 
 ### Day 18 - Back to reality

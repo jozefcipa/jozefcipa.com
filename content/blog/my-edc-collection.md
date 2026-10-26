@@ -16,7 +16,7 @@ summary: >-
 cover: 'https://assets.jozefcipa.com/blog/my-edc-collection/cover-1784027723290.png'
 ---
 
-![](https://assets.jozefcipa.com/blog/23777955515e809e8669dc868551af65/full.jpg)
+![A collection of everyday carry items including an iPhone, iPod, G-Shock watch, pocket knife, and assorted tech gadgets](https://assets.jozefcipa.com/blog/23777955515e809e8669dc868551af65/full.jpg)
 
 Recently, I realized I’ve collected quite a few handy little items that I use almost every day. For a long time, I didn’t even know “Everyday Carry” — or EDC — was a thing. I’ve just always been drawn to cool-looking, compact gear that feels good in the hand.
 

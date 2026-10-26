@@ -17,10 +17,10 @@ cover: >-
 
 I really enjoy listening to some good music before sleeping. But the question is who will stop the music once you fall asleep, right? If you’re using iPhone you can schedule a timer which will stop playing after time elapses.
 
-![](/blog/img/1__MTfBIABodDvbCHxsA6REGQ.png)
+![iPhone Clock app timer screen set to Stop Playing after 20 minutes](/blog/img/1__MTfBIABodDvbCHxsA6REGQ.png)
 
 But what if you want to have the same functionality on Macbook too? Well, I was missing this feature so I decided to create a simple Bash script that uses [AppleScript](https://en.wikipedia.org/wiki/AppleScript) to stop Spotify playing after a defined time.
 
-![](/blog/img/1__10eF2NU9DMyOMmN__n5j8bg.png)
+![Terminal command line interface showing a prompt to set a 20 minute sleep timer for Spotify playback](/blog/img/1__10eF2NU9DMyOMmN__n5j8bg.png)
 
 You can find the source code on [Github](https://github.com/jozefcipa/spotify-autostop).

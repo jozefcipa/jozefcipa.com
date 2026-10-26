@@ -2,7 +2,7 @@ import { config } from '@/lib/config'
 import { log } from '@/lib/log'
 import { COVER_EXAMPLES } from '@/lib/cover-examples'
 import { makePreview } from '@/lib/previews'
-import { generateImage } from '@/lib/openrouter'
+import { describeImage, generateImage } from '@/lib/openrouter'
 import { uploadAsset } from '@/lib/s3'
 
 const IMAGE_MARKDOWN_REGEX = /!\[[^\]]*\]\(([^)\s]+)\)/g
@@ -49,6 +49,69 @@ export async function processArticleImages(input: { markdown: string; slug: stri
   }
 
   return result
+}
+
+// alt, src, optional title (`![alt](src "title")`)
+const IMAGE_ALT_REGEX = /!\[([^\]]*)\]\(([^)\s]+)([^)]*)\)/g
+
+// empty, or the file name Notion falls back to ("image.png", "XIAROl1.webp")
+const lacksAltText = (alt: string): boolean => !alt.trim() || /^\S+\.(png|jpe?g|webp|gif|heic|svg)$/i.test(alt.trim())
+
+const altTextPrompt = (input: { title: string; context: string }): string =>
+  [
+    `Write the alt text for this image from a blog post titled "${input.title}".`,
+    '',
+    'The text around the image in the post:',
+    '"""',
+    input.context,
+    '"""',
+    '',
+    'Rules:',
+    '- one plain sentence, at most 120 characters',
+    '- describe what the image shows that matters to a reader of this post; for',
+    '  screenshots, diagrams and code, say what they show, not just "a screenshot"',
+    '- do not start with "Image of", "Picture of" or "Photo of"',
+    '- refer to people neutrally (a person, a hiker, two people); never guess',
+    '  their gender or age',
+    '- no quotes, no markdown, no trailing period',
+    '',
+    'Reply with the alt text only.',
+  ].join('\n')
+
+// Fills in alt text for every image that has none, from the image itself plus
+// the text around it. Relative paths (/blog/img/...) resolve against the live
+// site. A failed description keeps the original alt, so it never blocks a post.
+export async function describeImages(input: { markdown: string; title: string }): Promise<string> {
+  'use step'
+
+  const { markdown, title } = input
+  const matches = [...markdown.matchAll(IMAGE_ALT_REGEX)].filter((match) => lacksAltText(match[1]))
+  log(`images: ${matches.length} image(s) without alt text in "${title}"`)
+
+  let result = ''
+  let last = 0
+  for (const match of matches) {
+    const [full, alt, src, rest] = match
+    const start = match.index
+    const context = markdown
+      .slice(Math.max(0, start - 600), start + full.length + 600)
+      .replace(IMAGE_ALT_REGEX, '')
+      .trim()
+    const imageUrl = src.startsWith('/') ? `${config.siteBaseUrl}${src}` : src
+
+    let newAlt = alt
+    try {
+      const described = await describeImage({ prompt: altTextPrompt({ title, context }), imageUrl })
+      newAlt = described.replace(/[[\]\n]/g, ' ').replace(/\s+/g, ' ').trim().replace(/\.$/, '')
+    } catch (error) {
+      console.error(`[pipeline] ✗ alt text failed for ${src}:`, error instanceof Error ? error.message : error)
+    }
+
+    result += `${markdown.slice(last, start)}![${newAlt}](${src}${rest})`
+    last = start + full.length
+  }
+
+  return result + markdown.slice(last)
 }
 
 // Locked style — this is what keeps covers consistent across articles.

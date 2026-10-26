@@ -14,6 +14,7 @@ you (Telegram)          bot (this app)                    site repo / Vercel
 send Notion link  ───▶  start publishArticle workflow
                         ├─ import page via Notion API → Markdown
                         ├─ download images → S3 (blog/<slug>/… + previews/)
+                        ├─ write alt text for images missing one (vision model)
                         ├─ generate summary + tags (Claude via OpenRouter)
                         ├─ generate cover image (locked outline style)
                         ├─ commit draft to branch  ──▶    draft/<slug> branch

@@ -17,7 +17,7 @@ cover: >-
   https://assets.jozefcipa.com/blog/sharing-gRPC-protobufs-between-microservices/cover-1784027826754.png
 ---
 
-![](/blog/img/1__uHXqoDARP__hXjNXE6uZGRA.jpeg)
+![An aerial view of a busy pedestrian crossing representing the complexity and coordination of microservices](/blog/img/1__uHXqoDARP__hXjNXE6uZGRA.jpeg)
 
 If you work with gRPC you need to find a way of sharing `proto` files across individual microservices. I just got into this “gRPC-and-microservices” thing recently and had to research and learn everything so now I want to share how I tackled it.
 
@@ -35,7 +35,7 @@ Now, how it all works together:
 2.  In the build process, we specify what languages we want to generate stubs for and then it just runs a prepared [docker image](https://hub.docker.com/repository/docker/jozefcipa/protoc-nodejs) which [lints and builds](https://github.com/jozefcipa/ca101-proto/blob/master/cli/build.sh#L75) our proto files.
 3.  Once the language stubs are generated, it automatically creates a new git tag and [pushes](https://github.com/jozefcipa/ca101-proto/blob/master/cli/build.sh#L75) everything to a predefined repository (e.g.`mycoolproject-proto-nodejs`).
 
-![](/blog/img/1__aN__NJ342vd__EoI49taJo1w.png)
+![GitHub commit log showing generated gRPC stubs being added to a repository by Github Actions with version tag v1.0.0](/blog/img/1__aN__NJ342vd__EoI49taJo1w.png)
 
 Now we can add this repository as a git submodule in our application and start using generated gRPC library. And since it has tags, we can always specify which version we want.
 

@@ -21,7 +21,7 @@ cover: >-
   https://assets.jozefcipa.com/blog/laundryalert-never-forget-your-laundry-again/cover-1784027705538.png
 ---
 
-![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/laundry-alert.jpeg)
+![Hand holding a small control device with a light-sensitive sensor attached to a washing machine display panel](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/laundry-alert.jpeg)
 
 A few months ago I was hanging my laundry after it stayed in the washing machine for half a day before I remembered I had forgotten to take it out. And this didn’t happen for the first time. Maybe it happened to you too. I got fed up and that’s when I got an idea.
 
@@ -37,7 +37,7 @@ The next step was to come up with the design of the whole project, and figure ou
 
 After some thinking, this is what I came up with:
 
-![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/diagram.png)
+![Diagram showing how a washing machine, Seeduino, OrangePi, and mobile app communicate to send laundry notifications](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/diagram.png)
 
 The whole project will consist of several independent parts that will communicate with each other.
 
@@ -56,11 +56,11 @@ It is deployed on the internet ([laundry.iot.jozefcipa.com](https://laundry.iot.
 But before opening the app on the phone, we have to first install it as a web app. This can be done by opening the website in Safari and tapping on _Share_ → _Add to Home Screen_.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/app-error.png)
+![LaundryAlert mobile app screen showing a connection error message when the local API device cannot be found](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/app-error.png)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/app-washing.png)
+![Laundry Alert web app interface showing a washing machine graphic and a Notify me when it is done button](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/app-washing.png)
 {{< /columns >}}
 
 ## Watching the washing machine (Arduino)
@@ -75,7 +75,7 @@ After that, I decided to buy an A/D converter chip (MCP3002) that converts analo
 
 Since I’m really bad with electronics, I decided to go with maybe an overkill solution but the one I was certain would work - using an Arduino chip that I can easily program and tell it exactly what I want it to do. I am a programmer after all 🤷‍♂️.
 
-![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/seeduino.jpeg)
+![A small microcontroller board held by hand with wires and a resistor soldered to it for the laundry sensor project](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/seeduino.jpeg)
 
 ## Sending notifications (Node.js API)
 
@@ -113,13 +113,13 @@ Once I had all of that sorted out, I copied the application code and ran `pm2` t
 
 The last step was to put everything into a nice case. It was a bit of a struggle to fit everything inside but I think the result is awesome.
 
-![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/in-progres.jpeg)
+![Orange Pi single-board computer wired to a small cooling fan and a power jack before being placed into its case](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/in-progres.jpeg)
 
-![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/case.jpeg)
+![Open white plastic case next to a circuit board with a cooling fan and wiring connections for the LaundryAlert project](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/case.jpeg)
 
-![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/debugging.jpeg)
+![A laptop running command line interface commands next to a small cased circuit board with a glowing green LED light](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/debugging.jpeg)
 
-![](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/app-notification.png)
+![iPhone lock screen displaying a LaundryAlert notification stating that the laundry is done](https://assets.jozefcipa.com/blog/1818227beb6746a3b7092c63848c59b9/app-notification.png)
 
 ## Concluding thoughts
 

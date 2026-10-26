@@ -13,6 +13,13 @@ outputFormats:
   rss:
     mediaType: application/rss+xml
     baseName: rss # serve the feed as /rss.xml instead of /index.xml
+  llms:
+    mediaType: text/plain
+    baseName: llms # /llms.txt, an index of the site for LLMs (llmstxt.org)
+    isPlainText: true
+    notAlternative: true
+outputs:
+  home: [html, rss, llms]
 markup:
   goldmark:
     parser:

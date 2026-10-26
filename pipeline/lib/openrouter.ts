@@ -65,6 +65,31 @@ export const completeObject = async <T extends z.ZodType>(input: {
   }
 }
 
+// imageUrl is a public URL or a data URL; the provider fetches it itself
+export const describeImage = async (input: { prompt: string; imageUrl: string }): Promise<string> => {
+  log(`openrouter: describeImage via ${config.textModel} (${input.imageUrl.slice(0, 100)})`)
+  try {
+    const result = await openRouter().chat.send({
+      chatRequest: {
+        model: config.textModel,
+        messages: [
+          {
+            role: 'user',
+            content: [
+              { type: 'text' as const, text: input.prompt },
+              { type: 'image_url' as const, imageUrl: { url: input.imageUrl } },
+            ],
+          },
+        ],
+        stream: false,
+      },
+    })
+    return extractText(result.choices[0]?.message.content)
+  } catch (error) {
+    logApiError(`openrouter describeImage (${config.textModel})`, error)
+  }
+}
+
 export interface GeneratedImage {
   data: Buffer
   contentType: string

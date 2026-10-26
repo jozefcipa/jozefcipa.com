@@ -73,7 +73,7 @@ The display is glued to the chassis, so the first step is carefully cutting thro
 
 I followed this [iMac 5K Monitor Conversion Video Guide](https://www.youtube.com/watch?v=81PjGv8B-eo&utm_source=chatgpt.com) to remove the motherboard, power supply, and basically everything that was no longer needed. At this point, we’re essentially turning the iMac into an empty shell, but all of these components have to go, as they’ll be replaced by the controller board that will drive the display instead.
 
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/mac-without-screen.jpeg)
+![The internal components of an iMac 5K, including the motherboard and fan, mounted inside the chassis](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/mac-without-screen.jpeg)
 
 ### Step 3: Wiring & Connectors
 
@@ -81,41 +81,41 @@ The first thing was to connect the new power supply.
 
 The controller board comes with a regular external power brick similar to a laptop charger, but I wanted to keep the original iMac power cord fully functional. Because of that, I decided to mount the power supply directly inside the chassis and remove its plastic casing to improve cooling and save space.
 
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/power-adapter.jpeg)
+![A caseless power adapter mounted inside the iMac chassis and wired to the controller board component above it](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/power-adapter.jpeg)
 
 I also wanted to reuse the original power button. To make that work, the button had to be rewired directly to the controller board. This also meant stripping off the last button from the controller board’s control panel, as it would now be replaced by the iMac’s original button.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/power-wiring.jpeg)
+![Internal iMac power supply wired to the original power button assembly inside the chassis](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/power-wiring.jpeg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/power-btn-wiring.jpeg)
+![Rewired power button connected to the controller board inside the iMac chassis](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/power-btn-wiring.jpeg)
 {{< /columns >}}
 
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/buttons-wiring.jpeg)
+![Hand holding the controller board with a ribbon cable modified and spliced to connect to the iMac power button](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/buttons-wiring.jpeg)
 
 Next, I used panel-mount video cables to bring the ports to the outside of the iMac.
 
 This is where the 3D printed cover comes in — it replaces the original RAM door and makes everything look much cleaner and more intentional instead of having random cables sticking out of the back.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/connectors-inside.jpeg)
+![Internal view of an iMac showing cables connected to a 3D printed panel mount replacing the original RAM door](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/connectors-inside.jpeg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/connectors.jpeg)
+![3D printed cover installed on the iMac rear housing featuring HDMI and DisplayPort inputs with monitor control buttons](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/connectors.jpeg)
 {{< /columns >}}
 
 ### Step 4: Installing the Controller Board
 
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/controller-board.jpeg)
+![Controller board with various input ports, capacitors, and a heatsink used to convert the iMac display for new inputs](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/controller-board.jpeg)
 
 This is the “brain” of the whole setup.
 
 The controller board connects directly to the iMac’s display panel and exposes standard inputs like HDMI and DisplayPort. It also comes with a small control panel for typical monitor settings like brightness, input source selection, and similar controls. I also connected the speakers crossover board here so the original iMac speakers could still be used.
 
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/inside-full.jpeg)
+![Internal view of the iMac chassis showing the installed controller board connected to the display and speakers](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/inside-full.jpeg)
 
 ## Step 5: Putting It All Together
 
@@ -128,11 +128,11 @@ After that, I properly cleaned the edges where the display connects to the chass
 Once the new adhesive was in place, I carefully sealed the display back onto the chassis.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/remove-residue.jpeg)
+![A hand uses a cloth to clean the edges of the iMac chassis before applying new adhesive strips](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/remove-residue.jpeg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/adhesive-strips.jpeg)
+![Internal view of an iMac chassis retrofitted with a custom controller board and power supply to function as a monitor](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/adhesive-strips.jpeg)
 {{< /columns >}}
 
 ## Wrapping up
@@ -145,4 +145,4 @@ Another thing I ran into is the well-known “pinkish edge” effect that some o
 
 Anyway, it was a cool project, I enjoyed the process, and now I finally have the classic 27” iMac sitting on my desk.
 
-![](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/result.jpeg)
+![The repurposed 27 inch iMac displays a macOS settings window while connected to a MacBook laptop on a desk](https://assets.jozefcipa.com/blog/2de77955515e80a4946ecedc6d6a6154/result.jpeg)

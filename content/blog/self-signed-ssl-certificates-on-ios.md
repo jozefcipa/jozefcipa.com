@@ -29,7 +29,7 @@ But, what happens if you open a website with such a certificate on your mobile d
 
 Let’s say our application is exposed at the IP address 192.168.0.199. Opening that in the browser would give us the following screen.
 
-![](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/safari-insecure.png)
+![Safari mobile browser showing a This Connection Is Not Private warning for the IP address 192.168.0.199](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/safari-insecure.png)
 
 Yikes, how’s that possible you ask? We do have the SSL certificate set up after all.
 
@@ -54,25 +54,25 @@ This is the CA certificate that we need to register on our iPhone. We can send t
 After we accept the file, let’s open Settings and tap on “Profile Downloaded” and then “Install”.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/profile-downloaded.png)
+![iPhone home screen displaying a Profile Downloaded notification popup after receiving the certificate file](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/profile-downloaded.png)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/settings.png)
+![iOS Settings menu showing the Profile Downloaded option highlighted with a red box for installation](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/settings.png)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/profile-install.png)
+![iOS settings screen showing the Install Profile page for a verified mkcert root certificate](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/profile-install.png)
 {{< /columns >}}
 
 Now that we have installed the certificate, we have to enable **Full Trust**.
 
 Let’s go to Settings → General → About → Certificate Trust Settings and switch the toggle on.
 
-![](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/cert-trust.png)
+![iOS settings screen showing the Root Certificate trust confirmation prompt for a custom mkcert certificate](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/cert-trust.png)
 
 Now the iPhone will start accepting our generated self-signed SSL certificates as it knows the root Certificate Authority that signed these certificates.
 
 Refreshing the website again will give us the website and we can also notice the little lock symbol in the search bar 🎉.
 
-![](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/safari-working.png)
+![Safari browser on iPhone showing a webpage load successfully with a lock icon in the address bar](https://assets.jozefcipa.com/blog/416884af7bfa4ceb96695053cb83444a/safari-working.png)

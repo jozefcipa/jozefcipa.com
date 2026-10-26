@@ -21,7 +21,7 @@ draft: false
 Some time ago, I bought a couple of those cheap Xiaomi thermometers, the small square ones with an LCD (model _LYWSD03MMC_). They cost around 4-5€ each. Recently, I got hooked on Home Assistant, and since I wanted to have an idea of the temperature in every room, I started wondering if I could connect them there too. I knew they could be paired with the Xiaomi app, but that's not really what I wanted.
 
 
-![XIAROl1.webp](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-1.webp)
+![Small square Xiaomi LYWSD03MMC thermometer displaying temperature and humidity on its LCD screen](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-1.webp)
 {width="50%"}
 
 
@@ -37,7 +37,7 @@ Out of the box, the thermometer sends its readings over Bluetooth Low Energy, bu
 The pvvx firmware is a custom open-source firmware for these thermometers. Instead of the encrypted Xiaomi format, it can send the readings as BTHome, an open format for Bluetooth sensors that Home Assistant supports out of the box. The thermometer simply broadcasts temperature, humidity and battery level, and anything nearby can read them. There's no cloud and no keys, and Home Assistant discovers the device automatically. On top of that, the firmware lets you configure things the stock one doesn't, like how often it sends updates or what the LCD shows.
 
 
-![xiaomi-thermometers-flow-bt-logo.png](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-2.png)
+![Diagram showing a Xiaomi thermometer sending data via Bluetooth using the BTHome protocol to Home Assistant](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-2.png)
 
 
 ## Step 1: Getting the token (newer units only)
@@ -70,7 +70,7 @@ The process goes like this:
 
 1. Click Connect and pick your thermometer from the list. It shows up as a Bluetooth device starting with `LYW...`.
 
-![image.png](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-3.png)
+![Browser prompt showing the pvvx.github.io website requesting to pair with a LYWSD03MMC Bluetooth thermometer](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-3.png)
 
 1. Activate the device. If yours is one of the newer units, paste the token and bindkey from the previous step into the form first.
 2. Select the C_ustom firmware_ option from the menu and start flashing.
@@ -87,7 +87,7 @@ Now the page shows the firmware settings. There's a lot you can configure, but t
 This is the easy part. Thanks to BTHome (the open format for Bluetooth sensors that Home Assistant supports natively), Home Assistant finds the thermometer on its own, as long as it's within Bluetooth range. Go to Settings → Devices & services, and it'll be waiting in the Discovered section, so just add it from there.
 
 
-![bt-sensor.png](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-4.png)
+![Home Assistant interface showing a discovered BTHome sensor ready to be added to the system](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-4.png)
 
 
 ## Step 4: ESPHome Bluetooth proxy
@@ -105,7 +105,7 @@ The fix is an ESPHome Bluetooth proxy.
 The Bluetooth proxy is a small ESP32 board that listens for Bluetooth messages around it and forwards them to Home Assistant over WiFi. Home Assistant then treats it like another Bluetooth adapter, and each sensor reports through whichever adapter hears it best.
 
 
-![xiaomi-thermometers-proxy-flow-bt-logo.png](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-5.png)
+![Diagram showing a Xiaomi thermometer sending data via Bluetooth to an ESP32 proxy, which forwards it to Home Assistant](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-5.png)
 
 
 I used an ESP32-C6 devkit, but any ESP32 with Bluetooth will do. The config is pretty short:
@@ -156,10 +156,10 @@ After the first flash, updates go over WiFi. If you'd rather not use the CLI, th
 Once the proxy is running, Home Assistant discovers it on its own and shows it as ESPHome in the Discovered section. Paste the API encryption key, and that's it.
 
 
-![bt-proxy.png](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-6.png)
+![Home Assistant discovered integration card showing a new ESPHome bluetooth proxy device ready to be added](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-6.png)
 
 
-![bt-proxy-key.png](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-7.png)
+![Home Assistant prompt asking for the encryption key to connect to the discovered ESPHome device](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-7.png)
 
 
 ## Wrapping up
@@ -168,7 +168,7 @@ Once the proxy is running, Home Assistant discovers it on its own and shows it a
 Now each room has its own card on the Home Assistant dashboard, with temperature, humidity and battery level.
 
 
-![ha-cards.png](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-8.png)
+![Home Assistant dashboard showing temperature, humidity, and battery status for multiple rooms](https://assets.jozefcipa.com/blog/connecting-xiaomi-thermometers-to-home-assistant/image-8.png)
 
 
 So far, everything works well. I can't say much about battery life yet, since I've only set it up recently.

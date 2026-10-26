@@ -38,6 +38,9 @@
 <meta name="twitter:image" content="{{ . | absURL }}">
 {{- end }}
 <link rel="canonical" href="{{ $canonical }}">
+{{- if partial "thin-tag.html" . }}
+<meta name="robots" content="noindex, follow">
+{{- end }}
 {{- $person := dict
   "@type" "Person"
   "@id" (printf "%s#person" site.Home.Permalink)
@@ -77,9 +80,7 @@
 {{- with .OutputFormats.Get "rss" }}
 <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
 {{- end }}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Chakra+Petch:wght@500;600;700&display=swap">
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 {{- $css := resources.Get "css/main.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 <script>

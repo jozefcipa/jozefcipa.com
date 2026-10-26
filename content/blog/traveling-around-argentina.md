@@ -65,16 +65,16 @@ To mention some interesting (useful) facts:
 -   **the largest banknote** is 1000 ARS (Argentinian pesos) and at the time of writing this article, the value is **1000 ARS → 8.2 €**. So when you go buy something even a little bit more expensive it often looks like this:
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3648.jpg)
+![A hand holding a thick, rubber-banded stack of 500 Argentinian peso banknotes illustrating the effect of inflation](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3648.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_7590.jpg)
+![A large collection of Argentine peso banknotes in 500 and 1000 denominations spread out on a wooden floor](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_7590.jpg)
 {{< /columns >}}
 
 The banknotes are very nice though, I must say 😀.
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_7914.jpg)
+![Five colorful Argentinian peso banknotes of various denominations featuring native animals spread out on a wooden surface](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_7914.jpg)
 
 -   **[Blue dollar](https://bluedollar.net/)** — In Argentina there is this interesting thing called a blue rate, or an unofficial rate. In reality, the unofficial rate has almost double the value of the original rate. Currently, for **1€** you would get **122$** (arg. pesos) or you could get **205$** on the blue market 🤯. This means if you pay with cash you can save a lot of money, i.e. everything is almost half the price. Some locals offer you exchange dollars for pesos using the unofficial rate but we relied on [WesternUnion](https://www.westernunion.com/) which uses this rate too. However, until this day, I still don’t understand how exactly this whole system works 🤷‍♂️. But I think it has something to do with the government, not using cards and the inflation.
 
@@ -121,7 +121,7 @@ The next morning we went on our first hike - Mount Fitz Roy. The hike is more th
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2390.jpg)
+![Hiker sits on a rock in a turquoise alpine lake with Mount Fitz Roy rising in the background](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2390.jpg)
 {{< /columns >}}
 
 Along the way there is a two-way split, the first way goes to Laguna Capri, where there is also a place for campers. The other one goes to a viewpoint from which you can see the mountain. Both are joining again after some time, so you can take one on the way there and the other one on the way back.
@@ -133,40 +133,40 @@ Also, I have to mention this - please **don’t forget to use sunscreen**, other
 {{< /callout >}}
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2589.jpg)
+![Two arms with severe red sunburns and distinct pale lines where watches were worn](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2589.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3228.jpg)
+![Close-up of a person with a severely sunburnt, peeling neck after hiking in Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3228.jpg)
 {{< /columns >}}
 
 The next day we decided to go to the other very popular trek - Lago de los Tres. The hike itself was not so difficult but the fact that we lose our fight with the sun the day before made the whole trek challenging and painful. We got everything covered this time, we wore long-sleeve T-shirts, long pants, a hat, and even covered our necks so you can imagine how uncomfortable it had been hiking and sweating on a high-temperature sunny day. Still, we got sun burnt - our poor lips this time 😩.
 
 But all this pain was 100% worth the views we got to see 🙈!
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2481.jpg)
+![Hiker walking along a wooden trail toward the towering, snow-capped peaks of Mount Fitz Roy under a clear blue sky](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2481.jpg)
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2475.jpg)
+![Rocky hiking trail leading toward the snow-capped peaks and glaciers of Mount Fitz Roy in El Chalten under a blue sky](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2475.jpg)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3759.jpg)
+![A smiling hiker holds a large piece of glacier ice in front of the snowy peaks of Mount Fitz Roy in Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3759.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2578.jpg)
+![A hiker squats on a large rock beside a glacial lake with the snow-capped peaks of Patagonia in the background](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2578.jpg)
 {{< /columns >}}
 
 After completing both treks, we had our last day in El Chalten so we decided to go catch the sunrise in the morning. Sun was rising at 6.20 so we had to wake up very early to make it there on time. Honestly, it was a little bit scary going to the forest in total darkness, but the desire to see the sun rising over the Patagonian mountains was stronger. Also, having a headlamp helped a lot. Even though during summer days the weather is quite good, at the night it was really freezing 🥶.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3038.jpg)
+![The sun beginning to rise over the dark silhouettes of Patagonian mountains with a moon visible in the twilight sky](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3038.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4433.jpg)
+![A hiker wearing a headlamp stands on rocky terrain at dawn with snow-capped mountains in the background](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4433.jpg)
 {{< /columns >}}
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4513.jpg)
+![A vibrant sunrise illuminates the jagged Patagonian mountain peaks above a forest valley](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4513.jpg)
 
 Mission successful, we saw the sunrise, took photos, made a time-lapse and now it was time to get on a bus to El Calafate.
 
@@ -178,17 +178,17 @@ The next day we took a trip to the Perito Moreno glacier with [Patagonia Dreams]
 
 ![Glacier Perito Moreno](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3309.jpg)
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3341.jpg)
+![The massive blue ice wall of the Perito Moreno glacier towers over turquoise waters with floating icebergs](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3341.jpg)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3368.jpg)
+![A tour guide helps a hiker put on crampons for the Perito Moreno glacier mini trekking experience](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3368.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3523.JPG)
+![A trekker wearing a helmet and crampons poses for a photo while trekking on the Perito Moreno Glacier in Patagonia](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3523.JPG)
 {{< /columns >}}
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_5604.jpg)
+![A hiker wearing a helmet and crampons drinks whiskey with ice from the glacier during a trek in Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_5604.jpg)
 
 As a part of the tour, we went on **mini trekking,** where they give you crampons and you go walking on the ice. Very cool experience, definitely recommend it! The trekking was finished with a glass of whisky with ice from the glacier which was a nice touch after the whole day 🥃.
 
@@ -198,10 +198,10 @@ We had to say goodbye to the mountains and get to our next destination which was
 
 After we finally arrived, we went straight to our hostel [La Tosca](https://latoscahostel.com/) . There we talked with the receptionist and booked a private (3-4 people) tour for a decent price to see penguins and sea lions. I definitely recommend this place and the tour as the guide was a really nice guy and even took us to some secret place where we could watch sea lions from only a few meters distance.
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_6770.JPG)
+![Two Magellanic penguins touching beaks in a rocky habitat at Punta Tombo nature reserve in Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_6770.JPG)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3578.jpg)
+![A large group of sea lions resting on a beach along the ocean coast in Peninsula Valdes](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3578.jpg)
 
 <--->
 
@@ -242,14 +242,14 @@ After that, we continued to **Tilcara**, another spectacular village. You can vi
 
 We had lunch here and then continued further.
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3977.jpg)
+![Tall cardon cacti standing in a rocky desert landscape in Tilcara with mountains in the background under a blue sky](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3977.jpg)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3862.jpg)
+![A traveler winks and eats a snack in front of a colorful mural of a llama and cactus in northern Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3862.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3860.jpg)
+![A street vendor in Tilcara grills and serves traditional tortillas under an umbrella while a customer prepares to pay](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_3860.jpg)
 {{< /columns >}}
 
 The last place for the day was **Humahuaca**. We booked a hotel here and walked around a little bit. The altitude sickness started hitting here and walking to even smaller hills became physically demanding accompanied by shortness of breath and headache. That’s why we decided to rather return to the hotel and take a rest.
@@ -259,11 +259,11 @@ The last place for the day was **Humahuaca**. We booked a hotel here and walked 
 The main reason for going to Humahuaca was to see the **Serranía de Hornocal**. Even though the view was only 20 kilometers from the village, it took us almost 1 hour to get there as the whole road was unpaved and we had to ascend to 4200 meters above sea level.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_8510.JPG)
+![A traveler standing on a high rocky ridge looking at the colorful Serrania de Hornocal mountains under a blue sky](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_8510.JPG)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_8694.jpg)
+![A person stands beside a 4200 meter altitude sign overlooking a mountainous landscape on the way to Serrania de Hornocal](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_8694.jpg)
 {{< /columns >}}
 
 The next stop on our journey was **Salinas Grandes** which is a big salt flat laying at an altitude of 3450 meters above sea level. The journey from Humahuaca took around 2 and a half hours and we had to get through the mountain pass. It was really beautiful and for 1000 pesos we could drive through it.
@@ -271,11 +271,11 @@ The next stop on our journey was **Salinas Grandes** which is a big salt flat la
 ![Salinas Grandes](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4163.jpg)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_9667.jpg)
+![Two people in black shirts posing playfully while holding hands over a channel of water at Salinas Grandes](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_9667.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_9783.jpg)
+![A person posing next to a llama statue at the Salinas Grandes salt flats in Argentina under a clear blue sky](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_9783.jpg)
 {{< /columns >}}
 
 After finishing the drive and taking photos we had to decide what to do next as we had no other plans 😀. It was already 6 pm and there were only two routes leading to the nearest towns, both at least 2 hours drive. One of them was unpaved which we didn’t want to take for obvious reasons as it was getting dark. Another was going in a slightly different direction than we originally wanted to go. Moreover, we had no internet or cellular connection so this made the situation more difficult. However, we were lucky that we saved Google maps for offline use.
@@ -295,36 +295,36 @@ The plan for the next day was to go down to the south using the famous **Ruta 40
 Ruta 40 stretches across the whole country from the north to the south and parallels the Andes mountains making it the longest route in Argentina and one of the longest routes in the world too. Even though it’s called a national route, don’t expect any good quality. There are new routes connecting different cities and I think this serves only as a historic route or for people that live in small mountain villages. During the whole journey, we only met 3-4 cars so it’s definitely not used very much. At least not the part that we took between Susques - Cafayate.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_9983.jpg)
+![A large herd of llamas stands in a dry, grassy field against a backdrop of distant mountains and a clear blue sky](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_9983.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_0090.jpg)
+![A brown llama stands on a dusty roadside in the arid Argentine landscape with rocky mountains in the background](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_0090.jpg)
 {{< /columns >}}
 
 Even though the road is not in a good shape, it compensates for it by offering outstanding views, beautiful nature and magical loneliness and wildness. You can be sure that you will spend some time there as the distance between towns is around 400 kilometers and the road conditions won’t allow you to go fast. It took us almost 4 hours to get to the nearest town.
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4822.jpg)
+![View from inside a car driving along a dusty, remote, and desolate dirt road surrounded by vast desert landscapes](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4822.jpg)
 
 Driving gets pretty exhausting and after crossing the border between Jujuy / Salta regions, the quality of road worsened significantly. The last 30 kilometers were really painful and I was contemplating turning around. The thing is there was no chance to turn around even if we wanted to, so we could either stay there forever or continue and hope it will be possible to get to the destination. As I mentioned, we only met a few cars and they were all SUVs which didn’t really help with my confidence.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4820.jpg)
+![View from inside a car driving on a rough dirt road in Argentina that leads directly through a shallow stream](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4820.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_0443.jpg)
+![A narrow, rugged dirt road winds along a steep hillside in the remote Argentine landscape seen from inside a vehicle](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_0443.jpg)
 {{< /columns >}}
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4889.jpg)
+![View from a car windshield of a rough, muddy dirt road winding through a barren, rocky mountain landscape in Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4889.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4879.jpg)
+![A narrow, unpaved red dirt road winds through a stark landscape of rocky, reddish hills under a cloudy sky](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4879.jpg)
 {{< /columns >}}
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4899.jpg)
+![The Polvorilla viaduct of the Tren a las Nubes train line spanning a mountain gorge above a rugged dirt track](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4899.jpg)
 
 After endless wading through rivers and constant fear of falling off the cliff, we finally glimpsed some cars in distance. Oh boy, how happy I was when I realized that this might be finally over. After going closer we saw a train bridge - **Tren a las Nubes**, which is the highest train bridge in the world (4 220 meters above sea level).
 
@@ -332,11 +332,11 @@ Twenty more minutes and we finally arrived in the city of **San Antonio de Los C
 
 The next part of the road is going through high mountains and we were looking forward to seeing **Abra del Acay** - the highest point of the whole Ruta 40, 5000 meters above sea level. Unfortunately, the road condition was the same as before, if not worse and after only 5 kilometers or so we got stuck in a sand dune (yes in the middle of the road) so after all the swearing and calming down we decided to turn around and chose **Ruta 33** instead. We canceled our booked accommodation in Cachi and went towards Salta.
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4950.jpg)
+![A scenic drive on a well-paved road through beautiful rugged mountains on the way to Salta](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4950.jpg)
 
 Don’t get fooled by Google maps marking. Ruta 40 was a thick yellow line while Ruta 33 was a tiny white road, whereas, in reality, it was in amazing condition and the whole covered by asphalt. In fact, the scenery was very beautiful - **one of the nicest routes** I’ve ever seen. After the whole day of driving, we were very happy when we finally arrived at our accommodation.
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_0550.JPG)
+![Paved road leading towards dramatic colorful mountains under a bright blue sky with clouds in Northern Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_0550.JPG)
 
 ![Views on Ruta 33](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_0572.jpg)
 
@@ -344,11 +344,11 @@ Don’t get fooled by Google maps marking. Ruta 40 was a thick yellow line while
 
 Good sleep truly helped us and we could continue on our journey. Today’s plan was to cross another mountain pass **Cuesta del Obisto** which is supposed to be very beautiful, however, the weather was not on our side this time. We didn’t see much, therefore we just drove through.
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4979.jpg)
+![View of a lush green valley with red hills and cactus under a cloudy sky in Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4979.jpg)
 
 But, after getting through the summit, the weather was suddenly totally different and we could enjoy driving through the national park **Parque Nacionales los Cardones**. The surrounding was magical and we had it all for ourselves as there were no other cars driving by.
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4984.jpg)
+![Large cacti stand in the foreground against a vast landscape of red earth and distant mountains in Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_4984.jpg)
 
 Right after, we once again ended up on the Ruta 40 😕 Even though the views were really spectacular, the car and I really suffered while progressing very slowly. Anxiety, nerves, crying and the endless route ahead of us made this an unpleasant experience (But now, writing this from my couch, I’m really glad we experienced that 😅). At least there were no cliffs or rivers.
 
@@ -365,11 +365,11 @@ The next day our host lady told us about a waterfall (**Cascadas del Rio Colorad
 Cafayate is a city of wine, which means you have to stay there at least for a day or two to explore it a bit. There are many vineyards and small wineries around so we went to check out one. The specialty of this city is **wine ice cream**, which you should definitely try. It was amazing 😋.
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_1513.jpg)
+![A paved path leads through an open gate toward the Tierra Colorada winery building surrounded by grapevines in Cafayate](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_1513.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_1512.jpg)
+![Wine bottles displayed on wooden barrels inside a stone winery cellar in Cafayate](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_1512.jpg)
 {{< /columns >}}
 
 The whole region lies in **Calchaquí Valleys**, an area known for its red rock formations. Thanks to that, our journey back to Salta was stunning and we stopped by many places along the way just to admire this beauty.
@@ -377,22 +377,22 @@ The whole region lies in **Calchaquí Valleys**, an area known for its red rock 
 ![Calchaquí Valleys on the way between Cafayate and Salta (Ruta 68)](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_5249.jpg)
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_5219.jpg)
+![A paved road curves through the striking red rock landscape of the Calchaquí Valleys under a clear blue sky](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_5219.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_1308.jpg)
+![Towering red rock formations set against a clear blue sky in the Calchaquí Valleys of Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_1308.jpg)
 {{< /columns >}}
 
 {{< columns >}}
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_5465.jpg)
+![A traveler stands in a narrow path between towering, layered red rock formations in the Calchaquí Valleys](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_5465.jpg)
 
 <--->
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2108.jpg)
+![Stunning red rock landscape with a winding river valley under a clear blue sky in northern Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_2108.jpg)
 {{< /columns >}}
 
-![](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_5475.jpg)
+![A person eating flatbread at a table with a red patterned cloth under a straw shelter in the red rock mountains of Argentina](https://assets.jozefcipa.com/blog/9d00f2fb183743f3933478da5b446c39/IMG_5475.jpg)
 
 ### Day 8 & 9
 

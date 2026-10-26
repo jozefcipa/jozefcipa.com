@@ -18,7 +18,7 @@ cover: >-
   https://assets.jozefcipa.com/blog/showing-the-active-Firebase-project-in-the-command-line/cover-1784027839168.png
 ---
 
-![](/blog/img/1__0mPtptlp6Vi4uzyAB0W5RQ.png)
+![Terminal window showing a command prompt with a persistent indicator for the active Firebase project named pumpkinpiedev](/blog/img/1__0mPtptlp6Vi4uzyAB0W5RQ.png)
 
 If you are working on a project where Firebase is used, most likely you have a separate project created for each environment (`dev`, `staging`, `prod`, sometimes maybe even more). During the development, it often happens that you need to configure something using [Firebase CLI.](https://firebase.google.com/docs/cli) Whenever you intend to make a change you want to make sure the right project is set as active. This can be verified easily by running
 
@@ -28,7 +28,7 @@ $ firebase use
 
 which returns something like this
 
-![](/blog/img/1__4Ddq8BOGar42Sk2ePvgAZg.png)
+![Terminal output showing the active Firebase project and list of available project aliases](/blog/img/1__4Ddq8BOGar42Sk2ePvgAZg.png)
 
 This is good, but the command itself is a bit slow and also you might easily forget to run the command and verify the active project. Then it can happen that you start **deploying your temporary testing version of a** [**cloud function**](https://firebase.google.com/docs/functions) **to the production environment (!!!)**. After immediately canceling the script and getting over a little panic attack I knew this cannot happen again. At this point, I decided to create a little helper utility that would always show the currently selected project in the command line if you are in the project directory.
 
