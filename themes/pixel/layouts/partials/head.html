@@ -38,6 +38,39 @@
 <meta name="twitter:image" content="{{ . | absURL }}">
 {{- end }}
 <link rel="canonical" href="{{ $canonical }}">
+{{- $person := dict
+  "@type" "Person"
+  "@id" (printf "%s#person" site.Home.Permalink)
+  "name" .Site.Title
+  "url" site.Home.Permalink
+  "image" (.Site.Params.avatar | absURL)
+  "jobTitle" "Backend engineer"
+  "sameAs" (slice "https://github.com/jozefcipa" "https://linkedin.com/in/jozefcipa")
+}}
+{{- $ld := dict }}
+{{- if .IsHome }}
+{{- $ld = dict "@context" "https://schema.org" "@graph" (slice
+  $person
+  (dict "@type" "WebSite" "@id" (printf "%s#website" .Permalink) "url" .Permalink "name" .Site.Title "description" $description "author" (dict "@id" (index $person "@id")))
+) }}
+{{- else if and .IsPage (eq .Section "blog") }}
+{{- $ld = dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "headline" .Title
+  "description" $description
+  "url" .Permalink
+  "mainEntityOfPage" .Permalink
+  "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+  "author" $person
+  "keywords" (delimit (.Params.tags | default (slice)) ", ")
+}}
+{{- with $shareImage }}{{ $ld = merge $ld (dict "image" (. | absURL)) }}{{ end }}
+{{- end }}
+{{- with $ld }}
+<script type="application/ld+json">{{ . | jsonify | safeJS }}</script>
+{{- end }}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
