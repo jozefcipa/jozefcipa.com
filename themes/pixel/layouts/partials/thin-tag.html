@@ -1,0 +1,3 @@
+{{- /* tag pages with fewer than 3 posts are near-duplicates of those posts,
+       so they're noindexed and left out of the sitemap */ -}}
+{{- return and (eq .Kind "term") (lt (len .Pages) 3) -}}

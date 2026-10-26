@@ -38,6 +38,9 @@
 <meta name="twitter:image" content="{{ . | absURL }}">
 {{- end }}
 <link rel="canonical" href="{{ $canonical }}">
+{{- if partial "thin-tag.html" . }}
+<meta name="robots" content="noindex, follow">
+{{- end }}
 {{- $person := dict
   "@type" "Person"
   "@id" (printf "%s#person" site.Home.Permalink)
