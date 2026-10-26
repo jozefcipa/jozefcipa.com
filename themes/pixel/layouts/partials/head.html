@@ -3,6 +3,9 @@
 {{- $title := cond .IsHome (printf "%s — backend engineer with a passion for IoT and automation" .Site.Title) (printf "%s — %s" (.Title | default .Site.Title) .Site.Title) }}
 <title>{{ $title }}</title>
 {{- $description := .Params.summary | default (.Description | default (cond .IsPage (.Summary | plainify | truncate 160) .Site.Params.description)) }}
+{{- /* paginated lists canonicalize to their own page, not page 1 */}}
+{{- $canonical := .Permalink }}
+{{- if in (slice "section" "term") .Kind }}{{ $canonical = .Paginator.URL | absURL }}{{ end }}
 {{- /* a post's cover becomes the share image when it's a real image (URL or
        PaperMod-style map); SVG scene variants have no URL, so those posts
        fall back to the site-wide preview image */}}
@@ -18,7 +21,7 @@
 <meta property="og:title" content="{{ .Title | default .Site.Title }}">
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:url" content="{{ $canonical }}">
 {{- with $shareImage }}
 <meta property="og:image" content="{{ . | absURL }}">
 {{- end }}
@@ -31,7 +34,7 @@
 {{- with $shareImage }}
 <meta name="twitter:image" content="{{ . | absURL }}">
 {{- end }}
-<link rel="canonical" href="{{ .Permalink }}">
+<link rel="canonical" href="{{ $canonical }}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
