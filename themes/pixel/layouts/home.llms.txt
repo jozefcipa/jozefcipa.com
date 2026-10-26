@@ -1,0 +1,17 @@
+# {{ site.Title }}
+
+> {{ .Description }}
+{{ with site.GetPage "/about" }}
+{{ .Summary | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace }}
+{{ end }}
+## Pages
+
+- [About]({{ "about/" | absURL }}): background and how I work
+- [Work]({{ "work/" | absURL }}): work experience
+- [Projects]({{ "projects/" | absURL }}): side projects and open source
+- [RSS feed]({{ "rss.xml" | absURL }})
+
+## Blog posts
+{{ range where site.RegularPages "Section" "blog" }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description | default .Params.summary | default .Summary | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace | truncate 200 }}
+{{- end }}
