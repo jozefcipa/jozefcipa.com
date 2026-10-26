@@ -47,7 +47,7 @@
         down.
       </p>
       <div class="hero-links">
-        <a href="{{ "blog" | relURL }}" class="hero-link-primary link-step">read the blog →</a>
+        <a href="{{ "blog/" | relURL }}" class="hero-link-primary link-step">read the blog →</a>
         <a href="{{ "cv" | relURL }}">download my cv ↓</a>
       </div>
       <div class="hero-social">
@@ -68,7 +68,7 @@
       <p class="kicker">// blog</p>
       <h2>Recent notes</h2>
     </div>
-    <a href="{{ "blog" | relURL }}" class="all-posts-link">all posts →</a>
+    <a href="{{ "blog/" | relURL }}" class="all-posts-link">all posts →</a>
   </div>
   <div class="post-grid">
     {{- range first 3 (where site.RegularPages "Section" "blog") }}
