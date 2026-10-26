@@ -66,7 +66,7 @@ The important part is when this happens. The certificate check is part of the TL
 Which certificates are considered valid is entirely up to you — you become your own certificate authority (CA), and the server only accepts client certificates that you signed.
 
 
-![tls-vs-mtls-1784108722604.png](https://assets.jozefcipa.com/blog/how-i-access-my-private-homelab-from-the-internet-without-a-vpn/image-1.png)
+![Diagram comparing standard TLS, where only the server verifies itself, with mTLS, where the client also uses a cert](https://assets.jozefcipa.com/blog/how-i-access-my-private-homelab-from-the-internet-without-a-vpn/image-1.png)
 
 
 ## First attempt - Cloudflare Tunnel
@@ -105,7 +105,7 @@ I use Oracle Cloud Free Tier VPS — a small machine with a public IP that is co
 - The server certificate is a **wildcard** `*.cipa.haus` cert from Let's Encrypt, obtained via the DNS-01 challenge (Traefik talks to the Cloudflare DNS API). I went with DNS-01 for two reasons: it doesn't need an open port 80, and it's the only challenge type that can issue wildcard certificates.
 - Verified traffic is then forwarded over the tailnet to the Raspberry Pi, where **Caddy** routes requests by hostname to the individual services.
 
-![bastion-architecture-1784109289312.png](https://assets.jozefcipa.com/blog/how-i-access-my-private-homelab-from-the-internet-without-a-vpn/image-2.png)
+![Network diagram showing client certificates connecting via mTLS to Traefik, then routed through tailnet to Caddy](https://assets.jozefcipa.com/blog/how-i-access-my-private-homelab-from-the-internet-without-a-vpn/image-2.png)
 
 
 The mTLS part is surprisingly little config. In Traefik's dynamic configuration:
@@ -242,11 +242,11 @@ And the payoff that started this whole project: I put `ha.cipa.haus` into the Ho
 
 {{< columns >}}
 
-![IMG_2383.png](https://assets.jozefcipa.com/blog/how-i-access-my-private-homelab-from-the-internet-without-a-vpn/image-3.png)
+![Home Assistant iOS app setup screen showing the user entering the URL ha.cipa.haus to connect to their homelab](https://assets.jozefcipa.com/blog/how-i-access-my-private-homelab-from-the-internet-without-a-vpn/image-3.png)
 
 <--->
 
-![IMG_2384.png](https://assets.jozefcipa.com/blog/how-i-access-my-private-homelab-from-the-internet-without-a-vpn/image-4.png)
+![Home Assistant iOS app prompt requesting a client certificate file for mTLS authentication](https://assets.jozefcipa.com/blog/how-i-access-my-private-homelab-from-the-internet-without-a-vpn/image-4.png)
 
 {{< /columns >}}
 

@@ -30,13 +30,13 @@ Finally, the time for a bigger release has come and version 0.0.4 adds, apart fr
 
 First of all, let’s talk about the dashboard. Previously, if you wanted to see what routes were actively configured within _Novus_ you would have to go into the terminal and run `novus status` which would show you a table similar to this:
 
-![](https://assets.jozefcipa.com/blog/13d77955515e8036894cd7eca2739e7e/cli.png)
+![Terminal output showing the novus status table with active applications, their upstream ports, and assigned domains](https://assets.jozefcipa.com/blog/13d77955515e8036894cd7eca2739e7e/cli.png)
 
 Now, version v0.0.4 introduces a website [index.novus](https://index.novus/) which presents the same information directly in your browser, so you can always quickly check what’s currently running before having to go to the terminal.
 
 Yay!
 
-![](https://assets.jozefcipa.com/blog/13d77955515e8036894cd7eca2739e7e/web.png)
+![Browser view of the new Novus internal dashboard showing active domains and their corresponding upstream ports](https://assets.jozefcipa.com/blog/13d77955515e8036894cd7eca2739e7e/web.png)
 
 **Detect existing top-level domains (TLDs)**
 

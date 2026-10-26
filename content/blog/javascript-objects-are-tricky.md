@@ -25,7 +25,7 @@ invalid input syntax for type integer: "function Object() { [native code] }funct
 
 What the …
 
-![](https://assets.jozefcipa.com/blog/c67b2b48-a4f0-4058-b7ab-b20694c9d95a/wtf.gif)
+![A person in a white t-shirt looking confused and skeptical in response to the unexpected Javascript error](https://assets.jozefcipa.com/blog/c67b2b48-a4f0-4058-b7ab-b20694c9d95a/wtf.gif)
 
 So I started debugging, slowly step by step, I tested the SQL query, added logs, and even checked the input document texts. Until it finally hit me…
 
@@ -78,7 +78,7 @@ Wait, what? 🧐
 
 The trick is in how objects in Javascript are created. When you create a new plain object as `const obj = {}` in reality this equals to `Object.create(Object.prototype)`. Prototypes are out of the scope of this post but they’re basically a Javascript way of implementing inheritance. Therefore, when you create an empty object, it already has some functions bound to it.
 
-![](https://assets.jozefcipa.com/blog/c67b2b48-a4f0-4058-b7ab-b20694c9d95a/empty-object.png)
+![Console output showing an empty JavaScript object containing various inherited methods within its prototype chain](https://assets.jozefcipa.com/blog/c67b2b48-a4f0-4058-b7ab-b20694c9d95a/empty-object.png)
 
 And thus, `obj['constructor']` is already defined even in an “empty” object, therefore the database complained because we didn’t set an integer count but actually a `function () {} + 1`.
 

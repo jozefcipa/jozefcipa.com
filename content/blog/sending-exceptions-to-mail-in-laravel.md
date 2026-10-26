@@ -51,7 +51,7 @@ If we want to send an email also for exceptions that we handle in _try-catch_ bl
 
 Demo:
 
-![](/blog/img/1____V__D__jDUr8ijxFpkMqNtGQ.png)
-![](/blog/img/1__CpoiYHq5YiVoZyvAmgRnmg.png)
+![An email showing the standard Laravel exception page output for a test exception in web.php](/blog/img/1____V__D__jDUr8ijxFpkMqNtGQ.png)
+![An email example showing a standard Laravel exception error page including a stack trace](/blog/img/1__CpoiYHq5YiVoZyvAmgRnmg.png)
 
 Hope you liked this article and you’ll find this useful in your projects.

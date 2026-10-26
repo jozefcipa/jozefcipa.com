@@ -27,7 +27,7 @@ This version includes new features and minor enhancements, but most importantly,
 
 This command creates a `sudoers` file that grants Novus passwordless sudo privileges. This means the annoying password prompt showing up whenever you want to restart or update your Novus configuration will no longer pop up.
 
-![](https://assets.jozefcipa.com/blog/17077955515e808aa489d4c04c2c3078/novus_password.png)
+![Terminal showing a password prompt after running the novus start command](https://assets.jozefcipa.com/blog/17077955515e808aa489d4c04c2c3078/novus_password.png)
 
 But worry not, while this may sound like a potential vulnerability threat, this feature was built with security in mind. The scope of the passwordless sudo access is limited to the commands and filesystem directories Novus directly uses, so the rest remains still protected by a password.
 

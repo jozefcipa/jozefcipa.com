@@ -31,19 +31,19 @@ Getting used to driving on the left took a bit of adjusting, but it turned out f
 The next morning we walked through the rest of downtown, tried the classic beef pie, and went up to a lookout over the city, which is an old volcano.
 
 
-![IMG_9503.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-1.jpg)
+![View of the Auckland skyline and Sky Tower from the grassy slopes of a volcanic hill](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-1.jpg)
 
 
 From there we drove about an hour to Piha Beach, known for its black volcanic sand. It was cloudy at first, but the sky cleared up a bit, and then it looked much better.
 
 
-![IMG_9527.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-2.jpg)
+![Rugged rock formations rise above the black volcanic sand of Piha Beach under a partly cloudy sky](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-2.jpg)
 
 
 After that, we drove three hours to the other side of the island to see Cathedral Cove, a natural rock tunnel on the beach. The walk down took about half an hour, and we got there right at sunset with almost nobody else around. Spectacular.
 
 
-![IMG_9539.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-3.jpg)
+![View through the natural rock tunnel at Cathedral Cove looking out to the sea and a large rock formation at sunset](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-3.jpg)
 
 
 Then we headed back to the car and drove to our accommodation for the night, about 30 minutes away. We got lucky because they had the last room left and everything else nearby was either full or way overpriced.
@@ -56,18 +56,18 @@ The next morning we stopped by a shop for breakfast and snacks and kept heading 
 
 
 {{< columns >}}
-![IMG_9575.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-4.jpg)
+![Cluttered interior of an antique shop in Paeroa featuring shelves filled with unique trinkets and decor items](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-4.jpg)
 
 <--->
 
-![IMG_9576.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-5.jpg)
+![Eclectic antique shop interior in Paeroa featuring military uniforms, vintage signage, and miscellaneous collectibles](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-5.jpg)
 {{< /columns >}}
 
 
 Next up was Blue Springs, known for its crystal-clear blue water. The walk there and back took about 2-3 hours, and it was a nice and easy hike.
 
 
-![IMG_9607.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-6.jpg)
+![Crystal-clear water flows through Blue Springs with lush green aquatic plants visible beneath the surface](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-6.jpg)
 
 
 We didn’t have Hobbiton on the list originally, but as we were passing by, we thought it would be nice to give it a look since we were already there. However, as we hadn't booked tickets in advance and it was fully booked out, we ended up skipping it. Lesson learned there if you're planning something similar, book ahead.
@@ -82,25 +82,25 @@ After a snack break in the car, we drove on to Rotorua, a bigger town known for 
 The next day we went to a Māori cultural centre to learn more about the original inhabitants of the island.
 
 
-![IMG_3526.jpg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-7.jpg)
+![Māori performers in traditional attire pose in front of a carved wooden building at a cultural centre in Rotorua](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-7.jpg)
 
 
 After that, we checked out volcanic springs that are common in that area and it made us feel like we were on a different planet.
 
 
-![IMG_9671.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-8.jpg)
+![Thick steam rises from the orange and rocky banks of a volcanic geothermal pool in New Zealand](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-8.jpg)
 
 
-![IMG_9690.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-9.jpg)
+![Steam rises from a colorful, mineral-rich volcanic geothermal pool in the New Zealand landscape](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-9.jpg)
 
 
-![IMG_9752.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-10.jpg)
+![A bright green volcanic pool nestled in a rocky, tree-lined landscape in New Zealand](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-10.jpg)
 
 
 Afterwards, before continuing to Tongariro, we stopped for lunch at a McDonald's in Taupo that has an actual small plane serving as part of the restaurant. Taupo itself looked surprisingly upscale, all the houses new and modern, really nice.
 
 
-![IMG_9761.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-11.jpg)
+![A vintage airplane branded with the McDonald's logo parked outside a restaurant in Taupo New Zealand](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-11.jpg)
 
 
 ### Tongariro Alpine Crossing
@@ -109,15 +109,15 @@ Afterwards, before continuing to Tongariro, we stopped for lunch at a McDonald's
 Today was the Tongariro Alpine Crossing day. We got to the parking lot in the morning and took a shuttle to the starting point. The hike itself went fine overall, windy in some parts, warm in others. At the top, it was mostly clouds, but the volcano peeked out for a moment. The geothermal lakes at the top were beautiful too. The way down was fine but felt endless.
 
 
-![IMG_9778.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-12.jpg)
+![Mount Ngauruhoe volcano rising above a barren, rocky landscape under a clear blue sky](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-12.jpg)
 
 
 {{< columns >}}
-![IMG_9796.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-13.jpg)
+![A rugged, red volcanic crater at the Tongariro Alpine Crossing with clouds drifting over the distant landscape](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-13.jpg)
 
 <--->
 
-![IMG_9816.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-14.jpg)
+![Vibrant turquoise geothermal lakes surrounded by a rugged volcanic landscape under a cloudy sky on the Tongariro Crossing](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-14.jpg)
 {{< /columns >}}
 
 
@@ -130,13 +130,13 @@ Since it happened to be my name day, we celebrated back at the hostel with a gam
 Today's plan was the Waitomo glowworm caves, known for a special species of blue worms glowing in the dark. The drive took about 2.5 hours, and we arrived early enough to check out a bird park nearby that had kiwi birds. We watched a kiwi for a while, and once everyone else left, it walked right up in front of us, so we got to see it completely up close. I was surprised how fast it can run and how big it actually is. Kiwis are nocturnal animals, and it’s not allowed to take pictures of them, so this model must suffice.
 
 
-![IMG_9641.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-15.jpg)
+![A taxidermy model of a brown kiwi bird standing over an egg on display in a glass case](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-15.jpg)
 
 
 Then it was time for the caves. We were in a group of about 20 people. The cave cannot be explored on foot, so we got on a boat and floated through the cave in complete darkness, looking up at hundreds of tiny blue lights covering the ceiling. Honestly, one of the best experiences of the whole trip. Unfortunately, it’s forbidden to take pictures inside the cave, so I’m adding an illustrative photo from the internet.
 
 
-![waitomo.png](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-16.png)
+![A boat with tourists floats through a cave illuminated by hundreds of glowing blue glowworms on the ceiling](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-16.png)
 
 
 Afterward, we stopped at a farmers market for some fruit and ice cream before heading toward New Plymouth. Accommodation there turned out to be either fully booked or way overpriced, so we decided to spend a night in Inglewood instead, a small town nearby. There we had excellent fish and chips and called it a night.
@@ -157,19 +157,19 @@ We checked into our accommodation and went to the beach instead. The water was w
 Wake-up call at 4 am. The walk up went by much faster in the dark, and we actually reached the top quicker than the day before. This time the volcano showed up completely clear of clouds, and at sunrise it looked absolutely stunning 😍. Second attempt was definitely worth it.
 
 
-![IMG_9847.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-17.jpg)
+![A stunning silhouette of a volcano against a clear sunrise sky as seen during an early morning hike](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-17.jpg)
 
 
-![IMG_9865.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-18.jpg)
+![The symmetrical cone of Mount Taranaki reflected in a calm alpine pool during a clear sunrise](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-18.jpg)
 
 
-![IMG_9870.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-19.jpg)
+![A wooden hiking trail winds through golden tussock grass toward a majestic, cloudless volcano during a sunrise](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-19.jpg)
 
 
 The way down went quickly too, and we got back on the road. We drove through the small towns around the volcano and headed toward the village with the longest name in the world, about 380km away. We took turns driving, and the time passed easily. The last hour before the village cut through forests and hills with no real civilization around, so it felt like at the end of the world.
 
 
-![IMG_9884.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-20.jpg)
+![A long sign displaying the name Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-20.jpg)
 
 
 We finally got there, took some photos and videos, and kept going, another 260km to Wellington. We rolled into the capital at 9.30 pm straight out of complete nowhere, and went directly to Taco Bell for a quick dinner before checking into the hotel.
@@ -187,7 +187,7 @@ After that, we filled up the tank one last time and returned the car. We'd cover
 Wellington has a ton of cool restaurants and places to eat, and we ended up at an Italian place for pasta. We walked around a bit more, but by 5-6 pm everything was closing, so we sat down for a beer instead. On the way back to the hotel, we grabbed a chicken burger from a stand, which was surprisingly great. At the hotel, we tried some milk, which is apparently a pretty normal thing to offer there given how many cows New Zealand has.
 
 
-![IMG_9896.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-21.jpg)
+![Panoramic view of Wellington city and harbor from the hills with lush green ferns in the foreground](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-21.jpg)
 
 
 ### Onward to the South Island
@@ -205,10 +205,10 @@ It took me a bit to get used to driving the van, but I got the hang of it pretty
 Then, we continued down to the lake, took some photos, and decided to push on to a second lake, Lake Pukaki. There we found a wild freedom camping spot, right next to he lake, and made it just before sunset. Our first night, and already outside of an actual campground.
 
 
-![IMG_9918.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-22.jpg)
+![Many campervans parked in a field of dry golden grass under a clear blue sky at sunset near Lake Pukaki](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-22.jpg)
 
 
-![IMG_9916.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-23.jpg)
+![Golden grass fields overlooking the blue waters of Lake Pukaki with snow-capped mountains in the background](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-23.jpg)
 
 
 The sunset was gorgeous, though it took us a bit to get used to living in the van. I kept bumping into everything, and since we'd parked on a slope, the shower water wouldn't drain properly because the drain was on the higher side. Small details we'd figure out as we went.
@@ -217,7 +217,7 @@ The sunset was gorgeous, though it took us a bit to get used to living in the va
 The night made up for all of it, though. Completely clear sky, millions of stars, and we even got to see the Milky Way. We just stood outside and stared at it for a while - truly one of the best moments of the whole trip.
 
 
-![IMG_9946.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-24.jpg)
+![The camper van parked under a vast night sky filled with stars and a clear view of the Milky Way galaxy](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-24.jpg)
 
 
 ### Mt Cook and Omarama
@@ -226,22 +226,22 @@ The night made up for all of it, though. Completely clear sky, millions of stars
 The next morning we started driving toward Mt Cook Village. The hour-long drive gave us gorgeous views of the mountain and surroundings with the sun coming up.
 
 
-![IMG_2108.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-25.jpg)
+![A winding road leads toward snow-capped Mount Cook and a serene lake under soft morning light](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-25.jpg)
 
 
 We parked the van and set out on the Hooker Valley Track, but it didn't last long because about halfway through, a gate was closed for some kind of maintenance work and we couldn't continue. Nothing to do about it, so we turned back and went to check out the glacier views at Tasman Lake instead.
 
 
-![IMG_9970.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-26.jpg)
+![Glacial stream flowing through a rocky valley toward the snow-capped peak of Mount Cook under a clear blue sky](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-26.jpg)
 
 
 From there we headed toward Omarama, where we'd booked a campsite for the night. On the way there, we passed through Twizel, where a bunch of huge old machines used for building dams and digging canals back in the day were on display - massive trucks, diggers, and so on. We grabbed a coffee and took a short break to look around.
 
 
-![IMG_9990.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-27.jpg)
+![A vintage yellow CAT D8 bulldozer on display in Twizel near old construction machinery used for dam building](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-27.jpg)
 
 
-![IMG_9991.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-28.jpg)
+![A large, lime green historic earth-moving machine on display in Twizel](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-28.jpg)
 
 
 {{< columns >}}
@@ -249,7 +249,7 @@ After we arrived to the campground in Omarama, we checked in and parked at our s
 
 <--->
 
-![IMG_9996.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-29.jpg)
+![Cheeseburgers and cans of beer on a table outside a camper van at a campground in Omarama](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-29.jpg)
 {{< /columns >}}
 
 
@@ -263,11 +263,11 @@ We stopped in Cromwell, a small town with an old historic gold rush era "western
 
 
 {{< columns >}}
-![IMG_0009.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-30.jpg)
+![Statue of a horse pulling a cart in the historic gold rush village of Cromwell with mountain scenery in the background](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-30.jpg)
 
 <--->
 
-![IMG_0029.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-31.jpg)
+![American style sheriff police car on display inside the Highlands Motorsport Museum in Cromwell New Zealand](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-31.jpg)
 {{< /columns >}}
 
 
@@ -298,7 +298,7 @@ We took a short walk through the tiny town center, and I picked up a nice New Ze
 Wake up call early again, 5 am, since it's a two-hour drive from the campground to Milford Sound. The road was great, barely any traffic, so it went by fast. We parked at a free lot a bit further out and walked to the terminal, about 20 minutes. There weren't many people for the first morning cruise, and we even ended up on a smaller boat, so it wasn't crowded on board either. The weather cooperated too - no rain, so we had great views of the cliffs and waterfalls.
 
 
-![IMG_0134.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-32.jpg)
+![A small tour boat sails on the water beneath a tall waterfall plunging down a lush cliffside in Milford Sound](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-32.jpg)
 
 
 By the time we got back, the place was packed with buses that kept rolling in one after another, bringing in more tourists. Glad we got there early.
@@ -316,7 +316,7 @@ We wanted to hike up to Roy's Glacier today, but it started raining that morning
 We drove back into town and parked by the lake. Waited a bit for the rain to ease up, then went to check out the famous tree in the water, took some photos, did some grocery shopping, filled up the tank, and headed toward the west coast over Haast Pass toward the sea.
 
 
-![IMG_0157.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-33.jpg)
+![The famous willow tree growing in the middle of Lake Wanaka against a backdrop of cloudy mountains](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-33.jpg)
 
 
 We stopped at Monro Beach, where a trail through the forest leads to a beach known for penguins. Unfortunately, we didn't manage to spot any. We turned back and kept driving north.
@@ -325,7 +325,7 @@ We stopped at Monro Beach, where a trail through the forest leads to a beach kno
 It was starting to get dark, and this stretch of the coast barely has any towns, so we couldn't find an actual campground. Luckily, we came across a nice spot right by the sea where another campervan was already parked, so we decided to stay there for the night too.
 
 
-![IMG_0172.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-34.jpg)
+![A campervan parked on a coastal gravel lot next to a rocky shoreline under a cloudy sky](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-34.jpg)
 
 
 ### The mouse incident
@@ -350,11 +350,11 @@ This morning we set out on the Robert's Track up to a lookout over the Franz Jos
 
 
 {{< columns >}}
-![IMG_0212.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-35.jpg)
+![A hiker walking along a narrow, railed metal path built into a lush, fern-covered cliff face on Robert's Track](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-35.jpg)
 
 <--->
 
-![IMG_0215.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-36.jpg)
+![View of the sprawling blue ice of Franz Josef Glacier framed by steep, rocky mountain slopes and green vegetation](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-36.jpg)
 {{< /columns >}}
 
 
@@ -370,7 +370,7 @@ The campground was nearly empty. We picked a spot close to the beach and set up 
 The only downside of an otherwise beautiful campground was that, for some reason, it only had a tiny unisex bathroom setup, showers and toilets combined, which made things pretty uncomfortable since you could hear everything next door, kids and women included.
 
 
-![IMG_0236.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-37.jpg)
+![An Apollo campervan parked at a beach campsite with a portable grill, table, and chairs set up outside](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-37.jpg)
 
 
 ### Arthur's Pass and Kaikoura
@@ -391,7 +391,7 @@ We did a quick grocery run and headed to another Top 10 campground. This one eve
 We went back to the seal spot at Kaikoura Beach in the morning but didn't see any. So we drove about 20 minutes further north to another spot, and this time we got lucky. We got to see a massive colony with tons of seals. Yay!
 
 
-![IMG_3525.jpg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-38.jpg)
+![Several seals resting and lounging on jagged rocks near the coast in Kaikoura](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-38.jpg)
 
 
 From there we drove to Christchurch to return the van. Everything went well, and after that we took a ride to the hotel. We dropped our stuff off and went to explore the city.
@@ -400,22 +400,22 @@ From there we drove to Christchurch to return the van. Everything went well, and
 Christchurch turned out to be really nice and interesting, with tons of buildings in an English style and murals all over the walls. We spotted something on almost every street. In the evening, we went out for drinks and beer and toasted to a successful trip.
 
 
-![IMG_0247.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-39.jpg)
+![A large parking lot mural in Christchurch depicting penguins swimming under glaciers on the side of a tall hotel building](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-39.jpg)
 
 
-![IMG_0256.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-40.jpg)
+![Large colorful mural on a building wall in Christchurch featuring cartoon characters and abstract graffiti art](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-40.jpg)
 
 
 The next day we started with a walk into town, grabbed a coffee, and wandered around a bit more. We had fish and chips, went back to the hotel for our stuff, and took a taxi to the Antarctic Centre.
 
 
-![IMG_0252.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-41.jpg)
+![A person walking past colorful English-style buildings and outdoor restaurant seating in Christchurch, New Zealand](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-41.jpg)
 
 
 The Antarctic Centre was really cool, we had a guided tour where a woman told us about Antarctica, and at the end we got a ride in one of the special tracked vehicles they use down there. Wonderful experience.
 
 
-![IMG_0265.jpeg](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-42.jpg)
+![Special tracked vehicle parked in front of the United States Antarctic Program building at the Antarctic Centre](https://assets.jozefcipa.com/blog/three-weeks-in-new-zealand/image-42.jpg)
 
 
 After that, we headed straight to the airport with our bags, checked in, and flew to Sydney, where our journey continued. Our New Zealand trip was over, but we'd had a great time and really enjoyed it, especially the camper van part. We're already thinking about how we could make it back there again someday.

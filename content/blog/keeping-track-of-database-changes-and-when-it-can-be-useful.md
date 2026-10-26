@@ -18,7 +18,7 @@ cover: >-
   https://assets.jozefcipa.com/blog/keeping-track-of-database-changes-and-when-it-can-be-useful/cover-1784027694268.png
 ---
 
-![](https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy)
+![A line chart on a laptop screen showing fluctuating data points over time to monitor system performance](https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy)
 
 > _My task was simple - we had a Postgres database and a data science team that needed to consume changes from the database to update their internal datasets. But how on earth would I do that?_ 🤷🏻‍♂️ _Luckily, my colleagues brought some light into this mysterious database world but I still had to (wanted) read a lot to understand it better and make sure I did it right._
 

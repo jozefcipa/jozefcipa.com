@@ -20,7 +20,7 @@ cover: >-
   https://assets.jozefcipa.com/blog/how-we-migrated-all-user-files-to-AWS-S3/cover-1784027678792.png
 ---
 
-![](/blog/img/0__a__MINF1bCXYqXpjO.jpg)
+![A flock of geese flying in formation across a clear blue sky representing a coordinated migration process](/blog/img/0__a__MINF1bCXYqXpjO.jpg)
 
 Migrating data is often a challenging job, especially when every little mistake can instantly impact a user’s experience. Thus, it is necessary to research the task properly, pinpoint possible issues, and make sure the description is totally clear and everyone knows what is the expected result. Nevertheless, errors may (and most probably will) occur during the process so it is also important to keep that in mind and design the solution in a way that anticipates that and handles it accordingly. In the ideal situation, we want to complete the migration process without anyone even noticing that something has changed.
 
@@ -97,7 +97,7 @@ That’s why we decided to run an [EC2 instance](https://aws.amazon.com/ec2) in 
 Another idea was to enable the so-called [VPC endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html) for S3 which allows routing all the traffic between EC2 instances and S3 storage within the internal AWS network, without the need to hit the public internet. This would obviously help to reduce the total time even more, but as I said, we didn’t need any further optimizations.
 
 
-![](/blog/img/1__6vFcorHIpfp2uVtf83KhoQ.jpeg)
+![Borat giving a thumbs up with text overlay saying Very Nice and Great Success to express satisfaction with the migration](/blog/img/1__6vFcorHIpfp2uVtf83KhoQ.jpeg)
 
 ### Orchestrating parallel processing ⚙️
 
@@ -119,7 +119,7 @@ This function defines the way of fetching the next payload from a database. You 
 
 The second function you need to provide is used for specifying your business logic for processing an assigned range of data from a database. You always operate on data in a variable`payload` which gives you secure access to the reserved data portion in the database and makes sure no one else will touch this.
 
-![](/blog/img/0__Uk3Jp1zCCmjVRnaq.jpg)
+![Diagram showing parallel workers processing distinct ID ranges from a database to prevent duplicate work](/blog/img/0__Uk3Jp1zCCmjVRnaq.jpg)
 
 Now, when we know how the library is used, here is a rewritten example of the code above:
 
@@ -137,7 +137,7 @@ Also, on such a big scale errors are more likely to happen and you can never avo
 
 If you read it all up until here, I really appreciate it and here you are one extra bonus tip that we learned the hard way. If you use [pm2](https://pm2.keymetrics.io/) [process manager](https://pm2.keymetrics.io/), be aware it **stores logs by default**. It might sound like something obvious but it didn’t to us and therefore we ended up in a situation like this.
 
-![](/blog/img/0__7cWmjwCw6DgzshkS.jpg)
+![Graph showing a memory usage spike caused by PM2 log accumulation followed by a sharp drop after clearing the logs](/blog/img/0__7cWmjwCw6DgzshkS.jpg)
 
 As you can see when the script was running normally it used around 2GB of memory but then one day all of a sudden this big spike occurred. After a little bit of investigation, we learned that `pm2` stores all the logs on a disk which after a few days resulted in draining all the memory on the instance 😅. The solution was to just delete those logs and add a configuration option to not save anything 😇. After fixing this the script continued working perfectly until everything got migrated.
 

@@ -32,7 +32,7 @@ Of course, the first challenge was getting inside the thing. If your iPod has ne
 
 After a fair bit of frustration, I finally managed to crack it open. This [video](https://www.youtube.com/watch?v=a3gPf6obQHs) was a lifesaver for me—it clearly shows what needs to be done and where to insert your pry tools in order not to damage something accidentally.
 
-![](https://assets.jozefcipa.com/blog/23077955515e80e89838eac71a7041ef/original-hdd.jpg)
+![Internal components of an opened iPod Classic with the hard drive and battery visible before the storage upgrade](https://assets.jozefcipa.com/blog/23077955515e80e89838eac71a7041ef/original-hdd.jpg)
 
 ## Upgrading storage
 
@@ -40,7 +40,7 @@ Once I had the iPod open, the first thing on my list was to deal with the hard d
 
 The difference isn’t just about speed. With no moving parts, the iPod should now be far more resilient to everyday use, and the risk of the drive failing is practically gone. On top of that, battery life also gets a boost, since flash storage consumes less power than the original hard drive.
 
-![](https://assets.jozefcipa.com/blog/23077955515e80e89838eac71a7041ef/iflash.jpg)
+![The interior of an opened iPod Classic showing the installed iFlash Quad storage module and battery connection](https://assets.jozefcipa.com/blog/23077955515e80e89838eac71a7041ef/iflash.jpg)
 
 ## Adding a Taptic Engine
 
@@ -48,7 +48,7 @@ This one is really cool! It turns out some people have been adding a [taptic eng
 
 Digging deeper, I learned that the iPod actually has a tiny built-in buzzer that produces the familiar clicking sounds when you scroll through menus. And here’s the clever part: you can replace that speaker with the taptic engine. This mod is already a bit more technical and will require some soldering skills, but again, with the help of this [video](https://www.youtube.com/watch?v=crWU0Khyanw), I managed to accomplish it.
 
-![](https://assets.jozefcipa.com/blog/23077955515e80e89838eac71a7041ef/taptic.jpg)
+![Inside of an opened iPod Classic showing the installed Taptic engine and iFlash Quad storage module](https://assets.jozefcipa.com/blog/23077955515e80e89838eac71a7041ef/taptic.jpg)
 
 ## Replacing battery
 
@@ -56,7 +56,7 @@ Removing the old hard drive comes with another benefit - space. The HDD occupied
 
 Changing both the battery and the iFlash module was an easy task, but following [this video](https://www.youtube.com/watch?v=K9m0tfSus14) assured me that I did everything properly.
 
-![](https://assets.jozefcipa.com/blog/23077955515e80e89838eac71a7041ef/battery.jpg)
+![Disassembled iPod Classic with a new 2000mAh battery and iFlash storage module installed inside the housing](https://assets.jozefcipa.com/blog/23077955515e80e89838eac71a7041ef/battery.jpg)
 
 ## Recovering firmware
 
@@ -64,7 +64,7 @@ With all the new parts in place, the last step was to bring the iPod back to lif
 
 The fix is straightforward - just plug it into iTunes. From there, you can restore the device and download the latest available software directly from Apple. A few minutes later, the iPod was up and running again 🎉.
 
-![](https://assets.jozefcipa.com/blog/23077955515e80e89838eac71a7041ef/recovering.jpg)
+![An iPod Classic showing an OK to disconnect checkmark screen after a successful software restore](https://assets.jozefcipa.com/blog/23077955515e80e89838eac71a7041ef/recovering.jpg)
 
 ## Conclusion
 

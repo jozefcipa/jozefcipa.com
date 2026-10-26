@@ -30,7 +30,7 @@ the team had to prepare a hotfix release that would disable the service. If we h
 As mentioned in the beginning, implementing a feature flag could be as easy as defining an if statement.
 The code below is a perfect example of a simple feature flag implementation. We just surround the logic we want to control with a condition.
 
-![](/blog/img/feature-flags-1.png)
+![Code snippet demonstrating a simple feature flag using an if statement to conditionally execute a photo detection task](/blog/img/feature-flags-1.png)
 
 The only question now is where to get the desired value from?
 It must be something that doesn't require any action to the code and can be updated comfortably.
