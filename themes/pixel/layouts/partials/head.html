@@ -2,7 +2,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{- $title := cond .IsHome (printf "%s — backend engineer with a passion for IoT and automation" .Site.Title) (printf "%s — %s" (.Title | default .Site.Title) .Site.Title) }}
 <title>{{ $title }}</title>
-{{- $description := .Params.summary | default (.Description | default (cond .IsPage (.Summary | plainify | truncate 160) .Site.Params.description)) }}
+{{- /* hand-written description first; the pipeline's summary runs ~400
+       chars, so everything is cut to what fits in a search snippet */}}
+{{- $description := .Description | default (.Params.summary | default (cond .IsPage .Summary .Site.Params.description)) }}
+{{- $description = $description | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace | truncate 160 }}
 {{- /* paginated lists canonicalize to their own page, not page 1 */}}
 {{- $canonical := .Permalink }}
 {{- if in (slice "section" "term") .Kind }}{{ $canonical = .Paginator.URL | absURL }}{{ end }}
