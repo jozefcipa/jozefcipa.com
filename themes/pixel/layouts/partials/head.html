@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{{- $title := cond .IsHome (printf "%s — backend engineer with a passion for IoT and automation" .Site.Title) (printf "%s — %s" (.Title | default .Site.Title) .Site.Title) }}
+{{- $title := cond .IsHome (printf "%s — software engineer and IoT enthusiast" .Site.Title) (printf "%s — %s" (.Title | default .Site.Title) .Site.Title) }}
 <title>{{ $title }}</title>
 {{- /* hand-written description first; the pipeline's summary runs ~400
        chars, so everything is cut to what fits in a search snippet */}}
@@ -47,7 +47,7 @@
   "name" .Site.Title
   "url" site.Home.Permalink
   "image" (.Site.Params.avatar | absURL)
-  "jobTitle" "Backend engineer"
+  "jobTitle" "Software engineer"
   "sameAs" (slice "https://github.com/jozefcipa" "https://linkedin.com/in/jozefcipa")
 }}
 {{- $ld := dict }}

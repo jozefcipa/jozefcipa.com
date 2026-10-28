@@ -3,7 +3,7 @@ title: About
 layout: about
 ---
 
-I'm Jozef, a software developer with **10+ years** of experience, focusing mostly on backend and web applications.
+I'm Jozef, a software engineer with **10+ years** of experience, focusing mostly on backend and web applications.
 
 Most of my day happens in **Node.js** and **TypeScript**, with Postgres and AWS somewhere nearby. Over the years, **Go** went from "language I'm curious about" to the thing I reach for whenever I build my own tools — like [novus](https://github.com/jozefcipa/novus), a local HTTPS proxy, or a [USB macro button](https://github.com/jozefcipa/usb-button) running TinyGo on a Raspberry Pi Pico. In the past I also worked with PHP, jQuery, and a little bit of Python — we don't talk about the XSLT era 😅.
 
