@@ -1,4 +1,11 @@
 projects:
+  - name: Claude Pet
+    year: '2026'
+    url: https://github.com/jozefcipa/claude-pet
+    description: >-
+      A pixel-art desk pet on an ESP32-C6 touch display that reacts to what
+      Claude Code is doing, driven by Claude Code hooks over Wi-Fi.
+    tags: [esp32, c++, claude-code, electronics]
   - name: Wordiez
     year: '2026'
     url: https://wordiez.io
